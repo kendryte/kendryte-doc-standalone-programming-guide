@@ -25,7 +25,11 @@ GPIOHS模块具有以下功能：
 
 - gpiohs\_set\_pin\_edge
 
-- gpiohs\_set\_irq
+- gpiohs\_set\_irq  (deprecated)
+
+- gpiohs\_irq\_register
+
+- gpiohs\_irq\_unregister
 
 ### gpiohs\_set\_drive\_mode
 
@@ -137,6 +141,53 @@ void gpiohs_set_irq(uint8_t pin, uint32_t priority, void(*func)());
 | pin           | GPIO管脚       | 输入       |
 | priority      | 中断优先级      | 输入      |
 | func          | 中断回调函数    | 输入       |
+
+#### 返回值
+
+无。
+
+### gpiohs\_irq\_register
+
+#### 描述
+
+设置高速GPIO的中断回调函数。
+
+#### 函数原型
+
+```c
+void gpiohs_irq_register(uint8_t pin, uint32_t priority, plic_irq_callback_t callback, void *ctx)
+```
+
+#### 参数
+
+| 参数名称                  | 描述           | 输入输出   |
+| :----------------------- | :------------- | :-------- |
+| pin                      | GPIO管脚       | 输入       |
+| priority                 | 中断优先级      | 输入       |
+| plic\_irq\_callback\_t   | 中断回调函数    | 输入       |
+| ctx                      | 回调函数参数    | 输入       |
+
+#### 返回值
+
+无。
+
+### gpiohs\_irq\_unregister
+
+#### 描述
+
+注销GPIOHS中断。
+
+### 函数原型
+
+```c
+void gpiohs_irq_unregister(uint8_t pin)
+```
+
+#### 参数
+
+| 参数名称                  | 描述           | 输入输出   |
+| :----------------------- | :------------- | :-------- |
+| pin                      | GPIO管脚       | 输入       |
 
 #### 返回值
 
