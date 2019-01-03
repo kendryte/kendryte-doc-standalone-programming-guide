@@ -27,13 +27,13 @@ KPU 具备以下几个特点：
 
 为用户提供以下接口
 
-- kpu\_task\_init
+- kpu\_task\_init (deprecated)
 
-- kpu\_run
+- kpu\_run (deprecated)
 
-- kpu\_get\_output\_buf
+- kpu\_get\_output\_buf (deprecated)
 
-- kpu\_release\_output\_buf
+- kpu\_release\_output\_buf (deprecated)
 
 ### kpu\_task\_init
 
@@ -147,12 +147,22 @@ kpu任务结构体。
 ```c
 typedef struct
 {
-    kpu_layer_argument_t* layers;
-    uint32_t length;
-    int dma_ch;
-    uint64_t* dst;
-    uint32_t dst_length;
+    kpu_layer_argument_t *layers;
+    kpu_layer_argument_t *remain_layers;
+    void (*callback)(void);
+    uint64_t *src;
+    uint64_t *dst;
     plic_irq_callback_t cb;
+    uint32_t src_length;
+    uint32_t dst_length;
+    uint32_t layers_length;
+    uint32_t remain_layers_length;
+    uint32_t dma_ch;
+    uint32_t eight_bit_mode;
+    float output_scale;
+    float output_bias;
+    float input_scale;
+    float input_bias;
 } kpu_task_t;
 ```
 

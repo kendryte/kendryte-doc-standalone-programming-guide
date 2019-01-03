@@ -49,6 +49,10 @@ DVP 模块具有以下功能：
 
 - dvp\_sccb\_receive\_data
 
+- dvp\_sccb\_set\_clk\_rate
+
+- dvp\_set\_xclk\_rate
+
 ### dvp\_init
 
 #### 描述
@@ -404,6 +408,53 @@ uint8_t dvp_sccb_receive_data(uint8_t dev_addr, uint16_t reg_addr)
 
 读取寄存器的数据。
 
+### dvp\_set\_xclk\_rate
+
+#### 描述
+
+设置xclk的速率。
+
+#### 函数原型
+
+```c
+uint32_t dvp_set_xclk_rate(uint32_t xclk_rate)
+```
+
+#### 参数
+
+| 参数名称         |   描述                     |  输入输出  |
+| --------------- | -------------------------- | --------- |
+| xclk\_rate      | xclk的速率                  | 输入      |
+
+#### 返回值
+
+xclk的实际速率。
+
+### dvp\_sccb\_set\_clk\_rate
+
+#### 描述
+
+设置sccb的速率。
+
+#### 函数原型
+
+```c
+uint32_t dvp_sccb_set_clk_rate(uint32_t clk_rate)
+```
+
+#### 参数
+
+| 参数名称         |   描述                     |  输入输出  |
+| --------------- | -------------------------- | --------- |
+| clk\_rate       | sccb的速率                  | 输入      |
+
+#### 返回值
+
+| 返回值                   | 描述                |
+| :---------------------- | :------------------ |
+| 0                       | 失败，设置的速率太低无法满足，请使用I2C |
+| 非0                     | 实际的sccb速率       |
+
 ### 举例
 
 ```c
@@ -425,6 +476,7 @@ int on_irq_dvp(void* ctx)
 }
 plic_init();
 dvp_init(8);
+dvp_set_xclk_rate(12000000);
 dvp_enable_burst();
 dvp_set_output_enable(DVP_OUTPUT_AI, 1);
 dvp_set_output_enable(DVP_OUTPUT_DISPLAY, 1);

@@ -43,6 +43,8 @@
 - sysctl\_set\_power\_mode
 - sysctl\_enable\_irq
 - sysctl\_disable\_irq
+- sysctl\_get\_time\_us
+- sysctl\_get\_reset\_status
 
 ### sysctl\_cpu\_set\_freq
 
@@ -432,6 +434,46 @@ void sysctl_disable_irq(void)
 
 无。
 
+### sysctl\_get\_time\_us
+
+#### 描述
+
+开机至今的时间（微秒）。
+
+#### 函数原型
+
+```c
+uint64_t sysctl_get_time_us(void)
+```
+
+#### 参数
+
+无。
+
+#### 返回值
+
+开机至今的时间（微秒）。
+
+### sysctl\_get\_reset\_status
+
+#### 描述
+
+获取复位状态。参见sysctl_reset_enum_status_t说明。
+
+#### 函数原型
+
+```c
+sysctl_reset_enum_status_t sysctl_get_reset_status(void)
+```
+
+#### 参数
+
+无。
+
+#### 返回值
+
+复位状态。
+
 ## 数据类型
 
 相关数据类型、数据结构定义如下：
@@ -453,6 +495,8 @@ void sysctl_disable_irq(void)
 - sysctl\_power\_bank\_t：电源域编号。
 
 - sysctl\_io\_power\_mode\_t：IO输出电压值。
+
+- sysctl\_reset\_enum\_status\_t：复位状态。
 
 ### sysctl\_pll_t
 
@@ -946,3 +990,31 @@ typedef enum _sysctl_io_power_mode
 | :--------------------------------- | :-------------------- |
 |SYSCTL\_POWER\_V33                  | 设置为3.3V             |
 |SYSCTL\_POWER\_V18                  | 设置为1.8V             |
+
+### sysctl\_reset\_enum\_status\_t
+
+#### 描述
+
+复位状态。
+
+#### 定义
+
+```c
+typedef enum _sysctl_reset_enum_status
+{
+    SYSCTL_RESET_STATUS_HARD,
+    SYSCTL_RESET_STATUS_SOFT,
+    SYSCTL_RESET_STATUS_WDT0,
+    SYSCTL_RESET_STATUS_WDT1,
+    SYSCTL_RESET_STATUS_MAX,
+} sysctl_reset_enum_status_t;
+```
+
+#### 成员
+
+| 成员名称                                     |      描述             |
+| :------------------------------------------ | :-------------------- |
+|SYSCTL\_RESET\_STATUS\_HARD                  | 硬件复位，重新上电或触发reset管脚 |
+|SYSCTL\_RESET\_STATUS\_SOFT                  | 软件复位               |
+|SYSCTL\_RESET\_STATUS\_WDT0                  | 看门狗0复位            |
+|SYSCTL\_RESET\_STATUS\_WDT1                  | 看门狗1复位            |

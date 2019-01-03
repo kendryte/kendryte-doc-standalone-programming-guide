@@ -20,8 +20,6 @@
 
 - read\_cycle
 
-- corelock\_init
-
 - corelock\_lock
 
 - corelock\_trylock
@@ -201,10 +199,10 @@ int main(void)
         corelock_lock(&lock);
         sleep(2);
         printf("2> Core %ld sleep 2\n", core);
-        printf("2> Core %ld unlock\n");
+        printf("2> Core unlock\n");
         corelock_unlock(&lock);
         sleep(1);
-        printf("1> Core %ld unlock\n");
+        printf("1> Core unlock\n");
         corelock_unlock(&lock);
         usleep(10);
     }
