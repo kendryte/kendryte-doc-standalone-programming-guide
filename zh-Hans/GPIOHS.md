@@ -196,7 +196,7 @@ void gpiohs_irq_unregister(uint8_t pin)
 ### 举例
 
 ```c
-void irq_gpiohs2(void)
+void irq_gpiohs2(void *ctx)
 {
     printf("Hello world\n");
 }
@@ -209,7 +209,7 @@ plic_init();
 fpioa_set_function(14, FUNC_GPIOHS2);
 gpiohs_set_drive_mode(2, GPIO_DM_INPUT);
 gpiohs_set_pin_edge(2, GPIO_PE_BOTH);
-gpiohs_set_irq(2, 1, irq_gpiohs2);
+gpiohs_irq_register(2, 1, irq_gpiohs2, NULL);
 sysctl_enable_irq();
 ```
 
@@ -287,7 +287,9 @@ typedef enum _gpio_pin_edge
     GPIO_PE_NONE,
     GPIO_PE_FALLING,
     GPIO_PE_RISING,
-    GPIO_PE_BOTH
+    GPIO_PE_BOTH,
+    GPIO_PE_LOW,
+    GPIO_PE_HIGH = 8,
 } gpio_pin_edge_t;
 ```
 
@@ -299,3 +301,5 @@ typedef enum _gpio_pin_edge
 | GPIO\_PE\_FALLING  | 下降沿触发  |
 | GPIO\_PE\_RISING   | 上升沿触发  |
 | GPIO\_PE\_BOTH     | 双沿触发    |
+| GPIO\_PE\_LOW      | 低电平触发  |
+| GPIO\_PE\_HIGH     | 高电平触发  |

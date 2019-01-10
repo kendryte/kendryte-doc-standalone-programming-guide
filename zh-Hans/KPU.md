@@ -35,6 +35,12 @@ KPU 具备以下几个特点：
 
 - kpu\_release\_output\_buf (deprecated)
 
+- kpu\_start
+
+- kpu\_single\_task\_init
+
+- kpu\_single\_task\_deinit
+
 ### kpu\_task\_init
 
 #### 描述
@@ -130,6 +136,104 @@ void kpu_release_output_buf(uint8_t *output_buf)
 
 无
 
+### kpu\_start
+
+#### 描述
+
+启动KPU，进行AI运算。
+
+#### 函数原型
+
+```c
+int kpu_start(kpu_task_t *task)
+```
+
+#### 参数
+
+| 参数名称                         |   描述                 |  输入输出  |
+| ------------------------------- | ---------------------- | --------- |
+| task                            | KPU任务句柄             | 输入      |
+
+#### 返回值
+
+| 返回值  | 描述         |
+| :----  | :------------|
+| 0      | 成功         |
+| 非0    | KPU忙，失败   |
+
+### kpu\_single\_task\_init
+
+#### 描述
+
+初始化kpu任务句柄。
+
+#### 函数原型
+
+```c
+int kpu_single_task_init(kpu_task_t *task)
+```
+
+#### 参数
+
+| 参数名称                         |   描述                 |  输入输出  |
+| ------------------------------- | ---------------------- | --------- |
+| task                            | KPU任务句柄             | 输入      |
+
+#### 返回值
+
+| 返回值  | 描述         |
+| :----  | :------------|
+| 0      | 成功         |
+| 非0    | 失败         |
+
+### kpu\_single\_task\_deinit
+
+#### 描述
+
+注销kpu任务。
+
+#### 函数原型
+
+```c
+int kpu_single_task_deinit(kpu_task_t *task)
+```
+
+#### 参数
+
+| 参数名称                         |   描述                 |  输入输出  |
+| ------------------------------- | ---------------------- | --------- |
+| task                            | KPU任务句柄             | 输入      |
+
+#### 返回值
+
+| 返回值  | 描述         |
+| :----  | :------------|
+| 0      | 成功         |
+| 非0    | 失败         |
+
+### 举例
+
+```c
+/* 通过MC生成kpu_task_gencode_output_init，设置源数据为g_ai_buf，使用DMA5，kpu完成后调用ai_done函数 */
+kpu_task_t task;
+volatile uint8_t g_ai_done_flag;
+static int ai_done(void *ctx)
+{
+    g_ai_done_flag = 1;
+    return 0;
+}
+
+/* 初始化kpu */
+kpu_task_gencode_output_init(&task); /* MC生成的函数 */
+task.src = g_ai_buf;
+task.dma_ch = 5;
+task.callback = ai_done;
+kpu_single_task_init(&task);
+
+/* 启动kpu */
+kpu_start(&task);
+```
+
 ## 数据类型
 
 相关数据类型、数据结构定义如下：
@@ -149,15 +253,15 @@ typedef struct
 {
     kpu_layer_argument_t *layers;
     kpu_layer_argument_t *remain_layers;
-    void (*callback)(void);
+    plic_irq_callback_t callback;
+    void *ctx;
     uint64_t *src;
     uint64_t *dst;
-    plic_irq_callback_t cb;
     uint32_t src_length;
     uint32_t dst_length;
     uint32_t layers_length;
     uint32_t remain_layers_length;
-    uint32_t dma_ch;
+    dmac_channel_number_t dma_ch;
     uint32_t eight_bit_mode;
     float output_scale;
     float output_bias;
@@ -168,11 +272,21 @@ typedef struct
 
 #### 成员
 
-| 成员名称                | 描述              |
-| ---------------------- | ----------------- |
-| layers                 | KPU参数指针        |
-| length                 | 层数               |
-| dma_ch                 | DMA通道            |
-| dst                    | 运算结果输出指针    |
-| dst_length             | 运算结果长度        |
-| cb                     | 运算完成回调函数    |
+| 成员名称                | 描述                                       |
+| ---------------------- | ------------------------------------------ |
+| layers                 | KPU参数指针(MC初始化，用户不必关心)           |
+| remain\_layers         | KPU参数指针（运算过程中使用，用户不必关心）    |
+| callback               | 运算完成回调函数（需要用户设置）               |
+| ctx                    | 回调函数的参数（非空需要用户设置）             |
+| src                    | 运算源数据（需要用户设置）                    |
+| dst                    | 运算结果输出指针（KPU初始化赋值，用户不必关心） |
+| src\_length            | 源数据长度(MC初始化，用户不必关心)             |
+| dst\_length            | 运算结果长度(MC初始化，用户不必关心)           |
+| layers\_length         | 层数(MC初始化，用户不必关心)                  |
+| remain\_layers\_length | 剩余层数（运算过程中使用，用户不必关心）        |
+| dma\_ch                | 使用的DMA通道号（需要用户设置）                |
+| eight\_bit\_mode       | 是否是8比特模式(MC初始化，用户不必关心)         |
+| output\_scale          | 输出scale值(MC初始化，用户不必关心)            |
+| output\_bias           | 输出bias值(MC初始化，用户不必关心)             |
+| input\_scale           | 输入scale值(MC初始化，用户不必关心)            |
+| input\_bias            | 输入bias值(MC初始化，用户不必关心)             |
