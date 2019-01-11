@@ -76,7 +76,7 @@ int register_core1(core_function func, void *ctx)
 
 #### 描述
 
-获取CPU开机至今的时钟数。可以用使用这个函数精准的确定程序运行时钟。可以配合sysctl_clock_get_freq(SYSCTL_CLOCK_CPU)计算运行的时间。
+获取CPU开机至今的时钟数。可以用使用这个函数精准的确定程序运行时钟。可以配合sysctl\_clock\_get\_freq(SYSCTL\_CLOCK\_CPU)计算运行的时间。
 
 #### 函数原型
 
@@ -96,7 +96,7 @@ int register_core1(core_function func, void *ctx)
 
 #### 描述
 
-获取核间锁，核之间互斥的锁，同核内该锁会嵌套，只有异核之间会阻塞。不建议在中断使用该函数，中断中可以使用corelock_trylock。
+获取核间锁，核之间互斥的锁，同核内该锁会嵌套，只有异核之间会阻塞。不建议在中断使用该函数，中断中可以使用corelock\_trylock。
 
 #### 函数原型
 

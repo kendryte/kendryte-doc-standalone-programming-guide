@@ -4,7 +4,7 @@
 
 ## 对应SDK版本
 
-Kendryte Standalone SDK v0.5.1 (*414021b7378f7a56babb5ec02666e3cc03af59fc*)
+Kendryte Standalone SDK v0.5.3 (*7ba017918e595714eeeb92ce5695db90e59b8950*)
 
 ## 发布说明
 
@@ -13,6 +13,7 @@ Kendryte Standalone SDK v0.5.1 (*414021b7378f7a56babb5ec02666e3cc03af59fc*)
 | 2018-10-10 | V0.1.0 | 初始版本                  |
 | 2018-10-20 | V0.2.0 | 发布对应 Standalone SDK v0.4.0 的文档    |
 | 2018-11-02 | V0.3.0 | 发布对应 Standalone SDK v0.5.1 的文档    |
+| 2019-01-11 | V0.4.0 | 发布对应 Standalone SDK v0.5.3 的文档    |
 
 ## 免责声明
 

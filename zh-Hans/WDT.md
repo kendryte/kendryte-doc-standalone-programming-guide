@@ -147,14 +147,14 @@ void wdt_clear_interrupt(wdt_device_number_t id)
 
 ```c
 /* 2秒后进入看门狗中断函数打印Hello_world，再过2s复位 */
-int wdt0_irq(void)
+int wdt0_irq(void *ctx)
 {
     printf("Hello_world\n");
     return 0;
 }
 plic_init();
 sysctl_enable_irq();
-wdt_start(WDT_DEVICE_0, 2000, wdt0_irq);
+wdt_init(WDT_DEVICE_0, 2000, wdt0_irq, NULL);
 ```
 
 ## 数据类型

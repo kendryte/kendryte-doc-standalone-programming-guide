@@ -41,6 +41,8 @@ KPU 具备以下几个特点：
 
 - kpu\_single\_task\_deinit
 
+- kpu\_model\_load\_from\_buffer
+
 ### kpu\_task\_init
 
 #### 描述
@@ -211,6 +213,32 @@ int kpu_single_task_deinit(kpu_task_t *task)
 | 0      | 成功         |
 | 非0    | 失败         |
 
+### kpu\_model\_load\_from\_buffer
+
+#### 描述
+
+解析kmodel并初始化kpu句柄。
+
+#### 函数原型
+
+```c
+int kpu_model_load_from_buffer(kpu_task_t *task, uint8_t *buffer, kpu_model_layer_metadata_t **meta);
+```
+
+#### 参数
+
+| 参数名称                         |   描述                 |  输入输出  |
+| ------------------------------- | ---------------------- | --------- |
+| task                            | KPU任务句柄             | 输入      |
+| buffer                          | kmodel数据             | 输入      |
+| meta                            | 内部测试数据，用户设置为NULL | 输出      |
+
+#### 返回值
+
+| 返回值  | 描述         |
+| :----  | :------------|
+| 0      | 成功         |
+| 非0    | 失败         |
 ### 举例
 
 ```c
