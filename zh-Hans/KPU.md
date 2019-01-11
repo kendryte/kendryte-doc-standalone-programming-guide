@@ -239,6 +239,7 @@ int kpu_model_load_from_buffer(kpu_task_t *task, uint8_t *buffer, kpu_model_laye
 | :----  | :------------|
 | 0      | 成功         |
 | 非0    | 失败         |
+
 ### 举例
 
 ```c
