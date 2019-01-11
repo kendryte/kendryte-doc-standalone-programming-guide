@@ -27,13 +27,13 @@ KPU 具备以下几个特点：
 
 为用户提供以下接口
 
-- kpu\_task\_init (deprecated)
+- kpu\_task\_init (0.6.0以后不再支持，请使用kpu\_single\_task\_init)
 
-- kpu\_run (deprecated)
+- kpu\_run (0.6.0以后不再支持，请使用kpu\_start)
 
-- kpu\_get\_output\_buf (deprecated)
+- kpu\_get\_output\_buf (0.6.0以后不再支持)
 
-- kpu\_release\_output\_buf (deprecated)
+- kpu\_release\_output\_buf (0.6.0以后不再支持)
 
 - kpu\_start
 

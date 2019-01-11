@@ -25,7 +25,7 @@ GPIOHS模块具有以下功能：
 
 - gpiohs\_set\_pin\_edge
 
-- gpiohs\_set\_irq  (deprecated)
+- gpiohs\_set\_irq  (0.6.0后不再支持，请使用gpiohs\_irq\_register)
 
 - gpiohs\_irq\_register
 

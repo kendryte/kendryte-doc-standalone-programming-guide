@@ -18,13 +18,40 @@ WDT 模块具有以下功能：
 
 为用户提供以下接口
 
-- wdt\_start
+- wdt\_init
+
+- wdt\_start(0.6.0后不再支持，请使用wdt\_init)
 
 - wdt\_stop
 
 - wdt\_feed
 
 - wdt\_clear\_interrupt
+
+### wdt\_init
+
+#### 描述
+
+配置参数，启动看门狗。不使用中断的话，将on_irq设置为NULL。
+
+#### 函数原型
+
+```c
+uint32_t wdt_init(wdt_device_number_t id, uint64_t time_out_ms, plic_irq_callback_t on_irq, void *ctx)
+```
+
+#### 参数
+
+| 参数名称         |   描述           |  输入输出  |
+| --------------- | ---------------  | --------- |
+| id              | 看门狗编号        | 输入       |
+| time\_out\_ms   | 超时时间（毫秒）   | 输入      |
+| on\_irq         | 中断回调函数      | 输入       |
+| ctx             | 回调函数参数      | 输入       |
+
+#### 返回值
+
+看门狗超时重启的实际时间（毫秒）。与time\_out\_ms有差异，一般情况会大于这个时间。在外部晶振26M的情况下，最大超时时间为330毫秒。
 
 ### wdt\_start
 

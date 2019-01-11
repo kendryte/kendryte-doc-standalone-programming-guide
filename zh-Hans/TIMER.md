@@ -22,7 +22,7 @@ TIMER 模块具有以下功能：
 
 - timer\_set\_interval
 
-- timer\_set\_irq (deprecated)
+- timer\_set\_irq (0.6.0后不再支持，请使用timer\_irq\_register)
 
 - timer\_set\_enable
 

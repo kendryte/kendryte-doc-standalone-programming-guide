@@ -20,7 +20,7 @@ UART 模块具有以下功能：
 
 - uart\_init
 
-- uart\_config  (deprecated)
+- uart\_config  (0.6.0后不再支持，请使用uart\_configure)
 
 - uart\_configure
 
