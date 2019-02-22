@@ -8,8 +8,7 @@ node_js:
 cache: npm
 
 install:
-  - npm i -g npm@latest
-  - npm i -g markdownlint
+  - npm install -g markdownlint-cli
 
 script:
   - markdownlint --config .markdownlint.json -i en/node_modules en/
