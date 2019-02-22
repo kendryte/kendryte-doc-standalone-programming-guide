@@ -308,9 +308,9 @@ typedef enum _plic_irq
 } plic_irq_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称      | Description  |
+| Element name      | Description  |
 | ------------ | ------------ |
 |IRQN\_NO\_INTERRUPT|不存在                 |
 |IRQN\_SPI0\_INTERRUPT|SPI0中断             |

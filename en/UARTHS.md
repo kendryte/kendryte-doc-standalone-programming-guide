@@ -232,9 +232,9 @@ typedef enum _uarths_interrupt_mode
 } uarths_interrupt_mode_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称              | Description         |
+| Element name              | Description         |
 | -------------------- | ------------ |
 | UARTHS_SEND          | 发送中断      |
 | UARTHS_RECEIVE       | 接收中断      |
@@ -256,9 +256,9 @@ typedef enum _uarths_stopbit
 } uarths_stopbit_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称              | Description         |
+| Element name              | Description         |
 | -------------------- | ------------ |
 | UART\_STOP\_1        | 1位停止位     |
 | UART\_STOP\_2        | 2位停止位     |

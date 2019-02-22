@@ -269,9 +269,9 @@ typedef enum _dmac_channel_number
 } dmac_channel_number_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称         | Description         |
+| Element name         | Description         |
 | --------------- | ------------ |
 | DMAC\_CHANNEL0  | DMA通道 0     |
 | DMAC\_CHANNEL1  | DMA通道 1     |
@@ -296,9 +296,9 @@ typedef enum _dmac_address_increment
 } dmac_address_increment_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                | Description         |
+| Element name                | Description         |
 | ---------------------- | ------------ |
 | DMAC\_ADDR\_INCREMENT  | 地址自动增长  |
 | DMAC\_ADDR\_NOCHANGE   | 地址不变      |
@@ -325,9 +325,9 @@ typedef enum _dmac_burst_trans_length
 } dmac_burst_trans_length_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称           | Description              |
+| Element name           | Description              |
 | ----------------- | ----------------- |
 | DMAC\_MSIZE\_1    | 单次传输数量乘1    |
 | DMAC\_MSIZE\_4    | 单次传输数量乘4    |
@@ -358,9 +358,9 @@ typedef enum _dmac_transfer_width
 } dmac_transfer_width_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                 | Description              |
+| Element name                 | Description              |
 | ----------------------- | ----------------- |
 | DMAC\_TRANS\_WIDTH\_8   | 单次传输8位        |
 | DMAC\_TRANS\_WIDTH\_16  | 单次传输16位       |

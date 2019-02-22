@@ -465,9 +465,9 @@ typedef enum _spi_device_num
 } spi_device_num_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称      | Description           |
+| Element name      | Description           |
 | :----------- | :------------- |
 | SPI_DEVICE_0 | SPI 0 做为主设备|
 | SPI_DEVICE_1 | SPI 1 做为主设备|
@@ -492,9 +492,9 @@ typedef enum _spi_mode
 } spi_mode_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称             | Description        |
+| Element name             | Description        |
 | ------------------- | ----------- |
 | SPI\_WORK\_MODE\_0  | SPI 模式 0  |
 | SPI\_WORK\_MODE\_1  | SPI 模式 1  |
@@ -519,9 +519,9 @@ typedef enum _spi_frame_format
 } spi_frame_format_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称            | Description                      |
+| Element name            | Description                      |
 | ------------------ | ------------------------- |
 | SPI\_FF\_STANDARD  | 标准                      |
 | SPI\_FF\_DUAL      | 双线                      |
@@ -545,9 +545,9 @@ typedef enum _spi_instruction_address_trans_mode
 } spi_instruction_address_trans_mode_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                      | Description               |
+| Element name                      | Description               |
 | ---------------------------- | ------------------ |
 | SPI\_AITM\_STANDARD          | 均使用标准帧格式     |
 | SPI\_AITM\_ADDR\_STANDARD    | 指令使用配置的值，地址使用标准帧格式 |

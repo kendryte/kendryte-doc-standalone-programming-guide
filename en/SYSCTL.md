@@ -472,9 +472,9 @@ typedef enum _sysctl_pll_t
 } sysctl_pll_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称             |      Description             |
+| Element name             |      Description             |
 | :------------------ | :-------------------- |
 |SYSCTL\_PLL0         | PLL0                  |
 |SYSCTL\_PLL1         | PLL1                  |
@@ -522,9 +522,9 @@ typedef enum _sysctl_threshold_t
 } sysctl_threshold_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                       |      Description             |
+| Element name                       |      Description             |
 | :---------------------------- | :-------------------- |
 |SYSCTL\_THRESHOLD\_ACLK        | ACLK                  |
 |SYSCTL\_THRESHOLD\_APB0        | APB0                  |
@@ -579,9 +579,9 @@ typedef enum _sysctl_clock_select_t
 } sysctl_clock_select_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                                  |      Description             |
+| Element name                                  |      Description             |
 | :--------------------------------------- | :-------------------- |
 |SYSCTL\_CLOCK\_SELECT\_PLL0\_BYPASS       | PLL0\_BYPASS           |
 |SYSCTL\_CLOCK\_SELECT\_PLL1\_BYPASS       | PLL1\_BYPASS           |
@@ -650,9 +650,9 @@ typedef enum _sysctl_clock_t
 } sysctl_clock_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                                |      Description        |
+| Element name                                |      Description        |
 | :------------------------------------- | :--------------- |
 |SYSCTL\_CLOCK\_PLL0                     | PLL0             |
 |SYSCTL\_CLOCK\_PLL1                     | PLL1             |
@@ -740,9 +740,9 @@ typedef enum _sysctl_reset_t
 } sysctl_reset_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                              |      Description         |
+| Element name                              |      Description         |
 | :----------------------------------- | :---------------- |
 |SYSCTL\_RESET\_SOC                    | 芯片复位           |
 |SYSCTL\_RESET\_ROM                    | ROM               |
@@ -795,9 +795,9 @@ typedef enum _sysctl_dma_channel_t
 } sysctl_dma_channel_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                               |      Description         |
+| Element name                               |      Description         |
 | :------------------------------------ | :---------------- |
 |SYSCTL\_DMA\_CHANNEL\_0                | DMA通道0           |
 |SYSCTL\_DMA\_CHANNEL\_1                | DMA通道1           |
@@ -852,9 +852,9 @@ typedef enum _sysctl_dma_select_t
 } sysctl_dma_select_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                                          |      Description         |
+| Element name                                          |      Description         |
 | :------------------------------------------------ | :---------------- |
 |SYSCTL\_DMA\_SELECT\_SSI0\_RX\_REQ                 | SPI0接收          |
 |SYSCTL\_DMA\_SELECT\_SSI0\_TX\_REQ                 | SPI0发送          |
@@ -911,9 +911,9 @@ typedef enum _sysctl_power_bank
 } sysctl_power_bank_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                              |      Description             |
+| Element name                              |      Description             |
 | :----------------------------------- | :-------------------- |
 |SYSCTL\_POWER\_BANK0                  | 电源域0，控制IO0-IO5   |
 |SYSCTL\_POWER\_BANK1                  | 电源域1，控制IO6-IO11  |
@@ -940,9 +940,9 @@ typedef enum _sysctl_io_power_mode
 } sysctl_io_power_mode_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                            |      Description             |
+| Element name                            |      Description             |
 | :--------------------------------- | :-------------------- |
 |SYSCTL\_POWER\_V33                  | 设置为3.3V             |
 |SYSCTL\_POWER\_V18                  | 设置为1.8V             |

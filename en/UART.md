@@ -347,9 +347,9 @@ typedef enum _uart_device_number
 } uart_device_number_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称          | Description        |
+| Element name          | Description        |
 | ---------------- | ----------- |
 | UART\_DEVICE\_1  | UART 1      |
 | UART\_DEVICE\_2  | UART 2      |
@@ -373,9 +373,9 @@ typedef enum _uart_bitwidth
 } uart_bitwidth_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称            | Description        |
+| Element name            | Description        |
 | ------------------ | ----------- |
 | UART_BITWIDTH_5BIT | 5比特        |
 | UART_BITWIDTH_6BIT | 6比特        |
@@ -399,9 +399,9 @@ typedef enum _uart_stopbits
 } uart_stopbits_t;  
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称          | Description        |
+| Element name          | Description        |
 | ---------------- | ----------- |
 | UART\_STOP\_1    | 1 个停止位   |
 | UART\_STOP\_1\_5 | 1.5 个停止位 |
@@ -424,9 +424,9 @@ typedef enum _uart_parity
 } uart_parity_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称            | Description        |
+| Element name            | Description        |
 | ------------------ | ----------- |
 | UART\_PARITY\_NONE | 无校验位    |
 | UART\_PARITY\_ODD  | 奇校验      |
@@ -448,9 +448,9 @@ typedef enum _uart_interrupt_mode
 } uart_interrupt_mode_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称            | Description        |
+| Element name            | Description        |
 | ------------------ | ----------- |
 | UART\_SEND          | UART 发送   |
 | UART\_RECEIVE       | UART 接收   |
@@ -473,9 +473,9 @@ typedef enum _uart_send_trigger
 } uart_send_trigger_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称               | Description          |
+| Element name               | Description          |
 | --------------------- | ------------- |
 | UART\_SEND\_FIFO\_0   | FIFO为空      |
 | UART\_SEND\_FIFO\_2   | FIFO剩余2字节  |
@@ -500,9 +500,9 @@ typedef enum _uart_receive_trigger
 } uart_receive_trigger_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                  | Description          |
+| Element name                  | Description          |
 | ------------------------ | ------------- |
 | UART\_RECEIVE\_FIFO\_1   | FIFO剩余1字节  |
 | UART\_RECEIVE\_FIFO\_4   | FIFO剩余2字节  |

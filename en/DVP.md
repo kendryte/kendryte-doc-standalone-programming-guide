@@ -467,9 +467,9 @@ typedef enum _dvp_output_mode
 } dvp_output_mode_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                | Description              |
+| Element name                | Description              |
 | ---------------------- | ----------------- |
 | DVP\_OUTPUT\_AI        | AIOutput             |
 | DVP\_OUTPUT\_DISPLAY   | 向内存Output用于显示  |

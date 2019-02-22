@@ -331,9 +331,9 @@ typedef struct _fpioa_io_config
 } __attribute__((packed, aligned(4))) fpioa_io_config_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称             |      Description                     |
+| Element name             |      Description                     |
 | :------------------ | :---------------------------- |
 |ch\_sel              |配置引脚功能序号                |
 |ds                   |选择驱动能力，参考驱动能力选择表  |
@@ -398,9 +398,9 @@ typedef enum _fpioa_pull
 } fpioa_pull_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称             |      Description             |
+| Element name             |      Description             |
 | :------------------ | :-------------------- |
 |FPIOA\_PULL\_NONE    | 无上下拉               |
 |FPIOA\_PULL\_DOWN    | 下拉                   |
@@ -428,9 +428,9 @@ typedef enum _fpioa_driving
 } fpioa_driving_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称             |      Description             |
+| Element name             |      Description             |
 | :------------------ | :-------------------- |
 |FPIOA\_DRIVING\_0    | 驱动能力0              |
 |FPIOA\_DRIVING\_1    | 驱动能力1              |
@@ -712,9 +712,9 @@ typedef enum _fpioa_function
 } fpioa_function_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称             |      Description             |
+| Element name             |      Description             |
 | :------------------ | :-------------------- |
 |FUNC\_JTAG\_TCLK     |JTAG时钟接口           |
 |FUNC\_JTAG\_TDI      |JTAG数据Input接口       |

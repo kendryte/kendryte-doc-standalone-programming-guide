@@ -190,9 +190,9 @@ typedef enum _gpio_drive_mode
 } gpio_drive_mode_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                     | Description        |
+| Element name                     | Description        |
 | --------------------------- | ----------- |
 | GPIO\_DM\_INPUT             | Input        |
 | GPIO\_DM\_INPUT\_PULL\_DOWN | Input下拉     |
@@ -215,9 +215,9 @@ typedef enum _gpio_pin_value
 } gpio_pin_value_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称            | Description        |
+| Element name            | Description        |
 | ------------------ | ----------- |
 | GPIO\_PV\_LOW      | 低          |
 | GPIO\_PV\_HIGH     | 高          |
@@ -240,9 +240,9 @@ typedef enum _gpio_pin_edge
 } gpio_pin_edge_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称            | Description        |
+| Element name            | Description        |
 | ------------------ | ----------- |
 | GPIO\_PE\_NONE     | 不触发      |
 | GPIO\_PE\_FALLING  | 下降沿触发  |

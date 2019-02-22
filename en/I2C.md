@@ -248,9 +248,9 @@ typedef struct _i2c_slave_handler
 } i2c_slave_handler_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称 | Description |
+| Element name | Description |
 | :----- | :--- |
 | I2C\_DEVICE\_0 | I2C 0 |
 | I2C\_DEVICE\_1 | I2C 1 |

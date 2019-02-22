@@ -153,9 +153,9 @@ typedef enum _wdt_device_number
 } wdt_device_number_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称         | Description         |
+| Element name         | Description         |
 | --------------- | ------------ |
 | WDT\_DEVICE\_0  | 看门狗 0      |
 | WDT\_DEVICE\_1  | 看门狗 1      |

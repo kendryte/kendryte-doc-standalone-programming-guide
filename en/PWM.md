@@ -129,9 +129,9 @@ typedef enum _pwm_device_number
 } pwm_device_number_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称        | Description |
+| Element name        | Description |
 | :------------- | :--- |
 | PWM\_DEVICE\_0 | PWM0 |
 | PWM\_DEVICE\_1 | PWM1 |
@@ -156,9 +156,9 @@ typedef enum _pwm_channel_number
 } pwm_channel_number_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称         | Description     |
+| Element name         | Description     |
 | :-------------- | :------- |
 | PWM\_CHANNEL\_0 | PWM通道0 |
 | PWM\_CHANNEL\_1 | PWM通道1 |

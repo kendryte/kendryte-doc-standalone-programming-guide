@@ -225,9 +225,9 @@ typedef enum _timer_deivce_number
 } timer_device_number_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称           | Description          |
+| Element name           | Description          |
 | ----------------- | ------------- |
 | TIMER\_DEVICE\_0  | 定时器 0      |
 | TIMER\_DEVICE\_1  | 定时器 1      |
@@ -252,9 +252,9 @@ typedef enum _timer_channel_number
 } timer_channel_number_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称            | Description             |
+| Element name            | Description             |
 | -----------------  | ---------------- |
 | TIMER\_CHANNEL\_0  | 定时器通道 0      |
 | TIMER\_CHANNEL\_1  | 定时器通道 1      |

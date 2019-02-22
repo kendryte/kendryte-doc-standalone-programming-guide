@@ -121,9 +121,9 @@ typedef struct tag_fft_data
 } fft_data_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称 | Description |
+| Element name | Description |
 | :----- | :--- |
 | I1 | 第一个数据的虚部  |
 | R1 | 第一个数据的实部  |
@@ -147,9 +147,9 @@ typedef enum _fft_direction
 } fft_direction_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称 | Description |
+| Element name | Description |
 | :----- | :--- |
 | FFT\_DIR\_BACKWARD | FFT逆变换 |
 | FFT\_DIR\_FORWARD  | FFT正变换 |

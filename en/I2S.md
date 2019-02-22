@@ -42,7 +42,7 @@ void i2s_init(i2s_device_number_t device_num, i2s_transmit_t rxtx_mode, uint32_t
 
 #### Parameter
 
-| 成员名称            | Description         |  Input or output  |
+| Element name            | Description         |  Input or output  |
 | ------------------ | ------------ | --------- |
 | device\_num         | I2S号        | Input      |
 | rxtx\_mode          | 接收或发送模式| Input      |
@@ -66,7 +66,7 @@ void i2s_send_data_dma(i2s_device_number_t device_num, const void *buf, size_t b
 
 #### Parameter
 
-| 成员名称            | Description         |  Input or output  |
+| Element name            | Description         |  Input or output  |
 | ------------------ | ------------ | --------- |
 | device\_num         | I2S号        | Input      |
 | buf                | 发送数据地址  | Input      |
@@ -91,7 +91,7 @@ void i2s_recv_data_dma(i2s_device_number_t device_num, uint32_t *buf, size_t buf
 
 #### Parameter
 
-| 成员名称            | Description         |  Input or output  |
+| Element name            | Description         |  Input or output  |
 | ------------------  | ------------ | --------- |
 | device\_num         | I2S号        | Input      |
 | buf                 | 接收数据地址  | Output      |
@@ -116,7 +116,7 @@ void i2s_rx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t cha
 
 #### Parameter
 
-| 成员名称            | Description              |  Input or output  |
+| Element name            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | Input      |
 | channel\_num        | 通道号             | Input     |
@@ -143,7 +143,7 @@ void i2s_tx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t cha
 
 #### Parameter
 
-| 成员名称            | Description              |  Input or output  |
+| Element name            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | Input      |
 | channel\_num        | 通道号             | Input     |
@@ -171,7 +171,7 @@ void i2s_play(i2s_device_number_t device_num, dmac_channel_number_t channel_num,
 
 #### Parameter
 
-| 成员名称            | Description              |  Input or output  |
+| Element name            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | Input      |
 | channel\_num        | 通道号             | Input     |
@@ -199,7 +199,7 @@ uint32_t i2s_set_sample_rate(i2s_device_number_t device_num, uint32_t sample_rat
 
 #### Parameter
 
-| 成员名称            | Description              |  Input or output  |
+| Element name            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | Input      |
 | sample\_rate        | 采样率            | Input     |
@@ -222,7 +222,7 @@ int i2s_set_dma_divide_16(i2s_device_number_t device_num, uint32_t enable)
 
 #### Parameter
 
-| 成员名称            | Description              |  Input or output  |
+| Element name            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | Input      |
 | enable              | 0:禁用 1：使能    | Input     |
@@ -248,7 +248,7 @@ int i2s_get_dma_divide_16(i2s_device_number_t device_num)
 
 #### Parameter
 
-| 成员名称            | Description              |  Input or output  |
+| Element name            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | Input      |
 
@@ -310,9 +310,9 @@ typedef enum _i2s_device_number
 } i2s_device_number_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称            | Description        |
+| Element name            | Description        |
 | ------------------ | ----------- |
 | I2S\_DEVICE\_0     | I2S 0       |
 | I2S\_DEVICE\_1     | I2S 1       |
@@ -336,9 +336,9 @@ typedef enum _i2s_channel_num
 } i2s_channel_num_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称            | Description        |
+| Element name            | Description        |
 | ------------------ | ----------- |
 | I2S\_CHANNEL\_0    | I2S通道0    |
 | I2S\_CHANNEL\_1    | I2S通道1    |
@@ -361,9 +361,9 @@ typedef enum _i2s_transmit
 } i2s_transmit_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称            | Description        |
+| Element name            | Description        |
 | ------------------ | ----------- |
 | I2S\_TRANSMITTER   | 发送模式    |
 | I2S\_RECEIVER      | 接收模式    |
@@ -385,9 +385,9 @@ typedef enum _i2s_work_mode
 } i2s_work_mode_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                  | Description        |
+| Element name                  | Description        |
 | ------------------------ | ----------- |
 | STANDARD_MODE            | 标准模式    |
 | RIGHT\_JUSTIFYING\_MODE    | 右对齐模式   |
@@ -410,9 +410,9 @@ typedef enum _word_select_cycles
 } i2s_word_select_cycles_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称            | Description        |
+| Element name            | Description        |
 | ------------------ | ----------- |
 | SCLK\_CYCLES\_16   | 16个时钟    |
 | SCLK\_CYCLES\_24   | 24个时钟    |
@@ -438,9 +438,9 @@ typedef enum _word_length
 } i2s_word_length_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称              | Description        |
+| Element name              | Description        |
 | -------------------- | ----------- |
 | IGNORE\_WORD\_LENGTH | 忽略长度     |
 | RESOLUTION\_12\_BIT  | 12位数据长度 |
@@ -495,9 +495,9 @@ typedef enum _fifo_threshold
 } i2s_fifo_threshold_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称              | Description         |
+| Element name              | Description         |
 | -------------------- | ------------ |
 | TRIGGER\_LEVEL\_1    | 1字节FIFO深度 |
 | TRIGGER\_LEVEL\_2    | 2字节FIFO深度 |

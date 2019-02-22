@@ -156,9 +156,9 @@ typedef struct
 } kpu_task_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称                | Description              |
+| Element name                | Description              |
 | ---------------------- | ----------------- |
 | layers                 | KPU参数指针        |
 | length                 | 层数               |
