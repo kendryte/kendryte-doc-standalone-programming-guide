@@ -12,8 +12,9 @@ cache:
     - $HOME/.gitbook_cache
 
 install:
-  - npm i npm@latest -g
+  - npm i -g npm@latest
   - npm i -g gitbook-cli
+  - npm i -g phantomjs-prebuilt
   - npm i -g markdownlint
   - mkdir -p $HOME/.gitbook_cache
   - ln -s $HOME/.gitbook_cache en/node_modules
