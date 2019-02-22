@@ -291,7 +291,7 @@ int fpioa_get_io_driving(int number)
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - fpioa\_function\_t：管脚的功能编号。
 

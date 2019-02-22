@@ -447,7 +447,7 @@ dvp_sccb_receive_data(0x60, 0x1D)
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - dvp\_output\_mode\_t：DVPOutput图像的模式。
 

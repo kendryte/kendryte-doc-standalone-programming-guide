@@ -439,7 +439,7 @@ uint32_t spi_set_clk_rate(spi_device_num_t spi_num, uint32_t spi_clk)
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - spi\_device\_num\_t：SPI编号。
 - spi\_mode\_t：SPI 模式。

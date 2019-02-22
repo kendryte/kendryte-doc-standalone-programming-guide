@@ -238,7 +238,7 @@ dmac_wait_done(SYSCTL_DMA_CHANNEL_0);
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - dmac\_channel\_number\_t：DMA通道编号。
 

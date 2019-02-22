@@ -319,7 +319,7 @@ while(uart_receive_data(UART_DEVICE_1, &recv, 1))
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - uart\_device\_number\_t：UART 编号。
 - uart\_bitwidth\_t：UART 数据位宽。

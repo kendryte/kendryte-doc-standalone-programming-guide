@@ -132,7 +132,7 @@ void kpu_release_output_buf(uint8_t *output_buf)
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - kpu\_task\_t：kpu任务结构体。
 

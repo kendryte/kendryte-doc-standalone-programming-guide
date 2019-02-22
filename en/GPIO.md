@@ -123,7 +123,7 @@ gpio_set_pin(3, GPIO_PV_High);
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - gpio\_drive\_mode\_t：GPIO驱动模式。
 

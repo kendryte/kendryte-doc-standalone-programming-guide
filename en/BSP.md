@@ -89,7 +89,7 @@ int main()
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - core\_function：CPU核调用的函数。
 

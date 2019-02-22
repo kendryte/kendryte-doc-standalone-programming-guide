@@ -98,7 +98,7 @@ for (i = 0; i < FFT_N / 2; i++)
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - fft\_data\_t：FFT运算传入的数据格式。
 - fft\_direction\_t：FFT变换模式。

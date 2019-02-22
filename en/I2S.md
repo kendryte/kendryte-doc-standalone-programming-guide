@@ -276,7 +276,7 @@ i2s_send_data_dma(I2S_DEVICE_2, buf, 8, DMAC_CHANNEL0);
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - i2s\_device\_number\_t：I2S编号。
 

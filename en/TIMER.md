@@ -199,7 +199,7 @@ sysctl_enable_irq();
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - timer\_device\_number_t：定时器编号。
 

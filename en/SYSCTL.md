@@ -434,7 +434,7 @@ None.
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - sysctl\_pll\_t：PLL编号。
 

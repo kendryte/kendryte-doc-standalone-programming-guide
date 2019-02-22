@@ -132,7 +132,7 @@ wdt_start(WDT_DEVICE_0, 2000, wdt0_irq);
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - wdt\_device\_number\_t
 

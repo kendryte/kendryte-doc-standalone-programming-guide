@@ -210,7 +210,7 @@ None.
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
 - uarths\_interrupt\_mode\_t：中断类型。
 - uarths\_stopbit\_t：停止位。
