@@ -9,25 +9,9 @@ cache: npm
 
 install:
   - npm i -g npm@latest
-  - npm i -g gitbook-cli
-  - npm i -g phantomjs-prebuilt
   - npm i -g markdownlint
-  - mkdir -p $HOME/.gitbook_cache
-  - gitbook --version
-  - ln -s $HOME/.gitbook_cache en/node_modules
-  - ln -s $HOME/.gitbook_cache zh-Hans/node_modules
-  - ln -s $HOME/.gitbook_cache zh-Hant/node_modules
-  - gitbook install en
-  - gitbook install zh-Hans
-  - gitbook install zh-Hant
 
 script:
   - markdownlint --config .markdownlint.json -i en/node_modules en/
   - markdownlint --config .markdownlint.json -i zh-Hans/node_modules zh-Hans/
   - markdownlint --config .markdownlint.json -i zh-Hant/node_modules zh-Hant/
-  - mkdir -p build/en
-  - mkdir -p build/zh-Hans
-  - mkdir -p build/zh-Hant
-  - gitbook build en ./build/en
-  - gitbook build zh-Hans ./build/zh-Hans
-  - gitbook build zh-Hant ./build/zh-Hant
