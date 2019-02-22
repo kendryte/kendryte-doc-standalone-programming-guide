@@ -1,5 +1,7 @@
 language: node_js
 
+sudo: true
+
 node_js:
   - "10"
 
@@ -10,8 +12,9 @@ cache:
     - $HOME/.gitbook_cache
 
 install:
-  - npm install -g gitbook-cli
-  - npm install -g markdownlint
+  - npm i npm@latest -g
+  - npm i -g gitbook-cli
+  - npm i -g markdownlint
   - mkdir -p $HOME/.gitbook_cache
   - ln -s $HOME/.gitbook_cache en/node_modules
   - ln -s $HOME/.gitbook_cache zh-Hans/node_modules
