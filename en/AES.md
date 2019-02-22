@@ -95,7 +95,7 @@ Provide the following interfaces
 
 #### Description
 
-Provides efficient AES-ECB-128 encryption operation acceleration.
+AES-ECB-128 encryption operation.
 Input and output data are transmitted using CPU. ECB encryption encrypts the
 plaintext according to a block of fixed size of 16 bytes, and fills it when the
 block size is insufficient. The initialization vector(iv) is not used in ECB mode.
@@ -110,10 +110,10 @@ void aes_ecb128_hard_encrypt(uint8_t *input_key, uint8_t *input_data, size_t inp
 
 | Parameter name |                                                                      Description                                                                       | Input or output |
 | :------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-|   input\_key   | AES-ECB-128 encryption key                                                                                                                             |      Input       |
-|  input\_data   | AES-ECB-128 plaintext data to be encrypted                                                                                                             |      Input       |
-|   input\_len   | AES-ECB-128 length of plaintext data to be encrypted                                                                                                   |      Input       |
-|  output\_data  | The result of the AES-ECB-128 encryption operation is stored in this buffer.<br/>The size of this buffer needs to be guaranteed to be 16bytes aligned. |      Output       |
+|   input\_key   | AES-ECB-128 encryption key                                                                                                                             |      Input      |
+|  input\_data   | AES-ECB-128 plaintext data to be encrypted                                                                                                             |      Input      |
+|   input\_len   | AES-ECB-128 length of plaintext data to be encrypted                                                                                                   |      Input      |
+|  output\_data  | The result of the AES-ECB-128 encryption operation is stored in this buffer.<br/>The size of this buffer needs to be guaranteed to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -123,7 +123,7 @@ None.
 
 #### Description
 
-Provides efficient AES-ECB-128 decryption operation.
+AES-ECB-128 decryption operation.
 Input or output data is transmitted using CPU. ECB encryption encrypts the
 plaintext according to a block of fixed size of 16 bytes, and fills it when the
 block size is insufficient. The initialization vector(iv) is not used in ECB mode.
@@ -136,12 +136,12 @@ void aes_ecb128_hard_decrypt(uint8_t *input_key, uint8_t *input_data, size_t inp
 
 #### Parameter
 
-| Parameter name |                                       Description                                       | Input or output |
-| :------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-|   input\_key   | AES-ECB-128解密的密钥                                                                   |      Input       |
-|  input\_data   | AES-ECB-128待解密的密文数据                                                             |      Input       |
-|   input\_len   | AES-ECB-128待解密密文数据的长度                                                         |      Input       |
-|  output\_data  | AES-ECB-128解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+| Parameter name |                                                              Description                                                              | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+|   input\_key   | AES-ECB-128 decryption key                                                                                                            |      Input      |
+|  input\_data   | AES-ECB-128 ciphertext data to be decrypted                                                                                           |      Input      |
+|   input\_len   | AES-ECB-128 length of ciphertext data to be decrypted                                                                                 |      Input      |
+|  output\_data  | The result of the AES-ECB-128 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -151,7 +151,10 @@ None.
 
 #### Description
 
-AES-ECB-192加密运算。Input or output数据都使用cpu传输。ECB加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。ECB模式没有用到向量。
+AES-ECB-192 encryption operation.
+Input or output data is transmitted using CPU. ECB encryption encrypts the
+plaintext according to a block of fixed size of 16 bytes, and fills it when the
+block size is insufficient. The initialization vector(iv) is not used in ECB mode.
 
 #### Function prototype
 
@@ -161,12 +164,12 @@ void aes_ecb192_hard_encrypt(uint8_t *input_key, uint8_t *input_data, size_t inp
 
 #### Parameter
 
-| Parameter name |                                       Description                                       | Input or output |
-| :------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-|   input\_key   | AES-ECB-192加密的密钥                                                                   |      Input       |
-|  input\_data   | AES-ECB-192待加密的明文数据                                                             |      Input       |
-|   input\_len   | AES-ECB-192待加密明文数据的长度                                                         |      Input       |
-|  output\_data  | AES-ECB-192加密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+| Parameter name |                                                              Description                                                              | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+|   input\_key   | AES-ECB-192 encryption key                                                                                                            |      Input      |
+|  input\_data   | AES-ECB-192 Plaintext data to be encrypted                                                                                            |      Input      |
+|   input\_len   | AES-ECB-192 Length of plaintext data to be encrypted                                                                                  |      Input      |
+|  output\_data  | AES-ECB-192 The result of the encryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -176,7 +179,10 @@ None.
 
 #### Description
 
-AES-ECB-192解密运算。Input or output数据都使用cpu传输。ECB加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。ECB模式没有用到向量。
+AES-ECB-192 decryption operation.
+Input or output data is transmitted using CPU. ECB encryption encrypts the
+plaintext according to a block of fixed size of 16 bytes, and fills it when the
+block size is insufficient. The initialization vector(iv) is not used in ECB mode.
 
 #### Function prototype
 
@@ -186,12 +192,12 @@ void aes_ecb192_hard_decrypt(uint8_t *input_key, uint8_t *input_data, size_t inp
 
 #### Parameter
 
-| Parameter name |                                       Description                                       | Input or output |
-| :------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-|   input\_key   | AES-ECB-192解密的密钥                                                                   |      Input       |
-|  input\_data   | AES-ECB-192待解密的密文数据                                                             |      Input       |
-|   input\_len   | AES-ECB-192待解密密文数据的长度                                                         |      Input       |
-|  output\_data  | AES-ECB-192解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+| Parameter name |                                                              Description                                                              | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+|   input\_key   | AES-ECB-192 decryption key                                                                                                            |      Input      |
+|  input\_data   | AES-ECB-192 Ciphertext data to be decrypted                                                                                           |      Input      |
+|   input\_len   | AES-ECB-192 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|  output\_data  | AES-ECB-192 The result of the decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -201,7 +207,10 @@ None.
 
 #### Description
 
-AES-ECB-256加密运算。Input or output数据都使用cpu传输。ECB加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。ECB模式没有用到向量。
+AES-ECB-256 encryption operation.
+Input or output data is transmitted using CPU. ECB encryption encrypts the
+plaintext according to a block of fixed size of 16 bytes, and fills it when the
+block size is insufficient. The initialization vector(iv) is not used in ECB mode.
 
 #### Function prototype
 
@@ -211,12 +220,12 @@ void aes_ecb256_hard_encrypt(uint8_t *input_key, uint8_t *input_data, size_t inp
 
 #### Parameter
 
-| Parameter name |                                       Description                                       | Input or output |
-| :------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-|   input\_key   | AES-ECB-256加密的密钥                                                                   |      Input       |
-|  input\_data   | AES-ECB-256待加密的明文数据                                                             |      Input       |
-|   input\_len   | AES-ECB-256待加密明文数据的长度                                                         |      Input       |
-|  output\_data  | AES-ECB-256加密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+| Parameter name |                                                              Description                                                              | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+|   input\_key   | AES-ECB-256 encryption key                                                                                                            |      Input      |
+|  input\_data   | AES-ECB-256 Plaintext data to be encrypted                                                                                            |      Input      |
+|   input\_len   | AES-ECB-256 Length of plaintext data to be encrypted                                                                                  |      Input      |
+|  output\_data  | AES-ECB-256 The result of the encryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -226,7 +235,10 @@ None.
 
 #### Description
 
-AES-ECB-256解密运算。Input or output数据都使用cpu传输。ECB加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。ECB模式没有用到向量。
+AES-ECB-256 decryption operation.
+Input or output data is transmitted using CPU. ECB encryption encrypts the
+plaintext according to a block of fixed size of 16 bytes, and fills it when the
+block size is insufficient. The initialization vector(iv) is not used in ECB mode.
 
 #### Function prototype
 
@@ -236,12 +248,12 @@ void aes_ecb256_hard_decrypt(uint8_t *input_key, uint8_t *input_data, size_t inp
 
 #### Parameter
 
-| Parameter name |                                       Description                                       | Input or output |
-| :------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-|   input\_key   | AES-ECB-256解密的密钥                                                                   |      Input       |
-|  input\_data   | AES-ECB-256待解密的密文数据                                                             |      Input       |
-|   input\_len   | AES-ECB-256待解密密文数据的长度                                                         |      Input       |
-|  output\_data  | AES-ECB-256解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+| Parameter name |                                                              Description                                                              | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+|   input\_key   | AES-ECB-256 decryption key                                                                                                            |      Input      |
+|  input\_data   | AES-ECB-256 Ciphertext data to be decrypted                                                                                           |      Input      |
+|   input\_len   | AES-ECB-256 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|  output\_data  | AES-ECB-256 The result of the decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -251,7 +263,10 @@ None.
 
 #### Description
 
-AES-CBC-128加密运算。Input or output数据都使用cpu传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-128 encryption operation.
+Input or output data is transferred using the CPU. CBC encryption encrypts
+plaintext according to a block of fixed size of 16 bytes, and fills it when the
+block size is insufficient.
 
 #### Function prototype
 
@@ -261,12 +276,12 @@ void aes_cbc128_hard_encrypt(cbc_context_t *context, uint8_t *input_data, size_t
 
 #### Parameter
 
-| Parameter name |                                       Description                                       | Input or output |
-| :------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-CBC-128加密计算的结构体，包含加密密钥与偏移向量                                     |      Input       |
-|  input\_data   | AES-CBC-128待加密的明文数据                                                             |      Input       |
-|   input\_len   | AES-CBC-128待加密明文数据的长度                                                         |      Input       |
-|  output\_data  | AES-CBC-128加密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+| Parameter name |                                                              Description                                                              | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+|    context     | AES-CBC-128 Encryption operation structure containing encryption key and offset vector                                                |      Input      |
+|  input\_data   | AES-CBC-128 Plaintext data to be encrypted                                                                                            |      Input      |
+|   input\_len   | AES-CBC-128 Length of plaintext data to be encrypted                                                                                  |      Input      |
+|  output\_data  | AES-CBC-128 The result of the encryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -276,7 +291,10 @@ None.
 
 #### Description
 
-AES-CBC-128解密运算。Input or output数据都使用cpu传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-128 decryption operation.
+Input or output data is transferred using the CPU. CBC encryption encrypts
+plaintext according to a block of fixed size of 16 bytes, and fills it when the
+block size is insufficient.
 
 #### Function prototype
 
@@ -286,12 +304,12 @@ void aes_cbc128_hard_decrypt(cbc_context_t *context, uint8_t *input_data, size_t
 
 #### Parameter
 
-| Parameter name |                                       Description                                       | Input or output |
-| :------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-CBC-128解密计算的结构体，包含解密密钥与偏移向量                                     |      Input       |
-|  input\_data   | AES-CBC-128待解密的密文数据                                                             |      Input       |
-|   input\_len   | AES-CBC-128待解密密文数据的长度                                                         |      Input       |
-|  output\_data  | AES-CBC-128解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+| Parameter name |                                                              Description                                                              | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+|    context     | AES-CBC-128 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|  input\_data   | AES-CBC-128 Ciphertext data to be decrypted                                                                                           |      Input      |
+|   input\_len   | AES-CBC-128 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|  output\_data  | AES-CBC-128 The result of the decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -301,7 +319,10 @@ None.
 
 #### Description
 
-AES-CBC-192加密运算。Input or output数据都使用cpu传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-192 encryption operation.
+Input or output data is transferred using the CPU. CBC encryption encrypts
+plaintext according to a block of fixed size of 16 bytes, and fills it when the
+block size is insufficient.
 
 #### Function prototype
 
@@ -311,12 +332,12 @@ void aes_cbc192_hard_encrypt(cbc_context_t *context, uint8_t *input_data, size_t
 
 #### Parameter
 
-| Parameter name |                                       Description                                       | Input or output |
-| :------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-CBC-192加密计算的结构体，包含加密密钥与偏移向量                                     |      Input       |
-|  input\_data   | AES-CBC-192待加密的明文数据                                                             |      Input       |
-|   input\_len   | AES-CBC-192待加密明文数据的长度                                                         |      Input       |
-|  output\_data  | AES-CBC-192加密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+| Parameter name |                                                              Description                                                              | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+|    context     | AES-CBC-192 Encryption operation structure containing encryption key and offset vector                                                |      Input      |
+|  input\_data   | AES-CBC-192 Plaintext data to be encrypted                                                                                            |      Input      |
+|   input\_len   | AES-CBC-192 Length of plaintext data to be encrypted                                                                                  |      Input      |
+|  output\_data  | AES-CBC-192 The result of the encryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -326,7 +347,10 @@ None.
 
 #### Description
 
-AES-CBC-192解密运算。Input or output数据都使用cpu传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-192 decryption operation.
+Input or output data is transferred using the CPU. CBC encryption encrypts
+plaintext according to a block of fixed size of 16 bytes, and fills it when the
+block size is insufficient.
 
 #### Function prototype
 
@@ -336,12 +360,12 @@ void aes_cbc192_hard_decrypt(cbc_context_t *context, uint8_t *input_data, size_t
 
 #### Parameter
 
-| Parameter name |                                       Description                                       | Input or output |
-| :------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-CBC-192解密计算的结构体，包含解密密钥与偏移向量                                     |      Input       |
-|  input\_data   | AES-CBC-192待解密的密文数据                                                             |      Input       |
-|   input\_len   | AES-CBC-192待解密密文数据的长度                                                         |      Input       |
-|  output\_data  | AES-CBC-192解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+| Parameter name |                                                              Description                                                              | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+|    context     | AES-CBC-192 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|  input\_data   | AES-CBC-192 Ciphertext data to be decrypted                                                                                           |      Input      |
+|   input\_len   | AES-CBC-192 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|  output\_data  | AES-CBC-192 The result of the decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -351,7 +375,10 @@ None.
 
 #### Description
 
-AES-CBC-256加密运算。Input or output数据都使用cpu传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-256 encryption operation.
+Input or output data is transferred using the CPU. CBC encryption encrypts
+plaintext according to a block of fixed size of 16 bytes, and fills it when the
+block size is insufficient.
 
 #### Function prototype
 
@@ -361,12 +388,12 @@ void aes_cbc256_hard_encrypt(cbc_context_t *context, uint8_t *input_data, size_t
 
 #### Parameter
 
-| Parameter name |                                       Description                                       | Input or output |
-| :------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-CBC-256加密计算的结构体，包含加密密钥与偏移向量                                     |      Input       |
-|  input\_data   | AES-CBC-256待加密的明文数据                                                             |      Input       |
-|   input\_len   | AES-CBC-256待加密明文数据的长度                                                         |      Input       |
-|  output\_data  | AES-CBC-256加密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+| Parameter name |                                                              Description                                                              | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+|    context     | AES-CBC-256 Encryption operation structure containing encryption key and offset vector                                                |      Input      |
+|  input\_data   | AES-CBC-256 Plaintext data to be encrypted                                                                                            |      Input      |
+|   input\_len   | AES-CBC-256 Length of plaintext data to be encrypted                                                                                  |      Input      |
+|  output\_data  | AES-CBC-256 The result of the encryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -376,7 +403,10 @@ None.
 
 #### Description
 
-AES-CBC-256解密运算。Input or output数据都使用cpu传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-256 decryption operation.
+Input or output data is transferred using the CPU. CBC encryption encrypts
+plaintext according to a block of fixed size of 16 bytes, and fills it when the
+block size is insufficient.
 
 #### Function prototype
 
@@ -386,12 +416,12 @@ void aes_cbc256_hard_decrypt(uint8_t *input_key, uint8_t *input_data, size_t inp
 
 #### Parameter
 
-| Parameter name |                                       Description                                       | Input or output |
-| :------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-CBC-256解密计算的结构体，包含解密密钥与偏移向量                                     |      Input       |
-|  input\_data   | AES-CBC-256待解密的密文数据                                                             |      Input       |
-|   input\_len   | AES-CBC-256待解密密文数据的长度                                                         |      Input       |
-|  output\_data  | AES-CBC-256解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+| Parameter name |                                                              Description                                                              | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+|    context     | AES-CBC-256 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|  input\_data   | AES-CBC-256 Ciphertext data to be decrypted                                                                                           |      Input      |
+|   input\_len   | AES-CBC-256 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|  output\_data  | AES-CBC-256 The result of the decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -401,7 +431,8 @@ None.
 
 #### Description
 
-AES-GCM-128加密运算。Input or output数据都使用cpu传输。
+AES-GCM-128 encryption operation.
+Input or output data is transferred using the CPU.
 
 #### Function prototype
 
@@ -411,13 +442,13 @@ void aes_gcm128_hard_encrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 #### Parameter
 
-| Parameter name |                                   Description                                    | Input or output |
-| :------------: | :------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-128加密计算的结构体，包含加密密钥/偏移向量/aad/aad长度                   |      Input       |
-|  input\_data   | AES-GCM-128待加密的明文数据                                                      |      Input       |
-|   input\_len   | AES-GCM-128待加密明文数据的长度                                                  |      Input       |
-|  output\_data  | AES-GCM-128加密运算后的结果存放在这个buffer                                      |      Output       |
-|    gcm\_tag    | AES-GCM-128加密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes |      Output       |
+| Parameter name |                                                              Description                                                               | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
+|    context     | AES-GCM-128 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                 |      Input      |
+|  input\_data   | AES-GCM-128 Plaintext data to be encrypted                                                                                             |      Input      |
+|   input\_len   | AES-GCM-128 Length of plaintext data to be encrypted                                                                                   |      Input      |
+|  output\_data  | AES-GCM-128 The result of the encryption operation is stored in this buffer.                                                           |     Output      |
+|    gcm\_tag    | AES-GCM-128 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -427,7 +458,8 @@ None.
 
 #### Description
 
-AES-GCM-128解密运算。Input or output数据都使用cpu传输。
+AES-GCM-128 decryption operation.
+Input or output data is transferred using the CPU.
 
 #### Function prototype
 
@@ -437,13 +469,13 @@ void aes_gcm128_hard_decrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 #### Parameter
 
-| Parameter name |                                   Description                                    | Input or output |
-| :------------: | :------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-128解密计算的结构体，包含解密密钥/偏移向量/aad/aad长度                   |      Input       |
-|  input\_data   | AES-GCM-128待解密的密文数据                                                      |      Input       |
-|   input\_len   | AES-GCM-128待解密密文数据的长度                                                  |      Input       |
-|  output\_data  | AES-GCM-128解密运算后的结果存放在这个buffer                                      |      Output       |
-|    gcm\_tag    | AES-GCM-128解密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes |      Output       |
+| Parameter name |                                                              Description                                                               | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
+|    context     | AES-GCM-128 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
+|  input\_data   | AES-GCM-128 Ciphertext data to be decrypted                                                                                            |      Input      |
+|   input\_len   | AES-GCM-128 Length of ciphertext data to be decrypted                                                                                  |      Input      |
+|  output\_data  | AES-GCM-128 The result of the decryption operation is stored in this buffer                                                            |     Output      |
+|    gcm\_tag    | AES-GCM-128 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -453,7 +485,8 @@ None.
 
 #### Description
 
-AES-GCM-192加密运算。Input or output数据都使用cpu传输。
+AES-GCM-192 encryption operation.
+Input or output data is transferred using the CPU.
 
 #### Function prototype
 
@@ -463,13 +496,13 @@ void aes_gcm192_hard_encrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 #### Parameter
 
-| Parameter name |                                   Description                                    | Input or output |
-| :------------: | :------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-192加密计算的结构体，包含加密密钥/偏移向量/aad/aad长度                   |      Input       |
-|  input\_data   | AES-GCM-192待加密的明文数据                                                      |      Input       |
-|   input\_len   | AES-GCM-192待加密明文数据的长度                                                  |      Input       |
-|  output\_data  | AES-GCM-192加密运算后的结果存放在这个buffer                                      |      Output       |
-|    gcm\_tag    | AES-GCM-192加密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes |      Output       |
+| Parameter name |                                                              Description                                                               | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
+|    context     | AES-GCM-192 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                 |      Input      |
+|  input\_data   | AES-GCM-192 Plaintext data to be encrypted                                                                                             |      Input      |
+|   input\_len   | AES-GCM-192 Length of plaintext data to be encrypted                                                                                   |      Input      |
+|  output\_data  | AES-GCM-192 The result of the encryption operation is stored in this buffer.                                                           |     Output      |
+|    gcm\_tag    | AES-GCM-192 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -479,7 +512,8 @@ None.
 
 #### Description
 
-AES-GCM-192解密运算。Input or output数据都使用cpu传输。
+AES-GCM-192 decryption operation.
+Input or output data is transferred using the CPU.
 
 #### Function prototype
 
@@ -489,13 +523,13 @@ void aes_gcm192_hard_decrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 #### Parameter
 
-| Parameter name |                                   Description                                    | Input or output |
-| :------------: | :------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-192解密计算的结构体，包含解密密钥/偏移向量/aad/aad长度                   |      Input       |
-|  input\_data   | AES-GCM-192待解密的密文数据                                                      |      Input       |
-|   input\_len   | AES-GCM-192待解密密文数据的长度                                                  |      Input       |
-|  output\_data  | AES-GCM-192解密运算后的结果存放在这个buffer                                      |      Output       |
-|    gcm\_tag    | AES-GCM-192解密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes |      Output       |
+| Parameter name |                                                              Description                                                               | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
+|    context     | AES-GCM-192 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
+|  input\_data   | AES-GCM-192 Ciphertext data to be decrypted                                                                                            |      Input      |
+|   input\_len   | AES-GCM-192 Length of ciphertext data to be decrypted                                                                                  |      Input      |
+|  output\_data  | AES-GCM-192 The result of the decryption operation is stored in this buffer                                                            |     Output      |
+|    gcm\_tag    | AES-GCM-192 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -505,7 +539,8 @@ None.
 
 #### Description
 
-AES-GCM-256加密运算。Input or output数据都使用cpu传输。
+AES-GCM-256 encryption operation.
+Input or output data is transferred using the CPU.
 
 #### Function prototype
 
@@ -515,13 +550,13 @@ void aes_gcm256_hard_encrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 #### Parameter
 
-| Parameter name |                                   Description                                    | Input or output |
-| :------------: | :------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-256加密计算的结构体，包含加密密钥/偏移向量/aad/aad长度                   |      Input       |
-|  input\_data   | AES-GCM-256待加密的明文数据                                                      |      Input       |
-|   input\_len   | AES-GCM-256待加密明文数据的长度                                                  |      Input       |
-|  output\_data  | AES-GCM-256加密运算后的结果存放在这个buffer                                      |      Output       |
-|    gcm\_tag    | AES-GCM-256加密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes |      Output       |
+| Parameter name |                                                              Description                                                               | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
+|    context     | AES-GCM-256 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                 |      Input      |
+|  input\_data   | AES-GCM-256 Plaintext data to be encrypted                                                                                             |      Input      |
+|   input\_len   | AES-GCM-256 Length of plaintext data to be encrypted                                                                                   |      Input      |
+|  output\_data  | AES-GCM-256 The result of the encryption operation is stored in this buffer.                                                           |     Output      |
+|    gcm\_tag    | AES-GCM-256 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -531,7 +566,8 @@ None.
 
 #### Description
 
-AES-GCM-256解密运算。Input or output数据都使用cpu传输。
+AES-GCM-256 decryption operation.
+Input or output data is transferred using the CPU.
 
 #### Function prototype
 
@@ -541,13 +577,13 @@ void aes_gcm256_hard_decrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 #### Parameter
 
-| Parameter name |                                   Description                                    | Input or output |
-| :------------: | :------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-256解密计算的结构体，包含解密密钥/偏移向量/aad/aad长度                   |      Input       |
-|  input\_data   | AES-GCM-256待解密的密文数据                                                      |      Input       |
-|   input\_len   | AES-GCM-256待解密密文数据的长度                                                  |      Input       |
-|  output\_data  | AES-GCM-256解密运算后的结果存放在这个buffer                                      |      Output       |
-|    gcm\_tag    | AES-GCM-256解密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes |      Output       |
+| Parameter name |                                                              Description                                                               | Input or output |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
+|    context     | AES-GCM-256 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
+|  input\_data   | AES-GCM-256 Ciphertext data to be decrypted                                                                                            |      Input      |
+|   input\_len   | AES-GCM-256 Length of ciphertext data to be decrypted                                                                                  |      Input      |
+|  output\_data  | AES-GCM-256 The result of the decryption operation is stored in this buffer                                                            |     Output      |
+|    gcm\_tag    | AES-GCM-256 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -557,7 +593,11 @@ None.
 
 #### Description
 
-AES-ECB-128加密运算。Input数据使用cpu传输，Output数据都使用dma传输。ECB加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。ECB模式没有用到向量。
+AES-ECB-128 encryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. ECB encryption encrypts the plaintext according to a block of
+fixed size of 16 bytes, and fills it when the block size is insufficient.
+The initialization vector(iv) is not used in ECB mode.
 
 #### Function prototype
 
@@ -567,13 +607,13 @@ void aes_ecb128_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|         input\_key         | AES-ECB-128加密的密钥                                                                   |      Input       |
-|        input\_data         | AES-ECB-128待加密的明文数据                                                             |      Input       |
-|         input\_len         | AES-ECB-128待加密明文数据的长度                                                         |      Input       |
-|        output\_data        | AES-ECB-128加密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|         input\_key         | AES-ECB-128 encryption key                                                                                                            |      Input      |
+|        input\_data         | AES-ECB-128 Plaintext data to be encrypted                                                                                            |      Input      |
+|         input\_len         | AES-ECB-128 Length of plaintext data to be encrypted                                                                                  |      Input      |
+|        output\_data        | AES-ECB-128 The result of the encryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -583,7 +623,11 @@ None.
 
 #### Description
 
-AES-ECB-128解密运算。Input数据使用cpu传输，Output数据都使用dma传输。ECB加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。ECB模式没有用到向量。
+AES-ECB-128 decryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. ECB encryption encrypts the plaintext according to a block of
+fixed size of 16 bytes, and fills it when the block size is insufficient.
+The initialization vector(iv) is not used in ECB mode.
 
 #### Function prototype
 
@@ -593,13 +637,13 @@ void aes_ecb128_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|         input\_key         | AES-ECB-128解密的密钥                                                                   |      Input       |
-|        input\_data         | AES-ECB-128待解密的密文数据                                                             |      Input       |
-|         input\_len         | AES-ECB-128待解密密文数据的长度                                                         |      Input       |
-|        output\_data        | AES-ECB-128解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|         input\_key         | AES-ECB-128 decryption key                                                                                                            |      Input      |
+|        input\_data         | AES-ECB-128 Ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-ECB-128 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|        output\_data        | AES-ECB-128 The result of the decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -609,7 +653,11 @@ None.
 
 #### Description
 
-AES-ECB-192加密运算。Input数据使用cpu传输，Output数据都使用dma传输。ECB加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。ECB模式没有用到向量。
+AES-ECB-192 encryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. ECB encryption encrypts the plaintext according to a block of
+fixed size of 16 bytes, and fills it when the block size is insufficient.
+The initialization vector(iv) is not used in ECB mode.
 
 #### Function prototype
 
@@ -619,13 +667,13 @@ void aes_ecb192_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|         input\_key         | AES-ECB-192加密的密钥                                                                   |      Input       |
-|        input\_data         | AES-ECB-192待加密的明文数据                                                             |      Input       |
-|         input\_len         | AES-ECB-192待加密明文数据的长度                                                         |      Input       |
-|        output\_data        | AES-ECB-192加密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|         input\_key         | AES-ECB-192 encryption key                                                                                                            |      Input      |
+|        input\_data         | AES-ECB-192 Plaintext data to be encrypted                                                                                            |      Input      |
+|         input\_len         | AES-ECB-192 Length of plaintext data to be encrypted                                                                                  |      Input      |
+|        output\_data        | AES-ECB-192 The result of the encryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -635,7 +683,11 @@ None.
 
 #### Description
 
-AES-ECB-192解密运算。Input数据使用cpu传输，Output数据都使用dma传输。ECB加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。ECB模式没有用到向量。
+AES-ECB-192 decryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. ECB encryption encrypts the plaintext according to a block of
+fixed size of 16 bytes, and fills it when the block size is insufficient.
+The initialization vector(iv) is not used in ECB mode.
 
 #### Function prototype
 
@@ -645,13 +697,13 @@ void aes_ecb192_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|         input\_key         | AES-ECB-192解密的密钥                                                                   |      Input       |
-|        input\_data         | AES-ECB-192待解密的密文数据                                                             |      Input       |
-|         input\_len         | AES-ECB-192待解密密文数据的长度                                                         |      Input       |
-|        output\_data        | AES-ECB-192解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|         input\_key         | AES-ECB-192 decryption key                                                                                                            |      Input      |
+|        input\_data         | AES-ECB-192 Ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-ECB-192 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|        output\_data        | AES-ECB-192 The result of the decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -661,7 +713,11 @@ None.
 
 #### Description
 
-AES-ECB-256加密运算。Input数据使用cpu传输，Output数据都使用dma传输。ECB加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。ECB模式没有用到向量。
+AES-ECB-256 encryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. ECB encryption encrypts the plaintext according to a block of
+fixed size of 16 bytes, and fills it when the block size is insufficient.
+The initialization vector(iv) is not used in ECB mode.
 
 #### Function prototype
 
@@ -671,13 +727,13 @@ void aes_ecb256_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|         input\_key         | AES-ECB-256加密的密钥                                                                   |      Input       |
-|        input\_data         | AES-ECB-256待加密的明文数据                                                             |      Input       |
-|         input\_len         | AES-ECB-256待加密明文数据的长度                                                         |      Input       |
-|        output\_data        | AES-ECB-256加密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|         input\_key         | AES-ECB-256 encryption key                                                                                                            |      Input      |
+|        input\_data         | AES-ECB-256 Plaintext data to be encrypted                                                                                            |      Input      |
+|         input\_len         | AES-ECB-256 Length of plaintext data to be encrypted                                                                                  |      Input      |
+|        output\_data        | AES-ECB-256 The result of the encryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -687,7 +743,11 @@ None.
 
 #### Description
 
-AES-ECB-256解密运算。Input数据使用cpu传输，Output数据都使用dma传输。ECB加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。ECB模式没有用到向量。
+AES-ECB-256 decryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. ECB encryption encrypts the plaintext according to a block of
+fixed size of 16 bytes, and fills it when the block size is insufficient.
+The initialization vector(iv) is not used in ECB mode.
 
 #### Function prototype
 
@@ -697,13 +757,13 @@ void aes_ecb256_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|         input\_key         | AES-ECB-256解密的密钥                                                                   |      Input       |
-|        input\_data         | AES-ECB-256待解密的密文数据                                                             |      Input       |
-|         input\_len         | AES-ECB-256待解密密文数据的长度                                                         |      Input       |
-|        output\_data        | AES-ECB-256解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|         input\_key         | AES-ECB-256 decryption key                                                                                                            |      Input      |
+|        input\_data         | AES-ECB-256 Ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-ECB-256 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|        output\_data        | AES-ECB-256 The result of the decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -713,7 +773,10 @@ None.
 
 #### Description
 
-AES-CBC-128加密运算。Input数据使用cpu传输，Output数据都使用dma传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-128 encryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. CBC encryption encrypts plaintext according to a block of fixed
+size of 16 bytes, and fills it when the block size is insufficient.
 
 #### Function prototype
 
@@ -723,13 +786,13 @@ void aes_cbc128_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|          context           | AES-CBC-128加密计算的结构体，包含加密密钥与偏移向量                                     |      Input       |
-|        input\_data         | AES-CBC-128待加密的明文数据                                                             |      Input       |
-|         input\_len         | AES-CBC-128待加密明文数据的长度                                                         |      Input       |
-|        output\_data        | AES-CBC-128加密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|          context           | AES-CBC-128 Encryption operation structure containing encryption key and offset vector                                                |      Input      |
+|        input\_data         | AES-CBC-128 Plaintext data to be encrypted                                                                                            |      Input      |
+|         input\_len         | AES-CBC-128 Length of plaintext data to be encrypted                                                                                  |      Input      |
+|        output\_data        | AES-CBC-128 The result of the encryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -739,7 +802,10 @@ None.
 
 #### Description
 
-AES-CBC-128解密运算。Input数据使用cpu传输，Output数据都使用dma传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-128 decryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. CBC encryption encrypts plaintext according to a block of fixed
+size of 16 bytes, and fills it when the block size is insufficient.
 
 #### Function prototype
 
@@ -749,13 +815,13 @@ void aes_cbc128_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|          context           | AES-CBC-128解密计算的结构体，包含解密密钥与偏移向量                                     |      Input       |
-|        input\_data         | AES-CBC-128待解密的密文数据                                                             |      Input       |
-|         input\_len         | AES-CBC-128待解密密文数据的长度                                                         |      Input       |
-|        output\_data        | AES-CBC-128解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|          context           | AES-CBC-128 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|        input\_data         | AES-CBC-128 Ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-CBC-128 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|        output\_data        | AES-CBC-128 The result of the decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -765,7 +831,10 @@ None.
 
 #### Description
 
-AES-CBC-192加密运算。Input数据使用cpu传输，Output数据都使用dma传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-192 encryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. CBC encryption encrypts plaintext according to a block of fixed
+size of 16 bytes, and fills it when the block size is insufficient.
 
 #### Function prototype
 
@@ -775,13 +844,13 @@ void aes_cbc192_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|          context           | AES-CBC-192加密计算的结构体，包含加密密钥与偏移向量                                     |      Input       |
-|        input\_data         | AES-CBC-192待加密的明文数据                                                             |      Input       |
-|         input\_len         | AES-CBC-192待加密明文数据的长度                                                         |      Input       |
-|        output\_data        | AES-CBC-192加密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|          context           | AES-CBC-192 Encryption operation structure containing encryption key and offset vector                                                |      Input      |
+|        input\_data         | AES-CBC-192 Plaintext data to be encrypted                                                                                            |      Input      |
+|         input\_len         | AES-CBC-192 Length of plaintext data to be encrypted                                                                                  |      Input      |
+|        output\_data        | AES-CBC-192 The result of the encryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -791,7 +860,10 @@ None.
 
 #### Description
 
-AES-CBC-192解密运算。Input数据使用cpu传输，Output数据都使用dma传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-192 decryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. CBC encryption encrypts plaintext according to a block of fixed
+size of 16 bytes, and fills it when the block size is insufficient.
 
 #### Function prototype
 
@@ -801,13 +873,13 @@ void aes_cbc192_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|          context           | AES-CBC-192解密计算的结构体，包含解密密钥与偏移向量                                     |      Input       |
-|        input\_data         | AES-CBC-192待解密的密文数据                                                             |      Input       |
-|         input\_len         | AES-CBC-192待解密密文数据的长度                                                         |      Input       |
-|        output\_data        | AES-CBC-192解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|          context           | AES-CBC-192 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|        input\_data         | AES-CBC-192 Ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-CBC-192 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|        output\_data        | AES-CBC-192 The result of the decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -817,7 +889,10 @@ None.
 
 #### Description
 
-AES-CBC-256加密运算。Input数据使用cpu传输，Output数据都使用dma传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-256 encryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. CBC encryption encrypts plaintext according to a block of fixed
+size of 16 bytes, and fills it when the block size is insufficient.
 
 #### Function prototype
 
@@ -827,13 +902,13 @@ void aes_cbc256_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|          context           | AES-CBC-256加密计算的结构体，包含加密密钥与偏移向量                                     |      Input       |
-|        input\_data         | AES-CBC-256待加密的明文数据                                                             |      Input       |
-|         input\_len         | AES-CBC-256待加密明文数据的长度                                                         |      Input       |
-|        output\_data        | AES-CBC-256加密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|          context           | AES-CBC-256 Encryption operation structure containing encryption key and offset vector                                                |      Input      |
+|        input\_data         | AES-CBC-256 Plaintext data to be encrypted                                                                                            |      Input      |
+|         input\_len         | AES-CBC-256 Length of plaintext data to be encrypted                                                                                  |      Input      |
+|        output\_data        | AES-CBC-256 The result of the encryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -843,7 +918,10 @@ None.
 
 #### Description
 
-AES-CBC-256解密运算。Input数据使用cpu传输，Output数据都使用dma传输。CBC加密将明文按照固定大小16bytes的块进行加密的，块大小不足则进行填充。
+AES-CBC-256 decryption operation.
+The Input data is transmitted using the CPU, and the Output data is transmitted
+using the DMA. CBC encryption encrypts plaintext according to a block of fixed
+size of 16 bytes, and fills it when the block size is insufficient.
 
 #### Function prototype
 
@@ -853,13 +931,13 @@ void aes_cbc256_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                       Description                                       | Input or output |
-| :------------------------: | :-------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                  |      Input       |
-|          context           | AES-CBC-256解密计算的结构体，包含解密密钥与偏移向量                                     |      Input       |
-|        input\_data         | AES-CBC-256待解密的密文数据                                                             |      Input       |
-|         input\_len         | AES-CBC-256待解密密文数据的长度                                                         |      Input       |
-|        output\_data        | AES-CBC-256解密运算后的结果存放在这个buffer。<br/>这个buffer的大小需要保证16bytes对齐。 |      Output       |
+|       Parameter name       |                                                              Description                                                              | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
+|          context           | AES-CBC-256 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|        input\_data         | AES-CBC-256 Ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-CBC-256 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|        output\_data        | AES-CBC-256 The result of the decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
 
@@ -869,7 +947,9 @@ None.
 
 #### Description
 
-AES-GCM-128加密运算。Input数据使用cpu传输，Output数据都使用dma传输。
+AES-GCM-128 encryption operation.
+The Input data is transmitted using the CPU,
+and the Output data is transmitted using the DMA.
 
 #### Function prototype
 
@@ -879,14 +959,14 @@ void aes_gcm128_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                                                 Description                                                                  | Input or output |
-| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                                                                       |      Input       |
-|          context           | AES-GCM-128加密计算的结构体，包含加密密钥/偏移向量/aad/aad长度                                                                               |      Input       |
-|        input\_data         | AES-GCM-128待加密的明文数据                                                                                                                  |      Input       |
-|         input\_len         | AES-GCM-128待加密明文数据的长度。                                                                                                            |      Input       |
-|        output\_data        | AES-GCM-128加密运算后的结果存放在这个buffer。。<br/>由于DMA搬运数据的最小粒度为4bytes，<br/>所以需要保证这个buffer大小至少为4bytes的整数倍。 |      Output       |
-|          gcm\_tag          | AES-GCM-128加密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes                                                             |      Output       |
+|       Parameter name       |                                                                                                                     Description                                                                                                                     | Input or output |
+| :------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                               |      Input      |
+|          context           | AES-GCM-128 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                                                                                                                              |      Input      |
+|        input\_data         | AES-GCM-128 Plaintext data to be encrypted                                                                                                                                                                                                          |      Input      |
+|         input\_len         | AES-GCM-128 Length of plaintext data to be encrypted。                                                                                                                                                                                              |      Input      |
+|        output\_data        | AES-GCM-128 The result of the encryption operation is stored in this buffer.。<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
+|          gcm\_tag          | AES-GCM-128 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                              |     Output      |
 
 #### Return value
 
@@ -896,7 +976,9 @@ None.
 
 #### Description
 
-AES-GCM-128解密运算。Input数据使用cpu传输，Output数据都使用dma传输。
+AES-GCM-128 decryption operation.
+The Input data is transmitted using the CPU,
+and the Output data is transmitted using the DMA.
 
 #### Function prototype
 
@@ -906,14 +988,14 @@ void aes_gcm128_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                                                Description                                                                 | Input or output |
-| :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                                                                     |      Input       |
-|          context           | AES-GCM-128解密计算的结构体，包含解密密钥/偏移向量/aad/aad长度                                                                             |      Input       |
-|        input\_data         | AES-GCM-128待解密的密文数据                                                                                                                |      Input       |
-|         input\_len         | AES-GCM-128待解密密文数据的长度。                                                                                                          |      Input       |
-|        output\_data        | AES-GCM-128解密运算后的结果存放在这个buffer。<br/>由于DMA搬运数据的最小粒度为4bytes，<br/>所以需要保证这个buffer大小至少为4bytes的整数倍。 |      Output       |
-|          gcm\_tag          | AES-GCM-128解密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes                                                           |      Output       |
+|       Parameter name       |                                                                                                                    Description                                                                                                                    | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
+|          context           | AES-GCM-128 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
+|        input\_data         | AES-GCM-128 Ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
+|         input\_len         | AES-GCM-128 Length of ciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
+|        output\_data        | AES-GCM-128 The result of the decryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
+|          gcm\_tag          | AES-GCM-128 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
 #### Return value
 
@@ -923,7 +1005,9 @@ None.
 
 #### Description
 
-AES-GCM-192加密运算。Input数据使用cpu传输，Output数据都使用dma传输。
+AES-GCM-192 encryption operation.
+The Input data is transmitted using the CPU,
+and the Output data is transmitted using the DMA.
 
 #### Function prototype
 
@@ -933,14 +1017,14 @@ void aes_gcm192_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                                                Description                                                                 | Input or output |
-| :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                                                                     |      Input       |
-|          context           | AES-GCM-192加密计算的结构体，包含加密密钥/偏移向量/aad/aad长度                                                                             |      Input       |
-|        input\_data         | AES-GCM-192待加密的明文数据                                                                                                                |      Input       |
-|         input\_len         | AES-GCM-192待加密明文数据的长度。                                                                                                          |      Input       |
-|        output\_data        | AES-GCM-192加密运算后的结果存放在这个buffer。<br/>由于DMA搬运数据的最小粒度为4bytes，<br/>所以需要保证这个buffer大小至少为4bytes的整数倍。 |      Output       |
-|          gcm\_tag          | AES-GCM-192加密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes                                                           |      Output       |
+|       Parameter name       |                                                                                                                    Description                                                                                                                    | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
+|          context           | AES-GCM-192 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                                                                                                                            |      Input      |
+|        input\_data         | AES-GCM-192 Plaintext data to be encrypted                                                                                                                                                                                                        |      Input      |
+|         input\_len         | AES-GCM-192 Length of plaintext data to be encrypted。                                                                                                                                                                                            |      Input      |
+|        output\_data        | AES-GCM-192 The result of the encryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
+|          gcm\_tag          | AES-GCM-192 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
 #### Return value
 
@@ -950,7 +1034,9 @@ None.
 
 #### Description
 
-AES-GCM-192解密运算。Input数据使用cpu传输，Output数据都使用dma传输。
+AES-GCM-192 decryption operation.
+The Input data is transmitted using the CPU,
+and the Output data is transmitted using the DMA.
 
 #### Function prototype
 
@@ -960,14 +1046,14 @@ void aes_gcm192_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                                                Description                                                                 | Input or output |
-| :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                                                                     |      Input       |
-|          context           | AES-GCM-192解密计算的结构体，包含解密密钥/偏移向量/aad/aad长度                                                                             |      Input       |
-|        input\_data         | AES-GCM-192待解密的密文数据                                                                                                                |      Input       |
-|         input\_len         | AES-GCM-192待解密密文数据的长度。                                                                                                          |      Input       |
-|        output\_data        | AES-GCM-192解密运算后的结果存放在这个buffer。<br/>由于DMA搬运数据的最小粒度为4bytes，<br/>所以需要保证这个buffer大小至少为4bytes的整数倍。 |      Output       |
-|          gcm\_tag          | AES-GCM-192解密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes                                                           |      Output       |
+|       Parameter name       |                                                                                                                    Description                                                                                                                    | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
+|          context           | AES-GCM-192 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
+|        input\_data         | AES-GCM-192 Ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
+|         input\_len         | AES-GCM-192 Length of ciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
+|        output\_data        | AES-GCM-192 The result of the decryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
+|          gcm\_tag          | AES-GCM-192 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
 #### Return value
 
@@ -977,7 +1063,9 @@ None.
 
 #### Description
 
-AES-GCM-256加密运算。Input数据使用cpu传输，Output数据都使用dma传输。
+AES-GCM-256 encryption operation.
+The Input data is transmitted using the CPU,
+and the Output data is transmitted using the DMA.
 
 #### Function prototype
 
@@ -987,14 +1075,14 @@ void aes_gcm256_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                                                Description                                                                 | Input or output |
-| :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                                                                     |      Input       |
-|          context           | AES-GCM-256加密计算的结构体，包含加密密钥/偏移向量/aad/aad长度                                                                             |      Input       |
-|        input\_data         | AES-GCM-256待加密的明文数据                                                                                                                |      Input       |
-|         input\_len         | AES-GCM-256待加密明文数据的长度。                                                                                                          |      Input       |
-|        output\_data        | AES-GCM-256加密运算后的结果存放在这个buffer。<br/>由于DMA搬运数据的最小粒度为4bytes，<br/>所以需要保证这个buffer大小至少为4bytes的整数倍。 |      Output       |
-|          gcm\_tag          | AES-GCM-256加密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes                                                           |      Output       |
+|       Parameter name       |                                                                                                                    Description                                                                                                                    | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
+|          context           | AES-GCM-256 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                                                                                                                            |      Input      |
+|        input\_data         | AES-GCM-256 Plaintext data to be encrypted                                                                                                                                                                                                        |      Input      |
+|         input\_len         | AES-GCM-256 Length of plaintext data to be encrypted。                                                                                                                                                                                            |      Input      |
+|        output\_data        | AES-GCM-256 The result of the encryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
+|          gcm\_tag          | AES-GCM-256 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
 #### Return value
 
@@ -1004,7 +1092,9 @@ None.
 
 #### Description
 
-AES-GCM-256解密运算。Input数据使用cpu传输，Output数据都使用dma传输。
+AES-GCM-256 decryption operation.
+The Input data is transmitted using the CPU,
+and the Output data is transmitted using the DMA.
 
 #### Function prototype
 
@@ -1014,14 +1104,14 @@ void aes_gcm256_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 
 #### Parameter
 
-|       Parameter name       |                                                                Description                                                                 | Input or output |
-| :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-| dma\_receive\_channel\_num | AESOutput数据的DMA通道号                                                                                                                     |      Input       |
-|          context           | AES-GCM-256解密计算的结构体，包含解密密钥/偏移向量/aad/aad长度                                                                             |      Input       |
-|        input\_data         | AES-GCM-256待解密的密文数据                                                                                                                |      Input       |
-|         input\_len         | AES-GCM-256待解密密文数据的长度。                                                                                                          |      Input       |
-|        output\_data        | AES-GCM-256解密运算后的结果存放在这个buffer。<br/>由于DMA搬运数据的最小粒度为4bytes，<br/>所以需要保证这个buffer大小至少为4bytes的整数倍。 |      Output       |
-|          gcm\_tag          | AES-GCM-256解密运算后的tag存放在这个buffer。<br/>这个buffer大小需要保证为16bytes                                                           |      Output       |
+|       Parameter name       |                                                                                                                    Description                                                                                                                    | Input or output |
+| :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
+| dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
+|          context           | AES-GCM-256 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
+|        input\_data         | AES-GCM-256 Ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
+|         input\_len         | AES-GCM-256 Length of ciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
+|        output\_data        | AES-GCM-256 The result of the decryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
+|          gcm\_tag          | AES-GCM-256 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
 #### Return value
 
@@ -1031,7 +1121,7 @@ None.
 
 #### Description
 
-AES硬件模块的初始化
+Initialization of the AES hardware module
 
 #### Function prototype
 
@@ -1041,17 +1131,17 @@ void aes_init(uint8_t *input_key, size_t input_key_len, uint8_t *iv,size_t iv_le
 
 #### Parameter
 
-|  Parameter name  |                            Description                            | Input or output |
-| :--------------: | :---------------------------------------------------------------- | :-------------: |
-|    input\_key    | 待加密/解密的密钥                                                 |      Input       |
-|  input\_key_len  | 待加密/解密密钥的长度                                             |      Input       |
-|        iv        | AES加密解密用到的iv数据                                           |      Input       |
-|     iv\_len      | AES加密解密用到的iv数据的长度，CBC固定为16bytes，GCM固定为12bytes |      Output       |
-|     gcm\_aad     | AES-GCM加密解密用到的aad数据                                      |      Output       |
-|   cipher\_mode   | AES硬件模块执行的加密解密类型，支持AES\_CBC/AES\_ECB/AES\_GCM     |      Input       |
-|   encrypt\_sel   | AES硬件模块执行的模式：加密或解密                                 |      Input       |
-|  gcm\_aad\_len   | AES-GCM加密解密用到的aad数据的长度                                |      Input       |
-| input\_data\_len | 待加密/解密的数据长度                                             |      Input       |
+|  Parameter name  |                                                       Description                                                       | Input or output |
+| :--------------: | :---------------------------------------------------------------------------------------------------------------------- | :-------------: |
+|    input\_key    | Encryption/decryption key                                                                                               |      Input      |
+|  input\_key_len  | The length of the key to be used for encryption/decryption                                                              |      Input      |
+|        iv        | AES encryption and decryption iv data                                                                                   |      Input      |
+|     iv\_len      | The length of the iv data used for AES encryption and decryption, CBC is fixed to 16bytes, and GCM is fixed to 12bytes. |     Output      |
+|     gcm\_aad     | aad data used by AES-GCM encryption and decryption                                                                      |     Output      |
+|   cipher\_mode   | The type of encryption and decryption performed by the AES hardware module, supporting AES\_CBC/AES\_ECB/AES\_GCM       |      Input      |
+|   encrypt\_sel   | Execution mode of the AES hardware module: encryption or decryption                                                     |      Input      |
+|  gcm\_aad\_len   | Length of aad data used by AES-GCM encryption and decryption                                                            |      Input      |
+| input\_data\_len | Length of data to be encrypted/decrypted                                                                                |      Input      |
 
 #### Return value
 
@@ -1061,7 +1151,7 @@ None.
 
 #### Description
 
-AES硬件模块执行加密解密操作
+AES hardware module performs encryption and decryption operations
 
 #### Function prototype
 
@@ -1071,12 +1161,12 @@ void aes_process(uint8_t *input_data, uint8_t *output_data, size_t input_data_le
 
 #### Parameter
 
-|  Parameter name  |                          Description                          | Input or output |
-| :--------------: | :------------------------------------------------------------ | :-------------: |
-|   input\_data    | 这个buffer存放待加密/解密的数据                               |      Input       |
-|   output\_data   | 这个buffer存放加密/解密的Output结果                             |      Output       |
-| input\_data\_len | 待加密/解密的数据的长度                                       |      Input       |
-|   cipher\_mode   | AES硬件模块执行的加密解密类型，支持AES\_CBC/AES\_ECB/AES\_GCM |      Input       |
+|  Parameter name  |                                              Description                                               | Input or output |
+| :--------------: | :----------------------------------------------------------------------------------------------------- | :-------------: |
+|   input\_data    | This buffer stores the data to be encrypted/decrypted                                                  |      Input      |
+|   output\_data   | This buffer stores the output result of encryption/decryption                                          |     Output      |
+| input\_data\_len | Length of data to be encrypted/decrypted                                                               |      Input      |
+|   cipher\_mode   | Encryption and decryption type performed by AES hardware module, supporting AES\_CBC/AES\_ECB/AES\_GCM |      Input      |
 
 #### Return value
 
@@ -1086,7 +1176,7 @@ None.
 
 #### Description
 
-获取AES-GCM计算结束后的tag
+Get the tag after the AES-GCM calculation is completed
 
 #### Function prototype
 
@@ -1096,9 +1186,9 @@ void gcm_get_tag(uint8_t *gcm_tag)
 
 #### Parameter
 
-| Parameter name |                        Description                         | Input or output |
-| :------------: | :--------------------------------------------------------- | :-------------: |
-|    gcm\_tag    | 这个buffer存放AES-GCM加密/解密后的tag，固定为16bytes的大小 |     Output      |
+| Parameter name |                                     Description                                     | Input or output |
+| :------------: | :---------------------------------------------------------------------------------- | :-------------: |
+|    gcm\_tag    | This buffer stores the AES-GCM encrypted/decrypted tag, fixed to a size of 16bytes. |     Output      |
 
 #### Return value
 
@@ -1118,15 +1208,15 @@ aes_cbc128_hard_decrypt(&cbc_context, aes_input_data, 16L, aes_output_data);
 
 ## Data type
 
-相关数据类型、数据结构定义如下：
+The relevant data types and data structures are defined as follows:
 
-- `aes_cipher_mode_t`：AES加密/解密的方式。
+- `aes_cipher_mode_t`：AES encryption/decryption method.
 
 ### aes\_cipher\_mode\_t
 
 #### Description
 
-AES加密/解密的方式。
+AES encryption/decryption method.
 
 #### Type definition
 
@@ -1140,13 +1230,13 @@ typedef enum _aes_cipher_mode
 } aes_cipher_mode_t;
 ```
 
-- `gcm_context_t`：AES-GCM加密/解密时参数用到的结构体
+- `gcm_context_t`：AES-GCM structure used for parameters during encryption/decryption
 
 ### gcm\_context\_t
 
 #### Description
 
-AES-GCM参数用到的结构体，包括密钥、偏移向量、aad数据、aad数据长度。
+The structure used by the AES-GCM parameters, including the key, offset vector, aad data, and aad data length.
 
 #### Type definition
 
@@ -1160,13 +1250,13 @@ typedef struct _gcm_context
 } gcm_context_t;
 ```
 
-- `cbc_context_t`：AES-CBC加密/解密时参数用到的结构体
+- `cbc_context_t`：AES-CBC structure used for parameters during encryption/decryption
 
 ### cbc\_context\_t
 
 #### Description
 
-AES-CBC参数用到的结构体，包括密钥、偏移向量。
+The structure used by the AES-CBC parameter, including the key and offset vector.
 
 #### Type definition
 
@@ -1180,8 +1270,8 @@ typedef struct _cbc_context
 
 #### Enumeration element
 
-| Element name | Description  |
-| :------- | :----------- |
-| AES\_ECB | ECB加密/解密 |
-| AES\_CBC | CBC加密/解密 |
-| AES\_GCM | GCM加密/解密 |
+| Element name |          Description          |
+| :----------- | :---------------------------- |
+| AES\_ECB     | ECB encryption and decryption |
+| AES\_CBC     | CBC encryption and decryption |
+| AES\_GCM     | GCM encryption and decryption |
