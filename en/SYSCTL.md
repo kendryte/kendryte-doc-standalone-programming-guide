@@ -22,9 +22,9 @@
 
 ## API
 
-对应的头文件 `sysctl.h`
+Corresponding header file `sysctl.h`
 
-为用户提供以下接口
+Provide the following interfaces
 
 - sysctl\_cpu\_set\_freq
 - sysctl\_pll\_set\_freq

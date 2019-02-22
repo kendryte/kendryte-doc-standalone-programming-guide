@@ -16,7 +16,7 @@ PLIC 模块具有以下功能：
 
 对应头文件 `plic.h`  
 
-为用户提供以下接口
+Provide the following interfaces
 
 - plic\_init
 

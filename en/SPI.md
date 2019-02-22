@@ -16,9 +16,9 @@ SPI 模块具有以下功能：
 
 ## API
 
-对应的头文件 `spi.h`
+Corresponding header file `spi.h`
 
-为用户提供以下接口
+Provide the following interfaces
 
 - spi\_init
 

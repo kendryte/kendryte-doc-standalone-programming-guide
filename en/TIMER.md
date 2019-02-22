@@ -14,9 +14,9 @@ TIMER 模块具有以下功能：
 
 ## API
 
-对应的头文件 `timer.h`
+Corresponding header file `timer.h`
 
-为用户提供以下接口
+Provide the following interfaces
 
 - timer\_init
 

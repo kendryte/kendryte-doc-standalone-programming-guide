@@ -23,9 +23,9 @@ KPU 具备以下几个特点：
 
 ## API
 
-对应的头文件 `kpu.h`
+Corresponding header file `kpu.h`
 
-为用户提供以下接口
+Provide the following interfaces
 
 - kpu\_task\_init
 

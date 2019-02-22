@@ -10,9 +10,9 @@
 
 ## API
 
-对应的头文件 `bsp.h`
+Corresponding header file `bsp.h`
 
-为用户提供以下接口
+Provide the following interfaces
 
 - register\_core1
 

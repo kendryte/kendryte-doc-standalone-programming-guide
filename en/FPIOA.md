@@ -16,9 +16,9 @@ FPIOA（现场可编程IO阵列）允许用户将255个内部功能映射到芯�
 
 ## API
 
-对应的头文件 `fpioa.h`
+Corresponding header file `fpioa.h`
 
-为用户提供以下接口
+Provide the following interfaces
 
 - fpioa\_set\_function
 - fpioa\_get\_io\_by\_function

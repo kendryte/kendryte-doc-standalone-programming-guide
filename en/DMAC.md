@@ -16,9 +16,9 @@ DMA 模块具有以下功能：
 
 ## API
 
-对应的头文件 `dmac.h`
+Corresponding header file `dmac.h`
 
-为用户提供以下接口
+Provide the following interfaces
 
 - dmac\_init
 

@@ -13,9 +13,9 @@ I2C 模块具有以下功能：
 
 ## API
 
-对应的头文件 `i2c.h`
+Corresponding header file `i2c.h`
 
-为用户提供以下接口
+Provide the following interfaces
 
 - i2c\_init
 

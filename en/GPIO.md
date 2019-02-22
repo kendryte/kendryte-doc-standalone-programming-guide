@@ -12,9 +12,9 @@ GPIO 模块具有以下功能：
 
 ## API
 
-对应的头文件 `gpio.h`
+Corresponding header file `gpio.h`
 
-为用户提供以下接口
+Provide the following interfaces
 
 - gpio\_init
 

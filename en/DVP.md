@@ -13,9 +13,9 @@ DVP 模块具有以下功能：
 
 ## API
 
-对应的头文件 `dvp.h`
+Corresponding header file `dvp.h`
 
-为用户提供以下接口
+Provide the following interfaces
 
 - dvp\_init
 

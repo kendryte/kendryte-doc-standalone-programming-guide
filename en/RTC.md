@@ -14,9 +14,9 @@ RTC 模块具有以下功能：
 
 ## API
 
-对应的头文件 `rtc.h`
+Corresponding header file `rtc.h`
 
-为用户提供以下接口
+Provide the following interfaces
 
 - rtc\_init
 
