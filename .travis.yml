@@ -5,11 +5,7 @@ sudo: true
 node_js:
   - "10"
 
-cache:
-  directories:
-    - $HOME/.npm
-    - $HOME/.gitbook
-    - $HOME/.gitbook_cache
+cache: npm
 
 install:
   - npm i -g npm@latest
@@ -17,6 +13,7 @@ install:
   - npm i -g phantomjs-prebuilt
   - npm i -g markdownlint
   - mkdir -p $HOME/.gitbook_cache
+  - gitbook --version
   - ln -s $HOME/.gitbook_cache en/node_modules
   - ln -s $HOME/.gitbook_cache zh-Hans/node_modules
   - ln -s $HOME/.gitbook_cache zh-Hant/node_modules
