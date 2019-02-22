@@ -34,8 +34,8 @@ int register_core1(core_function func, void *ctx)
 
 | Parameter name                         |   Description                   |  Input or output  |
 | ------------------------------- | ------------------------ | --------- |
-| func                            | 向1核注册的函数           | 输入       |
-| ctx                             | 函数的参数，没有设置为NULL | 输入       |
+| func                            | 向1核注册的函数           | Input       |
+| ctx                             | 函数的参数，没有设置为NULL | Input       |
 
 #### Return value
 

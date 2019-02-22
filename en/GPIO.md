@@ -1,4 +1,4 @@
-# 通用输入/输出 (GPIO)
+# 通用输入/Output (GPIO)
 
 ## Summary
 
@@ -59,8 +59,8 @@ void gpio_set_drive_mode(uint8_t pin, gpio_drive_mode_t mode)
 
 | Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入      |
-| mode          | GPIO驱动模式    | 输入      |
+| pin           | GPIO管脚       | Input      |
+| mode          | GPIO驱动模式    | Input      |
 
 #### Return value
 
@@ -82,8 +82,8 @@ void gpio_set_pin(uint8_t pin, gpio_pin_value_t value)
 
 | Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入      |
-| value         | GPIO值         | 输入      |
+| pin           | GPIO管脚       | Input      |
+| value         | GPIO值         | Input      |
 
 #### Return value
 
@@ -105,7 +105,7 @@ gpio_pin_value_t gpio_get_pin(uint8_t pin)
 
 | Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入      |
+| pin           | GPIO管脚       | Input      |
 
 #### Return value
 
@@ -114,7 +114,7 @@ gpio_pin_value_t gpio_get_pin(uint8_t pin)
 ### Example
 
 ```c
-/* 设置IO13为输出并置为高 */
+/* 设置IO13为Output并置为高 */
 gpio_init();
 fpioa_set_function(13, FUNC_GPIO3);
 gpio_set_drive_mode(3, GPIO_DM_OUTPUT);
@@ -151,10 +151,10 @@ typedef enum _gpio_drive_mode
 
 | 成员名称                     | Description        |
 | --------------------------- | ----------- |
-| GPIO\_DM\_INPUT             | 输入        |
-| GPIO\_DM\_INPUT\_PULL\_DOWN | 输入下拉     |
-| GPIO\_DM\_INPUT\_PULL\_UP   | 输入上拉     |
-| GPIO\_DM\_OUTPUT            | 输出        |
+| GPIO\_DM\_INPUT             | Input        |
+| GPIO\_DM\_INPUT\_PULL\_DOWN | Input下拉     |
+| GPIO\_DM\_INPUT\_PULL\_UP   | Input上拉     |
+| GPIO\_DM\_OUTPUT            | Output        |
 
 ### gpio\_pin\_value\_t
 

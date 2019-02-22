@@ -46,7 +46,7 @@ void timer_init(timer_device_number_t timer_number)
 
 | Parameter name         | Description        | Input or output  |
 | :-------------- | :----------| :-------- |
-| timer\_number   | 定时器号    | 输入      |
+| timer\_number   | 定时器号    | Input      |
 
 #### Return value
 
@@ -68,9 +68,9 @@ size_t timer_set_interval(timer_device_number_t timer_number, timer_channel_numb
 
 | Parameter name      | Description           | Input or output   |
 | :----------- | :------------- | :-------- |
-| timer\_number| 定时器号        | 输入      |
-| channel      | 定时器通道号    | 输入      |
-| nanoseconds  | 时间间隔（纳秒） | 输入      |
+| timer\_number| 定时器号        | Input      |
+| channel      | 定时器通道号    | Input      |
+| nanoseconds  | 时间间隔（纳秒） | Input      |
 
 #### Return value
 
@@ -92,10 +92,10 @@ void timer_set_irq(timer_device_number_t timer_number, timer_channel_number_t ch
 
 | Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
-| timer\_number | 定时器号        | 输入     |
-| channel       | 定时器通道号    | 输入      |
-| func          | 回调函数        | 输入      |
-| priority      | 中断优先级      | 输入      |
+| timer\_number | 定时器号        | Input     |
+| channel       | 定时器通道号    | Input      |
+| func          | 回调函数        | Input      |
+| priority      | 中断优先级      | Input      |
 
 #### Return value
 
@@ -117,9 +117,9 @@ void timer_set_enable(timer_device_number_t timer_number, timer_channel_number_t
 
 | Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
-| timer\_number | 定时器号        | 输入      |
-| channel       | 定时器通道号    | 输入      |
-| enable        | 使能禁用定时器<br>0：禁用 1：使能  | 输入      |
+| timer\_number | 定时器号        | Input      |
+| channel       | 定时器通道号    | Input      |
+| enable        | 使能禁用定时器<br>0：禁用 1：使能  | Input      |
 
 #### Return value
 
@@ -141,12 +141,12 @@ int timer_irq_register(timer_device_number_t device, timer_channel_number_t chan
 
 | Parameter name          | Description           | Input or output   |
 | :--------------- | :------------- | :-------- |
-| device           | 定时器号        | 输入      |
-| channel          | 定时器通道号    | 输入      |
-| is\_single\_shot | 是否单次中断    | 输入      |
-| priority         | 中断优先级      | 输入      |
-| callback         | 中断回调函数    | 输入      |
-| ctx              | 回调函数参数    | 输入      |
+| device           | 定时器号        | Input      |
+| channel          | 定时器通道号    | Input      |
+| is\_single\_shot | 是否单次中断    | Input      |
+| priority         | 中断优先级      | Input      |
+| callback         | 中断回调函数    | Input      |
+| ctx              | 回调函数参数    | Input      |
 
 #### Return value
 
@@ -171,8 +171,8 @@ int timer_irq_deregister(timer_device_number_t device, timer_channel_number_t ch
 
 | Parameter name          | Description           | Input or output   |
 | :--------------- | :------------- | :-------- |
-| device           | 定时器号        | 输入      |
-| channel          | 定时器通道号    | 输入      |
+| device           | 定时器号        | Input      |
+| channel          | 定时器通道号    | Input      |
 
 #### Return value
 

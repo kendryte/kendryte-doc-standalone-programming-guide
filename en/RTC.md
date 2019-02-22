@@ -63,12 +63,12 @@ int rtc_timer_set(int year, int month, int day, int hour, int minute, int second
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :--------- | :-------- |
-| year        | 年         | 输入       |
-| month       | 月         | 输入       |
-| day         | 日         | 输入       |
-| hour        | 时         | 输入       |
-| minute      | 分         | 输入       |
-| second      | 秒         | 输入       |
+| year        | 年         | Input       |
+| month       | 月         | Input       |
+| day         | 日         | Input       |
+| hour        | 时         | Input       |
+| minute      | 分         | Input       |
+| second      | 秒         | Input       |
 
 #### Return value
 
@@ -90,12 +90,12 @@ int rtc_timer_get(int *year, int *month, int *day, int *hour, int *minute, int *
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :--------- | :-------- |
-| year        | 年         | 输出       |
-| month       | 月         | 输出       |
-| day         | 日         | 输出       |
-| hour        | 时         | 输出       |
-| minute      | 分         | 输出       |
-| second      | 秒         | 输出       |
+| year        | 年         | Output       |
+| month       | 月         | Output       |
+| day         | 日         | Output       |
+| hour        | 时         | Output       |
+| minute      | 分         | Output       |
+| second      | 秒         | Output       |
 
 #### Return value
 

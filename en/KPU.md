@@ -51,7 +51,7 @@ kpu_task_t* kpu_task_init(kpu_task_t* task)
 
 | Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
-| task                            | KPU任务句柄             | 输入      |
+| task                            | KPU任务句柄             | Input      |
 
 #### Return value
 
@@ -73,11 +73,11 @@ int kpu_run(kpu_task_t* v_task, dmac_channel_number_t dma_ch, const void *src, v
 
 | Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
-| task                            | KPU任务句柄             | 输入      |
-| dma\_ch                         | DMA通道                 | 输入      |
-| src                             | 输入图像数据             | 输入      |
-| dest                            | 运算输出结果             | 输出      |
-| callback                        | 运算完成回调函数         | 输入      |
+| task                            | KPU任务句柄             | Input      |
+| dma\_ch                         | DMA通道                 | Input      |
+| src                             | Input图像数据             | Input      |
+| dest                            | 运算Output结果             | Output      |
+| callback                        | 运算完成回调函数         | Input      |
 
 #### Return value
 
@@ -90,7 +90,7 @@ int kpu_run(kpu_task_t* v_task, dmac_channel_number_t dma_ch, const void *src, v
 
 #### Description
 
-获取KPU输出结果的缓存。
+获取KPUOutput结果的缓存。
 
 #### Function prototype
 
@@ -102,17 +102,17 @@ uint8_t *kpu_get_output_buf(kpu_task_t* task)
 
 | Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
-| task                            | KPU任务句柄             | 输入      |
+| task                            | KPU任务句柄             | Input      |
 
 #### Return value
 
-KPU输出结果的缓存的指针。
+KPUOutput结果的缓存的指针。
 
 ### kpu\_release\_output\_buf
 
 #### Description
 
-释放KPU输出结果缓存。
+释放KPUOutput结果缓存。
 
 #### Function prototype
 
@@ -124,7 +124,7 @@ void kpu_release_output_buf(uint8_t *output_buf)
 
 | Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
-| output\_buf                     | KPU输出结果缓存         | 输入      |
+| output\_buf                     | KPUOutput结果缓存         | Input      |
 
 #### Return value
 
@@ -163,6 +163,6 @@ typedef struct
 | layers                 | KPU参数指针        |
 | length                 | 层数               |
 | dma_ch                 | DMA通道            |
-| dst                    | 运算结果输出指针    |
+| dst                    | 运算结果Output指针    |
 | dst_length             | 运算结果长度        |
 | cb                     | 运算完成回调函数    |

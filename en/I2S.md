@@ -44,9 +44,9 @@ void i2s_init(i2s_device_number_t device_num, i2s_transmit_t rxtx_mode, uint32_t
 
 | 成员名称            | Description         |  Input or output  |
 | ------------------ | ------------ | --------- |
-| device\_num         | I2S号        | 输入      |
-| rxtx\_mode          | 接收或发送模式| 输入      |
-| channel\_mask       | 通道掩码      | 输入      |
+| device\_num         | I2S号        | Input      |
+| rxtx\_mode          | 接收或发送模式| Input      |
+| channel\_mask       | 通道掩码      | Input      |
 
 #### Return value
 
@@ -68,10 +68,10 @@ void i2s_send_data_dma(i2s_device_number_t device_num, const void *buf, size_t b
 
 | 成员名称            | Description         |  Input or output  |
 | ------------------ | ------------ | --------- |
-| device\_num         | I2S号        | 输入      |
-| buf                | 发送数据地址  | 输入      |
-| buf\_len            | 数据长度      | 输入      |
-| channel\_num        | DMA通道号     | 输入      |
+| device\_num         | I2S号        | Input      |
+| buf                | 发送数据地址  | Input      |
+| buf\_len            | 数据长度      | Input      |
+| channel\_num        | DMA通道号     | Input      |
 
 #### Return value
 
@@ -93,10 +93,10 @@ void i2s_recv_data_dma(i2s_device_number_t device_num, uint32_t *buf, size_t buf
 
 | 成员名称            | Description         |  Input or output  |
 | ------------------  | ------------ | --------- |
-| device\_num         | I2S号        | 输入      |
-| buf                 | 接收数据地址  | 输出      |
-| buf\_len            | 数据长度      | 输入      |
-| channel\_num        | DMA通道号     | 输入      |
+| device\_num         | I2S号        | Input      |
+| buf                 | 接收数据地址  | Output      |
+| buf\_len            | 数据长度      | Input      |
+| channel\_num        | DMA通道号     | Input      |
 
 #### Return value
 
@@ -118,12 +118,12 @@ void i2s_rx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t cha
 
 | 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | 输入      |
-| channel\_num        | 通道号             | 输入     |
-| word\_length        | 接收数据位数       | 输出      |
-| word\_select\_size   | 单个数据时钟数     | 输入      |
-| trigger\_level      | DMA触发时FIFO深度  | 输入      |
-| word\_mode          | 工作模式           | 输入      |
+| device\_num         | I2S号             | Input      |
+| channel\_num        | 通道号             | Input     |
+| word\_length        | 接收数据位数       | Output      |
+| word\_select\_size   | 单个数据时钟数     | Input      |
+| trigger\_level      | DMA触发时FIFO深度  | Input      |
+| word\_mode          | 工作模式           | Input      |
 
 #### Return value
 
@@ -145,12 +145,12 @@ void i2s_tx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t cha
 
 | 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | 输入      |
-| channel\_num        | 通道号             | 输入     |
-| word\_length        | 接收数据位数       | 输出      |
-| word\_select\_size   | 单个数据时钟数     | 输入      |
-| trigger\_level      | DMA触发时FIFO深度  | 输入      |
-| word\_mode          | 工作模式           | 输入      |
+| device\_num         | I2S号             | Input      |
+| channel\_num        | 通道号             | Input     |
+| word\_length        | 接收数据位数       | Output      |
+| word\_select\_size   | 单个数据时钟数     | Input      |
+| trigger\_level      | DMA触发时FIFO深度  | Input      |
+| word\_mode          | 工作模式           | Input      |
 
 #### Return value
 
@@ -173,13 +173,13 @@ void i2s_play(i2s_device_number_t device_num, dmac_channel_number_t channel_num,
 
 | 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | 输入      |
-| channel\_num        | 通道号             | 输入     |
-| buf                 | PCM 数据           | 输入      |
-| buf\_len             | PCM数据长度        | 输入      |
-| frame               | 单次发送数量        | 输入      |
-| bits\_per\_sample     | 单次采样位宽        | 输入      |
-| track_num           | 声道数            | 输入      |
+| device\_num         | I2S号             | Input      |
+| channel\_num        | 通道号             | Input     |
+| buf                 | PCM 数据           | Input      |
+| buf\_len             | PCM数据长度        | Input      |
+| frame               | 单次发送数量        | Input      |
+| bits\_per\_sample     | 单次采样位宽        | Input      |
+| track_num           | 声道数            | Input      |
 
 #### Return value
 
@@ -201,8 +201,8 @@ uint32_t i2s_set_sample_rate(i2s_device_number_t device_num, uint32_t sample_rat
 
 | 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | 输入      |
-| sample\_rate        | 采样率            | 输入     |
+| device\_num         | I2S号             | Input      |
+| sample\_rate        | 采样率            | Input     |
 
 #### Return value
 
@@ -224,8 +224,8 @@ int i2s_set_dma_divide_16(i2s_device_number_t device_num, uint32_t enable)
 
 | 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | 输入      |
-| enable              | 0:禁用 1：使能    | 输入     |
+| device\_num         | I2S号             | Input      |
+| enable              | 0:禁用 1：使能    | Input     |
 
 #### Return value
 
@@ -250,7 +250,7 @@ int i2s_get_dma_divide_16(i2s_device_number_t device_num)
 
 | 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | 输入      |
+| device\_num         | I2S号             | Input      |
 
 #### Return value
 

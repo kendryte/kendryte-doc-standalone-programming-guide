@@ -60,7 +60,7 @@ uint32_t sysctl_cpu_set_freq(uint32_t freq)
 
 | Parameter name     |   Description           |  Input or output  |
 | ----------- | ---------------- | --------- |
-| freq        | 要设置的频率（Hz） | 输入      |
+| freq        | 要设置的频率（Hz） | Input      |
 
 #### Return value
 
@@ -82,8 +82,8 @@ uint32_t sysctl_pll_set_freq(sysctl_pll_t pll, uint32_t pll_freq)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| pll             | PLL编号          | 输入       |
-| pll\_freq        | 要设置的频率（Hz）| 输入       |
+| pll             | PLL编号          | Input       |
+| pll\_freq        | 要设置的频率（Hz）| Input       |
 
 #### Return value
 
@@ -99,7 +99,7 @@ uint32_t sysctl_pll_get_freq(sysctl_pll_t pll)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| pll             | PLL编号          | 输入       |
+| pll             | PLL编号          | Input       |
 
 #### Return value
 
@@ -121,7 +121,7 @@ int sysctl_pll_enable(sysctl_pll_t pll)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| pll             | PLL编号          | 输入       |
+| pll             | PLL编号          | Input       |
 
 #### Return value
 
@@ -146,7 +146,7 @@ int sysctl_pll_disable(sysctl_pll_t pll)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| pll             | PLL编号          | 输入       |
+| pll             | PLL编号          | Input       |
 
 #### Return value
 
@@ -171,8 +171,8 @@ void sysctl_clock_set_threshold(sysctl_threshold_t which, int threshold)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| which           | 设置的时钟        | 输入       |
-| threshold       | 分频值            | 输入       |
+| which           | 设置的时钟        | Input       |
+| threshold       | 分频值            | Input       |
 
 #### Return value
 
@@ -195,7 +195,7 @@ int sysctl_clock_get_threshold(sysctl_threshold_t which)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| which           | 时钟             | 输入       |
+| which           | 时钟             | Input       |
 
 #### Return value
 
@@ -217,8 +217,8 @@ int sysctl_clock_set_clock_select(sysctl_clock_select_t which, int select)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| which           | 时钟             | 输入       |
-| select          | 时钟源           | 输入       |
+| which           | 时钟             | Input       |
+| select          | 时钟源           | Input       |
 
 #### Return value
 
@@ -243,7 +243,7 @@ int sysctl_clock_get_clock_select(sysctl_clock_select_t which)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| which           | 时钟             | 输入       |
+| which           | 时钟             | Input       |
 
 #### Return value
 
@@ -265,7 +265,7 @@ uint32_t sysctl_clock_get_freq(sysctl_clock_t clock)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| clock           | 时钟             | 输入       |
+| clock           | 时钟             | Input       |
 
 #### Return value
 
@@ -287,7 +287,7 @@ int sysctl_clock_enable(sysctl_clock_t clock)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| clock           | 时钟             | 输入       |
+| clock           | 时钟             | Input       |
 
 #### Return value
 
@@ -312,7 +312,7 @@ int sysctl_clock_disable(sysctl_clock_t clock)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| clock           | 时钟             | 输入       |
+| clock           | 时钟             | Input       |
 
 #### Return value
 
@@ -337,7 +337,7 @@ void sysctl_reset(sysctl_reset_t reset)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| reset           | 预复位模块        | 输入       |
+| reset           | 预复位模块        | Input       |
 
 #### Return value
 
@@ -359,8 +359,8 @@ int sysctl_dma_select(sysctl_dma_channel_t channel, sysctl_dma_select_t select)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------- | --------- |
-| channel         | DMA通道号        | 输入       |
-| select          | DMA请求源        | 输入       |
+| channel         | DMA通道号        | Input       |
+| select          | DMA请求源        | Input       |
 
 #### Return value
 
@@ -385,8 +385,8 @@ void sysctl_set_power_mode(sysctl_power_bank_t power_bank, sysctl_io_power_mode_
 
 | Parameter name         |   Description               |  Input or output  |
 | --------------- | -------------------- | --------- |
-| power\_bank     | IO电源域编号          | 输入       |
-| io\_power\_mode | 设置的电压值1.8V或3.3V| 输入       |
+| power\_bank     | IO电源域编号          | Input       |
+| io\_power\_mode | 设置的电压值1.8V或3.3V| Input       |
 
 #### Return value
 
@@ -694,7 +694,7 @@ typedef enum _sysctl_clock_t
 |SYSCTL\_CLOCK\_RTC                      | RTC              |
 |SYSCTL\_CLOCK\_ACLK                     | ACLK             |
 |SYSCTL\_CLOCK\_HCLK                     | HCLK             |
-|SYSCTL\_CLOCK\_IN0                      | 外部输入时钟IN0   |
+|SYSCTL\_CLOCK\_IN0                      | 外部Input时钟IN0   |
 
 ### sysctl\_reset\_t
 
@@ -928,7 +928,7 @@ typedef enum _sysctl_power_bank
 
 #### Description
 
-IO输出电压值。
+IOOutput电压值。
 
 #### Type definition
 

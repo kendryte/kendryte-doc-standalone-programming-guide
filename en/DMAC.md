@@ -72,14 +72,14 @@ void dmac_set_single_mode(dmac_channel_number_t channel_num, const void *src, vo
 
 | Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
-| channel_num                     | DMA 通道号              | 输入      |
-| src                             | 源地址                  | 输入      |
-| dest                            | 目标地址                | 输出      |
-| src\_inc                        | 源地址是否自增          | 输入      |
-| dest\_inc                       | 目标地址是否自增        | 输入      |
-| dmac\_burst\_size               | 突发传输数量            | 输入      |
-| dmac\_trans\_width              | 单次传输数据位宽         | 输入      |
-| block\_size                       | 传输数据的个数           | 输入      |
+| channel_num                     | DMA 通道号              | Input      |
+| src                             | 源地址                  | Input      |
+| dest                            | 目标地址                | Output      |
+| src\_inc                        | 源地址是否自增          | Input      |
+| dest\_inc                       | 目标地址是否自增        | Input      |
+| dmac\_burst\_size               | 突发传输数量            | Input      |
+| dmac\_trans\_width              | 单次传输数据位宽         | Input      |
+| block\_size                       | 传输数据的个数           | Input      |
 
 #### Return value
 
@@ -101,7 +101,7 @@ int dmac_is_done(dmac_channel_number_t channel_num)
 
 | Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
-| channel\_num                     | DMA 通道号              | 输入      |
+| channel\_num                     | DMA 通道号              | Input      |
 
 #### Return value
 
@@ -126,7 +126,7 @@ void dmac_wait_done(dmac_channel_number_t channel_num)
 
 | Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
-| channel\_num                     | DMA 通道号              | 输入      |
+| channel\_num                     | DMA 通道号              | Input      |
 
 #### Return value
 
@@ -148,10 +148,10 @@ void dmac_set_irq(dmac_channel_number_t channel_num , plic_irq_callback_t dmac_c
 
 | Parameter name                       |   Description           |  Input or output  |
 | ----------------------------- | ---------------  | --------- |
-| channel\_num                  | DMA 通道号        | 输入      |
-| dmac\_callback                | 中断回调函数      | 输入      |
-| ctx                           | 回调函数的参数    | 输入       |
-| priority                      | 中断优先级        | 输入       |
+| channel\_num                  | DMA 通道号        | Input      |
+| dmac\_callback                | 中断回调函数      | Input      |
+| ctx                           | 回调函数的参数    | Input       |
+| priority                      | 中断优先级        | Input       |
 
 #### Return value
 
@@ -175,10 +175,10 @@ void dmac_set_src_dest_length(dmac_channel_number_t channel_num, const void *src
 
 | Parameter name                       |   Description           |  Input or output  |
 | ----------------------------- | ---------------  | --------- |
-| channel\_num                  | DMA 通道号        | 输入      |
-| src                           | 中断回调函数      | 输入      |
-| dest                          | 回调函数的参数    | 输入       |
-| len                           | 中断优先级        | 输入       |
+| channel\_num                  | DMA 通道号        | Input      |
+| src                           | 中断回调函数      | Input      |
+| dest                          | 回调函数的参数    Input输入       |
+| len                           | 中断优先级        | Input       |
 
 #### Return value
 
@@ -200,7 +200,7 @@ int dmac_is_idle(dmac_channel_number_t channel_num)
 
 | Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
-| channel\_num                     | DMA 通道号              | 输入      |
+| channel\_num                     | DMA 通道号              | Input      |
 
 #### Return value
 
@@ -219,7 +219,7 @@ int dmac_is_idle(dmac_channel_number_t channel_num)
 
 | Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
-| channel_num                     | DMA 通道号              | 输入      |
+| channel_num                     | DMA 通道号              | Input      |
 
 #### Return value
 

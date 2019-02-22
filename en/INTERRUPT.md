@@ -68,7 +68,7 @@ int plic_irq_enable(plic_irq_t irq_number)
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------:   | :-----     | :----:     |
-| irq\_number | 中断号 | 输入 |
+| irq\_number | 中断号 | Input |
 
 #### Return value
 
@@ -93,7 +93,7 @@ int plic_irq_disable(plic_irq_t irq_number)
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------:   | :-----     | :----:     |
-| irq\_number | 中断号 | 输入 |
+| irq\_number | 中断号 | Input |
 
 #### Return value
 
@@ -118,8 +118,8 @@ int plic_set_priority(plic_irq_t irq_number, uint32_t priority)
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| irq\_number | 中断号 | 输入 |
-| priority | 中断优先级 | 输入 |
+| irq\_number | 中断号 | Input |
+| priority | 中断优先级 | Input |
 
 #### Return value
 
@@ -144,7 +144,7 @@ uint32_t plic_get_priority(plic_irq_t irq_number)
 
 | Parameter name      |   Description     |  Input or output  |
 | :------------| :----------| :-------- |
-| irq\_number  | 中断号     | 输入      |
+| irq\_number  | 中断号     | Input      |
 
 #### Return value
 
@@ -166,9 +166,9 @@ int plic_irq_register(plic_irq_t irq, plic_irq_callback_t callback, void* ctx)
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------:   | :-----     | :----:     |
-| irq | 中断号 | 输入 |
-| callback | 中断回调函数 | 输入 |
-| ctx | 回调函数的参数 | 输入 |
+| irq | 中断号 | Input |
+| callback | 中断回调函数 | Input |
+| ctx | 回调函数的参数 | Input |
 
 #### Return value
 
@@ -193,7 +193,7 @@ int plic_irq_deregister(plic_irq_t irq)
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------:   | :-----     | :----:     |
-| irq | 中断号 | 输入 |
+| irq | 中断号 | Input |
 
 #### Return value
 

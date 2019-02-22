@@ -8,8 +8,8 @@ PWM 用于控制脉冲输出的占空比。其本质是一个定时器，所以�
 
 PWM 模块具有以下功能：
 
-- 配置 PWM 输出频率
-- 配置 PWM 每个管脚的输出占空比
+- 配置 PWM Output频率
+- 配置 PWM 每个管脚的Output占空比
 
 ## API
 
@@ -39,7 +39,7 @@ void pwm_init(pwm_device_number_t pwm_number)
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| pwm_number | pwm号 | 输入 |
+| pwm_number | pwm号 | Input |
 
 #### Return value
 
@@ -61,14 +61,14 @@ double pwm_set_frequency(pwm_device_number_t pwm_number, pwm_channel_number_t ch
 
 | Parameter name     | Description                             |  Input or output  |
 | :---------- | :------------------------------- | :-------- |
-| pwm_number  | PWM号                            | 输入       |
-| channel     | PWM通道号                        | 输入       |
-| frequency   | PWM输出频率                       | 输入       |
-| duty        | 占空比                            | 输入      |
+| pwm_number  | PWM号                            | Input       |
+| channel     | PWM通道号                        | Input       |
+| frequency   | PWMOutput频率                       | Input       |
+| duty        | 占空比                            | Input      |
 
 #### Return value
 
-实际输出频率。
+实际Output频率。
 
 ### pwm_set_enable
 
@@ -86,9 +86,9 @@ void pwm_set_enable(pwm_device_number_t pwm_number, uint32_t channel, int enable
 
 | Parameter name     |   Description                          |  Input or output  |
 | :---------- | :------------------------------ | :-------- |
-| pwm_number  | PWM号                           | 输入       |
-| channel     | PWM通道号                        | 输入      |
-| enable      | 使能禁用PWM<br>0：禁用  1：使能   | 输入      |
+| pwm_number  | PWM号                           | Input       |
+| channel     | PWM通道号                        | Input      |
+| enable      | 使能禁用PWM<br>0：禁用  1：使能   | Input      |
 
 #### Return value
 
@@ -97,8 +97,8 @@ None.
 ### Example
 
 ```c
-/* pwm0 channel 1 输出 200KHZ占空比为0.5的方波 */
-/* 设置IO13作为PWM的输出管脚 */
+/* pwm0 channel 1 Output 200KHZ占空比为0.5的方波 */
+/* 设置IO13作为PWM的Output管脚 */
 fpioa_set_function(13, FUNC_TIMER0_TOGGLE1);
 pwm_init(PWM_DEVICE_0);
 pwm_set_frequency(PWM_DEVICE_0, PWM_CHANNEL_1, 200000, 0.5);

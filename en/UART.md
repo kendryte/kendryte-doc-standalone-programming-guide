@@ -56,7 +56,7 @@ void uart_init(uart_device_number_t channel)
 
 | Parameter name     | Description       | Input or output   |
 | :-----------| :----------| :-------- |
-| channel     | UART号     | 输入       |
+| channel     | UART号     | Input       |
 
 #### Return value
 
@@ -84,11 +84,11 @@ void uart_configure(uart_device_number_t channel, uint32_t baud_rate, uart_bitwi
 
 | Parameter name    |   Description       |  Input or output  |
 | ---------- | ------------ | --------- |
-| channel    | UART 编号     | 输入      |
-| baud\_rate | 波特率        | 输入      |
-| data_width | 数据位 (5-8)  | 输入      |
-| stopbit   | 停止位        | 输入      |
-| parity     | 校验位        | 输入      |
+| channel    | UART 编号     | Input      |
+| baud\_rate | 波特率        | Input      |
+| data_width | 数据位 (5-8)  | Input      |
+| stopbit   | 停止位        | Input      |
+| parity     | 校验位        | Input      |
 
 #### Return value
 
@@ -110,9 +110,9 @@ int uart_send_data(uart_device_number_t channel, const char *buffer, size_t buf_
 
 | Parameter name    |   Description           |  Input or output  |
 | ---------- | ---------------  | --------- |
-| channel    | UART 编号        | 输入       |
-| buffer     | 待发送数据        | 输入      |
-| buf\_len    | 待发送数据的长度  | 输入       |
+| channel    | UART 编号        | Input       |
+| buffer     | 待发送数据        | Input      |
+| buf\_len    | 待发送数据的长度  | Input       |
 
 #### Return value
 
@@ -134,10 +134,10 @@ void uart_send_data_dma(uart_device_number_t uart_channel, dmac_channel_number_t
 
 | Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
-| uart\_channel    | UART 编号        | 输入       |
-| dmac\_channel    | DMA通道          | 输入       |
-| buffer           | 待发送数据        | 输入       |
-| buf\_len         | 待发送数据的长度  | 输入       |
+| uart\_channel    | UART 编号        | Input       |
+| dmac\_channel    | DMA通道          | Input       |
+| buffer           | 待发送数据        | Input       |
+| buf\_len         | 待发送数据的长度  | Input       |
 
 #### Return value
 
@@ -161,13 +161,13 @@ void uart_send_data_dma_irq(uart_device_number_t uart_channel, dmac_channel_numb
 
 | Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
-| uart\_channel    | UART 编号        | 输入       |
-| dmac\_channel    | DMA通道          | 输入       |
-| buffer           | 待发送数据        | 输入       |
-| buf\_len         | 待发送数据的长度  | 输入       |
-| uart\_callback   | DMA中断回调      | 输入       |
-| ctx              | 中断函数参数      | 输入       |
-| priority         | 中断优先级        | 输入       |
+| uart\_channel    | UART 编号        | Input       |
+| dmac\_channel    | DMA通道          | Input       |
+| buffer           | 待发送数据        | Input       |
+| buf\_len         | 待发送数据的长度  | Input       |
+| uart\_callback   | DMA中断回调      | Input       |
+| ctx              | 中断函数参数      | Input       |
+| priority         | 中断优先级        | Input       |
 
 #### Return value
 
@@ -189,9 +189,9 @@ int uart_receive_data(uart_device_number_t channel, char *buffer, size_t buf_len
 
 | Parameter name    |   Description           |  Input or output  |
 | ---------- | ---------------  | --------- |
-| channel    | UART 编号        | 输入       |
-| buffer     | 接收数据         | 输出       |
-| buf\_len    | 接收数据的长度    | 输入       |
+| channel    | UART 编号        | Input       |
+| buffer     | 接收数据         | Output       |
+| buf\_len    | 接收数据的长度    | Input       |
 
 #### Return value
 
@@ -213,10 +213,10 @@ void uart_receive_data_dma(uart_device_number_t uart_channel, dmac_channel_numbe
 
 | Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
-| uart\_channel    | UART 编号        | 输入       |
-| dmac\_channel    | DMA通道          | 输入       |
-| buffer           | 接收数据         | 输出       |
-| buf\_len         | 接收数据的长度    | 输入       |
+| uart\_channel    | UART 编号        | Input       |
+| dmac\_channel    | DMA通道          | Input       |
+| buffer           | 接收数据         | Output       |
+| buf\_len         | 接收数据的长度    | Input       |
 
 #### Return value
 
@@ -240,13 +240,13 @@ void uart_receive_data_dma_irq(uart_device_number_t uart_channel, dmac_channel_n
 
 | Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
-| uart\_channel    | UART 编号        | 输入       |
-| dmac\_channel    | DMA通道          | 输入       |
-| buffer           | 接收数据         | 输出       |
-| buf\_len         | 接收数据的长度    | 输入       |
-| uart\_callback   | DMA中断回调      | 输入       |
-| ctx              | 中断函数参数      | 输入       |
-| priority         | 中断优先级        | 输入       |
+| uart\_channel    | UART 编号        | Input       |
+| dmac\_channel    | DMA通道          | Input       |
+| buffer           | 接收数据         | Output       |
+| buf\_len         | 接收数据的长度    | Input       |
+| uart\_callback   | DMA中断回调      | Input       |
+| ctx              | 中断函数参数      | Input       |
+| priority         | 中断优先级        | Input       |
 
 #### Return value
 
@@ -268,11 +268,11 @@ void uart_irq_register(uart_device_number_t channel, uart_interrupt_mode_t inter
 
 | Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
-| channel          | UART 编号        | 输入       |
-| interrupt\_mode  | 中断类型          | 输入       |
-| uart\_callback   | 中断回调          | 输入       |
-| ctx              | 中断函数参数      | 输入       |
-| priority         | 中断优先级        | 输入       |
+| channel          | UART 编号        | Input       |
+| interrupt\_mode  | 中断类型          | Input       |
+| uart\_callback   | 中断回调          | Input       |
+| ctx              | 中断函数参数      | Input       |
+| priority         | 中断优先级        | Input       |
 
 #### Return value
 
@@ -294,8 +294,8 @@ void uart_irq_deregister(uart_device_number_t channel, uart_interrupt_mode_t int
 
 | Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
-| channel          | UART 编号        | 输入       |
-| interrupt\_mode  | 中断类型          | 输入       |
+| channel          | UART 编号        | Input       |
+| interrupt\_mode  | 中断类型          | Input       |
 
 #### Return value
 

@@ -62,11 +62,11 @@ void spi_init(spi_device_num_t spi_num, spi_work_mode_t work_mode, spi_frame_for
 
 | Parameter name            |   Description             |  Input or output  |
 | :----------------- | :----------------- | :-------- |
-| spi\_num           | SPI号              | 输入       |
-| work\_mode         | 极性相位的四种模式   | 输入      |
-| frame\_format      | 多线模式            | 输入      |
-| data\_bit\_length  | 单次传输的数据的位宽 | 输入      |
-| endian             | 大小端<br>0：小端<br>1：大端 | 输入 |
+| spi\_num           | SPI号              | Input       |
+| work\_mode         | 极性相位的四种模式   | Input      |
+| frame\_format      | 多线模式            | Input      |
+| data\_bit\_length  | 单次传输的数据的位宽 | Input      |
+| endian             | 大小端<br>0：小端<br>1：大端 | Input |
 
 #### Return value
 
@@ -88,11 +88,11 @@ void spi_init_non_standard(spi_device_num_t spi_num, uint32_t instruction_length
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| spi\_num | SPI号 | 输入 |
-| instruction\_length | 发送指令的位数 | 输入 |
-| address\_length | 发送地址的位数 | 输入 |
-| wait\_cycles | 等待时钟个数 | 输入 |
-| instruction\_address\_trans\_mode | 指令地址传输的方式 | 输入 |
+| spi\_num | SPI号 | Input |
+| instruction\_length | 发送指令的位数 | Input |
+| address\_length | 发送地址的位数 | Input |
+| wait\_cycles | 等待时钟个数 | Input |
+| instruction\_address\_trans\_mode | 指令地址传输的方式 | Input |
 
 #### Return value
 
@@ -114,12 +114,12 @@ void spi_send_data_standard(spi_device_num_t spi_num, spi_chip_select_t chip_sel
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| tx\_buff | 发送的数据 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
+| spi\_num | SPI号 | Input |
+| chip\_select | 片选信号 | Input |
+| cmd\_buff | 外设指令地址数据，没有则设为NULL | Input |
+| cmd\_len | 外设指令地址数据长度，没有则设为0 | Input |
+| tx\_buff | 发送的数据 | Input |
+| tx\_len | 发送数据的长度 | Input |
 
 #### Return value
 
@@ -141,13 +141,13 @@ void spi_send_data_standard_dma(dmac_channel_number_t channel_num, spi_device_nu
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| channel\_num | DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| tx\_buff | 发送的数据 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
+| channel\_num | DMA通道号 | Input |
+| spi\_num | SPI号 | Input |
+| chip\_select | 片选信号 | Input |
+| cmd\_buff | 外设指令地址数据，没有则设为NULL | Input |
+| cmd\_len | 外设指令地址数据长度，没有则设为0 | Input |
+| tx\_buff | 发送的数据 | Input |
+| tx\_len | 发送数据的长度 | Input |
 
 #### Return value
 
@@ -169,12 +169,12 @@ void spi_receive_data_standard(spi_device_num_t spi_num, spi_chip_select_t chip_
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| rx\_buff | 接收的数据 | 输出 |
-| rx\_len | 接收数据的长度 | 输入 |
+| spi\_num | SPI号 | Input |
+| chip\_select | 片选信号 | Input |
+| cmd\_buff | 外设指令地址数据，没有则设为NULL | Input |
+| cmd\_len | 外设指令地址数据长度，没有则设为0 | Input |
+| rx\_buff | 接收的数据 | Output |
+| rx\_len | 接收数据的长度 | Input |
 
 #### Return value
 
@@ -196,14 +196,14 @@ void spi_receive_data_standard_dma(dmac_channel_number_t dma_send_channel_num, d
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| dma\_send\_channel\_num | 发送指令地址使用的DMA通道号 | 输入 |
-| dma\_receive\_channel\_num | 接收数据使用的DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| rx\_buff | 接收的数据 | 输出 |
-| rx\_len | 接收数据的长度 | 输入 |
+| dma\_send\_channel\_num | 发送指令地址使用的DMA通道号 | Input |
+| dma\_receive\_channel\_num | 接收数据使用的DMA通道号 | Input |
+| spi\_num | SPI号 | Input |
+| chip\_select | 片选信号 | Input |
+| cmd\_buff | 外设指令地址数据，没有则设为NULL | Input |
+| cmd\_len | 外设指令地址数据长度，没有则设为0 | Input |
+| rx\_buff | 接收的数据 | Output |
+| rx\_len | 接收数据的长度 | Input |
 
 #### Return value
 
@@ -225,12 +225,12 @@ void spi_send_data_multiple(spi_device_num_t spi_num, spi_chip_select_t chip_sel
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| tx\_buff | 发送的数据 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
+| spi\_num | SPI号 | Input |
+| chip\_select | 片选信号 | Input |
+| cmd\_buff | 外设指令地址数据，没有则设为NULL | Input |
+| cmd\_len | 外设指令地址数据长度，没有则设为0 | Input |
+| tx\_buff | 发送的数据 | Input |
+| tx\_len | 发送数据的长度 | Input |
 
 #### Return value
 
@@ -252,13 +252,13 @@ void spi_send_data_multiple_dma(dmac_channel_number_t channel_num,spi_device_num
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| channel\_num | DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| tx\_buff | 发送的数据 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
+| channel\_num | DMA通道号 | Input |
+| spi\_num | SPI号 | Input |
+| chip\_select | 片选信号 | Input |
+| cmd\_buff | 外设指令地址数据，没有则设为NULL | Input |
+| cmd\_len | 外设指令地址数据长度，没有则设为0 | Input |
+| tx\_buff | 发送的数据 | Input |
+| tx\_len | 发送数据的长度 | Input |
 
 #### Return value
 
@@ -280,12 +280,12 @@ void spi_receive_data_multiple(spi_device_num_t spi_num, spi_chip_select_t chip_
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| rx\_buff | 接收的数据 | 输出 |
-| rx\_len | 接收数据的长度 | 输入 |
+| spi\_num | SPI号 | Input |
+| chip\_select | 片选信号 | Input |
+| cmd\_buff | 外设指令地址数据，没有则设为NULL | Input |
+| cmd\_len | 外设指令地址数据长度，没有则设为0 | Input |
+| rx\_buff | 接收的数据 | Output |
+| rx\_len | 接收数据的长度 | Input |
 
 #### Return value
 
@@ -307,14 +307,14 @@ void spi_receive_data_multiple_dma(dmac_channel_number_t dma_send_channel_num, d
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| dma\_send\_channel\_num | 发送指令地址使用的DMA通道号 | 输入 |
-| dma\_receive\_channel\_num | 接收数据使用的DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| rx\_buff | 接收的数据 | 输出 |
-| rx\_len | 接收数据的长度 | 输入 |
+| dma\_send\_channel\_num | 发送指令地址使用的DMA通道号 | Input |
+| dma\_receive\_channel\_num | 接收数据使用的DMA通道号 | Input |
+| spi\_num | SPI号 | Input |
+| chip\_select | 片选信号 | Input |
+| cmd\_buff | 外设指令地址数据，没有则设为NULL | Input |
+| cmd\_len | 外设指令地址数据长度，没有则设为0 | Input |
+| rx\_buff | 接收的数据 | Output |
+| rx\_len | 接收数据的长度 | Input |
 
 #### Return value
 
@@ -336,11 +336,11 @@ void spi_fill_data_dma(dmac_channel_number_t channel_num,spi_device_num_t spi_nu
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| channel\_num | DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| tx\_buff | 发送的数据,仅发送tx_buff这一个数据，不会自动增加 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
+| channel\_num | DMA通道号 | Input |
+| spi\_num | SPI号 | Input |
+| chip\_select | 片选信号 | Input |
+| tx\_buff | 发送的数据,仅发送tx_buff这一个数据，不会自动增加 | Input |
+| tx\_len | 发送数据的长度 | Input |
 
 #### Return value
 
@@ -362,12 +362,12 @@ void spi_send_data_normal_dma(dmac_channel_number_t channel_num, spi_device_num_
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| channel\_num | DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| tx\_buff | 发送的数据,仅发送tx_buff这一个数据，不会自动增加 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
-| spi\_transfer\_width | 发送数据的位宽 | 输入 |
+| channel\_num | DMA通道号 | Input |
+| spi\_num | SPI号 | Input |
+| chip\_select | 片选信号 | Input |
+| tx\_buff | 发送的数据,仅发送tx_buff这一个数据，不会自动增加 | Input |
+| tx\_len | 发送数据的长度 | Input |
+| spi\_transfer\_width | 发送数据的位宽 | Input |
 
 #### Return value
 
@@ -430,8 +430,8 @@ uint32_t spi_set_clk_rate(spi_device_num_t spi_num, uint32_t spi_clk)
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| spi\_num| SPI号 | 输入 |
-| spi\_clk | 目标SPI设备的时钟频率 | 输入 |
+| spi\_num| SPI号 | Input |
+| spi\_clk | 目标SPI设备的时钟频率 | Input |
 
 #### Return value
 

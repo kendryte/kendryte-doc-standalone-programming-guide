@@ -69,8 +69,8 @@ void uarths_config(uint32_t baud_rate, uarths_stopbit_t stopbit)
 
 | Parameter name    |   Description       |  Input or output  |
 | ---------- | ------------ | --------- |
-| baud\_rate | 波特率        | 输入      |
-| stopbit    | 停止位        | 输入      |
+| baud\_rate | 波特率        | Input      |
+| stopbit    | 停止位        | Input      |
 
 #### Return value
 
@@ -92,8 +92,8 @@ size_t uarths_receive_data(uint8_t *buf, size_t buf_len)
 
 | Parameter name    |   Description           |  Input or output  |
 | ---------- | ---------------  | --------- |
-| buf        | 接收数据         | 输出       |
-| buf\_len   | 接收数据的长度    | 输入       |
+| buf        | 接收数据         | Output       |
+| buf\_len   | 接收数据的长度    | Input       |
 
 #### Return value
 
@@ -115,8 +115,8 @@ size_t uarths_send_data(const uint8_t *buf, size_t buf_len)
 
 | Parameter name    |   Description           |  Input or output  |
 | ---------- | ---------------  | --------- |
-| buf        | 待发送数据        | 输入      |
-| buf\_len   | 待发送数据的长度  | 输入       |
+| buf        | 待发送数据        | Input      |
+| buf\_len   | 待发送数据的长度  | Input       |
 
 #### Return value
 
@@ -138,10 +138,10 @@ void uarths_set_irq(uarths_interrupt_mode_t interrupt_mode, plic_irq_callback_t 
 
 | Parameter name                       |   Description           |  Input or output  |
 | ----------------------------- | ---------------  | --------- |
-| interrupt\_mode               | 中断类型          | 输入       |
-| uarths\_callback              | 中断回调函数      | 输入      |
-| ctx                           | 回调函数的参数    | 输入       |
-| priority                      | 中断优先级        | 输入       |
+| interrupt\_mode               | 中断类型          | Input       |
+| uarths\_callback              | 中断回调函数      | Input      |
+| ctx                           | 回调函数的参数    | Input       |
+| priority                      | 中断优先级        | Input       |
 
 #### Return value
 
@@ -184,8 +184,8 @@ void uarths_set_interrupt_cnt(uarths_interrupt_mode_t interrupt_mode, uint8_t cn
 
 | Parameter name                       |   Description           |  Input or output  |
 | ----------------------------- | ---------------  | --------- |
-| interrupt\_mode               | 中断类型         | 输入       |
-| cnt                           | FIFO深度         | 输入      |
+| interrupt\_mode               | 中断类型         | Input       |
+| cnt                           | FIFO深度         | Input      |
 
 #### Return value
 

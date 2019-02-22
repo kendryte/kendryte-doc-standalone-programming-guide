@@ -65,7 +65,7 @@ void dvp_init(uint8_t reg_len)
 
 | Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
-| reg\_len                         | sccb寄存器长度          | 输入      |
+| reg\_len                         | sccb寄存器长度          | Input      |
 
 #### Return value
 
@@ -75,7 +75,7 @@ void dvp_init(uint8_t reg_len)
 
 #### Description
 
-设置输出模式使能或禁用。
+设置Output模式使能或禁用。
 
 #### Function prototype
 
@@ -87,8 +87,8 @@ void dvp_set_output_enable(dvp_output_mode_t index, int enable)
 
 | Parameter name         |   Description                 |  Input or output  |
 | --------------- | ---------------------- | --------- |
-| index           | 图像输出至内存或AI      | 输入      |
-| enable          | 0：禁用 1：使能         | 输入      |
+| index           | 图像Output至内存或AI      | Input      |
+| enable          | 0：禁用 1：使能         | Input      |
 
 #### Return value
 
@@ -110,7 +110,7 @@ void dvp_set_image_format(uint32_t format)
 
 | Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
-| format      | 图像模式<br>DVP\_CFG\_RGB\_FORMAT RGB模式<br>DVP\_CFG\_YUV\_FORMAT YUV模式| 输入      |
+| format      | 图像模式<br>DVP\_CFG\_RGB\_FORMAT RGB模式<br>DVP\_CFG\_YUV\_FORMAT YUV模式| Input      |
 
 #### Return value
 
@@ -132,8 +132,8 @@ void dvp_set_image_size(uint32_t width, uint32_t height)
 
 | Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
-| width       | 图像宽度                | 输入      |
-| height      | 图像高度                | 输入      |
+| width       | 图像宽度                | Input      |
+| height      | 图像高度                | Input      |
 
 #### Return value
 
@@ -155,9 +155,9 @@ void dvp_set_ai_addr(uint32_t r_addr, uint32_t g_addr, uint32_t b_addr)
 
 | Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
-| r\_addr      | 红色分量地址            | 输入      |
-| g\_addr      | 绿色分量地址            | 输入      |
-| b\_addr      | 蓝色分量地址            | 输入      |
+| r\_addr      | 红色分量地址            | Input      |
+| g\_addr      | 绿色分量地址            | Input      |
+| b\_addr      | 蓝色分量地址            | Input      |
 
 #### Return value
 
@@ -179,7 +179,7 @@ void dvp_set_display_addr(uint32_t addr)
 
 | Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
-| addr        | 存放图像的内存地址       | 输入      |
+| addr        | 存放图像的内存地址       | Input      |
 
 #### Return value
 
@@ -203,8 +203,8 @@ void dvp_config_interrupt(uint32_t interrupt, uint8_t enable)
 
 | Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
-| interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | 输入      |
-| enable      | 0：禁止 1：使能         | 输入      |
+| interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | Input      |
+| enable      | 0：禁止 1：使能         | Input      |
 
 #### Return value
 
@@ -214,7 +214,7 @@ None.
 
 #### Description
 
-判断是否是输入的中断类型。
+判断是否是Input的中断类型。
 
 #### Function prototype
 
@@ -226,7 +226,7 @@ int dvp_get_interrupt(uint32_t interrupt)
 
 | Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
-| interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | 输入      |
+| interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | Input      |
 
 #### Return value
 
@@ -251,7 +251,7 @@ void dvp_clear_interrupt(uint32_t interrupt)
 
 | Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
-| interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | 输入      |
+| interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | Input      |
 
 #### Return value
 
@@ -373,9 +373,9 @@ void dvp_sccb_send_data(uint8_t dev_addr, uint16_t reg_addr, uint8_t reg_data)
 
 | Parameter name         |   Description                     |  Input or output  |
 | --------------- | -------------------------- | --------- |
-| dev\_addr        | 外设图像传感器SCCB地址       | 输入      |
-| reg\_addr        | 外设图像传感器寄存器         | 输入      |
-| reg\_data        | 发送的数据                  | 输入      |
+| dev\_addr        | 外设图像传感器SCCB地址       | Input      |
+| reg\_addr        | 外设图像传感器寄存器         | Input      |
+| reg\_data        | 发送的数据                  | Input      |
 
 #### Return value
 
@@ -397,8 +397,8 @@ uint8_t dvp_sccb_receive_data(uint8_t dev_addr, uint16_t reg_addr)
 
 | Parameter name         |   Description                     |  Input or output  |
 | --------------- | -------------------------- | --------- |
-| dev\_addr        | 外设图像传感器SCCB地址       | 输入      |
-| reg\_addr        | 外设图像传感器寄存器         | 输入      |
+| dev\_addr        | 外设图像传感器SCCB地址       | Input      |
+| reg\_addr        | 外设图像传感器寄存器         | Input      |
 
 #### Return value
 
@@ -449,13 +449,13 @@ dvp_sccb_receive_data(0x60, 0x1D)
 
 相关数据类型、数据结构定义如下：
 
-- dvp\_output\_mode\_t：DVP输出图像的模式。
+- dvp\_output\_mode\_t：DVPOutput图像的模式。
 
 ### dvp\_output\_mode\_t
 
 #### Description
 
-DVP输入图像的模式。
+DVPInput图像的模式。
 
 #### Type definition
 
@@ -471,5 +471,5 @@ typedef enum _dvp_output_mode
 
 | 成员名称                | Description              |
 | ---------------------- | ----------------- |
-| DVP\_OUTPUT\_AI        | AI输出             |
-| DVP\_OUTPUT\_DISPLAY   | 向内存输出用于显示  |
+| DVP\_OUTPUT\_AI        | AIOutput             |
+| DVP\_OUTPUT\_DISPLAY   | 向内存Output用于显示  |

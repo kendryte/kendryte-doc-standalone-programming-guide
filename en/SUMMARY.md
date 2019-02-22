@@ -17,13 +17,13 @@
   - [API](INTERRUPT.md#api)
   - [Data type](INTERRUPT.md#data-type)
 
-- [通用输入/输出 (GPIO)](GPIO.md)
+- [通用Input/Output (GPIO)](GPIO.md)
   - [Summary](GPIO.md#summary)
   - [Features](GPIO.md#features)
   - [API](GPIO.md#api)
   - [Data type](GPIO.md#data-type)
 
-- [高速通用输入/输出 (GPIOHS)](GPIOHS.md)
+- [高速通用Input/Output (GPIOHS)](GPIOHS.md)
   - [Summary](GPIOHS.md#summary)
   - [Features](GPIOHS.md#features)
   - [API](GPIOHS.md#api)

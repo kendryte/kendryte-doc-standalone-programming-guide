@@ -1,4 +1,4 @@
-# 通用高速输入/输出 (GPIOHS)
+# 通用高速输入/Output (GPIOHS)
 
 ## Summary
 
@@ -43,8 +43,8 @@ void gpiohs_set_drive_mode(uint8_t pin, gpio_drive_mode_t mode)
 
 | Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入      |
-| mode          | GPIO驱动模式    | 输入      |
+| pin           | GPIO管脚       | Input      |
+| mode          | GPIO驱动模式    | Input      |
 
 #### Return value
 
@@ -66,8 +66,8 @@ void gpiohs_set_pin(uint8_t pin, gpio_pin_value_t value)
 
 | Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入      |
-| value         | GPIO值         | 输入      |
+| pin           | GPIO管脚       | Input      |
+| value         | GPIO值         | Input      |
 
 #### Return value
 
@@ -89,7 +89,7 @@ gpio_pin_value_t gpiohs_get_pin(uint8_t pin)
 
 | Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入       |
+| pin           | GPIO管脚       | Input       |
 
 #### Return value
 
@@ -111,8 +111,8 @@ void gpiohs_set_pin_edge(uint8_t pin, gpio_pin_edge_t edge)
 
 | Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入       |
-| edge          | 中断触发方式    | 输入      |
+| pin           | GPIO管脚       | Input       |
+| edge          | 中断触发方式    | Input      |
 
 #### Return value
 
@@ -134,9 +134,9 @@ void gpiohs_set_irq(uint8_t pin, uint32_t priority, void(*func)());
 
 | Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入       |
-| priority      | 中断优先级      | 输入      |
-| func          | 中断回调函数    | 输入       |
+| pin           | GPIO管脚       | Input       |
+| priority      | 中断优先级      | Input      |
+| func          | 中断回调函数    | Input       |
 
 #### Return value
 
@@ -149,11 +149,11 @@ void irq_gpiohs2(void)
 {
     printf("Hello world\n");
 }
-/* 设置IO13为高速GPIO，输出模式并置为高 */
+/* 设置IO13为高速GPIO，Output模式并置为高 */
 fpioa_set_function(13, FUNC_GPIOHS3);
 gpiohs_set_drive_mode(3, GPIO_DM_OUTPUT);
 gpiohs_set_pin(3, GPIO_PV_High);
-/* 设置IO14为高速GPIO 输入模式 双沿触发中断时打印Hello world */
+/* 设置IO14为高速GPIO Input模式 双沿触发中断时打印Hello world */
 plic_init();
 fpioa_set_function(14, FUNC_GPIOHS2);
 gpiohs_set_drive_mode(2, GPIO_DM_INPUT);
@@ -194,10 +194,10 @@ typedef enum _gpio_drive_mode
 
 | 成员名称                     | Description        |
 | --------------------------- | ----------- |
-| GPIO\_DM\_INPUT             | 输入        |
-| GPIO\_DM\_INPUT\_PULL\_DOWN | 输入下拉     |
-| GPIO\_DM\_INPUT\_PULL\_UP   | 输入上拉     |
-| GPIO\_DM\_OUTPUT            | 输出        |
+| GPIO\_DM\_INPUT             | Input        |
+| GPIO\_DM\_INPUT\_PULL\_DOWN | Input下拉     |
+| GPIO\_DM\_INPUT\_PULL\_UP   | Input上拉     |
+| GPIO\_DM\_OUTPUT            | Output        |
 
 ### gpio\_pin\_value\_t
 

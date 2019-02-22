@@ -32,13 +32,13 @@ void fft_complex_uint16_dma(dmac_channel_number_t dma_send_channel_num, dmac_cha
 
 | Parameter name                                  |   Description                     |  Input or output  |
 | :--------------------------------------- | :------------------------- | :-------- |
-| dma\_send\_channel\_num                  | 发送数据使用的DMA通道号      | 输入       |
-| dma\_receive\_channel\_num               | 接收数据使用的DMA通道号      | 输入       |
-| shift    | FFT模块16位寄存器导致数据溢出(-32768~32767)，FFT变换有9层，shift决定哪一层需要移位操作(如0x1ff表示9层都做移位操作；0x03表示第第一层与第二层做移位操作)，防止溢出。如果移位了，则变换后的幅值不是正常FFT变换的幅值，对应关系可以参考fft_test测试demo程序。包含了求解频率点、相位、幅值的示例| 输入 |
-| direction                                | FFT正变换或是逆变换          | 输入       |
-| input                                    | 输入的数据序列，格式为RIRI..,实部与虚部的精度都为16bit| 输入|
-| point\_num                               | 待运算的数据点数，只能为512/256/128/64 | 输入 |
-| output                                   | 运算后结果。格式为RIRI..,实部与虚部的精度都为16bit | 输出 |
+| dma\_send\_channel\_num                  | 发送数据使用的DMA通道号      | Input       |
+| dma\_receive\_channel\_num               | 接收数据使用的DMA通道号      | Input       |
+| shift    | FFT模块16位寄存器导致数据溢出(-32768~32767)，FFT变换有9层，shift决定哪一层需要移位操作(如0x1ff表示9层都做移位操作；0x03表示第第一层与第二层做移位操作)，防止溢出。如果移位了，则变换后的幅值不是正常FFT变换的幅值，对应关系可以参考fft_test测试demo程序。包含了求解频率点、相位、幅值的示例| Input |
+| direction                                | FFT正变换或是逆变换          | Input       |
+| input                                    | Input的数据序列，格式为RIRI..,实部与虚部的精度都为16bit| Input|
+| point\_num                               | 待运算的数据点数，只能为512/256/128/64 | Input |
+| output                                   | 运算后结果。格式为RIRI..,实部与虚部的精度都为16bit | Output |
 
 #### Return value
 

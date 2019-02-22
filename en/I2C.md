@@ -45,10 +45,10 @@ void i2c_init(i2c_device_number_t i2c_num, uint32_t slave_address, uint32_t addr
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| i2c\_num | I²C号 | 输入 |
-| slave\_address | I²C 器件从地址 | 输入|
-| address\_width | I²C 器件寄存器宽度(7或10) | 输入
-| i2c\_clk | I²C 速率 (Hz) | 输入 |
+| i2c\_num | I²C号 | Input |
+| slave\_address | I²C 器件从地址 | Input|
+| address\_width | I²C 器件寄存器宽度(7或10) | Input
+| i2c\_clk | I²C 速率 (Hz) | Input |
 
 #### Return value
 
@@ -70,10 +70,10 @@ void i2c_init_as_slave(i2c_device_number_t i2c_num, uint32_t slave_address, uint
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
-| i2c\_num | I²C号 | 输入 |
-| slave\_address | I²C 从模式的地址 | 输入|
-| address\_width | I²C 器件寄存器宽度(7或10) | 输入
-| handler | I²C 从模式的中断处理函数 | 输入 |
+| i2c\_num | I²C号 | Input |
+| slave\_address | I²C 从模式的地址 | Input|
+| address\_width | I²C 器件寄存器宽度(7或10) | Input
+| handler | I²C 从模式的中断处理函数 | Input |
 
 #### Return value
 
@@ -95,9 +95,9 @@ int i2c_send_data(i2c_device_number_t i2c_num, const uint8_t *send_buf, size_t s
 
 | Parameter name     |   Description     |  Input or output  |
 | :--------:   | :-----     | :----:     |
-| i2c\_num | I²C号 | 输入 |
-| send\_buf | 待传输数据 | 输入 |
-| send\_buf\_len | 待传输数据长度 | 输入 |
+| i2c\_num | I²C号 | Input |
+| send\_buf | 待传输数据 | Input |
+| send\_buf\_len | 待传输数据长度 | Input |
 
 #### Return value
 
@@ -122,10 +122,10 @@ void i2c_send_data_dma(dmac_channel_number_t dma_channel_num, i2c_device_number_
 
 | Parameter name         |   Description         |  Input or output  |
 | :-------------- | :------------- | :-------- |
-| dma\_channel\_num | 使用的dma通道号 | 输入       |
-| i2c\_num        | I²C号          | 输入       |
-| send\_buf       | 待传输数据      | 输入       |
-| send\_buf\_len  | 待传输数据长度  | 输入       |
+| dma\_channel\_num | 使用的dma通道号 | Input       |
+| i2c\_num        | I²C号          | Input       |
+| send\_buf       | 待传输数据      | Input       |
+| send\_buf\_len  | 待传输数据长度  | Input       |
 
 #### Return value
 
@@ -147,11 +147,11 @@ int i2c_recv_data(i2c_device_number_t i2c_num, const uint8_t *send_buf, size_t s
 
 | Parameter name               |   Description       |  Input or output  |
 | :-------------------- | :----------- | :-------- |
-| i2c\_num              | I²C 总线号    | 输入      |
-| send\_buf             | 待传输数据，一般情况是i2c外设的寄存器，如果没有设置为NULL | 输入 |
-| send\_buf\_len        | 待传输数据长度，如果没有则写0 | 输入 |
-| receive\_buf          | 接收数据内存   | 输出      |
-| receive\_buf\_len     | 接收数据的长度 | 输入      |
+| i2c\_num              | I²C 总线号    | Input      |
+| send\_buf             | 待传输数据，一般情况是i2c外设的寄存器，如果没有设置为NULL | Input |
+| send\_buf\_len        | 待传输数据长度，如果没有则写0 | Input |
+| receive\_buf          | 接收数据内存   | Output      |
+| receive\_buf\_len     | 接收数据的长度 | Input      |
 
 #### Return value
 
@@ -177,13 +177,13 @@ void i2c_recv_data_dma(dmac_channel_number_t dma_send_channel_num, dmac_channel_
 
 | Parameter name                 |   Description              | Input or output  |
 | :---------------------- | :------------------ | :------- |
-| dma\_send\_channel\_num    | 发送数据使用的dma通道 | 输入     |
-| dma\_receive\_channel\_num | 接收数据使用的dma通道 | 输入     |
-| i2c\_num                | I²C 总线号           | 输入     |
-| send\_buf               | 待传输数据，一般情况是i2c外设的寄存器，如果没有设置为NULL | 输入 |
-| send\_buf\_len          | 待传输数据长度，如果没有则写0 | 输入 |
-| receive\_buf            | 接收数据内存         | 输出     |
-| receive\_buf\_len       | 接收数据的长度       | 输入      |
+| dma\_send\_channel\_num    | 发送数据使用的dma通道 | Input     |
+| dma\_receive\_channel\_num | 接收数据使用的dma通道 | Input     |
+| i2c\_num                | I²C 总线号           | Input     |
+| send\_buf               | 待传输数据，一般情况是i2c外设的寄存器，如果没有设置为NULL | Input |
+| send\_buf\_len          | 待传输数据长度，如果没有则写0 | Input |
+| receive\_buf            | 接收数据内存         | Output     |
+| receive\_buf\_len       | 接收数据的长度       | Input      |
 
 #### Return value
 

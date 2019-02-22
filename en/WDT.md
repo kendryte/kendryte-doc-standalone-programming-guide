@@ -42,9 +42,9 @@ void wdt_start(wdt_device_number_t id, uint64_t time_out_ms, plic_irq_callback_t
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | 输入       |
-| time\_out\_ms   | 超时时间（毫秒）   | 输入      |
-| on\_irq          | 中断回调函数     | 输入       |
+| id              | 看门狗编号        | Input       |
+| time\_out\_ms   | 超时时间（毫秒）   | Input      |
+| on\_irq          | 中断回调函数     | Input       |
 
 #### Return value
 
@@ -66,7 +66,7 @@ void wdt_stop(wdt_device_number_t id)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | 输入       |
+| id              | 看门狗编号        | Input       |
 
 #### Return value
 
@@ -88,7 +88,7 @@ void wdt_feed(wdt_device_number_t id)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | 输入       |
+| id              | 看门狗编号        | Input       |
 
 #### Return value
 
@@ -110,7 +110,7 @@ void wdt_clear_interrupt(wdt_device_number_t id)
 
 | Parameter name         |   Description           |  Input or output  |
 | --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | 输入       |
+| id              | 看门狗编号        | Input       |
 
 #### Return value
 

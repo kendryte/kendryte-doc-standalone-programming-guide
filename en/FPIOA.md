@@ -11,8 +11,8 @@ FPIOA（现场可编程IO阵列）允许用户将255个内部功能映射到芯�
 - 支持IO的内部上拉电阻选择
 - 支持IO的内部下拉电阻选择
 - 支持IO输入的内部施密特触发器设置
-- 支持IO输出的斜率控制
-- 支持内部输入逻辑的电平设置
+- 支持IOOutput的斜率控制
+- 支持内部Input逻辑的电平设置
 
 ## API
 
@@ -47,8 +47,8 @@ int fpioa_set_function(int number, fpioa_function_t function)
 
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
-| number              | IO管脚号        | 输入      |
-| function            | 管脚功能号      | 输入      |
+| number              | IO管脚号        | Input      |
+| function            | 管脚功能号      | Input      |
 
 #### Return value
 
@@ -73,7 +73,7 @@ int fpioa_get_io_by_function(fpioa_function_t function)
 
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
-| function            | 功能管脚编号    | 输入      |
+| function            | 功能管脚编号    | Input      |
 
 #### Return value
 
@@ -98,8 +98,8 @@ int fpioa_get_io(int number, fpioa_io_config_t *cfg)
 
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
-| number              | IO管脚号        | 输入      |
-| cfg                 | 管脚功能结构体   | 输出      |
+| number              | IO管脚号        | Input      |
+| cfg                 | 管脚功能结构体   | Output      |
 
 #### Return value
 
@@ -124,8 +124,8 @@ int fpioa_set_io(int number, fpioa_io_config_t *cfg)
 
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
-| number              | IO管脚号        | 输入      |
-| cfg                 | 管脚功能结构体   | 输入      |
+| number              | IO管脚号        | Input      |
+| cfg                 | 管脚功能结构体   | Input      |
 
 #### Return value
 
@@ -150,8 +150,8 @@ int fpioa_set_tie_enable(fpioa_function_t function, int enable)
 
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
-| function            | 管脚功能号      | 输入      |
-| enable              | TIE使能位 0：禁用 1：使能    | 输入      |
+| function            | 管脚功能号      | Input      |
+| enable              | TIE使能位 0：禁用 1：使能    | Input      |
 
 #### Return value
 
@@ -176,8 +176,8 @@ int fpioa_set_tie_value(fpioa_function_t function, int value)
 
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
-| function            | 管脚功能号      | 输入      |
-| value               | TIE值 0：下拉 1：上拉       | 输入      |
+| function            | 管脚功能号      | Input      |
+| value               | TIE值 0：下拉 1：上拉       | Input      |
 
 #### Return value
 
@@ -202,8 +202,8 @@ int fpioa_set_io_pull(int number, fpioa_pull_t pull)
 
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
-| number              | IO编号         | 输入      |
-| pull                | 上下拉值        | 输入      |
+| number              | IO编号         | Input      |
+| pull                | 上下拉值        | Input      |
 
 #### Return value
 
@@ -228,7 +228,7 @@ int fpioa_get_io_pull(int number)
 
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
-| number              | IO编号         | 输入      |
+| number              | IO编号         | Input      |
 
 #### Return value
 
@@ -254,8 +254,8 @@ int fpioa_set_io_driving(int number, fpioa_driving_t driving)
 
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
-| number              | IO编号         | 输入      |
-| driving             | 驱动能力        | 输入      |
+| number              | IO编号         | Input      |
+| driving             | 驱动能力        | Input      |
 
 #### Return value
 
@@ -280,7 +280,7 @@ int fpioa_get_io_driving(int number)
 
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
-| number              | IO编号         | 输入      |
+| number              | IO编号         | Input      |
 
 #### Return value
 
@@ -337,24 +337,24 @@ typedef struct _fpioa_io_config
 | :------------------ | :---------------------------- |
 |ch\_sel              |配置引脚功能序号                |
 |ds                   |选择驱动能力，参考驱动能力选择表  |
-|oe\_en               |1:输出使能 0:输出关闭           |
-|oe\_inv              |1:使能反转输出 0:禁止反转输出    |
-|do\_sel              |1:输出高电平 0:输出低电平        |
-|do\_inv              |反转输出电平                    |
+|oe\_en               |1:Output使能 0:Output关闭           |
+|oe\_inv              |1:使能反转Output 0:禁止反转Output    |
+|do\_sel              |1:Output高电平 0:Output低电平        |
+|do\_inv              |反转Output电平                    |
 |pu                   |1:上拉使能 0:上拉关闭           |
 |pd                   |1:下拉使能 0:下拉关闭           |
 |resv0                |保留位                          |
 |sl                   |电压转换速率控制使能             |
-|ie\_en               |1:输入使能 0:输入关闭            |
-|ie\_inv              |1:使能反转输入0:禁止反转输入      |
-|di\_inv              |反转输入数据                     |
+|ie\_en               |1:Input使能 0:Input关闭            |
+|ie\_inv              |1:使能反转Input0:禁止反转Input      |
+|di\_inv              |反转Input数据                     |
 |st                   |施密特触发                      |
 |resv1                |保留位                          |
-|pad\_di              |读取当前引脚的输入电平           |
+|pad\_di              |读取当前引脚的Input电平           |
 
 ### 驱动能力选择表
 
-#### 低电平输入电流
+#### 低电平Input电流
 
 |ds   |Min(mA)|Typ(mA)|Max(mA)|
 |-----|-------|-----|----|
@@ -367,7 +367,7 @@ typedef struct _fpioa_io_config
 |6    | 12.4| 20.9|  31.8|
 |7    | 13.9| 23.4|  35.5|
 
-#### 高电平输出电流
+#### 高电平Output电流
 
 |ds   |Min(mA)|Typ(mA)|Max(mA)|
 |-----|-------|-------|---|
@@ -717,9 +717,9 @@ typedef enum _fpioa_function
 | 成员名称             |      Description             |
 | :------------------ | :-------------------- |
 |FUNC\_JTAG\_TCLK     |JTAG时钟接口           |
-|FUNC\_JTAG\_TDI      |JTAG数据输入接口       |
+|FUNC\_JTAG\_TDI      |JTAG数据Input接口       |
 |FUNC\_JTAG\_TMS      |JTAG控制TAP状态机的转换 |
-|FUNC\_JTAG\_TDO      |JTAG数据输出接口       |
+|FUNC\_JTAG\_TDO      |JTAG数据Output接口       |
 |FUNC\_SPI0\_D0       |SPI0数据线0            |
 |FUNC\_SPI0\_D1       |SPI0数据线1            |
 |FUNC\_SPI0\_D2       |SPI0数据线2            |
@@ -806,36 +806,36 @@ typedef enum _fpioa_function
 |FUNC\_I2S0\_MCLK     |I2S0主时钟（系统时钟） |
 |FUNC\_I2S0\_SCLK     |I2S0串行时钟（位时钟） |
 |FUNC\_I2S0\_WS       |I2S0帧时钟             |
-|FUNC\_I2S0\_IN\_D0    |I2S0串行输入数据接口0  |
-|FUNC\_I2S0\_IN\_D1    |I2S0串行输入数据接口1  |
-|FUNC\_I2S0\_IN\_D2    |I2S0串行输入数据接口2  |
-|FUNC\_I2S0\_IN\_D3    |I2S0串行输入数据接口3  |
-|FUNC\_I2S0\_OUT\_D0   |I2S0串行输出数据接口0  |
-|FUNC\_I2S0\_OUT\_D1   |I2S0串行输出数据接口1  |
-|FUNC\_I2S0\_OUT\_D2   |I2S0串行输出数据接口2  |
-|FUNC\_I2S0\_OUT\_D3   |I2S0串行输出数据接口3  |
+|FUNC\_I2S0\_IN\_D0    |I2S0串行Input数据接口0  |
+|FUNC\_I2S0\_IN\_D1    |I2S0串行Input数据接口1  |
+|FUNC\_I2S0\_IN\_D2    |I2S0串行Input数据接口2  |
+|FUNC\_I2S0\_IN\_D3    |I2S0串行Input数据接口3  |
+|FUNC\_I2S0\_OUT\_D0   |I2S0串行Output数据接口0  |
+|FUNC\_I2S0\_OUT\_D1   |I2S0串行Output数据接口1  |
+|FUNC\_I2S0\_OUT\_D2   |I2S0串行Output数据接口2  |
+|FUNC\_I2S0\_OUT\_D3   |I2S0串行Output数据接口3  |
 |FUNC\_I2S1\_MCLK     |I2S1主时钟（系统时钟） |
 |FUNC\_I2S1\_SCLK     |I2S1串行时钟（位时钟） |
 |FUNC\_I2S1\_WS       |I2S1帧时钟             |
-|FUNC\_I2S1\_IN\_D0    |I2S1串行输入数据接口0  |
-|FUNC\_I2S1\_IN\_D1    |I2S1串行输入数据接口1  |
-|FUNC\_I2S1\_IN\_D2    |I2S1串行输入数据接口2  |
-|FUNC\_I2S1\_IN\_D3    |I2S1串行输入数据接口3  |
-|FUNC\_I2S1\_OUT\_D0   |I2S1串行输出数据接口0  |
-|FUNC\_I2S1\_OUT\_D1   |I2S1串行输出数据接口1  |
-|FUNC\_I2S1\_OUT\_D2   |I2S1串行输出数据接口2  |
-|FUNC\_I2S1\_OUT\_D3   |I2S1串行输出数据接口3  |
+|FUNC\_I2S1\_IN\_D0    |I2S1串行Input数据接口0  |
+|FUNC\_I2S1\_IN\_D1    |I2S1串行Input数据接口1  |
+|FUNC\_I2S1\_IN\_D2    |I2S1串行Input数据接口2  |
+|FUNC\_I2S1\_IN\_D3    |I2S1串行Input数据接口3  |
+|FUNC\_I2S1\_OUT\_D0   |I2S1串行Output数据接口0  |
+|FUNC\_I2S1\_OUT\_D1   |I2S1串行Output数据接口1  |
+|FUNC\_I2S1\_OUT\_D2   |I2S1串行Output数据接口2  |
+|FUNC\_I2S1\_OUT\_D3   |I2S1串行Output数据接口3  |
 |FUNC\_I2S2\_MCLK     |I2S2主时钟（系统时钟） |
 |FUNC\_I2S2\_SCLK     |I2S2串行时钟（位时钟） |
 |FUNC\_I2S2\_WS       |I2S2帧时钟             |
-|FUNC\_I2S2\_IN\_D0    |I2S2串行输入数据接口0  |
-|FUNC\_I2S2\_IN\_D1    |I2S2串行输入数据接口1  |
-|FUNC\_I2S2\_IN\_D2    |I2S2串行输入数据接口2  |
-|FUNC\_I2S2\_IN\_D3    |I2S2串行输入数据接口3  |
-|FUNC\_I2S2\_OUT\_D0   |I2S2串行输出数据接口0  |
-|FUNC\_I2S2\_OUT\_D1   |I2S2串行输出数据接口1  |
-|FUNC\_I2S2\_OUT\_D2   |I2S2串行输出数据接口2  |
-|FUNC\_I2S2\_OUT\_D3   |I2S2串行输出数据接口3  |
+|FUNC\_I2S2\_IN\_D0    |I2S2串行Input数据接口0  |
+|FUNC\_I2S2\_IN\_D1    |I2S2串行Input数据接口1  |
+|FUNC\_I2S2\_IN\_D2    |I2S2串行Input数据接口2  |
+|FUNC\_I2S2\_IN\_D3    |I2S2串行Input数据接口3  |
+|FUNC\_I2S2\_OUT\_D0   |I2S2串行Output数据接口0  |
+|FUNC\_I2S2\_OUT\_D1   |I2S2串行Output数据接口1  |
+|FUNC\_I2S2\_OUT\_D2   |I2S2串行Output数据接口2  |
+|FUNC\_I2S2\_OUT\_D3   |I2S2串行Output数据接口3  |
 |FUNC\_RESV0         |保留功能               |
 |FUNC\_RESV1         |保留功能               |
 |FUNC\_RESV2         |保留功能               |
@@ -868,12 +868,12 @@ typedef enum _fpioa_function
 |FUNC\_UART1\_DSR     |UART1数据设备准备信号  |
 |FUNC\_UART1\_DCD     |UART1数据载波检测      |
 |FUNC\_UART1\_RI      |UART1振铃指示          |
-|FUNC\_UART1\_SIR\_IN  |UART1串行红外输入信号  |
+|FUNC\_UART1\_SIR\_IN  |UART1串行红外Input信号  |
 |FUNC\_UART1\_DTR     |UART1数据终端准备信号  |
 |FUNC\_UART1\_RTS     |UART1发送请求信号      |
-|FUNC\_UART1\_OUT2    |UART1用户指定输出信号2 |
-|FUNC\_UART1\_OUT1    |UART1用户指定输出信号1 |
-|FUNC\_UART1\_SIR\_OUT |UART1串行红外输出信号  |
+|FUNC\_UART1\_OUT2    |UART1用户指定Output信号2 |
+|FUNC\_UART1\_OUT1    |UART1用户指定Output信号1 |
+|FUNC\_UART1\_SIR\_OUT |UART1串行红外Output信号  |
 |FUNC\_UART1\_BAUD    |UART1时钟              |
 |FUNC\_UART1\_RE      |UART1接收使能          |
 |FUNC\_UART1\_DE      |UART1发送使能          |
@@ -882,12 +882,12 @@ typedef enum _fpioa_function
 |FUNC\_UART2\_DSR     |UART2数据设备准备信号  |
 |FUNC\_UART2\_DCD     |UART2数据载波检测      |
 |FUNC\_UART2\_RI      |UART2振铃指示          |
-|FUNC\_UART2\_SIR\_IN  |UART2串行红外输入信号  |
+|FUNC\_UART2\_SIR\_IN  |UART2串行红外Input信号  |
 |FUNC\_UART2\_DTR     |UART2数据终端准备信号  |
 |FUNC\_UART2\_RTS     |UART2发送请求信号      |
-|FUNC\_UART2\_OUT2    |UART2用户指定输出信号2 |
-|FUNC\_UART2\_OUT1    |UART2用户指定输出信号1 |
-|FUNC\_UART2\_SIR\_OUT |UART2串行红外输出信号  |
+|FUNC\_UART2\_OUT2    |UART2用户指定Output信号2 |
+|FUNC\_UART2\_OUT1    |UART2用户指定Output信号1 |
+|FUNC\_UART2\_SIR\_OUT |UART2串行红外Output信号  |
 |FUNC\_UART2\_BAUD    |UART2时钟              |
 |FUNC\_UART2\_RE      |UART2接收使能          |
 |FUNC\_UART2\_DE      |UART2发送使能          |
@@ -896,28 +896,28 @@ typedef enum _fpioa_function
 |FUNC\_UART3\_DSR     |数据设备准备信号       |
 |FUNC\_UART3\_DCD     |UART3数据载波检测      |
 |FUNC\_UART3\_RI      |UART3振铃指示          |
-|FUNC\_UART3\_SIR\_IN  |UART3串行红外输入信号  |
+|FUNC\_UART3\_SIR\_IN  |UART3串行红外Input信号  |
 |FUNC\_UART3\_DTR     |UART3数据终端准备信号  |
 |FUNC\_UART3\_RTS     |UART3发送请求信号      |
-|FUNC\_UART3\_OUT2    |UART3用户指定输出信号2 |
-|FUNC\_UART3\_OUT1    |UART3用户指定输出信号1 |
-|FUNC\_UART3\_SIR\_OUT |UART3串行红外输出信号  |
+|FUNC\_UART3\_OUT2    |UART3用户指定Output信号2 |
+|FUNC\_UART3\_OUT1    |UART3用户指定Output信号1 |
+|FUNC\_UART3\_SIR\_OUT |UART3串行红外Output信号  |
 |FUNC\_UART3\_BAUD    |UART3时钟              |
 |FUNC\_UART3\_RE      |UART3接收使能          |
 |FUNC\_UART3\_DE      |UART3发送使能          |
 |FUNC\_UART3\_RS485\_EN|UART3使能RS485         |
-|FUNC\_TIMER0\_TOGGLE1|TIMER0输出信号1        |
-|FUNC\_TIMER0\_TOGGLE2|TIMER0输出信号2        |
-|FUNC\_TIMER0\_TOGGLE3|TIMER0输出信号3        |
-|FUNC\_TIMER0\_TOGGLE4|TIMER0输出信号4        |
-|FUNC\_TIMER1\_TOGGLE1|TIMER1输出信号1        |
-|FUNC\_TIMER1\_TOGGLE2|TIMER1输出信号2        |
-|FUNC\_TIMER1\_TOGGLE3|TIMER1输出信号3        |
-|FUNC\_TIMER1\_TOGGLE4|TIMER1输出信号4        |
-|FUNC\_TIMER2\_TOGGLE1|TIMER2输出信号1        |
-|FUNC\_TIMER2\_TOGGLE2|TIMER2输出信号2        |
-|FUNC\_TIMER2\_TOGGLE3|TIMER2输出信号3        |
-|FUNC\_TIMER2\_TOGGLE4|TIMER2输出信号4        |
+|FUNC\_TIMER0\_TOGGLE1|TIMER0Output信号1        |
+|FUNC\_TIMER0\_TOGGLE2|TIMER0Output信号2        |
+|FUNC\_TIMER0\_TOGGLE3|TIMER0Output信号3        |
+|FUNC\_TIMER0\_TOGGLE4|TIMER0Output信号4        |
+|FUNC\_TIMER1\_TOGGLE1|TIMER1Output信号1        |
+|FUNC\_TIMER1\_TOGGLE2|TIMER1Output信号2        |
+|FUNC\_TIMER1\_TOGGLE3|TIMER1Output信号3        |
+|FUNC\_TIMER1\_TOGGLE4|TIMER1Output信号4        |
+|FUNC\_TIMER2\_TOGGLE1|TIMER2Output信号1        |
+|FUNC\_TIMER2\_TOGGLE2|TIMER2Output信号2        |
+|FUNC\_TIMER2\_TOGGLE3|TIMER2Output信号3        |
+|FUNC\_TIMER2\_TOGGLE4|TIMER2Output信号4        |
 |FUNC\_CLK\_SPI2      |SPI2时钟               |
 |FUNC\_CLK\_I2C2      |I2C2时钟               |
 |FUNC\_INTERNAL0     |内部功能0              |
