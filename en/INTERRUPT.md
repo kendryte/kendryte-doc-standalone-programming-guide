@@ -34,175 +34,175 @@ PLIC 模块具有以下功能：
 
 ### plic\_init
 
-#### 描述
+#### Description
 
 PLIC初始化外部中断。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void plic_init(void)
 ```
 
-#### 参数
+#### Parameter
 
-无。
+None.
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### plic\_irq\_enable
 
-#### 描述
+#### Description
 
 使能外部中断。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int plic_irq_enable(plic_irq_t irq_number)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述     |  输入输出  |
+| Parameter name     |   Description     |  Input or output  |
 | :--------:   | :-----     | :----:     |
 | irq\_number | 中断号 | 输入 |
 
-#### 返回值
+#### Return value
 
-| 返回值 | 描述 |
+| Return value | Description |
 | :----  | :----|
 | 0      | 成功 |
 | 非0    | 失败 |
 
 ### plic\_irq\_disable
 
-#### 描述
+#### Description
 
 禁用外部中断。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int plic_irq_disable(plic_irq_t irq_number)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述     |  输入输出  |
+| Parameter name     |   Description     |  Input or output  |
 | :--------:   | :-----     | :----:     |
 | irq\_number | 中断号 | 输入 |
 
-#### 返回值
+#### Return value
 
-| 返回值 | 描述 |
+| Return value | Description |
 | :----  | :----|
 | 0      | 成功 |
 | 非0    | 失败 |
 
 ### plic\_set\_priority
 
-#### 描述
+#### Description
 
 设置中断优先级。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int plic_set_priority(plic_irq_t irq_number, uint32_t priority)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述     |  输入输出  |
+| Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
 | irq\_number | 中断号 | 输入 |
 | priority | 中断优先级 | 输入 |
 
-#### 返回值
+#### Return value
 
-| 返回值 | 描述 |
+| Return value | Description |
 | :----  | :----|
 | 0      | 成功 |
 | 非0    | 失败 |
 
 ### plic\_get\_priority
 
-#### 描述
+#### Description
 
 获取中断优先级。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 uint32_t plic_get_priority(plic_irq_t irq_number)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称      |   描述     |  输入输出  |
+| Parameter name      |   Description     |  Input or output  |
 | :------------| :----------| :-------- |
 | irq\_number  | 中断号     | 输入      |
 
-#### 返回值
+#### Return value
 
 irq_number中断的优先级。
 
 ### plic\_irq\_register
 
-#### 描述
+#### Description
 
 注册外部中断函数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int plic_irq_register(plic_irq_t irq, plic_irq_callback_t callback, void* ctx)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述     |  输入输出  |
+| Parameter name     |   Description     |  Input or output  |
 | :--------:   | :-----     | :----:     |
 | irq | 中断号 | 输入 |
 | callback | 中断回调函数 | 输入 |
 | ctx | 回调函数的参数 | 输入 |
 
-#### 返回值
+#### Return value
 
-| 返回值 | 描述 |
+| Return value | Description |
 | :----  | :----|
 | 0      | 成功 |
 | 非0    | 失败 |
 
 ### plic\_irq\_deregister
 
-#### 描述
+#### Description
 
 注销外部中断函数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int plic_irq_deregister(plic_irq_t irq)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述     |  输入输出  |
+| Parameter name     |   Description     |  Input or output  |
 | :--------:   | :-----     | :----:     |
 | irq | 中断号 | 输入 |
 
-#### 返回值
+#### Return value
 
-| 返回值 | 描述 |
+| Return value | Description |
 | :----  | :----|
 | 0      | 成功 |
 | 非0    | 失败 |
 
-### 举例
+### Example
 
 ```c
 /* 设置GPIOHS0的触发中断 */
@@ -219,7 +219,7 @@ plic_irq_enable(IRQN_GPIOHS0_INTERRUPT);
 sysctl_enable_irq();
 ```
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -229,11 +229,11 @@ sysctl_enable_irq();
 
 ### plic\_irq\_t
 
-#### 描述
+#### Description
 
 外部中断号。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _plic_irq
@@ -310,7 +310,7 @@ typedef enum _plic_irq
 
 #### 成员
 
-| 成员名称      | 描述  |
+| 成员名称      | Description  |
 | ------------ | ------------ |
 |IRQN\_NO\_INTERRUPT|不存在                 |
 |IRQN\_SPI0\_INTERRUPT|SPI0中断             |
@@ -381,11 +381,11 @@ typedef enum _plic_irq
 
 ### plic\_irq\_callback\_t
 
-#### 描述
+#### Description
 
 外部中断回调函数。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef int (*plic_irq_callback_t)(void *ctx);

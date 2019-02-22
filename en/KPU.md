@@ -37,7 +37,7 @@ KPU 具备以下几个特点：
 
 ### kpu\_task\_init
 
-#### 描述
+#### Description
 
 初始化kpu任务句柄，该函数具体实现在model compiler生成的gencode_output.c中。
 
@@ -47,31 +47,31 @@ KPU 具备以下几个特点：
 kpu_task_t* kpu_task_init(kpu_task_t* task)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                         |   描述                 |  输入输出  |
+| Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
 | task                            | KPU任务句柄             | 输入      |
 
-#### 返回值
+#### Return value
 
 KPU任务句柄。
 
 ### kpu\_run
 
-#### 描述
+#### Description
 
 启动KPU，进行AI运算。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int kpu_run(kpu_task_t* v_task, dmac_channel_number_t dma_ch, const void *src, void* dest, plic_irq_callback_t callback)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                         |   描述                 |  输入输出  |
+| Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
 | task                            | KPU任务句柄             | 输入      |
 | dma\_ch                         | DMA通道                 | 输入      |
@@ -79,58 +79,58 @@ int kpu_run(kpu_task_t* v_task, dmac_channel_number_t dma_ch, const void *src, v
 | dest                            | 运算输出结果             | 输出      |
 | callback                        | 运算完成回调函数         | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值  | 描述         |
+| Return value  | Description         |
 | :----  | :------------|
 | 0      | 成功         |
 | 非0    | KPU忙，失败   |
 
 ### kpu\_get\_output\_buf
 
-#### 描述
+#### Description
 
 获取KPU输出结果的缓存。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 uint8_t *kpu_get_output_buf(kpu_task_t* task)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                         |   描述                 |  输入输出  |
+| Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
 | task                            | KPU任务句柄             | 输入      |
 
-#### 返回值
+#### Return value
 
 KPU输出结果的缓存的指针。
 
 ### kpu\_release\_output\_buf
 
-#### 描述
+#### Description
 
 释放KPU输出结果缓存。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void kpu_release_output_buf(uint8_t *output_buf)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                         |   描述                 |  输入输出  |
+| Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
 | output\_buf                     | KPU输出结果缓存         | 输入      |
 
-#### 返回值
+#### Return value
 
 无
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -138,11 +138,11 @@ void kpu_release_output_buf(uint8_t *output_buf)
 
 ### kpu\_task\_t
 
-#### 描述
+#### Description
 
 kpu任务结构体。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef struct
@@ -158,7 +158,7 @@ typedef struct
 
 #### 成员
 
-| 成员名称                | 描述              |
+| 成员名称                | Description              |
 | ---------------------- | ----------------- |
 | layers                 | KPU参数指针        |
 | length                 | 层数               |

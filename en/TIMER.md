@@ -32,114 +32,114 @@ TIMER 模块具有以下功能：
 
 ### timer\_init
 
-#### 描述
+#### Description
 
 初始化定时器。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void timer_init(timer_device_number_t timer_number)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称         | 描述        | 输入输出  |
+| Parameter name         | Description        | Input or output  |
 | :-------------- | :----------| :-------- |
 | timer\_number   | 定时器号    | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### timer\_set\_interval
 
-#### 描述
+#### Description
 
 设置定时间隔。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 size_t timer_set_interval(timer_device_number_t timer_number, timer_channel_number_t channel, size_t nanoseconds)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称      | 描述           | 输入输出   |
+| Parameter name      | Description           | Input or output   |
 | :----------- | :------------- | :-------- |
 | timer\_number| 定时器号        | 输入      |
 | channel      | 定时器通道号    | 输入      |
 | nanoseconds  | 时间间隔（纳秒） | 输入      |
 
-#### 返回值
+#### Return value
 
 实际的触发间隔（纳秒）。
 
 ### timer\_set\_irq
 
-#### 描述
+#### Description
 
 设置定时器触发中断回调函数，该函数已废弃，替代函数为timer\_irq\_register。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void timer_set_irq(timer_device_number_t timer_number, timer_channel_number_t channel, void(*func)(),  uint32_t priority)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称       | 描述           | 输入输出   |
+| Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
 | timer\_number | 定时器号        | 输入     |
 | channel       | 定时器通道号    | 输入      |
 | func          | 回调函数        | 输入      |
 | priority      | 中断优先级      | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### timer\_set\_enable
 
-#### 描述
+#### Description
 
 使能禁用定时器。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void timer_set_enable(timer_device_number_t timer_number, timer_channel_number_t channel, uint32_t enable)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称       | 描述           | 输入输出   |
+| Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
 | timer\_number | 定时器号        | 输入      |
 | channel       | 定时器通道号    | 输入      |
 | enable        | 使能禁用定时器<br>0：禁用 1：使能  | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### timer\_irq\_register
 
-#### 描述
+#### Description
 
 注册定时器触发中断回调函数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int timer_irq_register(timer_device_number_t device, timer_channel_number_t channel, int is_single_shot, uint32_t priority, timer_callback_t callback, void *ctx);
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称          | 描述           | 输入输出   |
+| Parameter name          | Description           | Input or output   |
 | :--------------- | :------------- | :-------- |
 | device           | 定时器号        | 输入      |
 | channel          | 定时器通道号    | 输入      |
@@ -148,40 +148,40 @@ int timer_irq_register(timer_device_number_t device, timer_channel_number_t chan
 | callback         | 中断回调函数    | 输入      |
 | ctx              | 回调函数参数    | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值 | 描述 |
+| Return value | Description |
 | :---- | :----|
 | 0     | 成功 |
 | 非0   | 失败 |
 
 ### timer\_irq\_deregister
 
-#### 描述
+#### Description
 
 注销定时器中断函数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int timer_irq_deregister(timer_device_number_t device, timer_channel_number_t channel)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称          | 描述           | 输入输出   |
+| Parameter name          | Description           | Input or output   |
 | :--------------- | :------------- | :-------- |
 | device           | 定时器号        | 输入      |
 | channel          | 定时器通道号    | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值 | 描述 |
+| Return value | Description |
 | :---- | :----|
 | 0     | 成功 |
 | 非0   | 失败 |
 
-### 举例
+### Example
 
 ```c
 /* 定时器0 通道0 定时1秒打印Time OK! */
@@ -197,7 +197,7 @@ timer_set_enable(TIMER_CHANNEL_0, TIMER_CHANNEL_0, 1);
 sysctl_enable_irq();
 ```
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -209,11 +209,11 @@ sysctl_enable_irq();
 
 ### timer\_device\_number_t
 
-#### 描述
+#### Description
 
 定时器编号
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _timer_deivce_number
@@ -227,7 +227,7 @@ typedef enum _timer_deivce_number
 
 #### 成员
 
-| 成员名称           | 描述          |
+| 成员名称           | Description          |
 | ----------------- | ------------- |
 | TIMER\_DEVICE\_0  | 定时器 0      |
 | TIMER\_DEVICE\_1  | 定时器 1      |
@@ -235,11 +235,11 @@ typedef enum _timer_deivce_number
 
 ### timer\_channel\_number_t
 
-#### 描述
+#### Description
 
 定时器通道号。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _timer_channel_number
@@ -254,7 +254,7 @@ typedef enum _timer_channel_number
 
 #### 成员
 
-| 成员名称            | 描述             |
+| 成员名称            | Description             |
 | -----------------  | ---------------- |
 | TIMER\_CHANNEL\_0  | 定时器通道 0      |
 | TIMER\_CHANNEL\_1  | 定时器通道 1      |
@@ -263,11 +263,11 @@ typedef enum _timer_channel_number
 
 ### timer\_callback\_t
 
-#### 描述
+#### Description
 
 定时器回调函数。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef int (*timer_callback_t)(void *ctx);

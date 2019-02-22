@@ -13,7 +13,7 @@ PWM 模块具有以下功能：
 
 ## API
 
-对应头文件 `pwm.h`  
+对应头文件 `pwm.h`
 
 为用户提供以下接口
 
@@ -25,76 +25,76 @@ PWM 模块具有以下功能：
 
 ### pwm\_init
 
-#### 描述
+#### Description
 
 初始化PWM。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void pwm_init(pwm_device_number_t pwm_number)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述     |  输入输出  |
+| Parameter name     |   Description     |  Input or output  |
 | :--------   | :-----     | :----:     |
 | pwm_number | pwm号 | 输入 |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### pwm\_set\_frequency
 
-#### 描述
+#### Description
 
 设置频率及占空比。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 double pwm_set_frequency(pwm_device_number_t pwm_number, pwm_channel_number_t channel, double frequency, double duty)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     | 描述                             |  输入输出  |
+| Parameter name     | Description                             |  Input or output  |
 | :---------- | :------------------------------- | :-------- |
 | pwm_number  | PWM号                            | 输入       |
 | channel     | PWM通道号                        | 输入       |
 | frequency   | PWM输出频率                       | 输入       |
 | duty        | 占空比                            | 输入      |
 
-#### 返回值
+#### Return value
 
 实际输出频率。
 
 ### pwm_set_enable
 
-#### 描述
+#### Description
 
 使能禁用PWM。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void pwm_set_enable(pwm_device_number_t pwm_number, uint32_t channel, int enable)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述                          |  输入输出  |
+| Parameter name     |   Description                          |  Input or output  |
 | :---------- | :------------------------------ | :-------- |
 | pwm_number  | PWM号                           | 输入       |
 | channel     | PWM通道号                        | 输入      |
 | enable      | 使能禁用PWM<br>0：禁用  1：使能   | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
-### 举例
+### Example
 
 ```c
 /* pwm0 channel 1 输出 200KHZ占空比为0.5的方波 */
@@ -105,7 +105,7 @@ pwm_set_frequency(PWM_DEVICE_0, PWM_CHANNEL_1, 200000, 0.5);
 pwm_set_enable(PWM_DEVICE_0, PWM_CHANNEL_1, 1);
 ```
 
-## 数据类型
+## Data type
 
 - pwm\_device\_number\_t：pwm号。
 
@@ -113,11 +113,11 @@ pwm_set_enable(PWM_DEVICE_0, PWM_CHANNEL_1, 1);
 
 ### pwm\_device\_number\_t
 
-#### 描述
+#### Description
 
 pwm号。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _pwm_device_number
@@ -131,7 +131,7 @@ typedef enum _pwm_device_number
 
 #### 成员
 
-| 成员名称        | 描述 |
+| 成员名称        | Description |
 | :------------- | :--- |
 | PWM\_DEVICE\_0 | PWM0 |
 | PWM\_DEVICE\_1 | PWM1 |
@@ -139,11 +139,11 @@ typedef enum _pwm_device_number
 
 ### pwm\_channel\_number\_t
 
-#### 描述
+#### Description
 
 pwm通道号。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _pwm_channel_number
@@ -158,7 +158,7 @@ typedef enum _pwm_channel_number
 
 #### 成员
 
-| 成员名称         | 描述     |
+| 成员名称         | Description     |
 | :-------------- | :------- |
 | PWM\_CHANNEL\_0 | PWM通道0 |
 | PWM\_CHANNEL\_1 | PWM通道1 |

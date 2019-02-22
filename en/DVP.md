@@ -51,137 +51,137 @@ DVP 模块具有以下功能：
 
 ### dvp\_init
 
-#### 描述
+#### Description
 
 初始化DVP。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_init(uint8_t reg_len)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                         |   描述                 |  输入输出  |
+| Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
 | reg\_len                         | sccb寄存器长度          | 输入      |
 
-#### 返回值
+#### Return value
 
 无
 
 ### dvp\_set\_output\_enable
 
-#### 描述
+#### Description
 
 设置输出模式使能或禁用。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_set_output_enable(dvp_output_mode_t index, int enable)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称         |   描述                 |  输入输出  |
+| Parameter name         |   Description                 |  Input or output  |
 | --------------- | ---------------------- | --------- |
 | index           | 图像输出至内存或AI      | 输入      |
 | enable          | 0：禁用 1：使能         | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dvp\_set\_image\_format
 
-#### 描述
+#### Description
 
 设置图像接收模式，RGB或YUV。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_set_image_format(uint32_t format)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述                 |  输入输出  |
+| Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
 | format      | 图像模式<br>DVP\_CFG\_RGB\_FORMAT RGB模式<br>DVP\_CFG\_YUV\_FORMAT YUV模式| 输入      |
 
-#### 返回值
+#### Return value
 
 无
 
 ### dvp\_set\_image\_size
 
-#### 描述
+#### Description
 
 设置DVP图像采集尺寸。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_set_image_size(uint32_t width, uint32_t height)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述                 |  输入输出  |
+| Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
 | width       | 图像宽度                | 输入      |
 | height      | 图像高度                | 输入      |
 
-#### 返回值
+#### Return value
 
 无
 
 ### dvp\_set\_ai\_addr
 
-#### 描述
+#### Description
 
 设置AI存放图像的地址，供AI模块进行算法处理。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_set_ai_addr(uint32_t r_addr, uint32_t g_addr, uint32_t b_addr)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述                 |  输入输出  |
+| Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
 | r\_addr      | 红色分量地址            | 输入      |
 | g\_addr      | 绿色分量地址            | 输入      |
 | b\_addr      | 蓝色分量地址            | 输入      |
 
-#### 返回值
+#### Return value
 
 无
 
 ### dvp\_set\_display\_addr
 
-#### 描述
+#### Description
 
 设置采集图像在内存中的存放地址，可以用来显示。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_set_display_addr(uint32_t addr)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述                 |  输入输出  |
+| Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
 | addr        | 存放图像的内存地址       | 输入      |
 
-#### 返回值
+#### Return value
 
 无
 
@@ -189,222 +189,222 @@ void dvp_set_display_addr(uint32_t addr)
 
 配置DVP中断类型。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_config_interrupt(uint32_t interrupt, uint8_t enable)
 ```
 
-#### 描述
+#### Description
 
 设置图像开始和结束中断状态，使能或禁用。
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述                 |  输入输出  |
+| Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
 | interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | 输入      |
 | enable      | 0：禁止 1：使能         | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dvp\_get\_interrupt
 
-#### 描述
+#### Description
 
 判断是否是输入的中断类型。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int dvp_get_interrupt(uint32_t interrupt)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述                 |  输入输出  |
+| Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
 | interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值  | 描述  |
+| Return value  | Description  |
 | :----  | :----|
 | 0      | 否   |
 | 非0    | 是   |
 
 ### dvp\_clear\_interrupt
 
-#### 描述
+#### Description
 
 清除中断。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_clear_interrupt(uint32_t interrupt)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述                 |  输入输出  |
+| Parameter name     |   Description                 |  Input or output  |
 | ----------- | ---------------------- | --------- |
 | interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dvp\_start\_convert
 
-#### 描述
+#### Description
 
 开始采集图像，在确定图像采集开始中断后调用。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_start_convert(void)
 ```
 
-#### 参数
+#### Parameter
 
-无。
+None.
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dvp\_enable\_burst
 
-#### 描述
+#### Description
 
 使能突发传输模式。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_enable_burst(void)
 ```
 
-#### 参数
+#### Parameter
 
-无。
+None.
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dvp\_disable\_burst
 
-#### 描述
+#### Description
 
 禁用突发传输模式。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_disable_burst(void)
 ```
 
-#### 参数
+#### Parameter
 
-无。
+None.
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dvp\_enable\_auto
 
-#### 描述
+#### Description
 
 使能自动接收图像模式。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_enable_auto(void)
 ```
 
-#### 参数
+#### Parameter
 
-无。
+None.
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dvp\_disable\_auto
 
-#### 描述
+#### Description
 
 禁用自动接收图像模式。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_disable_auto(void)
 ```
 
-#### 参数
+#### Parameter
 
-无。
+None.
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dvp\_sccb\_send\_data
 
-#### 描述
+#### Description
 
 通过sccb发送数据。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dvp_sccb_send_data(uint8_t dev_addr, uint16_t reg_addr, uint8_t reg_data)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称         |   描述                     |  输入输出  |
+| Parameter name         |   Description                     |  Input or output  |
 | --------------- | -------------------------- | --------- |
 | dev\_addr        | 外设图像传感器SCCB地址       | 输入      |
 | reg\_addr        | 外设图像传感器寄存器         | 输入      |
 | reg\_data        | 发送的数据                  | 输入      |
 
-#### 返回值
+#### Return value
 
 无
 
 ### dvp\_sccb\_receive\_data
 
-#### 描述
+#### Description
 
 通过SCCB接收数据。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 uint8_t dvp_sccb_receive_data(uint8_t dev_addr, uint16_t reg_addr)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称         |   描述                     |  输入输出  |
+| Parameter name         |   Description                     |  Input or output  |
 | --------------- | -------------------------- | --------- |
 | dev\_addr        | 外设图像传感器SCCB地址       | 输入      |
 | reg\_addr        | 外设图像传感器寄存器         | 输入      |
 
-#### 返回值
+#### Return value
 
 读取寄存器的数据。
 
-### 举例
+### Example
 
 ```c
 /* 采集320 * 240的RGB图像数据传输至lcd_gram0, 及0x40600000 0x40612C00 0x40625800 地址处 */
@@ -445,7 +445,7 @@ dvp_sccb_send_data(0x60, 0xFF, 0x01);
 dvp_sccb_receive_data(0x60, 0x1D)
 ```
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -453,11 +453,11 @@ dvp_sccb_receive_data(0x60, 0x1D)
 
 ### dvp\_output\_mode\_t
 
-#### 描述
+#### Description
 
 DVP输入图像的模式。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _dvp_output_mode
@@ -469,7 +469,7 @@ typedef enum _dvp_output_mode
 
 #### 成员
 
-| 成员名称                | 描述              |
+| 成员名称                | Description              |
 | ---------------------- | ----------------- |
 | DVP\_OUTPUT\_AI        | AI输出             |
 | DVP\_OUTPUT\_DISPLAY   | 向内存输出用于显示  |

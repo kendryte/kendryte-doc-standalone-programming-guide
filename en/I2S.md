@@ -30,93 +30,93 @@ I2S 模块具有以下功能：
 
 ### i2s\_init
 
-#### 描述
+#### Description
 
 初始化I2S。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void i2s_init(i2s_device_number_t device_num, i2s_transmit_t rxtx_mode, uint32_t channel_mask)
 ```
 
-#### 参数
+#### Parameter
 
-| 成员名称            | 描述         |  输入输出  |
+| 成员名称            | Description         |  Input or output  |
 | ------------------ | ------------ | --------- |
 | device\_num         | I2S号        | 输入      |
 | rxtx\_mode          | 接收或发送模式| 输入      |
 | channel\_mask       | 通道掩码      | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### i2s\_send\_data\_dma
 
-#### 描述
+#### Description
 
 I2S发送数据。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void i2s_send_data_dma(i2s_device_number_t device_num, const void *buf, size_t buf_len, dmac_channel_number_t channel_num)
 ```
 
-#### 参数
+#### Parameter
 
-| 成员名称            | 描述         |  输入输出  |
+| 成员名称            | Description         |  Input or output  |
 | ------------------ | ------------ | --------- |
 | device\_num         | I2S号        | 输入      |
 | buf                | 发送数据地址  | 输入      |
 | buf\_len            | 数据长度      | 输入      |
 | channel\_num        | DMA通道号     | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### i2s\_recv\_data\_dma
 
-#### 描述
+#### Description
 
 I2S接收数据。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void i2s_recv_data_dma(i2s_device_number_t device_num, uint32_t *buf, size_t buf_len, dmac_channel_number_t channel_num)
 ```
 
-#### 参数
+#### Parameter
 
-| 成员名称            | 描述         |  输入输出  |
+| 成员名称            | Description         |  Input or output  |
 | ------------------  | ------------ | --------- |
 | device\_num         | I2S号        | 输入      |
 | buf                 | 接收数据地址  | 输出      |
 | buf\_len            | 数据长度      | 输入      |
 | channel\_num        | DMA通道号     | 输入      |
 
-#### 返回值
+#### Return value
 
 无
 
 ### i2s\_rx\_channel\_config
 
-#### 描述
+#### Description
 
 设置接收通道参数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void i2s_rx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t channel_num, i2s_word_length_t word_length, i2s_word_select_cycles_t word_select_size, i2s_fifo_threshold_t trigger_level, i2s_work_mode_t word_mode)
 ```
 
-#### 参数
+#### Parameter
 
-| 成员名称            | 描述              |  输入输出  |
+| 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | 输入      |
 | channel\_num        | 通道号             | 输入     |
@@ -125,25 +125,25 @@ void i2s_rx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t cha
 | trigger\_level      | DMA触发时FIFO深度  | 输入      |
 | word\_mode          | 工作模式           | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### i2s\_tx\_channel\_config
 
-#### 描述
+#### Description
 
 设置发送通道参数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void i2s_tx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t channel_num, i2s_word_length_t word_length, i2s_word_select_cycles_t word_select_size, i2s_fifo_threshold_t trigger_level, i2s_work_mode_t word_mode)
 ```
 
-#### 参数
+#### Parameter
 
-| 成员名称            | 描述              |  输入输出  |
+| 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | 输入      |
 | channel\_num        | 通道号             | 输入     |
@@ -152,26 +152,26 @@ void i2s_tx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t cha
 | trigger\_level      | DMA触发时FIFO深度  | 输入      |
 | word\_mode          | 工作模式           | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### i2s\_play
 
-#### 描述
+#### Description
 
 发送PCM数据, 比如播放音乐
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void i2s_play(i2s_device_number_t device_num, dmac_channel_number_t channel_num,
               const uint8_t *buf, size_t buf_len, size_t frame, size_t bits_per_sample, uint8_t track_num)
 ```
 
-#### 参数
+#### Parameter
 
-| 成员名称            | 描述              |  输入输出  |
+| 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | 输入      |
 | channel\_num        | 通道号             | 输入     |
@@ -181,86 +181,86 @@ void i2s_play(i2s_device_number_t device_num, dmac_channel_number_t channel_num,
 | bits\_per\_sample     | 单次采样位宽        | 输入      |
 | track_num           | 声道数            | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### i2s\_set\_sample\_rate
 
-#### 描述
+#### Description
 
 设置采样率。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 uint32_t i2s_set_sample_rate(i2s_device_number_t device_num, uint32_t sample_rate)
 ```
 
-#### 参数
+#### Parameter
 
-| 成员名称            | 描述              |  输入输出  |
+| 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | 输入      |
 | sample\_rate        | 采样率            | 输入     |
 
-#### 返回值
+#### Return value
 
 实际的采样率。
 
 ### i2s\_set\_dma\_divide\_16
 
-#### 描述
+#### Description
 
 设置dma\_divide\_16，16位数据时设置dma\_divide\_16，DMA传输时自动将32比特INT32数据分成两个16比特的左右声道数据。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int i2s_set_dma_divide_16(i2s_device_number_t device_num, uint32_t enable)
 ```
 
-#### 参数
+#### Parameter
 
-| 成员名称            | 描述              |  输入输出  |
+| 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | 输入      |
 | enable              | 0:禁用 1：使能    | 输入     |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | 成功      |
 | 非0                 | 失败       |
 
 ### i2s\_get\_dma\_divide\_16
 
-#### 描述
+#### Description
 
 获取dma\_divide\_16值。用于判断是否需要设置dma\_divide\_16。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int i2s_get_dma_divide_16(i2s_device_number_t device_num)
 ```
 
-#### 参数
+#### Parameter
 
-| 成员名称            | 描述              |  输入输出  |
+| 成员名称            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 1                   | 使能      |
 | 0                   | 禁用      |
 | <0                 | 失败       |
 
-### 举例
+### Example
 
 ```c
 /* I2S0 通道0 设置为接收通道，接收16位数据，单次传输32个时钟，FIFO深度为4，标准模式。接收8组数据*/
@@ -274,7 +274,7 @@ i2s_recv_data_dma(I2S_DEVICE_0, rx_buf, 8, DMAC_CHANNEL1);
 i2s_send_data_dma(I2S_DEVICE_2, buf, 8, DMAC_CHANNEL0);
 ```
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -294,11 +294,11 @@ i2s_send_data_dma(I2S_DEVICE_2, buf, 8, DMAC_CHANNEL0);
 
 ### i2s\_device\_number\_t
 
-#### 描述
+#### Description
 
 I2S编号。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _i2s_device_number
@@ -312,7 +312,7 @@ typedef enum _i2s_device_number
 
 #### 成员
 
-| 成员名称            | 描述        |
+| 成员名称            | Description        |
 | ------------------ | ----------- |
 | I2S\_DEVICE\_0     | I2S 0       |
 | I2S\_DEVICE\_1     | I2S 1       |
@@ -320,11 +320,11 @@ typedef enum _i2s_device_number
 
 ### i2s\_channel\_num\_t
 
-#### 描述
+#### Description
 
 I2S通道号。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _i2s_channel_num
@@ -338,7 +338,7 @@ typedef enum _i2s_channel_num
 
 #### 成员
 
-| 成员名称            | 描述        |
+| 成员名称            | Description        |
 | ------------------ | ----------- |
 | I2S\_CHANNEL\_0    | I2S通道0    |
 | I2S\_CHANNEL\_1    | I2S通道1    |
@@ -347,11 +347,11 @@ typedef enum _i2s_channel_num
 
 ### i2s\_transmit\_t
 
-#### 描述
+#### Description
 
 I2S传输模式。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _i2s_transmit
@@ -363,18 +363,18 @@ typedef enum _i2s_transmit
 
 #### 成员
 
-| 成员名称            | 描述        |
+| 成员名称            | Description        |
 | ------------------ | ----------- |
 | I2S\_TRANSMITTER   | 发送模式    |
 | I2S\_RECEIVER      | 接收模式    |
 
 ### i2s\_work_mode\_t
 
-#### 描述
+#### Description
 
 I2S工作模式。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _i2s_work_mode
@@ -387,7 +387,7 @@ typedef enum _i2s_work_mode
 
 #### 成员
 
-| 成员名称                  | 描述        |
+| 成员名称                  | Description        |
 | ------------------------ | ----------- |
 | STANDARD_MODE            | 标准模式    |
 | RIGHT\_JUSTIFYING\_MODE    | 右对齐模式   |
@@ -395,11 +395,11 @@ typedef enum _i2s_work_mode
 
 ### i2s\_word_select\_cycles\_t
 
-#### 描述
+#### Description
 
 I2S单次传输时钟数。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _word_select_cycles
@@ -412,7 +412,7 @@ typedef enum _word_select_cycles
 
 #### 成员
 
-| 成员名称            | 描述        |
+| 成员名称            | Description        |
 | ------------------ | ----------- |
 | SCLK\_CYCLES\_16   | 16个时钟    |
 | SCLK\_CYCLES\_24   | 24个时钟    |
@@ -420,11 +420,11 @@ typedef enum _word_select_cycles
 
 ### i2s\_word_length\_t
 
-#### 描述
+#### Description
 
 I2S传输数据位数。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _word_length
@@ -440,7 +440,7 @@ typedef enum _word_length
 
 #### 成员
 
-| 成员名称              | 描述        |
+| 成员名称              | Description        |
 | -------------------- | ----------- |
 | IGNORE\_WORD\_LENGTH | 忽略长度     |
 | RESOLUTION\_12\_BIT  | 12位数据长度 |
@@ -451,11 +451,11 @@ typedef enum _word_length
 
 ### i2s\_fifo\_threshold\_t
 
-#### 描述
+#### Description
 
 I2S FIFO深度。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _fifo_threshold
@@ -497,7 +497,7 @@ typedef enum _fifo_threshold
 
 #### 成员
 
-| 成员名称              | 描述         |
+| 成员名称              | Description         |
 | -------------------- | ------------ |
 | TRIGGER\_LEVEL\_1    | 1字节FIFO深度 |
 | TRIGGER\_LEVEL\_2    | 2字节FIFO深度 |

@@ -26,42 +26,42 @@ RTC 模块具有以下功能：
 
 ### rtc\_init
 
-#### 描述
+#### Description
 
 初始化RTC。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int rtc_init(void)
 ```
 
-#### 参数
+#### Parameter
 
-无。
+None.
 
-#### 返回值
+#### Return value
 
-| 返回值 | 描述 |
+| Return value | Description |
 | :----  | :----|
 | 0      | 成功 |
 | 非0    | 失败 |
 
 ### rtc\_timer\_set
 
-#### 描述
+#### Description
 
 设置日期时间。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int rtc_timer_set(int year, int month, int day, int hour, int minute, int second)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述     |  输入输出  |
+| Parameter name     |   Description     |  Input or output  |
 | :--------   | :--------- | :-------- |
 | year        | 年         | 输入       |
 | month       | 月         | 输入       |
@@ -70,25 +70,25 @@ int rtc_timer_set(int year, int month, int day, int hour, int minute, int second
 | minute      | 分         | 输入       |
 | second      | 秒         | 输入       |
 
-#### 返回值
+#### Return value
 
 无
 
 ### rtc\_timer\_get
 
-#### 描述
+#### Description
 
 获取日期时间。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int rtc_timer_get(int *year, int *month, int *day, int *hour, int *minute, int *second)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     |   描述     |  输入输出  |
+| Parameter name     |   Description     |  Input or output  |
 | :--------   | :--------- | :-------- |
 | year        | 年         | 输出       |
 | month       | 月         | 输出       |
@@ -97,14 +97,14 @@ int rtc_timer_get(int *year, int *month, int *day, int *hour, int *minute, int *
 | minute      | 分         | 输出       |
 | second      | 秒         | 输出       |
 
-#### 返回值
+#### Return value
 
-| 返回值 | 描述 |
+| Return value | Description |
 | :----  | :----|
 | 0      | 成功 |
 | 非0    | 失败 |
 
-### 举例
+### Example
 
 ```c
 rtc_init();

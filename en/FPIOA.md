@@ -33,206 +33,206 @@ FPIOA（现场可编程IO阵列）允许用户将255个内部功能映射到芯�
 
 ### fpioa\_set\_function
 
-#### 描述
+#### Description
 
 设置IO0-IO47管脚复用功能。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int fpioa_set_function(int number, fpioa_function_t function)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称             |   描述         |  输入输出  |
+| Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | number              | IO管脚号        | 输入      |
 | function            | 管脚功能号      | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | 成功      |
 | 非0                 | 失败       |
 
 ### fpioa\_get\_io\_by\_function
 
-#### 描述
+#### Description
 
 根据功能号获取IO管脚号。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int fpioa_get_io_by_function(fpioa_function_t function)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称             |   描述         |  输入输出  |
+| Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | function            | 功能管脚编号    | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 大于等于0           | IO管脚号   |
 | 小于0               | 失败       |
 
 ### fpioa\_get\_io
 
-#### 描述
+#### Description
 
 获得IO管脚的配置.
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int fpioa_get_io(int number, fpioa_io_config_t *cfg)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称             |   描述         |  输入输出  |
+| Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | number              | IO管脚号        | 输入      |
 | cfg                 | 管脚功能结构体   | 输出      |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | 成功      |
 | 非0                 | 失败       |
 
 ### fpioa\_set\_io
 
-#### 描述
+#### Description
 
 设置IO管脚的配置.
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int fpioa_set_io(int number, fpioa_io_config_t *cfg)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称             |   描述         |  输入输出  |
+| Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | number              | IO管脚号        | 输入      |
 | cfg                 | 管脚功能结构体   | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | 成功      |
 | 非0                 | 失败       |
 
 ### fpioa\_set\_tie\_enable
 
-#### 描述
+#### Description
 
 使能禁用功能管脚TIE.
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int fpioa_set_tie_enable(fpioa_function_t function, int enable)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称             |   描述         |  输入输出  |
+| Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | function            | 管脚功能号      | 输入      |
 | enable              | TIE使能位 0：禁用 1：使能    | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | 成功      |
 | 非0                 | 失败       |
 
 ### fpioa\_set\_tie\_value
 
-#### 描述
+#### Description
 
 设置功能管脚TIE上拉下拉。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int fpioa_set_tie_value(fpioa_function_t function, int value)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称             |   描述         |  输入输出  |
+| Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | function            | 管脚功能号      | 输入      |
 | value               | TIE值 0：下拉 1：上拉       | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | 成功      |
 | 非0                 | 失败       |
 
 ### fpioa\_set\_pull
 
-#### 描述
+#### Description
 
 设置IO的上拉下拉。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int fpioa_set_io_pull(int number, fpioa_pull_t pull)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称             |   描述         |  输入输出  |
+| Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | number              | IO编号         | 输入      |
 | pull                | 上下拉值        | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | 成功      |
 | 非0                 | 失败       |
 
 ### fpioa\_get\_pull
 
-#### 描述
+#### Description
 
 获取IO管脚上下拉值。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int fpioa_get_io_pull(int number)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称             |   描述         |  输入输出  |
+| Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | number              | IO编号         | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | 无上下拉   |
 | 1                   | 下拉       |
@@ -240,56 +240,56 @@ int fpioa_get_io_pull(int number)
 
 ### fpioa\_set\_io\_driving
 
-### 描述
+### Description
 
 设置IO管脚的驱动能力。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int fpioa_set_io_driving(int number, fpioa_driving_t driving)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称             |   描述         |  输入输出  |
+| Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | number              | IO编号         | 输入      |
 | driving             | 驱动能力        | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | 成功      |
 | 非0                 | 失败       |
 
 ### fpioa\_get\_io\_driving
 
-#### 描述
+#### Description
 
 获取驱动能力。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int fpioa_get_io_driving(int number)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称             |   描述         |  输入输出  |
+| Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | number              | IO编号         | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值              | 描述       |
+| Return value              | Description       |
 | :------------------ | :-------- |
 | 大于等于0           | 驱动能力    |
 | 小于0               | 失败       |
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -303,11 +303,11 @@ int fpioa_get_io_driving(int number)
 
 ### fpioa\_io\_config\_t
 
-#### 描述
+#### Description
 
 FPIOA的配置。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef struct _fpioa_io_config
@@ -333,7 +333,7 @@ typedef struct _fpioa_io_config
 
 #### 成员
 
-| 成员名称             |      描述                     |
+| 成员名称             |      Description                     |
 | :------------------ | :---------------------------- |
 |ch\_sel              |配置引脚功能序号                |
 |ds                   |选择驱动能力，参考驱动能力选择表  |
@@ -382,11 +382,11 @@ typedef struct _fpioa_io_config
 
 ### fpioa\_pull\_t
 
-#### 描述
+#### Description
 
 FPIOA功能管脚上拉下拉值。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _fpioa_pull
@@ -400,7 +400,7 @@ typedef enum _fpioa_pull
 
 #### 成员
 
-| 成员名称             |      描述             |
+| 成员名称             |      Description             |
 | :------------------ | :-------------------- |
 |FPIOA\_PULL\_NONE    | 无上下拉               |
 |FPIOA\_PULL\_DOWN    | 下拉                   |
@@ -408,11 +408,11 @@ typedef enum _fpioa_pull
 
 ### fpioa\_driving\_t
 
-#### 描述
+#### Description
 
 FPIOA驱动能力编号，参见驱动能力选择表。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _fpioa_driving
@@ -430,7 +430,7 @@ typedef enum _fpioa_driving
 
 #### 成员
 
-| 成员名称             |      描述             |
+| 成员名称             |      Description             |
 | :------------------ | :-------------------- |
 |FPIOA\_DRIVING\_0    | 驱动能力0              |
 |FPIOA\_DRIVING\_1    | 驱动能力1              |
@@ -443,11 +443,11 @@ typedef enum _fpioa_driving
 
 ### fpioa\_function\_t
 
-#### 描述
+#### Description
 
 管脚的功能编号。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _fpioa_function
@@ -714,7 +714,7 @@ typedef enum _fpioa_function
 
 #### 成员
 
-| 成员名称             |      描述             |
+| 成员名称             |      Description             |
 | :------------------ | :-------------------- |
 |FUNC\_JTAG\_TCLK     |JTAG时钟接口           |
 |FUNC\_JTAG\_TDI      |JTAG数据输入接口       |

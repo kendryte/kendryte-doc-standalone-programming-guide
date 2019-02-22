@@ -29,120 +29,120 @@ GPIOHS模块具有以下功能：
 
 ### gpiohs\_set\_drive\_mode
 
-#### 描述
+#### Description
 
 设置GPIO驱动模式。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void gpiohs_set_drive_mode(uint8_t pin, gpio_drive_mode_t mode)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称       | 描述           | 输入输出   |
+| Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
 | pin           | GPIO管脚       | 输入      |
 | mode          | GPIO驱动模式    | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### gpio\_set\_pin
 
-#### 描述
+#### Description
 
 设置GPIO管脚值。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void gpiohs_set_pin(uint8_t pin, gpio_pin_value_t value)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称       | 描述           | 输入输出   |
+| Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
 | pin           | GPIO管脚       | 输入      |
 | value         | GPIO值         | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### gpio\_get\_pin
 
-#### 描述
+#### Description
 
 获取GPIO管脚值。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 gpio_pin_value_t gpiohs_get_pin(uint8_t pin)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称       | 描述           | 输入输出   |
+| Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
 | pin           | GPIO管脚       | 输入       |
 
-#### 返回值
+#### Return value
 
 获取的GPIO管脚值。
 
 ### gpiohs\_set\_pin\_edge
 
-#### 描述
+#### Description
 
 设置高速GPIO中断触发模式。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void gpiohs_set_pin_edge(uint8_t pin, gpio_pin_edge_t edge)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称       | 描述           | 输入输出   |
+| Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
 | pin           | GPIO管脚       | 输入       |
 | edge          | 中断触发方式    | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### gpiohs\_set\_irq
 
-#### 描述
+#### Description
 
 设置高速GPIO的中断回调函数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void gpiohs_set_irq(uint8_t pin, uint32_t priority, void(*func)());
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称       | 描述           | 输入输出   |
+| Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
 | pin           | GPIO管脚       | 输入       |
 | priority      | 中断优先级      | 输入      |
 | func          | 中断回调函数    | 输入       |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
-### 举例
+### Example
 
 ```c
 void irq_gpiohs2(void)
@@ -162,7 +162,7 @@ gpiohs_set_irq(2, 1, irq_gpiohs2);
 sysctl_enable_irq();
 ```
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -174,11 +174,11 @@ sysctl_enable_irq();
 
 ### gpio\_drive\_mode\_t
 
-#### 描述
+#### Description
 
 GPIO驱动模式。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _gpio_drive_mode
@@ -192,7 +192,7 @@ typedef enum _gpio_drive_mode
 
 #### 成员
 
-| 成员名称                     | 描述        |
+| 成员名称                     | Description        |
 | --------------------------- | ----------- |
 | GPIO\_DM\_INPUT             | 输入        |
 | GPIO\_DM\_INPUT\_PULL\_DOWN | 输入下拉     |
@@ -201,11 +201,11 @@ typedef enum _gpio_drive_mode
 
 ### gpio\_pin\_value\_t
 
-#### 描述
+#### Description
 
 GPIO 值。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _gpio_pin_value
@@ -217,18 +217,18 @@ typedef enum _gpio_pin_value
 
 #### 成员
 
-| 成员名称            | 描述        |
+| 成员名称            | Description        |
 | ------------------ | ----------- |
 | GPIO\_PV\_LOW      | 低          |
 | GPIO\_PV\_HIGH     | 高          |
 
 ### gpio\_pin\_edge\_t
 
-#### 描述
+#### Description
 
 高速GPIO边沿触发模式。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _gpio_pin_edge
@@ -242,7 +242,7 @@ typedef enum _gpio_pin_edge
 
 #### 成员
 
-| 成员名称            | 描述        |
+| 成员名称            | Description        |
 | ------------------ | ----------- |
 | GPIO\_PE\_NONE     | 不触发      |
 | GPIO\_PE\_FALLING  | 下降沿触发  |

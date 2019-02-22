@@ -38,39 +38,39 @@ DMA 模块具有以下功能：
 
 ### dmac\_init
 
-#### 描述
+#### Description
 
 初始化DMA。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dmac_init(void)
 ```
 
-#### 参数
+#### Parameter
 
-无。
+None.
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dmac\_set\_single\_mode
 
-#### 描述
+#### Description
 
 设置单路DMA参数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dmac_set_single_mode(dmac_channel_number_t channel_num, const void *src, void *dest, dmac_address_increment_t src_inc, dmac_address_increment_t dest_inc, dmac_burst_trans_length_t dmac_burst_size, dmac_transfer_width_t dmac_trans_width, size_t block_size)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                         |   描述                 |  输入输出  |
+| Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
 | channel_num                     | DMA 通道号              | 输入      |
 | src                             | 源地址                  | 输入      |
@@ -81,151 +81,151 @@ void dmac_set_single_mode(dmac_channel_number_t channel_num, const void *src, vo
 | dmac\_trans\_width              | 单次传输数据位宽         | 输入      |
 | block\_size                       | 传输数据的个数           | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dmac\_is\_done
 
-#### 描述
+#### Description
 
 用于DMAC启动后判断是否完成传输。用于DMAC启动传输后，如果在启动前判断会不准确。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int dmac_is_done(dmac_channel_number_t channel_num)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                         |   描述                 |  输入输出  |
+| Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
 | channel\_num                     | DMA 通道号              | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值  | 描述     |
+| Return value  | Description     |
 | :----  | :--------|
 | 0      | 未完成    |
 | 1      | 已完成    |
 
 ### dmac\_wait\_done
 
-#### 描述
+#### Description
 
 等待DMA完成工作。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dmac_wait_done(dmac_channel_number_t channel_num)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                         |   描述                 |  输入输出  |
+| Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
 | channel\_num                     | DMA 通道号              | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dmac\_set\_irq
 
-#### 描述
+#### Description
 
 设置DMAC中断的回调函数
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dmac_set_irq(dmac_channel_number_t channel_num , plic_irq_callback_t dmac_callback, void *ctx, uint32_t priority)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                       |   描述           |  输入输出  |
+| Parameter name                       |   Description           |  Input or output  |
 | ----------------------------- | ---------------  | --------- |
 | channel\_num                  | DMA 通道号        | 输入      |
 | dmac\_callback                | 中断回调函数      | 输入      |
 | ctx                           | 回调函数的参数    | 输入       |
 | priority                      | 中断优先级        | 输入       |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dmac\_set\_src\_dest\_length
 
-#### 描述
+#### Description
 
 设置DMAC的源地址、目的地址和长度，然后启动DMAC传输。如果src为NULL则不设置源地址，dest为NULL则不设置目的地址，len<=0则不设置长度。
 
 该函数一般用于DMAC中断中，使DMA继续传输数据，而不必再次设置DMAC的所有参数以节省时间。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void dmac_set_src_dest_length(dmac_channel_number_t channel_num, const void *src, void *dest, size_t len)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                       |   描述           |  输入输出  |
+| Parameter name                       |   Description           |  Input or output  |
 | ----------------------------- | ---------------  | --------- |
 | channel\_num                  | DMA 通道号        | 输入      |
 | src                           | 中断回调函数      | 输入      |
 | dest                          | 回调函数的参数    | 输入       |
 | len                           | 中断优先级        | 输入       |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### dmac\_is\_idle
 
-#### 描述
+#### Description
 
 判断DMAC当前通道是否空闲，该函数在传输前和传输后都可以用来判断DMAC状态。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int dmac_is_idle(dmac_channel_number_t channel_num)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                         |   描述                 |  输入输出  |
+| Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
 | channel\_num                     | DMA 通道号              | 输入      |
 
-#### 返回值
+#### Return value
 
-| 返回值  | 描述     |
+| Return value  | Description     |
 | :----  | :--------|
 | 0      | 忙       |
 | 1      | 空闲     |
 
 ### dmac\_wait\_idle
 
-#### 描述
+#### Description
 
 等待DMAC进入空闲状态。
 
-#### 参数
+#### Parameter
 
-| 参数名称                         |   描述                 |  输入输出  |
+| Parameter name                         |   Description                 |  Input or output  |
 | ------------------------------- | ---------------------- | --------- |
 | channel_num                     | DMA 通道号              | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
-### 举例
+### Example
 
 ```c
 /* I2C通过DMA发送128个int数据 */
@@ -236,7 +236,7 @@ dmac_set_single_mode(SYSCTL_DMA_CHANNEL_0, buf, (void*)(&i2c_adapter->data_cmd),
 dmac_wait_done(SYSCTL_DMA_CHANNEL_0);
 ```
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -250,11 +250,11 @@ dmac_wait_done(SYSCTL_DMA_CHANNEL_0);
 
 ### dmac\_channel\_number\_t
 
-#### 描述
+#### Description
 
 DMA通道编号。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _dmac_channel_number
@@ -271,7 +271,7 @@ typedef enum _dmac_channel_number
 
 #### 成员
 
-| 成员名称         | 描述         |
+| 成员名称         | Description         |
 | --------------- | ------------ |
 | DMAC\_CHANNEL0  | DMA通道 0     |
 | DMAC\_CHANNEL1  | DMA通道 1     |
@@ -282,11 +282,11 @@ typedef enum _dmac_channel_number
 
 ### dmac\_address\_increment\_t
 
-#### 描述
+#### Description
 
 地址增长方式。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _dmac_address_increment
@@ -298,18 +298,18 @@ typedef enum _dmac_address_increment
 
 #### 成员
 
-| 成员名称                | 描述         |
+| 成员名称                | Description         |
 | ---------------------- | ------------ |
 | DMAC\_ADDR\_INCREMENT  | 地址自动增长  |
 | DMAC\_ADDR\_NOCHANGE   | 地址不变      |
 
 ### dmac\_burst\_trans\_length\_t
 
-#### 描述
+#### Description
 
 突发传输数量。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _dmac_burst_trans_length
@@ -327,7 +327,7 @@ typedef enum _dmac_burst_trans_length
 
 #### 成员
 
-| 成员名称           | 描述              |
+| 成员名称           | Description              |
 | ----------------- | ----------------- |
 | DMAC\_MSIZE\_1    | 单次传输数量乘1    |
 | DMAC\_MSIZE\_4    | 单次传输数量乘4    |
@@ -340,11 +340,11 @@ typedef enum _dmac_burst_trans_length
 
 ### dmac\_transfer\_width\_t
 
-#### 描述
+#### Description
 
 单次传输数据位数。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _dmac_transfer_width
@@ -360,7 +360,7 @@ typedef enum _dmac_transfer_width
 
 #### 成员
 
-| 成员名称                 | 描述              |
+| 成员名称                 | Description              |
 | ----------------------- | ----------------- |
 | DMAC\_TRANS\_WIDTH\_8   | 单次传输8位        |
 | DMAC\_TRANS\_WIDTH\_16  | 单次传输16位       |

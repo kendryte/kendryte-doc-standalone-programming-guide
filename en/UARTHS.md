@@ -9,7 +9,7 @@
 
 UARTHS 模块具有以下功能：
 
-- 配置 UARTHS 参数
+- 配置 UARTHS Parameter
 
 - 自动收取数据到缓冲区
 
@@ -35,163 +35,163 @@ UARTHS 模块具有以下功能：
 
 ### uarths\_init
 
-#### 描述
+#### Description
 
 初始化UARTHS，系统默认波特率为115200 8bit 1位停止位 无检验位。因为uarths时钟源为PLL0，在设置PLL0后需要重新调用该函数设置波特率，否则会打印乱码。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uarths_init(void)
 ```
 
-#### 参数
+#### Parameter
 
-无。
+None.
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### uarths\_config
 
-#### 描述
+#### Description
 
 设置UARTHS的参数。默认8bit数据，无校验位。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uarths_config(uint32_t baud_rate, uarths_stopbit_t stopbit)
 ```
 
-### 参数
+### Parameter
 
-| 参数名称    |   描述       |  输入输出  |
+| Parameter name    |   Description       |  Input or output  |
 | ---------- | ------------ | --------- |
 | baud\_rate | 波特率        | 输入      |
 | stopbit    | 停止位        | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### uarths\_receive\_data
 
-#### 描述
+#### Description
 
 通过UARTHS读取数据。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 size_t uarths_receive_data(uint8_t *buf, size_t buf_len)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称    |   描述           |  输入输出  |
+| Parameter name    |   Description           |  Input or output  |
 | ---------- | ---------------  | --------- |
 | buf        | 接收数据         | 输出       |
 | buf\_len   | 接收数据的长度    | 输入       |
 
-#### 返回值
+#### Return value
 
 已接收到的数据长度。
 
 ### uarths\_send\_data
 
-#### 描述
+#### Description
 
 通过UART发送数据。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 size_t uarths_send_data(const uint8_t *buf, size_t buf_len)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称    |   描述           |  输入输出  |
+| Parameter name    |   Description           |  Input or output  |
 | ---------- | ---------------  | --------- |
 | buf        | 待发送数据        | 输入      |
 | buf\_len   | 待发送数据的长度  | 输入       |
 
-#### 返回值
+#### Return value
 
 已发送数据的长度。
 
 ### uarths\_set\_irq
 
-#### 描述
+#### Description
 
 设置UARTHS中断回调函数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uarths_set_irq(uarths_interrupt_mode_t interrupt_mode, plic_irq_callback_t uarths_callback, void *ctx, uint32_t priority)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                       |   描述           |  输入输出  |
+| Parameter name                       |   Description           |  Input or output  |
 | ----------------------------- | ---------------  | --------- |
 | interrupt\_mode               | 中断类型          | 输入       |
 | uarths\_callback              | 中断回调函数      | 输入      |
 | ctx                           | 回调函数的参数    | 输入       |
 | priority                      | 中断优先级        | 输入       |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### uarths\_get\_interrupt\_mode
 
-#### 描述
+#### Description
 
 获取UARTHS的中断类型。接收、发送或接收发送同时中断。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 uarths_interrupt_mode_t uarths_get_interrupt_mode(void)
 ```
 
-#### 参数
+#### Parameter
 
 无
 
-#### 返回值
+#### Return value
 
 当前中断的类型。
 
 ### uarths\_set\_interrupt\_cnt
 
-#### 描述
+#### Description
 
 设置UARTHS中断时的FIFO深度。
 当中断类型为UARTHS\_SEND\_RECEIVE，发送接收FIFO中断深度均为cnt;
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uarths_set_interrupt_cnt(uarths_interrupt_mode_t interrupt_mode, uint8_t cnt)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                       |   描述           |  输入输出  |
+| Parameter name                       |   Description           |  Input or output  |
 | ----------------------------- | ---------------  | --------- |
 | interrupt\_mode               | 中断类型         | 输入       |
 | cnt                           | FIFO深度         | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
-### 举例
+### Example
 
 ```c
 /* 设置接收中断 中断FIFO深度为0，即接收到数据立即中断并读取接收到的数据。*/
@@ -208,7 +208,7 @@ void uarths_set_interrupt_cnt(uarths_interrupt_mode_t interrupt_mode, uint8_t cn
     sysctl_enable_irq();
 ```
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -217,11 +217,11 @@ void uarths_set_interrupt_cnt(uarths_interrupt_mode_t interrupt_mode, uint8_t cn
 
 ### uarths\_interrupt\_mode\_t
 
-### 描述
+### Description
 
 UARTHS中断类型。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _uarths_interrupt_mode
@@ -234,7 +234,7 @@ typedef enum _uarths_interrupt_mode
 
 #### 成员
 
-| 成员名称              | 描述         |
+| 成员名称              | Description         |
 | -------------------- | ------------ |
 | UARTHS_SEND          | 发送中断      |
 | UARTHS_RECEIVE       | 接收中断      |
@@ -242,11 +242,11 @@ typedef enum _uarths_interrupt_mode
 
 ### uarths\_stopbit\_t
 
-#### 描述：
+#### Description：
 
 UARTHS停止位。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _uarths_stopbit
@@ -258,7 +258,7 @@ typedef enum _uarths_stopbit
 
 #### 成员
 
-| 成员名称              | 描述         |
+| 成员名称              | Description         |
 | -------------------- | ------------ |
 | UART\_STOP\_1        | 1位停止位     |
 | UART\_STOP\_2        | 2位停止位     |

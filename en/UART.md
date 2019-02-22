@@ -8,7 +8,7 @@
 
 UART 模块具有以下功能：
 
-- 配置 UART 参数
+- 配置 UART Parameter
 
 - 自动收取数据到缓冲区
 
@@ -42,47 +42,47 @@ UART 模块具有以下功能：
 
 ### uart\_init
 
-#### 描述
+#### Description
 
 初始化uart。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uart_init(uart_device_number_t channel)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称     | 描述       | 输入输出   |
+| Parameter name     | Description       | Input or output   |
 | :-----------| :----------| :-------- |
 | channel     | UART号     | 输入       |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### uart\_configure
 
-#### 描述
+#### Description
 
 设置UART相关参数。该函数已废弃，替代函数为uart_configure。
 
 ### uart\_configure
 
-#### 描述
+#### Description
 
 设置UART相关参数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uart_configure(uart_device_number_t channel, uint32_t baud_rate, uart_bitwidth_t data_width, uart_stopbit_t stopbit, uart_parity_t parity)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称    |   描述       |  输入输出  |
+| Parameter name    |   Description       |  Input or output  |
 | ---------- | ------------ | --------- |
 | channel    | UART 编号     | 输入      |
 | baud\_rate | 波特率        | 输入      |
@@ -90,66 +90,66 @@ void uart_configure(uart_device_number_t channel, uint32_t baud_rate, uart_bitwi
 | stopbit   | 停止位        | 输入      |
 | parity     | 校验位        | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### uart\_send\_data
 
-#### 描述
+#### Description
 
 通过UART发送数据。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int uart_send_data(uart_device_number_t channel, const char *buffer, size_t buf_len)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称    |   描述           |  输入输出  |
+| Parameter name    |   Description           |  Input or output  |
 | ---------- | ---------------  | --------- |
 | channel    | UART 编号        | 输入       |
 | buffer     | 待发送数据        | 输入      |
 | buf\_len    | 待发送数据的长度  | 输入       |
 
-#### 返回值
+#### Return value
 
 已发送数据的长度。
 
 ### uart\_send\_data\_dma
 
-#### 描述
+#### Description
 
 UART通过DMA发送数据。数据全部发送完毕后返回。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uart_send_data_dma(uart_device_number_t uart_channel, dmac_channel_number_t dmac_channel, const uint8_t *buffer, size_t buf_len)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称          |   描述           |  输入输出  |
+| Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
 | uart\_channel    | UART 编号        | 输入       |
 | dmac\_channel    | DMA通道          | 输入       |
 | buffer           | 待发送数据        | 输入       |
 | buf\_len         | 待发送数据的长度  | 输入       |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### uart\_send\_data\_dma\_irq
 
-#### 描述
+#### Description
 
 UART通过DMA发送数据，并设置DMA发送完成中断函数，仅单次中断。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uart_send_data_dma_irq(uart_device_number_t uart_channel, dmac_channel_number_t dmac_channel,
@@ -157,9 +157,9 @@ void uart_send_data_dma_irq(uart_device_number_t uart_channel, dmac_channel_numb
                             void *ctx, uint32_t priority)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称          |   描述           |  输入输出  |
+| Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
 | uart\_channel    | UART 编号        | 输入       |
 | dmac\_channel    | DMA通道          | 输入       |
@@ -169,66 +169,66 @@ void uart_send_data_dma_irq(uart_device_number_t uart_channel, dmac_channel_numb
 | ctx              | 中断函数参数      | 输入       |
 | priority         | 中断优先级        | 输入       |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### uart\_receive\_data
 
-#### 描述
+#### Description
 
 通过UART读取数据。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int uart_receive_data(uart_device_number_t channel, char *buffer, size_t buf_len);
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称    |   描述           |  输入输出  |
+| Parameter name    |   Description           |  Input or output  |
 | ---------- | ---------------  | --------- |
 | channel    | UART 编号        | 输入       |
 | buffer     | 接收数据         | 输出       |
 | buf\_len    | 接收数据的长度    | 输入       |
 
-#### 返回值
+#### Return value
 
 已接收到的数据长度。
 
 ### uart\_receive\_data\_dma
 
-#### 描述
+#### Description
 
 UART通过DMA接收数据。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uart_receive_data_dma(uart_device_number_t uart_channel, dmac_channel_number_t dmac_channel, uint8_t *buffer, size_t buf_len)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称          |   描述           |  输入输出  |
+| Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
 | uart\_channel    | UART 编号        | 输入       |
 | dmac\_channel    | DMA通道          | 输入       |
 | buffer           | 接收数据         | 输出       |
 | buf\_len         | 接收数据的长度    | 输入       |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### uart\_receive\_data\_dma\_irq
 
-#### 描述
+#### Description
 
 UART通过DMA接收数据，并注册DMA接收完成中断函数，仅单次中断。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uart_receive_data_dma_irq(uart_device_number_t uart_channel, dmac_channel_number_t dmac_channel,
@@ -236,9 +236,9 @@ void uart_receive_data_dma_irq(uart_device_number_t uart_channel, dmac_channel_n
                                      void *ctx, uint32_t priority)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称          |   描述           |  输入输出  |
+| Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
 | uart\_channel    | UART 编号        | 输入       |
 | dmac\_channel    | DMA通道          | 输入       |
@@ -248,25 +248,25 @@ void uart_receive_data_dma_irq(uart_device_number_t uart_channel, dmac_channel_n
 | ctx              | 中断函数参数      | 输入       |
 | priority         | 中断优先级        | 输入       |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### uart\_irq\_register
 
-#### 描述
+#### Description
 
 注册UART中断函数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uart_irq_register(uart_device_number_t channel, uart_interrupt_mode_t interrupt_mode, plic_irq_callback_t uart_callback, void *ctx, uint32_t priority)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称          |   描述           |  输入输出  |
+| Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
 | channel          | UART 编号        | 输入       |
 | interrupt\_mode  | 中断类型          | 输入       |
@@ -274,34 +274,34 @@ void uart_irq_register(uart_device_number_t channel, uart_interrupt_mode_t inter
 | ctx              | 中断函数参数      | 输入       |
 | priority         | 中断优先级        | 输入       |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### uart\_irq\_deregister
 
-#### 描述
+#### Description
 
 注销UART中断函数。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void uart_irq_deregister(uart_device_number_t channel, uart_interrupt_mode_t interrupt_mode)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称          |   描述           |  输入输出  |
+| Parameter name          |   Description           |  Input or output  |
 | ---------------- | ---------------  | --------- |
 | channel          | UART 编号        | 输入       |
 | interrupt\_mode  | 中断类型          | 输入       |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
-### 举例
+### Example
 
 ```c
 /* UART1 波特率115200, 8位数据， 1位停止位，无校验位 */
@@ -317,7 +317,7 @@ while(uart_receive_data(UART_DEVICE_1, &recv, 1))
 }
 ```
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -331,11 +331,11 @@ while(uart_receive_data(UART_DEVICE_1, &recv, 1))
 
 ### uart\_device\_number\_t
 
-#### 描述
+#### Description
 
 UART编号。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _uart_device_number
@@ -349,7 +349,7 @@ typedef enum _uart_device_number
 
 #### 成员
 
-| 成员名称          | 描述        |
+| 成员名称          | Description        |
 | ---------------- | ----------- |
 | UART\_DEVICE\_1  | UART 1      |
 | UART\_DEVICE\_2  | UART 2      |
@@ -357,11 +357,11 @@ typedef enum _uart_device_number
 
 ### uart\_bitwidth\_t
 
-#### 描述
+#### Description
 
 UART数据位宽。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _uart_bitwidth
@@ -375,7 +375,7 @@ typedef enum _uart_bitwidth
 
 #### 成员
 
-| 成员名称            | 描述        |
+| 成员名称            | Description        |
 | ------------------ | ----------- |
 | UART_BITWIDTH_5BIT | 5比特        |
 | UART_BITWIDTH_6BIT | 6比特        |
@@ -384,11 +384,11 @@ typedef enum _uart_bitwidth
 
 ### uart\_stopbits\_t
 
-#### 描述
+#### Description
 
 UART 停止位。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _uart_stopbits
@@ -401,7 +401,7 @@ typedef enum _uart_stopbits
 
 #### 成员
 
-| 成员名称          | 描述        |
+| 成员名称          | Description        |
 | ---------------- | ----------- |
 | UART\_STOP\_1    | 1 个停止位   |
 | UART\_STOP\_1\_5 | 1.5 个停止位 |
@@ -409,11 +409,11 @@ typedef enum _uart_stopbits
 
 ### uart\_parity\_t
 
-#### 描述
+#### Description
 
 UART 校验位。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _uart_parity
@@ -426,7 +426,7 @@ typedef enum _uart_parity
 
 #### 成员
 
-| 成员名称            | 描述        |
+| 成员名称            | Description        |
 | ------------------ | ----------- |
 | UART\_PARITY\_NONE | 无校验位    |
 | UART\_PARITY\_ODD  | 奇校验      |
@@ -434,11 +434,11 @@ typedef enum _uart_parity
 
 ### uart\_interrupt\_mode\_t
 
-#### 描述
+#### Description
 
 UART中断类型，接收或发送。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _uart_interrupt_mode
@@ -450,18 +450,18 @@ typedef enum _uart_interrupt_mode
 
 #### 成员
 
-| 成员名称            | 描述        |
+| 成员名称            | Description        |
 | ------------------ | ----------- |
 | UART\_SEND          | UART 发送   |
 | UART\_RECEIVE       | UART 接收   |
 
 ### uart\_send\_trigger\_t
 
-#### 描述
+#### Description
 
 发送中断或DMA触发FIFO深度。当FIFO中的数据小于等于该值时触发中断或DMA传输。FIFO的深度为16字节。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _uart_send_trigger
@@ -475,7 +475,7 @@ typedef enum _uart_send_trigger
 
 #### 成员
 
-| 成员名称               | 描述          |
+| 成员名称               | Description          |
 | --------------------- | ------------- |
 | UART\_SEND\_FIFO\_0   | FIFO为空      |
 | UART\_SEND\_FIFO\_2   | FIFO剩余2字节  |
@@ -484,11 +484,11 @@ typedef enum _uart_send_trigger
 
 ### uart\_receive\_trigger\_t
 
-#### 描述
+#### Description
 
 接收中断或DMA触发FIFO深度。当FIFO中的数据大于等于该值时触发中断或DMA传输。FIFO的深度为16字节。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _uart_receive_trigger
@@ -502,7 +502,7 @@ typedef enum _uart_receive_trigger
 
 #### 成员
 
-| 成员名称                  | 描述          |
+| 成员名称                  | Description          |
 | ------------------------ | ------------- |
 | UART\_RECEIVE\_FIFO\_1   | FIFO剩余1字节  |
 | UART\_RECEIVE\_FIFO\_4   | FIFO剩余2字节  |

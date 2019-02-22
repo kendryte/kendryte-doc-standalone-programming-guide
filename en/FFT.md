@@ -18,19 +18,19 @@ FFT模块是用硬件的方式来实现FFT的基2时分运算加速。
 
 ### fft\_complex\_uint16\_dma
 
-#### 描述
+#### Description
 
 FFT运算。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void fft_complex_uint16_dma(dmac_channel_number_t dma_send_channel_num, dmac_channel_number_t dma_receive_channel_num, uint16_t shift, fft_direction_t direction, const uint64_t *input, size_t point_num, uint64_t *output);
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称                                  |   描述                     |  输入输出  |
+| Parameter name                                  |   Description                     |  Input or output  |
 | :--------------------------------------- | :------------------------- | :-------- |
 | dma\_send\_channel\_num                  | 发送数据使用的DMA通道号      | 输入       |
 | dma\_receive\_channel\_num               | 接收数据使用的DMA通道号      | 输入       |
@@ -40,11 +40,11 @@ void fft_complex_uint16_dma(dmac_channel_number_t dma_send_channel_num, dmac_cha
 | point\_num                               | 待运算的数据点数，只能为512/256/128/64 | 输入 |
 | output                                   | 运算后结果。格式为RIRI..,实部与虚部的精度都为16bit | 输出 |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
-### 举例
+### Example
 
 ```c
 #define FFT_N               512U
@@ -96,7 +96,7 @@ for (i = 0; i < FFT_N / 2; i++)
 }
 ```
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -105,11 +105,11 @@ for (i = 0; i < FFT_N / 2; i++)
 
 ### fft\_data\_t
 
-#### 描述
+#### Description
 
 FFT运算传入的数据格式。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef struct tag_fft_data
@@ -123,7 +123,7 @@ typedef struct tag_fft_data
 
 #### 成员
 
-| 成员名称 | 描述 |
+| 成员名称 | Description |
 | :----- | :--- |
 | I1 | 第一个数据的虚部  |
 | R1 | 第一个数据的实部  |
@@ -132,11 +132,11 @@ typedef struct tag_fft_data
 
 ### fft\_direction\_t
 
-#### 描述
+#### Description
 
 FFT变换模式
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _fft_direction
@@ -149,7 +149,7 @@ typedef enum _fft_direction
 
 #### 成员
 
-| 成员名称 | 描述 |
+| 成员名称 | Description |
 | :----- | :--- |
 | FFT\_DIR\_BACKWARD | FFT逆变换 |
 | FFT\_DIR\_FORWARD  | FFT正变换 |

@@ -26,92 +26,92 @@ GPIO 模块具有以下功能：
 
 ### gpio\_init
 
-#### 描述
+#### Description
 
 初始化GPIO。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 int gpio_init(void)
 ```
 
-#### 返回值
+#### Return value
 
-| 返回值 | 描述 |
+| Return value | Description |
 | :---- | :----|
 | 0     | 成功 |
 | 非0   | 失败 |
 
 ### gpio\_set\_drive\_mode
 
-#### 描述
+#### Description
 
 设置GPIO驱动模式。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void gpio_set_drive_mode(uint8_t pin, gpio_drive_mode_t mode)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称       | 描述           | 输入输出   |
+| Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
 | pin           | GPIO管脚       | 输入      |
 | mode          | GPIO驱动模式    | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### gpio\_set\_pin
 
-#### 描述
+#### Description
 
 设置GPIO管脚值。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 void gpio_set_pin(uint8_t pin, gpio_pin_value_t value)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称       | 描述           | 输入输出   |
+| Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
 | pin           | GPIO管脚       | 输入      |
 | value         | GPIO值         | 输入      |
 
-#### 返回值
+#### Return value
 
-无。
+None.
 
 ### gpio\_get\_pin
 
-#### 描述
+#### Description
 
 获取GPIO管脚值。
 
-#### 函数原型
+#### Function prototype
 
 ```c
 gpio_pin_value_t gpio_get_pin(uint8_t pin)
 ```
 
-#### 参数
+#### Parameter
 
-| 参数名称       | 描述           | 输入输出   |
+| Parameter name       | Description           | Input or output   |
 | :------------ | :------------- | :-------- |
 | pin           | GPIO管脚       | 输入      |
 
-#### 返回值
+#### Return value
 
 获取的GPIO管脚值。
 
-### 举例
+### Example
 
 ```c
 /* 设置IO13为输出并置为高 */
@@ -121,7 +121,7 @@ gpio_set_drive_mode(3, GPIO_DM_OUTPUT);
 gpio_set_pin(3, GPIO_PV_High);
 ```
 
-## 数据类型
+## Data type
 
 相关数据类型、数据结构定义如下：
 
@@ -131,11 +131,11 @@ gpio_set_pin(3, GPIO_PV_High);
 
 ### gpio\_drive\_mode\_t
 
-#### 描述
+#### Description
 
 GPIO驱动模式。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _gpio_drive_mode
@@ -149,7 +149,7 @@ typedef enum _gpio_drive_mode
 
 #### 成员
 
-| 成员名称                     | 描述        |
+| 成员名称                     | Description        |
 | --------------------------- | ----------- |
 | GPIO\_DM\_INPUT             | 输入        |
 | GPIO\_DM\_INPUT\_PULL\_DOWN | 输入下拉     |
@@ -158,11 +158,11 @@ typedef enum _gpio_drive_mode
 
 ### gpio\_pin\_value\_t
 
-#### 描述
+#### Description
 
 GPIO 值。
 
-#### 定义
+#### Type definition
 
 ```c
 typedef enum _gpio_pin_value
@@ -174,7 +174,7 @@ typedef enum _gpio_pin_value
 
 #### 成员
 
-| 成员名称            | 描述        |
+| 成员名称            | Description        |
 | ------------------ | ----------- |
 | GPIO\_PV\_LOW      | 低          |
 | GPIO\_PV\_HIGH     | 高          |
