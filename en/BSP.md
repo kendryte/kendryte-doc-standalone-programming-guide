@@ -1,12 +1,13 @@
-# 平台相关（BSP）
+# Architecture support package（BSP）
 
 ## Summary
 
-平台相关的通用函数。
+Architecture level support function of k210 SoC.
 
 ## Features
 
-提供获取当前运行程序的CPU核编号的接口以及启动第二个核的入口。
+Provides an interface to get the CPU core ID of the currently running program
+and an entry to start the second core.
 
 ## API
 
@@ -22,7 +23,7 @@ Provide the following interfaces
 
 #### Description
 
-向1核注册函数，并启动1核。
+Register the function with core 1 and start core 1.
 
 #### Function prototype
 
@@ -34,21 +35,21 @@ int register_core1(core_function func, void *ctx)
 
 | Parameter name                         |   Description                   |  Input or output  |
 | ------------------------------- | ------------------------ | --------- |
-| func                            | 向1核注册的函数           | Input       |
-| ctx                             | 函数的参数，没有设置为NULL | Input       |
+| func                            | Function registered to core 1           | Input       |
+| ctx                             | The parameter of the function, set to NULL means not used | Input       |
 
 #### Return value
 
 | Return value  | Description   |
 | :----  | :------ |
-| 0      | 成功    |
-| 非0    | 失败    |
+| 0      | Success    |
+| Other    | Fail    |
 
 ### current\_coreid
 
 #### Description
 
-获取当前CPU核编号。
+Get the current CPU core ID.
 
 #### Function prototype
 
@@ -62,12 +63,12 @@ None.
 
 #### Return value
 
-当前所在CPU核的编号。
+The ID of the current CPU core.
 
 ### Example
 
 ```c
-/* 0核获取CPU核编号打印Hello world，然后启动1核获取CPU核编号打印Hello world */
+/* Core 0 gets the CPU core ID and prints Hello world, then starts core 1 to get the CPU core ID and prints Hello world */
 #include <stdio.h>
 #include "bsp.h"
 
@@ -91,13 +92,13 @@ int main()
 
 The relevant data types and data structures are defined as follows:
 
-- core\_function：CPU核调用的函数。
+- core\_function：The function called by the CPU core.
 
 ### core\_function
 
 #### Description
 
-CPU核调用的函数。
+The function called by the CPU core.
 
 #### Type definition
 
