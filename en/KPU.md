@@ -83,7 +83,7 @@ int kpu_run(kpu_task_t* v_task, dmac_channel_number_t dma_ch, const void *src, v
 
 | Return value  | Description         |
 | :----  | :------------|
-| 0      | 成功         |
+| 0      | Success         |
 | 非0    | KPU忙，失败   |
 
 ### kpu\_get\_output\_buf

@@ -74,8 +74,8 @@ int plic_irq_enable(plic_irq_t irq_number)
 
 | Return value | Description |
 | :----  | :----|
-| 0      | 成功 |
-| 非0    | 失败 |
+| 0      | Success |
+| 非0    | Fail |
 
 ### plic\_irq\_disable
 
@@ -99,8 +99,8 @@ int plic_irq_disable(plic_irq_t irq_number)
 
 | Return value | Description |
 | :----  | :----|
-| 0      | 成功 |
-| 非0    | 失败 |
+| 0      | Success |
+| 非0    | Fail |
 
 ### plic\_set\_priority
 
@@ -125,8 +125,8 @@ int plic_set_priority(plic_irq_t irq_number, uint32_t priority)
 
 | Return value | Description |
 | :----  | :----|
-| 0      | 成功 |
-| 非0    | 失败 |
+| 0      | Success |
+| 非0    | Fail |
 
 ### plic\_get\_priority
 
@@ -174,8 +174,8 @@ int plic_irq_register(plic_irq_t irq, plic_irq_callback_t callback, void* ctx)
 
 | Return value | Description |
 | :----  | :----|
-| 0      | 成功 |
-| 非0    | 失败 |
+| 0      | Success |
+| 非0    | Fail |
 
 ### plic\_irq\_deregister
 
@@ -199,8 +199,8 @@ int plic_irq_deregister(plic_irq_t irq)
 
 | Return value | Description |
 | :----  | :----|
-| 0      | 成功 |
-| 非0    | 失败 |
+| 0      | Success |
+| 非0    | Fail |
 
 ### Example
 

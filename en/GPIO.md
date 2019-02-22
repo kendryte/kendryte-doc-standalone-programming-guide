@@ -40,8 +40,8 @@ int gpio_init(void)
 
 | Return value | Description |
 | :---- | :----|
-| 0     | 成功 |
-| 非0   | 失败 |
+| 0     | Success |
+| 非0   | Fail |
 
 ### gpio\_set\_drive\_mode
 

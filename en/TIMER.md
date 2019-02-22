@@ -152,8 +152,8 @@ int timer_irq_register(timer_device_number_t device, timer_channel_number_t chan
 
 | Return value | Description |
 | :---- | :----|
-| 0     | 成功 |
-| 非0   | 失败 |
+| 0     | Success |
+| 非0   | Fail |
 
 ### timer\_irq\_deregister
 
@@ -178,8 +178,8 @@ int timer_irq_deregister(timer_device_number_t device, timer_channel_number_t ch
 
 | Return value | Description |
 | :---- | :----|
-| 0     | 成功 |
-| 非0   | 失败 |
+| 0     | Success |
+| 非0   | Fail |
 
 ### Example
 

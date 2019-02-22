@@ -6,7 +6,7 @@
   - [API](KPU.md#api)
   - [Data type](KPU.md#data-type)
 
-- [高级加密加速器(AES)](AES.md)
+- [Advanced Encryption Standard acceleration engine(AES)](AES.md)
   - [Features](AES.md#features)
   - [API](AES.md#api)
   - [Data type](AES.md#data-type)
@@ -116,7 +116,7 @@
   - [API](SYSCTL.md#api)
   - [Data type](SYSCTL.md#data-type)
 
-- [平台相关(BSP)](BSP.md)
+- [Architecture support package(BSP)](BSP.md)
   - [Summary](BSP.md#summary)
   - [Features](BSP.md#features)
   - [API](BSP.md#api)

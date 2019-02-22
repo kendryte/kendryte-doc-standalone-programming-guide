@@ -231,8 +231,8 @@ int i2s_set_dma_divide_16(i2s_device_number_t device_num, uint32_t enable)
 
 | Return value              | Description       |
 | :------------------ | :-------- |
-| 0                   | 成功      |
-| 非0                 | 失败       |
+| 0                   | Success      |
+| 非0                 | Fail       |
 
 ### i2s\_get\_dma\_divide\_16
 
@@ -258,7 +258,7 @@ int i2s_get_dma_divide_16(i2s_device_number_t device_num)
 | :------------------ | :-------- |
 | 1                   | 使能      |
 | 0                   | 禁用      |
-| <0                 | 失败       |
+| <0                 | Fail       |
 
 ### Example
 

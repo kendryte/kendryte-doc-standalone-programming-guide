@@ -54,8 +54,8 @@ int fpioa_set_function(int number, fpioa_function_t function)
 
 | Return value              | Description       |
 | :------------------ | :-------- |
-| 0                   | 成功      |
-| 非0                 | 失败       |
+| 0                   | Success      |
+| 非0                 | Fail       |
 
 ### fpioa\_get\_io\_by\_function
 
@@ -80,7 +80,7 @@ int fpioa_get_io_by_function(fpioa_function_t function)
 | Return value              | Description       |
 | :------------------ | :-------- |
 | 大于等于0           | IO管脚号   |
-| 小于0               | 失败       |
+| 小于0               | Fail       |
 
 ### fpioa\_get\_io
 
@@ -105,8 +105,8 @@ int fpioa_get_io(int number, fpioa_io_config_t *cfg)
 
 | Return value              | Description       |
 | :------------------ | :-------- |
-| 0                   | 成功      |
-| 非0                 | 失败       |
+| 0                   | Success      |
+| 非0                 | Fail       |
 
 ### fpioa\_set\_io
 
@@ -131,8 +131,8 @@ int fpioa_set_io(int number, fpioa_io_config_t *cfg)
 
 | Return value              | Description       |
 | :------------------ | :-------- |
-| 0                   | 成功      |
-| 非0                 | 失败       |
+| 0                   | Success      |
+| 非0                 | Fail       |
 
 ### fpioa\_set\_tie\_enable
 
@@ -157,8 +157,8 @@ int fpioa_set_tie_enable(fpioa_function_t function, int enable)
 
 | Return value              | Description       |
 | :------------------ | :-------- |
-| 0                   | 成功      |
-| 非0                 | 失败       |
+| 0                   | Success      |
+| 非0                 | Fail       |
 
 ### fpioa\_set\_tie\_value
 
@@ -183,8 +183,8 @@ int fpioa_set_tie_value(fpioa_function_t function, int value)
 
 | Return value              | Description       |
 | :------------------ | :-------- |
-| 0                   | 成功      |
-| 非0                 | 失败       |
+| 0                   | Success      |
+| 非0                 | Fail       |
 
 ### fpioa\_set\_pull
 
@@ -209,8 +209,8 @@ int fpioa_set_io_pull(int number, fpioa_pull_t pull)
 
 | Return value              | Description       |
 | :------------------ | :-------- |
-| 0                   | 成功      |
-| 非0                 | 失败       |
+| 0                   | Success      |
+| 非0                 | Fail       |
 
 ### fpioa\_get\_pull
 
@@ -261,8 +261,8 @@ int fpioa_set_io_driving(int number, fpioa_driving_t driving)
 
 | Return value              | Description       |
 | :------------------ | :-------- |
-| 0                   | 成功      |
-| 非0                 | 失败       |
+| 0                   | Success      |
+| 非0                 | Fail       |
 
 ### fpioa\_get\_io\_driving
 
@@ -287,7 +287,7 @@ int fpioa_get_io_driving(int number)
 | Return value              | Description       |
 | :------------------ | :-------- |
 | 大于等于0           | 驱动能力    |
-| 小于0               | 失败       |
+| 小于0               | Fail       |
 
 ## Data type
 

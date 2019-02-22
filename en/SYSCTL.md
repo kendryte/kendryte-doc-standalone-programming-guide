@@ -127,8 +127,8 @@ int sysctl_pll_enable(sysctl_pll_t pll)
 
 | Return value | Description |
 | :---- | :----|
-| 0     | 成功 |
-| 非0   | 失败 |
+| 0     | Success |
+| 非0   | Fail |
 
 ### sysctl\_pll\_disable
 
@@ -152,8 +152,8 @@ int sysctl_pll_disable(sysctl_pll_t pll)
 
 | Return value | Description |
 | :---- | :----|
-| 0     | 成功 |
-| 非0   | 失败 |
+| 0     | Success |
+| 非0   | Fail |
 
 ### sysctl\_clock\_set\_threshold
 
@@ -178,8 +178,8 @@ void sysctl_clock_set_threshold(sysctl_threshold_t which, int threshold)
 
 | Return value | Description |
 | :---- | :----|
-| 0     | 成功 |
-| 非0   | 失败 |
+| 0     | Success |
+| 非0   | Fail |
 
 ### sysctl\_clock\_get\_threshold
 
@@ -224,8 +224,8 @@ int sysctl_clock_set_clock_select(sysctl_clock_select_t which, int select)
 
 | Return value | Description |
 | :---- | :----|
-| 0     | 成功 |
-| 非0   | 失败 |
+| 0     | Success |
+| 非0   | Fail |
 
 ### sysctl\_clock\_get\_clock\_select
 
@@ -293,8 +293,8 @@ int sysctl_clock_enable(sysctl_clock_t clock)
 
 | Return value | Description |
 | :---- | :----|
-| 0     | 成功 |
-| 非0   | 失败 |
+| 0     | Success |
+| 非0   | Fail |
 
 ### sysctl\_clock\_disable
 
@@ -318,8 +318,8 @@ int sysctl_clock_disable(sysctl_clock_t clock)
 
 | Return value | Description |
 | :---- | :----|
-| 0     | 成功 |
-| 非0   | 失败 |
+| 0     | Success |
+| 非0   | Fail |
 
 ### sysctl\_reset
 
@@ -366,8 +366,8 @@ int sysctl_dma_select(sysctl_dma_channel_t channel, sysctl_dma_select_t select)
 
 | Return value | Description |
 | :---- | :----|
-| 0     | 成功 |
-| 非0   | 失败 |
+| 0     | Success |
+| 非0   | Fail |
 
 ### sysctl\_set\_power\_mode
 

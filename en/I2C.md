@@ -103,8 +103,8 @@ int i2c_send_data(i2c_device_number_t i2c_num, const uint8_t *send_buf, size_t s
 
 | Return value | Description |
 | :----  | :----|
-| 0      | 成功 |
-| 非0    | 失败 |
+| 0      | Success |
+| 非0    | Fail |
 
 ### i2c\_send\_data\_dma
 
@@ -157,8 +157,8 @@ int i2c_recv_data(i2c_device_number_t i2c_num, const uint8_t *send_buf, size_t s
 
 | Return value | Description |
 | :---- | :----|
-| 0     | 成功 |
-| 非0   | 失败 |
+| 0     | Success |
+| 非0   | Fail |
 
 ### i2c\_recv\_data\_dma
 
