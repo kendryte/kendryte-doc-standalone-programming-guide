@@ -1,16 +1,16 @@
 # 通用输入/输出 (GPIO)
 
-## 概述
+## Summary
 
 芯片有8个通用GPIO。
 
-## 功能描述
+## Features
 
 GPIO 模块具有以下功能：
 
 - 可配置上下拉驱动模式
 
-## API 参考
+## API
 
 对应的头文件 `gpio.h`
 
