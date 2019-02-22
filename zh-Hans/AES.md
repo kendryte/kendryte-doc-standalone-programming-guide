@@ -1089,7 +1089,7 @@ void gcm_get_tag(uint8_t *gcm_tag)
 
 | 参数名称    |  描述                          |输入输出|
 | :------:  |:-----                         | :----: |
-|gcm\_tag |这个buffer存放AES-GCM加密/解密后的tag，固定为16bytes的大小| 输入出|
+|gcm\_tag |这个buffer存放AES-GCM加密/解密后的tag，固定为16bytes的大小| 输出|
 
 #### 返回值
 

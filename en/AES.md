@@ -1098,7 +1098,7 @@ void gcm_get_tag(uint8_t *gcm_tag)
 
 | Parameter name |                        Description                         | Input or output |
 | :------------: | :--------------------------------------------------------- | :-------------: |
-|    gcm\_tag    | 这个buffer存放AES-GCM加密/解密后的tag，固定为16bytes的大小 |     Input出      |
+|    gcm\_tag    | 这个buffer存放AES-GCM加密/解密后的tag，固定为16bytes的大小 |     Output      |
 
 #### Return value
 
@@ -1178,9 +1178,9 @@ typedef struct _cbc_context
 } cbc_context_t;
 ```
 
-#### 成员
+#### Enumeration element
 
-| 成员名称 | Description  |
+| Element name | Description  |
 | :------- | :----------- |
 | AES\_ECB | ECB加密/解密 |
 | AES\_CBC | CBC加密/解密 |
