@@ -33,17 +33,17 @@ int register_core1(core_function func, void *ctx)
 
 #### Parameter
 
-| Parameter name                         |   Description                   |  Input or output  |
-| ------------------------------- | ------------------------ | --------- |
-| func                            | Function registered to core 1           | Input       |
-| ctx                             | The parameter of the function, set to NULL means not used | Input       |
+| Parameter name |                        Description                        | Input or output |
+| -------------- | --------------------------------------------------------- | --------------- |
+| func           | Function registered to core 1                             | Input           |
+| ctx            | The parameter of the function, set to NULL means not used | Input           |
 
 #### Return value
 
-| Return value  | Description   |
-| :----  | :------ |
-| 0      | Success    |
-| Other    | Fail    |
+| Return value | Description |
+| :----------- | :---------- |
+| 0            | Success     |
+| Other        | Fail        |
 
 ### current\_coreid
 
