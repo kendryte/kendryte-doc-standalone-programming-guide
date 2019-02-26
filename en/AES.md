@@ -448,11 +448,11 @@ void aes_gcm128_hard_encrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 | Parameter name |                                                              Description                                                               | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-128 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                 |      Input      |
+|    context     | The structure of the AES-GCM-128 encryption operation, including the encryption key / offset vector / aad / aad length                 |      Input      |
 |  input\_data   | AES-GCM-128 plaintext data to be encrypted                                                                                             |      Input      |
 |   input\_len   | AES-GCM-128 length of plaintext data to be encrypted                                                                                   |      Input      |
 |  output\_data  | The result of the AES-GCM-128 encryption operation is stored in this buffer.                                                           |     Output      |
-|    gcm\_tag    | AES-GCM-128 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
+|    gcm\_tag    | The tag after the AES-GCM-128 encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -475,11 +475,11 @@ void aes_gcm128_hard_decrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 | Parameter name |                                                              Description                                                               | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-128 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
+|    context     | The structure of the AES-GCM-128 decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
 |  input\_data   | AES-GCM-128 ciphertext data to be decrypted                                                                                            |      Input      |
 |   input\_len   | AES-GCM-128 length of ciphertext data to be decrypted                                                                                  |      Input      |
 |  output\_data  | The result of the AES-GCM-128 decryption operation is stored in this buffer                                                            |     Output      |
-|    gcm\_tag    | AES-GCM-128 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
+|    gcm\_tag    | The tag after the AES-GCM-128 decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -502,11 +502,11 @@ void aes_gcm192_hard_encrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 | Parameter name |                                                              Description                                                               | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-192 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                 |      Input      |
+|    context     | The structure of the AES-GCM-192 encryption operation, including the encryption key / offset vector / aad / aad length                 |      Input      |
 |  input\_data   | AES-GCM-192 plaintext data to be encrypted                                                                                             |      Input      |
 |   input\_len   | AES-GCM-192 length of plaintext data to be encrypted                                                                                   |      Input      |
 |  output\_data  | The result of the AES-GCM-192 encryption operation is stored in this buffer.                                                           |     Output      |
-|    gcm\_tag    | AES-GCM-192 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
+|    gcm\_tag    | The tag after the AES-GCM-192 encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -529,11 +529,11 @@ void aes_gcm192_hard_decrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 | Parameter name |                                                              Description                                                               | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-192 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
+|    context     | The structure of the AES-GCM-192 decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
 |  input\_data   | AES-GCM-192 ciphertext data to be decrypted                                                                                            |      Input      |
 |   input\_len   | AES-GCM-192 length of ciphertext data to be decrypted                                                                                  |      Input      |
 |  output\_data  | The result of the AES-GCM-192 decryption operation is stored in this buffer                                                            |     Output      |
-|    gcm\_tag    | AES-GCM-192 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
+|    gcm\_tag    | The tag after the AES-GCM-192 decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -556,11 +556,11 @@ void aes_gcm256_hard_encrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 | Parameter name |                                                              Description                                                               | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-256 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                 |      Input      |
+|    context     | The structure of the AES-GCM-256 encryption operation, including the encryption key / offset vector / aad / aad length                 |      Input      |
 |  input\_data   | AES-GCM-256 plaintext data to be encrypted                                                                                             |      Input      |
 |   input\_len   | AES-GCM-256 length of plaintext data to be encrypted                                                                                   |      Input      |
 |  output\_data  | The result of the AES-GCM-256 encryption operation is stored in this buffer.                                                           |     Output      |
-|    gcm\_tag    | AES-GCM-256 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
+|    gcm\_tag    | The tag after the AES-GCM-256 encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -583,11 +583,11 @@ void aes_gcm256_hard_decrypt(gcm_context_t *context, uint8_t *input_data, size_t
 
 | Parameter name |                                                              Description                                                               | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
-|    context     | AES-GCM-256 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
+|    context     | The structure of the AES-GCM-256 decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
 |  input\_data   | AES-GCM-256 ciphertext data to be decrypted                                                                                            |      Input      |
 |   input\_len   | AES-GCM-256 length of ciphertext data to be decrypted                                                                                  |      Input      |
 |  output\_data  | The result of the AES-GCM-256 decryption operation is stored in this buffer                                                            |     Output      |
-|    gcm\_tag    | AES-GCM-256 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
+|    gcm\_tag    | The tag after the AES-GCM-256 decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
 #### Return value
 
@@ -966,11 +966,11 @@ void aes_gcm128_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 |       Parameter name       |                                                                                                                     Description                                                                                                                     | Input or output |
 | :------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                               |      Input      |
-|          context           | AES-GCM-128 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                                                                                                                              |      Input      |
+|          context           | The structure of the AES-GCM-128 encryption operation, including the encryption key / offset vector / aad / aad length                                                                                                                              |      Input      |
 |        input\_data         | AES-GCM-128 plaintext data to be encrypted                                                                                                                                                                                                          |      Input      |
 |         input\_len         | AES-GCM-128 length of plaintext data to be encrypted。                                                                                                                                                                                              |      Input      |
 |        output\_data        | The result of the AES-GCM-128 encryption operation is stored in this buffer.。<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
-|          gcm\_tag          | AES-GCM-128 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                              |     Output      |
+|          gcm\_tag          | The tag after the AES-GCM-128 encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                              |     Output      |
 
 #### Return value
 
@@ -995,11 +995,11 @@ void aes_gcm128_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 |       Parameter name       |                                                                                                                    Description                                                                                                                    | Input or output |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
-|          context           | AES-GCM-128 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
+|          context           | The structure of the AES-GCM-128 decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
 |        input\_data         | AES-GCM-128 ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
 |         input\_len         | AES-GCM-128 Length ofcciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
 |        output\_data        | The result of the AES-GCM-128 decryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
-|          gcm\_tag          | AES-GCM-128 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
+|          gcm\_tag          | The tag after the AES-GCM-128 decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
 #### Return value
 
@@ -1024,11 +1024,11 @@ void aes_gcm192_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 |       Parameter name       |                                                                                                                    Description                                                                                                                    | Input or output |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
-|          context           | AES-GCM-192 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                                                                                                                            |      Input      |
+|          context           | The structure of the AES-GCM-192 encryption operation, including the encryption key / offset vector / aad / aad length                                                                                                                            |      Input      |
 |        input\_data         | AES-GCM-192 plaintext data to be encrypted                                                                                                                                                                                                        |      Input      |
 |         input\_len         | AES-GCM-192 length of plaintext data to be encrypted。                                                                                                                                                                                            |      Input      |
 |        output\_data        | The result of the AES-GCM-192 encryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
-|          gcm\_tag          | AES-GCM-192 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
+|          gcm\_tag          | The tag after the AES-GCM-192 encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
 #### Return value
 
@@ -1053,11 +1053,11 @@ void aes_gcm192_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 |       Parameter name       |                                                                                                                    Description                                                                                                                    | Input or output |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
-|          context           | AES-GCM-192 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
+|          context           | The structure of the AES-GCM-192 decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
 |        input\_data         | AES-GCM-192 ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
 |         input\_len         | AES-GCM-192 Length ofcciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
 |        output\_data        | The result of the AES-GCM-192 decryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
-|          gcm\_tag          | AES-GCM-192 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
+|          gcm\_tag          | The tag after the AES-GCM-192 decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
 #### Return value
 
@@ -1082,11 +1082,11 @@ void aes_gcm256_hard_encrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 |       Parameter name       |                                                                                                                    Description                                                                                                                    | Input or output |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
-|          context           | AES-GCM-256 The structure of the encryption operation, including the encryption key / offset vector / aad / aad length                                                                                                                            |      Input      |
+|          context           | The structure of the AES-GCM-256 encryption operation, including the encryption key / offset vector / aad / aad length                                                                                                                            |      Input      |
 |        input\_data         | AES-GCM-256 plaintext data to be encrypted                                                                                                                                                                                                        |      Input      |
 |         input\_len         | AES-GCM-256 length of plaintext data to be encrypted。                                                                                                                                                                                            |      Input      |
 |        output\_data        | The result of the AES-GCM-256 encryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
-|          gcm\_tag          | AES-GCM-256 The tag after the encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
+|          gcm\_tag          | The tag after the AES-GCM-256 encryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
 #### Return value
 
@@ -1111,11 +1111,11 @@ void aes_gcm256_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 |       Parameter name       |                                                                                                                    Description                                                                                                                    | Input or output |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
-|          context           | AES-GCM-256 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
+|          context           | The structure of the AES-GCM-256 decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
 |        input\_data         | AES-GCM-256 ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
 |         input\_len         | AES-GCM-256 Length ofcciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
 |        output\_data        | The result of the AES-GCM-256 decryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
-|          gcm\_tag          | AES-GCM-256 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
+|          gcm\_tag          | The tag after the AES-GCM-256 decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
 #### Return value
 
