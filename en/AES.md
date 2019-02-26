@@ -1,5 +1,9 @@
 # Advanced Encryption Standard acceleration engine(AES)
 
+## Overview
+
+The AES module uses hardware to implement AES operation acceleration.
+
 ## Features
 
 K210 have a built-in AES(Advanced Encryption Standard acceleration engine).
