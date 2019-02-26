@@ -199,8 +199,8 @@ void aes_ecb192_hard_decrypt(uint8_t *input_key, uint8_t *input_data, size_t inp
 | Parameter name |                                                              Description                                                              | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 |   input\_key   | AES-ECB-192 decryption key                                                                                                            |      Input      |
-|  input\_data   | AES-ECB-192 Ciphertext data to be decrypted                                                                                           |      Input      |
-|   input\_len   | AES-ECB-192 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|  input\_data   | AES-ECB-192 ciphertext data to be decrypted                                                                                           |      Input      |
+|   input\_len   | AES-ECB-192 length of ciphertext data to be decrypted                                                                                 |      Input      |
 |  output\_data  | The result of the AES-ECB-192 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
@@ -255,8 +255,8 @@ void aes_ecb256_hard_decrypt(uint8_t *input_key, uint8_t *input_data, size_t inp
 | Parameter name |                                                              Description                                                              | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 |   input\_key   | AES-ECB-256 decryption key                                                                                                            |      Input      |
-|  input\_data   | AES-ECB-256 Ciphertext data to be decrypted                                                                                           |      Input      |
-|   input\_len   | AES-ECB-256 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|  input\_data   | AES-ECB-256 ciphertext data to be decrypted                                                                                           |      Input      |
+|   input\_len   | AES-ECB-256 length of ciphertext data to be decrypted                                                                                 |      Input      |
 |  output\_data  | The result of the AES-ECB-256 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
@@ -310,9 +310,9 @@ void aes_cbc128_hard_decrypt(cbc_context_t *context, uint8_t *input_data, size_t
 
 | Parameter name |                                                              Description                                                              | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
-|    context     | AES-CBC-128 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
-|  input\_data   | AES-CBC-128 Ciphertext data to be decrypted                                                                                           |      Input      |
-|   input\_len   | AES-CBC-128 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|    context     | AES-CBC-128 decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|  input\_data   | AES-CBC-128 ciphertext data to be decrypted                                                                                           |      Input      |
+|   input\_len   | AES-CBC-128 length of ciphertext data to be decrypted                                                                                 |      Input      |
 |  output\_data  | The result of the AES-CBC-128 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
@@ -366,9 +366,9 @@ void aes_cbc192_hard_decrypt(cbc_context_t *context, uint8_t *input_data, size_t
 
 | Parameter name |                                                              Description                                                              | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
-|    context     | AES-CBC-192 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
-|  input\_data   | AES-CBC-192 Ciphertext data to be decrypted                                                                                           |      Input      |
-|   input\_len   | AES-CBC-192 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|    context     | AES-CBC-192 decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|  input\_data   | AES-CBC-192 ciphertext data to be decrypted                                                                                           |      Input      |
+|   input\_len   | AES-CBC-192 length of ciphertext data to be decrypted                                                                                 |      Input      |
 |  output\_data  | The result of the AES-CBC-192 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
@@ -422,9 +422,9 @@ void aes_cbc256_hard_decrypt(uint8_t *input_key, uint8_t *input_data, size_t inp
 
 | Parameter name |                                                              Description                                                              | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
-|    context     | AES-CBC-256 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
-|  input\_data   | AES-CBC-256 Ciphertext data to be decrypted                                                                                           |      Input      |
-|   input\_len   | AES-CBC-256 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|    context     | AES-CBC-256 decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|  input\_data   | AES-CBC-256 ciphertext data to be decrypted                                                                                           |      Input      |
+|   input\_len   | AES-CBC-256 length of ciphertext data to be decrypted                                                                                 |      Input      |
 |  output\_data  | The result of the AES-CBC-256 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
@@ -476,8 +476,8 @@ void aes_gcm128_hard_decrypt(gcm_context_t *context, uint8_t *input_data, size_t
 | Parameter name |                                                              Description                                                               | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
 |    context     | AES-GCM-128 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
-|  input\_data   | AES-GCM-128 Ciphertext data to be decrypted                                                                                            |      Input      |
-|   input\_len   | AES-GCM-128 Length of ciphertext data to be decrypted                                                                                  |      Input      |
+|  input\_data   | AES-GCM-128 ciphertext data to be decrypted                                                                                            |      Input      |
+|   input\_len   | AES-GCM-128 length of ciphertext data to be decrypted                                                                                  |      Input      |
 |  output\_data  | The result of the AES-GCM-128 decryption operation is stored in this buffer                                                            |     Output      |
 |    gcm\_tag    | AES-GCM-128 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
@@ -530,8 +530,8 @@ void aes_gcm192_hard_decrypt(gcm_context_t *context, uint8_t *input_data, size_t
 | Parameter name |                                                              Description                                                               | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
 |    context     | AES-GCM-192 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
-|  input\_data   | AES-GCM-192 Ciphertext data to be decrypted                                                                                            |      Input      |
-|   input\_len   | AES-GCM-192 Length of ciphertext data to be decrypted                                                                                  |      Input      |
+|  input\_data   | AES-GCM-192 ciphertext data to be decrypted                                                                                            |      Input      |
+|   input\_len   | AES-GCM-192 length of ciphertext data to be decrypted                                                                                  |      Input      |
 |  output\_data  | The result of the AES-GCM-192 decryption operation is stored in this buffer                                                            |     Output      |
 |    gcm\_tag    | AES-GCM-192 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
@@ -584,8 +584,8 @@ void aes_gcm256_hard_decrypt(gcm_context_t *context, uint8_t *input_data, size_t
 | Parameter name |                                                              Description                                                               | Input or output |
 | :------------: | :------------------------------------------------------------------------------------------------------------------------------------- | :-------------: |
 |    context     | AES-GCM-256 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                       |      Input      |
-|  input\_data   | AES-GCM-256 Ciphertext data to be decrypted                                                                                            |      Input      |
-|   input\_len   | AES-GCM-256 Length of ciphertext data to be decrypted                                                                                  |      Input      |
+|  input\_data   | AES-GCM-256 ciphertext data to be decrypted                                                                                            |      Input      |
+|   input\_len   | AES-GCM-256 length of ciphertext data to be decrypted                                                                                  |      Input      |
 |  output\_data  | The result of the AES-GCM-256 decryption operation is stored in this buffer                                                            |     Output      |
 |    gcm\_tag    | AES-GCM-256 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes |     Output      |
 
@@ -645,8 +645,8 @@ void aes_ecb128_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
 |         input\_key         | AES-ECB-128 decryption key                                                                                                            |      Input      |
-|        input\_data         | AES-ECB-128 Ciphertext data to be decrypted                                                                                           |      Input      |
-|         input\_len         | AES-ECB-128 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|        input\_data         | AES-ECB-128 ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-ECB-128 Length ofcciphertext data to be decrypted                                                                                 |      Input      |
 |        output\_data        | The result of the AES-ECB-128 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
@@ -705,8 +705,8 @@ void aes_ecb192_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
 |         input\_key         | AES-ECB-192 decryption key                                                                                                            |      Input      |
-|        input\_data         | AES-ECB-192 Ciphertext data to be decrypted                                                                                           |      Input      |
-|         input\_len         | AES-ECB-192 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|        input\_data         | AES-ECB-192 ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-ECB-192 Length ofcciphertext data to be decrypted                                                                                 |      Input      |
 |        output\_data        | The result of the AES-ECB-192 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
@@ -765,8 +765,8 @@ void aes_ecb256_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
 |         input\_key         | AES-ECB-256 decryption key                                                                                                            |      Input      |
-|        input\_data         | AES-ECB-256 Ciphertext data to be decrypted                                                                                           |      Input      |
-|         input\_len         | AES-ECB-256 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|        input\_data         | AES-ECB-256 ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-ECB-256 Length ofcciphertext data to be decrypted                                                                                 |      Input      |
 |        output\_data        | The result of the AES-ECB-256 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
@@ -822,9 +822,9 @@ void aes_cbc128_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 |       Parameter name       |                                                              Description                                                              | Input or output |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
-|          context           | AES-CBC-128 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
-|        input\_data         | AES-CBC-128 Ciphertext data to be decrypted                                                                                           |      Input      |
-|         input\_len         | AES-CBC-128 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|          context           | AES-CBC-128 decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|        input\_data         | AES-CBC-128 ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-CBC-128 Length ofcciphertext data to be decrypted                                                                                 |      Input      |
 |        output\_data        | The result of the AES-CBC-128 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
@@ -880,9 +880,9 @@ void aes_cbc192_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 |       Parameter name       |                                                              Description                                                              | Input or output |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
-|          context           | AES-CBC-192 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
-|        input\_data         | AES-CBC-192 Ciphertext data to be decrypted                                                                                           |      Input      |
-|         input\_len         | AES-CBC-192 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|          context           | AES-CBC-192 decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|        input\_data         | AES-CBC-192 ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-CBC-192 Length ofcciphertext data to be decrypted                                                                                 |      Input      |
 |        output\_data        | The result of the AES-CBC-192 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
@@ -938,9 +938,9 @@ void aes_cbc256_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 |       Parameter name       |                                                              Description                                                              | Input or output |
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                 |      Input      |
-|          context           | AES-CBC-256 Decryption operation structure, including decryption key and offset vector                                                |      Input      |
-|        input\_data         | AES-CBC-256 Ciphertext data to be decrypted                                                                                           |      Input      |
-|         input\_len         | AES-CBC-256 Length of ciphertext data to be decrypted                                                                                 |      Input      |
+|          context           | AES-CBC-256 decryption operation structure, including decryption key and offset vector                                                |      Input      |
+|        input\_data         | AES-CBC-256 ciphertext data to be decrypted                                                                                           |      Input      |
+|         input\_len         | AES-CBC-256 Length ofcciphertext data to be decrypted                                                                                 |      Input      |
 |        output\_data        | The result of the AES-CBC-256 decryption operation is stored in this buffer.<br/>The size of this buffer needs to be 16bytes aligned. |     Output      |
 
 #### Return value
@@ -996,8 +996,8 @@ void aes_gcm128_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
 |          context           | AES-GCM-128 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
-|        input\_data         | AES-GCM-128 Ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
-|         input\_len         | AES-GCM-128 Length of ciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
+|        input\_data         | AES-GCM-128 ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
+|         input\_len         | AES-GCM-128 Length ofcciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
 |        output\_data        | The result of the AES-GCM-128 decryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
 |          gcm\_tag          | AES-GCM-128 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
@@ -1054,8 +1054,8 @@ void aes_gcm192_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
 |          context           | AES-GCM-192 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
-|        input\_data         | AES-GCM-192 Ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
-|         input\_len         | AES-GCM-192 Length of ciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
+|        input\_data         | AES-GCM-192 ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
+|         input\_len         | AES-GCM-192 Length ofcciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
 |        output\_data        | The result of the AES-GCM-192 decryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
 |          gcm\_tag          | AES-GCM-192 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
@@ -1112,8 +1112,8 @@ void aes_gcm256_hard_decrypt_dma(dmac_channel_number_t dma_receive_channel_num, 
 | :------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: |
 | dma\_receive\_channel\_num | DMA channel number of AES output data                                                                                                                                                                                                             |      Input      |
 |          context           | AES-GCM-256 The structure of the decryption operation, including the decryption key/offset vector/aad/aad length                                                                                                                                  |      Input      |
-|        input\_data         | AES-GCM-256 Ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
-|         input\_len         | AES-GCM-256 Length of ciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
+|        input\_data         | AES-GCM-256 ciphertext data to be decrypted                                                                                                                                                                                                       |      Input      |
+|         input\_len         | AES-GCM-256 Length ofcciphertext data to be decrypted。                                                                                                                                                                                           |      Input      |
 |        output\_data        | The result of the AES-GCM-256 decryption operation is stored in this buffer.<br/>Since the minimum granularity of DMA handling data is 4bytes,<br/>Therefore, you need to ensure that the buffer size is at least an integer multiple of 4 bytes. |     Output      |
 |          gcm\_tag          | AES-GCM-256 The tag after the decryption operation is stored in this buffer.<br/>This buffer size needs to be determined to be 16bytes                                                                                                            |     Output      |
 
@@ -1214,13 +1214,13 @@ aes_cbc128_hard_decrypt(&cbc_context, aes_input_data, 16L, aes_output_data);
 
 The relevant data types and data structures are defined as follows:
 
-- `aes_cipher_mode_t`：AES encryption/decryption method.
+- `aes_cipher_mode_t`：AES encryption/decryption mode.
 
 ### aes\_cipher\_mode\_t
 
 #### Description
 
-AES encryption/decryption method.
+AES encryption/decryption mode.
 
 #### Type definition
 
