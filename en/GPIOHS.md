@@ -33,7 +33,7 @@ Provide the following interfaces
 
 #### Description
 
-设置GPIO驱动模式。
+Set GPIO drive mode.
 
 #### Function prototype
 
@@ -43,10 +43,10 @@ void gpiohs_set_drive_mode(uint8_t pin, gpio_drive_mode_t mode)
 
 #### Parameter
 
-| Parameter name       | Description           | Input or output   |
-| :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | Input      |
-| mode          | GPIO驱动模式    | Input      |
+| Parameter name |   Description    | Input or output |
+| :------------- | :--------------- | :-------------- |
+| pin            | GPIO pin         | Input           |
+| mode           | GPIO driver mode | Input           |
 
 #### Return value
 
@@ -56,7 +56,7 @@ None.
 
 #### Description
 
-设置GPIO管脚值。
+Set GPIO pin value.
 
 #### Function prototype
 
@@ -66,10 +66,10 @@ void gpiohs_set_pin(uint8_t pin, gpio_pin_value_t value)
 
 #### Parameter
 
-| Parameter name       | Description           | Input or output   |
-| :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | Input      |
-| value         | GPIO值         | Input      |
+| Parameter name | Description | Input or output |
+| :------------- | :---------- | :-------------- |
+| pin            | GPIO pin    | Input           |
+| value          | GPIO值      | Input           |
 
 #### Return value
 
@@ -79,7 +79,7 @@ None.
 
 #### Description
 
-获取GPIO管脚值。
+Get GPIO pin value.
 
 #### Function prototype
 
@@ -89,19 +89,19 @@ gpio_pin_value_t gpiohs_get_pin(uint8_t pin)
 
 #### Parameter
 
-| Parameter name       | Description           | Input or output   |
-| :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | Input       |
+| Parameter name | Description | Input or output |
+| :------------- | :---------- | :-------------- |
+| pin            | GPIO pin    | Input           |
 
 #### Return value
 
-获取的GPIO管脚值。
+The result of GPIO pin value.
 
 ### gpiohs\_set\_pin\_edge
 
 #### Description
 
-设置高速GPIO中断触发模式。
+Set the high speed GPIO interrupt trigger mode.
 
 #### Function prototype
 
@@ -111,10 +111,10 @@ void gpiohs_set_pin_edge(uint8_t pin, gpio_pin_edge_t edge)
 
 #### Parameter
 
-| Parameter name       | Description           | Input or output   |
-| :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | Input       |
-| edge          | 中断触发方式    | Input      |
+| Parameter name |      Description       | Input or output |
+| :------------- | :--------------------- | :-------------- |
+| pin            | GPIO pin               | Input           |
+| edge           | Interrupt trigger mode | Input           |
 
 #### Return value
 
@@ -124,7 +124,7 @@ None.
 
 #### Description
 
-设置高速GPIO的中断回调函数。
+Set the interrupt callback function for high speed GPIO.
 
 #### Function prototype
 
@@ -134,11 +134,11 @@ void gpiohs_set_irq(uint8_t pin, uint32_t priority, void(*func)());
 
 #### Parameter
 
-| Parameter name       | Description           | Input or output   |
-| :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | Input       |
-| priority      | 中断优先级      | Input      |
-| func          | 中断回调函数    | Input       |
+| Parameter name |         Description         | Input or output |
+| :------------- | :-------------------------- | :-------------- |
+| pin            | GPIO pin                    | Input           |
+| priority       | Interrupt priority          | Input           |
+| func           | Interrupt callback function | Input           |
 
 #### Return value
 
@@ -151,11 +151,11 @@ void irq_gpiohs2(void)
 {
     printf("Hello world\n");
 }
-/* 设置IO13为高速GPIO，Output模式并置为高 */
+/* Set IO13 to high speed GPIO and set the output mode to high. */
 fpioa_set_function(13, FUNC_GPIOHS3);
 gpiohs_set_drive_mode(3, GPIO_DM_OUTPUT);
 gpiohs_set_pin(3, GPIO_PV_High);
-/* 设置IO14为高速GPIO Input模式 双沿触发中断时打印Hello world */
+/* Set IO14 to high speed GPIO Input mode. Print Hello world when double edge triggers interrupt. */
 plic_init();
 fpioa_set_function(14, FUNC_GPIOHS2);
 gpiohs_set_drive_mode(2, GPIO_DM_INPUT);
@@ -168,17 +168,17 @@ sysctl_enable_irq();
 
 The relevant data types and data structures are defined as follows:
 
-- gpio\_drive\_mode\_t: GPIO驱动模式。
+- gpio\_drive\_mode\_t: GPIO drive mode.
 
-- gpio\_pin\_value\_t: GPIO值。
+- gpio\_pin\_value\_t: GPIO value.
 
-- gpio\_pin\_edge\_t: GPIO边沿触发模式。
+- gpio\_pin\_edge\_t: GPIO edge trigger mode.
 
 ### gpio\_drive\_mode\_t
 
 #### Description
 
-GPIO驱动模式。
+GPIO drive mode.
 
 #### Type definition
 
@@ -194,18 +194,18 @@ typedef enum _gpio_drive_mode
 
 #### Enumeration element
 
-| Element name                     | Description        |
-| --------------------------- | ----------- |
-| GPIO\_DM\_INPUT             | Input        |
-| GPIO\_DM\_INPUT\_PULL\_DOWN | Input下拉     |
-| GPIO\_DM\_INPUT\_PULL\_UP   | Input上拉     |
-| GPIO\_DM\_OUTPUT            | Output        |
+|        Element name         |   Description   |
+| --------------------------- | --------------- |
+| GPIO\_DM\_INPUT             | Input           |
+| GPIO\_DM\_INPUT\_PULL\_DOWN | Input pull down |
+| GPIO\_DM\_INPUT\_PULL\_UP   | Input pull up   |
+| GPIO\_DM\_OUTPUT            | Output          |
 
 ### gpio\_pin\_value\_t
 
 #### Description
 
-GPIO 值。
+GPIO value.
 
 #### Type definition
 
@@ -219,16 +219,16 @@ typedef enum _gpio_pin_value
 
 #### Enumeration element
 
-| Element name            | Description        |
-| ------------------ | ----------- |
-| GPIO\_PV\_LOW      | 低          |
-| GPIO\_PV\_HIGH     | 高          |
+|  Element name  | Description |
+| -------------- | ----------- |
+| GPIO\_PV\_LOW  | Low         |
+| GPIO\_PV\_HIGH | High        |
 
 ### gpio\_pin\_edge\_t
 
 #### Description
 
-高速GPIO边沿触发模式。
+GPIO edge trigger mode.
 
 #### Type definition
 
@@ -244,9 +244,9 @@ typedef enum _gpio_pin_edge
 
 #### Enumeration element
 
-| Element name            | Description        |
-| ------------------ | ----------- |
-| GPIO\_PE\_NONE     | 不触发      |
-| GPIO\_PE\_FALLING  | 下降沿触发  |
-| GPIO\_PE\_RISING   | 上升沿触发  |
-| GPIO\_PE\_BOTH     | 双沿触发    |
+|   Element name    |     Description      |
+| ----------------- | -------------------- |
+| GPIO\_PE\_NONE    | Do not trigger       |
+| GPIO\_PE\_FALLING | Falling edge trigger |
+| GPIO\_PE\_RISING  | Rising edge trigger  |
+| GPIO\_PE\_BOTH    | Double edge trigger  |
