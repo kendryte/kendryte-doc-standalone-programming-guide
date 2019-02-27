@@ -1,12 +1,27 @@
-# 快速傅里叶变换加速器(FFT)
+# FFT
 
 ## Overview
 
-FFT模块是用硬件的方式来实现FFT的基2时分运算加速。
+Fast Fourier Transform (FFT) Accelerator.
+
+The FFT accelerator implements the radix-2 decimation-in-time (DIT)
+Cooley–Tukey FFT algorithm[^cooley_tukey] acceleration in hardware.
+
+[^cooley_tukey]: https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm
 
 ## Features
 
-目前该模块可以支持64点、128点、256点以及512点的FFT以及IFFT。在FFT内部有两块大小为512*32bit的SRAM，在配置完成后FFT会向DMA发送TX请求，将DMA送来的送据放到其中的一块SRAM中去，直到满足当前FFT运算所需要的数据量并开始FFT运算，蝶形运算单元从包含有有效数据的SRAM中读出数据，运算结束后将数据写到另外一块SRAM中去，下次蝶形运算再从刚写入的SRAM中读出数据，运算结束后并写入另外一块SRAM，如此反复交替进行直到完成整个FFT运算。
+The FFT accelerator currently supports 64-point, 128-point, 256-point,
+and 512-point FFTs and IFFTs. Inside the FFT accelerator, there are two SRAMs
+with a size of 512 * 32 bits. After the configuration is completed, the FFT
+sends a TX request to the DMA, and the data sent by the DMA is placed in one of
+the SRAMs until the data volume satisfies the current FFT operation needs, and
+the FFT operation begins at this point.
+The butterfly operation unit reads data from the SRAM which containing the valid
+data, and writes the data to another SRAM after the end of the operation.
+The next butterfly operation reads the data from the SRAM just written, when the
+operation ends write to another SRAM.
+This process alternates this way until the entire FFT operation is completed.
 
 ## API
 
@@ -20,7 +35,7 @@ Provide the following interfaces
 
 #### Description
 
-FFT运算。
+FFT operation.
 
 #### Function prototype
 
@@ -30,15 +45,26 @@ void fft_complex_uint16_dma(dmac_channel_number_t dma_send_channel_num, dmac_cha
 
 #### Parameter
 
-| Parameter name                                  |   Description                     |  Input or output  |
-| :--------------------------------------- | :------------------------- | :-------- |
-| dma\_send\_channel\_num                  | 发送数据使用的DMA通道号      | Input       |
-| dma\_receive\_channel\_num               | 接收数据使用的DMA通道号      | Input       |
-| shift    | FFT模块16位寄存器导致数据溢出(-32768~32767)，FFT变换有9层，shift决定哪一层需要移位操作(如0x1ff表示9层都做移位操作；0x03表示第第一层与第二层做移位操作)，防止溢出。如果移位了，则变换后的幅值不是正常FFT变换的幅值，对应关系可以参考fft_test测试demo程序。包含了求解频率点、相位、幅值的示例| Input |
-| direction                                | FFT正变换或是逆变换          | Input       |
-| input                                    | Input的数据序列，格式为RIRI..,实部与虚部的精度都为16bit| Input|
-| point\_num                               | 待运算的数据点数，只能为512/256/128/64 | Input |
-| output                                   | 运算后结果。格式为RIRI..,实部与虚部的精度都为16bit | Output |
+|       Parameter name       |                              Description                              | Input or output |
+| :------------------------- | :-------------------------------------------------------------------- | :-------------- |
+| dma\_send\_channel\_num    | DMA channel number used to send data                                  | Input           |
+| dma\_receive\_channel\_num | DMA channel number used to receive data                               | Input           |
+| shift                      | Data shift setting[^fft_shift]                                        | Input           |
+| direction                  | FFT or IFFT                                                           | Input           |
+| input                      | Input data sequence, format is RIRI...[^precision]                    | Input           |
+| point\_num                 | The number of data points to be calculated can only be 512/256/128/64 | Input           |
+| output                     | The result after the operation. The format is RIRI...[^precision]     | Output          |
+
+[^fft_shift]: The 16-bit register (-32768~32767) of the FFT accelerator may
+overflow during the operation, and the FFT transform has 9 layers. Shift setting
+determines which layer needs to be shifted to prevent overflow, such as 0x1ff
+means that 9 layers are all shifted; 0x03 means The first layer and the second
+layer are shifted. If it is shifted, the transformed amplitude is not the
+amplitude of the normal FFT transform. For the corresponding relationship, refer
+to the fft_test test demo program, they contain examples of solving frequency
+points, phases, and amplitudes.
+
+[^precision]: The precision of both the real part and the imaginary part is 16 bit.
 
 #### Return value
 
@@ -100,14 +126,14 @@ for (i = 0; i < FFT_N / 2; i++)
 
 The relevant data types and data structures are defined as follows:
 
-- fft\_data\_t：FFT运算传入的数据格式。
-- fft\_direction\_t：FFT变换模式。
+- fft\_data\_t：The data format passed in by the FFT operation.
+- fft\_direction\_t：FFT transform mode.
 
 ### fft\_data\_t
 
 #### Description
 
-FFT运算传入的数据格式。
+The data format passed in by the FFT operation.
 
 #### Type definition
 
@@ -123,18 +149,18 @@ typedef struct tag_fft_data
 
 #### Enumeration element
 
-| Element name | Description |
-| :----- | :--- |
-| I1 | 第一个数据的虚部  |
-| R1 | 第一个数据的实部  |
-| I2 | 第二个数据的虚部  |
-| R2 | 第二个数据的实部  |
+| Element name |              Description              |
+| :----------- | :------------------------------------ |
+| I1           | The imaginary part of the first data  |
+| R1           | The real part of the first data       |
+| I2           | The imaginary part of the second data |
+| R2           | The real part of the second data      |
 
 ### fft\_direction\_t
 
 #### Description
 
-FFT变换模式
+FFT transform mode.
 
 #### Type definition
 
@@ -149,7 +175,7 @@ typedef enum _fft_direction
 
 #### Enumeration element
 
-| Element name | Description |
-| :----- | :--- |
-| FFT\_DIR\_BACKWARD | FFT逆变换 |
-| FFT\_DIR\_FORWARD  | FFT正变换 |
+|    Element name    |          Description          |
+| :----------------- | :---------------------------- |
+| FFT\_DIR\_BACKWARD | FFT inverse transform (FFT)   |
+| FFT\_DIR\_FORWARD  | FFT positive transform (IFFT) |
