@@ -1,7 +1,8 @@
-# Advanced Encryption Standard acceleration engine(AES)
+# AES
 
 ## Overview
 
+Advanced Encryption Standard (AES) acceleration engine.
 The AES module uses hardware to implement AES operation acceleration.
 
 ## Features

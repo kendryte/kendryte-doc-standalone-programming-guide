@@ -1,18 +1,24 @@
-# 直接内存存取控制器(DMAC)
+# DMA
+
+## Overview
+
+Direct Memory Access (DMA) controller is used to provide high-speed data transfer between peripherals and memory and between memory and memory.
+This improves CPU efficiency by quickly moving data through DMA without any CPU operation.
 
 ## Summary
 
-直接存储访问 (Direct Memory Access, DMA) 用于在外设与存储器之间以及存储器与存储器之间提供高速数据传输。可以在无需任何 CPU 操作的情况下通过 DMA 快速移动数据，从而提高了CPU 的效率。
+Direct Memory Access (DMA) controller is used to provide high-speed data transfer between peripherals and memory and between memory and memory.
+This improves CPU efficiency by quickly moving data through DMA without any CPU operation.
 
 ## Features
 
-DMA 模块具有以下功能：
+The DMA controller has the following features:
 
-- 自动选择一路空闲的 DMA 通道用于传输
-- 根据源地址和目标地址自动选择软件或硬件握手协议
-- 支持 1、2、4、8 字节的元素大小，源和目标大小不必一致
-- 异步或同步传输功能
-- 循环传输功能，常用于刷新屏幕或音频录放等场景
+- Automatically select an idle DMA channel for transmission
+- Automatic selection of software or hardware handshake protocol based on source and destination addresses
+- Supports 1, 2, 4, and 8 byte element sizes, source and target sizes do not have to be consistent
+- Asynchronous or synchronous transfer function
+- Loop transmission function, often used to refresh scenes such as screen or audio recording and playback
 
 ## API
 
@@ -40,7 +46,7 @@ Provide the following interfaces
 
 #### Description
 
-初始化DMA。
+Initialize the DMA.
 
 #### Function prototype
 
@@ -60,7 +66,7 @@ None.
 
 #### Description
 
-设置单路DMA参数。
+Set a single channel DMA parameter.
 
 #### Function prototype
 
@@ -70,16 +76,16 @@ void dmac_set_single_mode(dmac_channel_number_t channel_num, const void *src, vo
 
 #### Parameter
 
-| Parameter name                         |   Description                 |  Input or output  |
-| ------------------------------- | ---------------------- | --------- |
-| channel_num                     | DMA 通道号              | Input      |
-| src                             | 源地址                  | Input      |
-| dest                            | 目标地址                | Output      |
-| src\_inc                        | 源地址是否自增          | Input      |
-| dest\_inc                       | 目标地址是否自增        | Input      |
-| dmac\_burst\_size               | 突发传输数量            | Input      |
-| dmac\_trans\_width              | 单次传输数据位宽         | Input      |
-| block\_size                       | 传输数据的个数           | Input      |
+|   Parameter name   |                  Description                  | Input or output |
+| ------------------ | --------------------------------------------- | --------------- |
+| channel_num        | DMA channel number                            | Input           |
+| src                | Source address                                | Input           |
+| dest               | Destination address                           | Output          |
+| src\_inc           | Whether the source address is increasing      | Input           |
+| dest\_inc          | Whether the destination address is increasing | Input           |
+| dmac\_burst\_size  | Burst transfer size                           | Input           |
+| dmac\_trans\_width | Single transfer data bit width                | Input           |
+| block\_size        | The size of the transmitted data              | Input           |
 
 #### Return value
 
@@ -89,7 +95,9 @@ None.
 
 #### Description
 
-用于DMAC启动后判断是否完成传输。用于DMAC启动传输后，如果在启动前判断会不准确。
+It is used to determine whether the transmission is completed after the DMAC
+starts the transmission. It can only be used after the DMAC starts transmitting.
+If you use it before the DMAC starts transmitting, you will get an incorrect result.
 
 #### Function prototype
 
@@ -99,22 +107,22 @@ int dmac_is_done(dmac_channel_number_t channel_num)
 
 #### Parameter
 
-| Parameter name                         |   Description                 |  Input or output  |
-| ------------------------------- | ---------------------- | --------- |
-| channel\_num                     | DMA 通道号              | Input      |
+| Parameter name |    Description     | Input or output |
+| -------------- | ------------------ | --------------- |
+| channel\_num   | DMA channel number | Input           |
 
 #### Return value
 
-| Return value  | Description     |
-| :----  | :--------|
-| 0      | 未完成    |
-| 1      | 已完成    |
+| Return value | Description |
+| :----------- | :---------- |
+| 0            | Undone      |
+| 1            | Done        |
 
 ### dmac\_wait\_done
 
 #### Description
 
-等待DMA完成工作。
+Wait for the DMA to finish working.
 
 #### Function prototype
 
@@ -124,9 +132,9 @@ void dmac_wait_done(dmac_channel_number_t channel_num)
 
 #### Parameter
 
-| Parameter name                         |   Description                 |  Input or output  |
-| ------------------------------- | ---------------------- | --------- |
-| channel\_num                     | DMA 通道号              | Input      |
+| Parameter name |    Description     | Input or output |
+| -------------- | ------------------ | --------------- |
+| channel\_num   | DMA channel number | Input           |
 
 #### Return value
 
@@ -136,7 +144,7 @@ None.
 
 #### Description
 
-设置DMAC中断的回调函数
+Set the callback function of the DMAC interrupt.
 
 #### Function prototype
 
@@ -146,12 +154,12 @@ void dmac_set_irq(dmac_channel_number_t channel_num , plic_irq_callback_t dmac_c
 
 #### Parameter
 
-| Parameter name                       |   Description           |  Input or output  |
-| ----------------------------- | ---------------  | --------- |
-| channel\_num                  | DMA 通道号        | Input      |
-| dmac\_callback                | 中断回调函数      | Input      |
-| ctx                           | 回调函数的参数    | Input       |
-| priority                      | 中断优先级        | Input       |
+| Parameter name |         Description          | Input or output |
+| -------------- | ---------------------------- | --------------- |
+| channel\_num   | DMA channel number           | Input           |
+| dmac\_callback | Interrupt callback function  | Input           |
+| ctx            | Callback function parameters | Input           |
+| priority       | Interrupt priority           | Input           |
 
 #### Return value
 
@@ -161,9 +169,13 @@ None.
 
 #### Description
 
-设置DMAC的源地址、目的地址和长度，然后启动DMAC传输。如果src为NULL则不设置源地址，dest为NULL则不设置目的地址，len<=0则不设置长度。
+Set the source address, destination address, and length of the DMAC, and then
+start DMA transfer. If src is NULL, the source address is not set. If dest is
+NULL, the destination address is not set. If len<=0, the length is not set.
 
-该函数一般用于DMAC中断中，使DMA继续传输数据，而不必再次设置DMAC的所有参数以节省时间。
+This function is typically used in DMAC interrupts to allow the DMA to continue
+transferring data without having to set all the parameters of the DMAC again to
+save time.
 
 #### Function prototype
 
@@ -173,12 +185,12 @@ void dmac_set_src_dest_length(dmac_channel_number_t channel_num, const void *src
 
 #### Parameter
 
-| Parameter name                       |   Description           |  Input or output  |
-| ----------------------------- | ---------------  | --------- |
-| channel\_num                  | DMA 通道号        | Input      |
-| src                           | 中断回调函数      | Input      |
-| dest                          | 回调函数的参数    Input输入       |
-| len                           | 中断优先级        | Input       |
+| Parameter name |         Description          | Input or output |
+| -------------- | ---------------------------- | --------------- |
+| channel\_num   | DMA channel number           | Input           |
+| src            | Interrupt callback function  | Input           |
+| dest           | Callback function parameters | Input           |
+| len            | Transmission length          | Input           |
 
 #### Return value
 
@@ -188,7 +200,8 @@ None.
 
 #### Description
 
-判断DMAC当前通道是否空闲，该函数在传输前和传输后都可以用来判断DMAC状态。
+Determine whether the current channel of the DMAC is idle.
+This function can be used to determine the DMAC status before and after transmission.
 
 #### Function prototype
 
@@ -198,28 +211,28 @@ int dmac_is_idle(dmac_channel_number_t channel_num)
 
 #### Parameter
 
-| Parameter name                         |   Description                 |  Input or output  |
-| ------------------------------- | ---------------------- | --------- |
-| channel\_num                     | DMA 通道号              | Input      |
+| Parameter name |    Description     | Input or output |
+| -------------- | ------------------ | --------------- |
+| channel\_num   | DMA channel number | Input           |
 
 #### Return value
 
-| Return value  | Description     |
-| :----  | :--------|
-| 0      | 忙       |
-| 1      | 空闲     |
+| Return value | Description |
+| :----------- | :---------- |
+| 0            | Busy        |
+| 1            | Idle        |
 
 ### dmac\_wait\_idle
 
 #### Description
 
-等待DMAC进入空闲状态。
+Wait for the DMAC to enter the idle state.
 
 #### Parameter
 
-| Parameter name                         |   Description                 |  Input or output  |
-| ------------------------------- | ---------------------- | --------- |
-| channel_num                     | DMA 通道号              | Input      |
+| Parameter name |    Description     | Input or output |
+| -------------- | ------------------ | --------------- |
+| channel_num    | DMA channel number | Input           |
 
 #### Return value
 
@@ -228,7 +241,7 @@ None.
 ### Example
 
 ```c
-/* I2C通过DMA发送128个int数据 */
+/* I2C sends 128 int data via DMA */
 uint32_t buf[128];
 dmac_wait_idle(SYSCTL_DMA_CHANNEL_0);
 sysctl_dma_select(SYSCTL_DMA_CHANNEL_0, SYSCTL_DMA_SELECT_I2C0_TX_REQ);
@@ -240,19 +253,19 @@ dmac_wait_done(SYSCTL_DMA_CHANNEL_0);
 
 The relevant data types and data structures are defined as follows:
 
-- dmac\_channel\_number\_t：DMA通道编号。
+- dmac\_channel\_number\_t：DMA channel number.
 
-- dmac\_address\_increment\_t：地址增长方式。
+- dmac\_address\_increment\_t：Address self-increasing behavior.
 
-- dmac\_burst\_trans\_length\_t：突发传输数量。
+- dmac\_burst\_trans\_length\_t：Burst transfer size.
 
-- dmac\_transfer\_width\_t：单次传输数据位数。
+- dmac\_transfer\_width\_t：The bit width of a single transfer of data.
 
 ### dmac\_channel\_number\_t
 
 #### Description
 
-DMA通道编号。
+DMA channel number.
 
 #### Type definition
 
@@ -271,20 +284,20 @@ typedef enum _dmac_channel_number
 
 #### Enumeration element
 
-| Element name         | Description         |
-| --------------- | ------------ |
-| DMAC\_CHANNEL0  | DMA通道 0     |
-| DMAC\_CHANNEL1  | DMA通道 1     |
-| DMAC\_CHANNEL2  | DMA通道 2     |
-| DMAC\_CHANNEL3  | DMA通道 3     |
-| DMAC\_CHANNEL4  | DMA通道 4     |
-| DMAC\_CHANNEL5  | DMA通道 5     |
+|  Element name  |  Description  |
+| -------------- | ------------- |
+| DMAC\_CHANNEL0 | DMA channel 0 |
+| DMAC\_CHANNEL1 | DMA channel 1 |
+| DMAC\_CHANNEL2 | DMA channel 2 |
+| DMAC\_CHANNEL3 | DMA channel 3 |
+| DMAC\_CHANNEL4 | DMA channel 4 |
+| DMAC\_CHANNEL5 | DMA channel 5 |
 
 ### dmac\_address\_increment\_t
 
 #### Description
 
-地址增长方式。
+Address self-increasing behavior.
 
 #### Type definition
 
@@ -298,16 +311,16 @@ typedef enum _dmac_address_increment
 
 #### Enumeration element
 
-| Element name                | Description         |
-| ---------------------- | ------------ |
-| DMAC\_ADDR\_INCREMENT  | 地址自动增长  |
-| DMAC\_ADDR\_NOCHANGE   | 地址不变      |
+|     Element name      |        Description         |
+| --------------------- | -------------------------- |
+| DMAC\_ADDR\_INCREMENT | Automatic address increase |
+| DMAC\_ADDR\_NOCHANGE  | Fixed address              |
 
 ### dmac\_burst\_trans\_length\_t
 
 #### Description
 
-突发传输数量。
+Burst transfer size.
 
 #### Type definition
 
@@ -327,22 +340,22 @@ typedef enum _dmac_burst_trans_length
 
 #### Enumeration element
 
-| Element name           | Description              |
-| ----------------- | ----------------- |
-| DMAC\_MSIZE\_1    | 单次传输数量乘1    |
-| DMAC\_MSIZE\_4    | 单次传输数量乘4    |
-| DMAC\_MSIZE\_8    | 单次传输数量乘8    |
-| DMAC\_MSIZE\_16   | 单次传输数量乘16   |
-| DMAC\_MSIZE\_32   | 单次传输数量乘32   |
-| DMAC\_MSIZE\_64   | 单次传输数量乘64   |
-| DMAC\_MSIZE\_128  | 单次传输数量乘128  |
-| DMAC\_MSIZE\_256  | 单次传输数量乘256  |
+|   Element name   |                 Description                  |
+| ---------------- | -------------------------------------------- |
+| DMAC\_MSIZE\_1   | Single transmission number multiplied by 1   |
+| DMAC\_MSIZE\_4   | Single transmission number multiplied by 4   |
+| DMAC\_MSIZE\_8   | Single transmission number multiplied by 8   |
+| DMAC\_MSIZE\_16  | Single transmission number multiplied by 16  |
+| DMAC\_MSIZE\_32  | Single transmission number multiplied by 32  |
+| DMAC\_MSIZE\_64  | Single transmission number multiplied by 64  |
+| DMAC\_MSIZE\_128 | Single transmission number multiplied by 128 |
+| DMAC\_MSIZE\_256 | Single transmission number multiplied by 256 |
 
 ### dmac\_transfer\_width\_t
 
 #### Description
 
-单次传输数据位数。
+The bit width of a single transfer of data.
 
 #### Type definition
 
@@ -360,11 +373,11 @@ typedef enum _dmac_transfer_width
 
 #### Enumeration element
 
-| Element name                 | Description              |
-| ----------------------- | ----------------- |
-| DMAC\_TRANS\_WIDTH\_8   | 单次传输8位        |
-| DMAC\_TRANS\_WIDTH\_16  | 单次传输16位       |
-| DMAC\_TRANS\_WIDTH\_32  | 单次传输32位       |
-| DMAC\_TRANS\_WIDTH\_64  | 单次传输64位       |
-| DMAC\_TRANS\_WIDTH\_128 | 单次传输128位      |
-| DMAC\_TRANS\_WIDTH\_256 | 单次传输256位      |
+|      Element name       |           Description           |
+| ----------------------- | ------------------------------- |
+| DMAC\_TRANS\_WIDTH\_8   | Single transmission of 8 bits   |
+| DMAC\_TRANS\_WIDTH\_16  | Single transmission of 16 bits  |
+| DMAC\_TRANS\_WIDTH\_32  | Single transmission of 32 bits  |
+| DMAC\_TRANS\_WIDTH\_64  | Single transmission of 64 bits  |
+| DMAC\_TRANS\_WIDTH\_128 | Single transmission of 128 bits |
+| DMAC\_TRANS\_WIDTH\_256 | Single transmission of 256 bits |

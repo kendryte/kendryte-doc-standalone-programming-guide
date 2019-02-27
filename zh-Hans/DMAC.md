@@ -178,7 +178,7 @@ void dmac_set_src_dest_length(dmac_channel_number_t channel_num, const void *src
 | channel\_num                  | DMA 通道号        | 输入      |
 | src                           | 中断回调函数      | 输入      |
 | dest                          | 回调函数的参数    | 输入       |
-| len                           | 中断优先级        | 输入       |
+| len                           | 传输长度        | 输入       |
 
 #### 返回值
 
