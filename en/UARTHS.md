@@ -7,7 +7,7 @@
 
 ## Features
 
-UARTHS 模块具有以下功能: 
+UARTHS 模块具有以下功能:
 
 - 配置 UARTHS Parameter
 

@@ -6,7 +6,7 @@
 
 ## Features
 
-UART 模块具有以下功能: 
+UART 模块具有以下功能:
 
 - 配置 UART Parameter
 
