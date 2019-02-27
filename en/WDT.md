@@ -1,6 +1,6 @@
 # 看门狗定时器 (WDT)
 
-## Summary
+## Overview
 
 WDT 提供系统出错或无响应时的恢复功能。
 

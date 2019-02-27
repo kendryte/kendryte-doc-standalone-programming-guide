@@ -5,11 +5,6 @@
 Direct Memory Access (DMA) controller is used to provide high-speed data transfer between peripherals and memory and between memory and memory.
 This improves CPU efficiency by quickly moving data through DMA without any CPU operation.
 
-## Summary
-
-Direct Memory Access (DMA) controller is used to provide high-speed data transfer between peripherals and memory and between memory and memory.
-This improves CPU efficiency by quickly moving data through DMA without any CPU operation.
-
 ## Features
 
 The DMA controller has the following features:

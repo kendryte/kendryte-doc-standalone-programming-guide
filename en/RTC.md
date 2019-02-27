@@ -1,9 +1,11 @@
 # 实时时钟(RTC)
 
-## Summary
+## Overview
 
-RTC是用来计时的单元，在设置时间后具备计时功能。  
-**注意** RTC模块仅当 PLL0 使能,并且 CPU 频率大于 30MHz 时使用
+The Real Time Clock (RTC) is a unit for timing and has a timing function after
+the set time.
+
+**Note** The RTC module is only used when PLL0 is enabled and the CPU frequency is greater than 30MHz.
 
 ## Features
 

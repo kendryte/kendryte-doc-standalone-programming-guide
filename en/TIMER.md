@@ -1,6 +1,6 @@
 # 定时器 (TIMER)
 
-## Summary
+## Overview
 
 芯片有3个定时器，每个定时器有4路通道。可以配置为PWM，详见PWM说明。
 

@@ -1,6 +1,6 @@
 # 串行外设接口(SPI)
 
-## Summary
+## Overview
 
 SPI 是一种高速的，全双工，同步的通信总线。
 

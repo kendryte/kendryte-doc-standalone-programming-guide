@@ -1,6 +1,6 @@
 # 通用高速输入/Output (GPIOHS)
 
-## Summary
+## Overview
 
 芯片有32个高速GPIO。与普通GPIO相似，管脚反转能力更强。
 
