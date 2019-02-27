@@ -92,7 +92,7 @@ int main()
 
 The relevant data types and data structures are defined as follows:
 
-- core\_function：The function called by the CPU core.
+- core\_function: The function called by the CPU core.
 
 ### core\_function
 

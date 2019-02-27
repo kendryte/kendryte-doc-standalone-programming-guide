@@ -6,7 +6,7 @@ SPI 是一种高速的，全双工，同步的通信总线。
 
 ## Features
 
-SPI 模块具有以下功能：
+SPI 模块具有以下功能: 
 
 - 独立的 SPI 设备封装外设相关参数
 - 自动处理多设备总线争用
@@ -66,7 +66,7 @@ void spi_init(spi_device_num_t spi_num, spi_work_mode_t work_mode, spi_frame_for
 | work\_mode         | 极性相位的四种模式   | Input      |
 | frame\_format      | 多线模式            | Input      |
 | data\_bit\_length  | 单次传输的数据的位宽 | Input      |
-| endian             | 大小端<br>0：小端<br>1：大端 | Input |
+| endian             | 大小端<br>0: 小端<br>1: 大端 | Input |
 
 #### Return value
 
@@ -441,10 +441,10 @@ uint32_t spi_set_clk_rate(spi_device_num_t spi_num, uint32_t spi_clk)
 
 The relevant data types and data structures are defined as follows:
 
-- spi\_device\_num\_t：SPI编号。
-- spi\_mode\_t：SPI 模式。
-- spi\_frame\_format\_t：SPI 帧格式。
-- spi\_instruction\_address\_trans\_mode\_t：SPI 指令和地址的传输模式。
+- spi\_device\_num\_t: SPI编号。
+- spi\_mode\_t: SPI 模式。
+- spi\_frame\_format\_t: SPI 帧格式。
+- spi\_instruction\_address\_trans\_mode\_t: SPI 指令和地址的传输模式。
 
 ### spi\_device\_num\_t
 

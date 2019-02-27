@@ -2,11 +2,11 @@
 
 ## Overview
 
-I2S 标准总线定义了三种信号：时钟信号 BCK、声道选择信号 WS 和串行数据信号 SD。一个基本的I2S 数据总线有一个主机和一个从机。主机和从机的角色在通信过程中保持不变。I2S 模块包含独立的发送和接收声道，能够保证优良的通信性能。
+I2S 标准总线定义了三种信号: 时钟信号 BCK、声道选择信号 WS 和串行数据信号 SD。一个基本的I2S 数据总线有一个主机和一个从机。主机和从机的角色在通信过程中保持不变。I2S 模块包含独立的发送和接收声道，能够保证优良的通信性能。
 
 ## Features
 
-I2S 模块具有以下功能：
+I2S 模块具有以下功能: 
 
 - 根据音频格式自动配置设备（支持 16、24、32 位深，44100 采样率，1 - 4 声道）
 - 可配置为播放或录音模式
@@ -24,9 +24,9 @@ Provide the following interfaces
 - i2s\_rx\_channel\_config
 - i2s\_tx\_channel\_config
 - i2s\_play
-- i2s\_set\_sample\_rate：I2S 设置采样率。
-- i2s\_set\_dma\_divide\_16：设置dma_divide_16，16位数据时设置dma_divide_16，DMA传输时自动将32比特INT32数据分成两个16比特的左右声道数据。
-- i2s\_get\_dma\_divide\_16：获取dma_divide_16值。用于判断是否需要设置dma_divide_16。
+- i2s\_set\_sample\_rate: I2S 设置采样率。
+- i2s\_set\_dma\_divide\_16: 设置dma_divide_16，16位数据时设置dma_divide_16，DMA传输时自动将32比特INT32数据分成两个16比特的左右声道数据。
+- i2s\_get\_dma\_divide\_16: 获取dma_divide_16值。用于判断是否需要设置dma_divide_16。
 
 ### i2s\_init
 
@@ -225,14 +225,14 @@ int i2s_set_dma_divide_16(i2s_device_number_t device_num, uint32_t enable)
 | Element name            | Description              |  Input or output  |
 | ------------------ | ----------------- | --------- |
 | device\_num         | I2S号             | Input      |
-| enable              | 0:禁用 1：使能    | Input     |
+| enable              | 0:禁用 1: 使能    | Input     |
 
 #### Return value
 
 | Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | Success      |
-| 非0                 | Fail       |
+| Others                 | Fail       |
 
 ### i2s\_get\_dma\_divide\_16
 
@@ -278,19 +278,19 @@ i2s_send_data_dma(I2S_DEVICE_2, buf, 8, DMAC_CHANNEL0);
 
 The relevant data types and data structures are defined as follows:
 
-- i2s\_device\_number\_t：I2S编号。
+- i2s\_device\_number\_t: I2S编号。
 
-- i2s\_channel\_num\_t：I2S通道号。
+- i2s\_channel\_num\_t: I2S通道号。
 
-- i2s\_transmit\_t：I2S传输模式。
+- i2s\_transmit\_t: I2S传输模式。
 
-- i2s\_work_mode\_t：I2S工作模式。
+- i2s\_work_mode\_t: I2S工作模式。
 
-- i2s\_word_select\_cycles\_t：I2S单次传输时钟数。
+- i2s\_word_select\_cycles\_t: I2S单次传输时钟数。
 
-- i2s\_word_length\_t：I2S传输数据位数。
+- i2s\_word_length\_t: I2S传输数据位数。
 
-- i2s\_fifo\_threshold\_t：I2S FIFO深度。
+- i2s\_fifo\_threshold\_t: I2S FIFO深度。
 
 ### i2s\_device\_number\_t
 

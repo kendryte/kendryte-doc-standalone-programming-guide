@@ -6,7 +6,7 @@ I2C 总线用于和多个外部设备进行通信。多个外部设备可以共�
 
 ## Features
 
-I2C 模块具有以下功能：
+I2C 模块具有以下功能: 
 
 - 独立的 I2C 设备封装外设相关参数
 - 自动处理多设备总线争用
@@ -104,7 +104,7 @@ int i2c_send_data(i2c_device_number_t i2c_num, const uint8_t *send_buf, size_t s
 | Return value | Description |
 | :----  | :----|
 | 0      | Success |
-| 非0    | Fail |
+| Others    | Fail |
 
 ### i2c\_send\_data\_dma
 
@@ -158,7 +158,7 @@ int i2c_recv_data(i2c_device_number_t i2c_num, const uint8_t *send_buf, size_t s
 | Return value | Description |
 | :---- | :----|
 | 0     | Success |
-| 非0   | Fail |
+| Others   | Fail |
 
 ### i2c\_recv\_data\_dma
 
@@ -209,9 +209,9 @@ i2c_receive_data_dma(DMAC_CHANNEL0, DMAC_CHANNEL1, I2C_DEVICE_0,&reg, 1, data_bu
 
 The relevant data types and data structures are defined as follows:
 
-- i2c\_device\_number\_t：i2c号。
+- i2c\_device\_number\_t: i2c号。
 
-- i2c\_slave\_handler\_t：i2c从模式的中断处理函数句柄
+- i2c\_slave\_handler\_t: i2c从模式的中断处理函数句柄
 
 ### i2c\_device\_number_t
 

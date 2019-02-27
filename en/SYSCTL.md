@@ -6,7 +6,7 @@
 
 ## Features
 
-系统控制模块具有以下功能：
+系统控制模块具有以下功能: 
 
 - 设置 PLL CPU 时钟频率。
 
@@ -128,7 +128,7 @@ int sysctl_pll_enable(sysctl_pll_t pll)
 | Return value | Description |
 | :---- | :----|
 | 0     | Success |
-| 非0   | Fail |
+| Others   | Fail |
 
 ### sysctl\_pll\_disable
 
@@ -153,7 +153,7 @@ int sysctl_pll_disable(sysctl_pll_t pll)
 | Return value | Description |
 | :---- | :----|
 | 0     | Success |
-| 非0   | Fail |
+| Others   | Fail |
 
 ### sysctl\_clock\_set\_threshold
 
@@ -179,7 +179,7 @@ void sysctl_clock_set_threshold(sysctl_threshold_t which, int threshold)
 | Return value | Description |
 | :---- | :----|
 | 0     | Success |
-| 非0   | Fail |
+| Others   | Fail |
 
 ### sysctl\_clock\_get\_threshold
 
@@ -225,7 +225,7 @@ int sysctl_clock_set_clock_select(sysctl_clock_select_t which, int select)
 | Return value | Description |
 | :---- | :----|
 | 0     | Success |
-| 非0   | Fail |
+| Others   | Fail |
 
 ### sysctl\_clock\_get\_clock\_select
 
@@ -294,7 +294,7 @@ int sysctl_clock_enable(sysctl_clock_t clock)
 | Return value | Description |
 | :---- | :----|
 | 0     | Success |
-| 非0   | Fail |
+| Others   | Fail |
 
 ### sysctl\_clock\_disable
 
@@ -319,7 +319,7 @@ int sysctl_clock_disable(sysctl_clock_t clock)
 | Return value | Description |
 | :---- | :----|
 | 0     | Success |
-| 非0   | Fail |
+| Others   | Fail |
 
 ### sysctl\_reset
 
@@ -367,7 +367,7 @@ int sysctl_dma_select(sysctl_dma_channel_t channel, sysctl_dma_select_t select)
 | Return value | Description |
 | :---- | :----|
 | 0     | Success |
-| 非0   | Fail |
+| Others   | Fail |
 
 ### sysctl\_set\_power\_mode
 
@@ -436,23 +436,23 @@ None.
 
 The relevant data types and data structures are defined as follows:
 
-- sysctl\_pll\_t：PLL编号。
+- sysctl\_pll\_t: PLL编号。
 
-- sysctl\_threshold\_t：设置分频值时各模块编号。
+- sysctl\_threshold\_t: 设置分频值时各模块编号。
 
-- sysctl\_clock\_select\_t：设置时钟源时各模块编号。
+- sysctl\_clock\_select\_t: 设置时钟源时各模块编号。
 
-- sysctl\_clock\_t：各个模块的编号。
+- sysctl\_clock\_t: 各个模块的编号。
 
-- sysctl\_reset\_t：复位时各个模块的编号。
+- sysctl\_reset\_t: 复位时各个模块的编号。
 
-- sysctl\_dma\_channel\_t：DMA通道号。
+- sysctl\_dma\_channel\_t: DMA通道号。
 
-- sysctl\_dma\_select\_t：DMA请求源编号。
+- sysctl\_dma\_select\_t: DMA请求源编号。
 
-- sysctl\_power\_bank\_t：电源域编号。
+- sysctl\_power\_bank\_t: 电源域编号。
 
-- sysctl\_io\_power\_mode\_t：IO输出电压值。
+- sysctl\_io\_power\_mode\_t: IO输出电压值。
 
 ### sysctl\_pll_t
 

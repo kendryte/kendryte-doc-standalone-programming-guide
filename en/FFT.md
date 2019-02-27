@@ -126,8 +126,8 @@ for (i = 0; i < FFT_N / 2; i++)
 
 The relevant data types and data structures are defined as follows:
 
-- fft\_data\_t：The data format passed in by the FFT operation.
-- fft\_direction\_t：FFT transform mode.
+- fft\_data\_t: The data format passed in by the FFT operation.
+- fft\_direction\_t: FFT transform mode.
 
 ### fft\_data\_t
 

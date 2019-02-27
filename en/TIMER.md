@@ -6,7 +6,7 @@
 
 ## Features
 
-TIMER 模块具有以下功能：
+TIMER 模块具有以下功能: 
 
 - 启用或禁用定时器
 - 配置定时器触发间隔
@@ -119,7 +119,7 @@ void timer_set_enable(timer_device_number_t timer_number, timer_channel_number_t
 | :------------ | :------------- | :-------- |
 | timer\_number | 定时器号        | Input      |
 | channel       | 定时器通道号    | Input      |
-| enable        | 使能禁用定时器<br>0：禁用 1：使能  | Input      |
+| enable        | 使能禁用定时器<br>0: 禁用 1: 使能  | Input      |
 
 #### Return value
 
@@ -153,7 +153,7 @@ int timer_irq_register(timer_device_number_t device, timer_channel_number_t chan
 | Return value | Description |
 | :---- | :----|
 | 0     | Success |
-| 非0   | Fail |
+| Others   | Fail |
 
 ### timer\_irq\_deregister
 
@@ -179,7 +179,7 @@ int timer_irq_deregister(timer_device_number_t device, timer_channel_number_t ch
 | Return value | Description |
 | :---- | :----|
 | 0     | Success |
-| 非0   | Fail |
+| Others   | Fail |
 
 ### Example
 
@@ -201,11 +201,11 @@ sysctl_enable_irq();
 
 The relevant data types and data structures are defined as follows:
 
-- timer\_device\_number_t：定时器编号。
+- timer\_device\_number_t: 定时器编号。
 
-- timer\_channel\_number_t：定时器通道号。
+- timer\_channel\_number_t: 定时器通道号。
 
-- timer\_callback\_t：定时器回调函数。
+- timer\_callback\_t: 定时器回调函数。
 
 ### timer\_device\_number_t
 

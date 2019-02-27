@@ -248,13 +248,13 @@ dmac_wait_done(SYSCTL_DMA_CHANNEL_0);
 
 The relevant data types and data structures are defined as follows:
 
-- dmac\_channel\_number\_t：DMA channel number.
+- dmac\_channel\_number\_t: DMA channel number.
 
-- dmac\_address\_increment\_t：Address self-increasing behavior.
+- dmac\_address\_increment\_t: Address self-increasing behavior.
 
-- dmac\_burst\_trans\_length\_t：Burst transfer size.
+- dmac\_burst\_trans\_length\_t: Burst transfer size.
 
-- dmac\_transfer\_width\_t：The bit width of a single transfer of data.
+- dmac\_transfer\_width\_t: The bit width of a single transfer of data.
 
 ### dmac\_channel\_number\_t
 

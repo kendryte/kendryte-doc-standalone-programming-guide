@@ -49,7 +49,7 @@ None.
 | Return value | Description |
 | :----------- | :---------- |
 | 0            | Success     |
-| 非0          | Fail        |
+| Others          | Fail        |
 
 ### rtc\_timer\_set
 
@@ -106,7 +106,7 @@ int rtc_timer_get(int *year, int *month, int *day, int *hour, int *minute, int *
 | Return value | Description |
 | :----------- | :---------- |
 | 0            | Success     |
-| 非0          | Fail        |
+| Others          | Fail        |
 
 ### Example
 

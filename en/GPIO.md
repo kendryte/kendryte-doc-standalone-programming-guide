@@ -1,14 +1,15 @@
-# 通用输入/Output (GPIO)
+# GPIO
 
 ## Overview
 
-芯片有8个通用GPIO。
+GPIO stands for General Purpose Input Output.
+The chip has 8 general purpose GPIOs.
 
 ## Features
 
-GPIO 模块具有以下功能：
+The GPIO unit has the following features:
 
-- 可配置上下拉驱动模式
+- Configurable up and down drive mode
 
 ## API
 
@@ -39,15 +40,15 @@ int gpio_init(void)
 #### Return value
 
 | Return value | Description |
-| :---- | :----|
-| 0     | Success |
-| 非0   | Fail |
+| :----------- | :---------- |
+| 0            | Success     |
+| Others       | Fail        |
 
 ### gpio\_set\_drive\_mode
 
 #### Description
 
-设置GPIO驱动模式。
+Set GPIO drive mode.
 
 #### Function prototype
 
@@ -57,10 +58,10 @@ void gpio_set_drive_mode(uint8_t pin, gpio_drive_mode_t mode)
 
 #### Parameter
 
-| Parameter name       | Description           | Input or output   |
-| :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | Input      |
-| mode          | GPIO驱动模式    | Input      |
+| Parameter name |   Description    | Input or output |
+| :------------- | :--------------- | :-------------- |
+| pin            | GPIO pin         | Input           |
+| mode           | GPIO driver mode | Input           |
 
 #### Return value
 
@@ -70,7 +71,7 @@ None.
 
 #### Description
 
-设置GPIO管脚值。
+Set GPIO pin value.
 
 #### Function prototype
 
@@ -80,10 +81,10 @@ void gpio_set_pin(uint8_t pin, gpio_pin_value_t value)
 
 #### Parameter
 
-| Parameter name       | Description           | Input or output   |
-| :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | Input      |
-| value         | GPIO值         | Input      |
+| Parameter name | Description | Input or output |
+| :------------- | :---------- | :-------------- |
+| pin            | GPIO pin    | Input           |
+| value          | GPIO value  | Input           |
 
 #### Return value
 
@@ -93,7 +94,7 @@ None.
 
 #### Description
 
-获取GPIO管脚值。
+Get GPIO pin value.
 
 #### Function prototype
 
@@ -103,18 +104,18 @@ gpio_pin_value_t gpio_get_pin(uint8_t pin)
 
 #### Parameter
 
-| Parameter name       | Description           | Input or output   |
-| :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | Input      |
+| Parameter name | Description | Input or output |
+| :------------- | :---------- | :-------------- |
+| pin            | GPIO pin    | Input           |
 
 #### Return value
 
-获取的GPIO管脚值。
+The result of GPIO pin value.
 
 ### Example
 
 ```c
-/* 设置IO13为Output并置为高 */
+/* Set IO13 to Output and set it high */
 gpio_init();
 fpioa_set_function(13, FUNC_GPIO3);
 gpio_set_drive_mode(3, GPIO_DM_OUTPUT);
@@ -125,15 +126,15 @@ gpio_set_pin(3, GPIO_PV_High);
 
 The relevant data types and data structures are defined as follows:
 
-- gpio\_drive\_mode\_t：GPIO驱动模式。
+- gpio\_drive\_mode\_t: GPIO drive mode.
 
-- gpio\_pin\_value\_t：GPIO值。
+- gpio\_pin\_value\_t: GPIO value.
 
 ### gpio\_drive\_mode\_t
 
 #### Description
 
-GPIO驱动模式。
+GPIO drive mode.
 
 #### Type definition
 
@@ -149,18 +150,18 @@ typedef enum _gpio_drive_mode
 
 #### Enumeration element
 
-| Element name                     | Description        |
-| --------------------------- | ----------- |
-| GPIO\_DM\_INPUT             | Input        |
-| GPIO\_DM\_INPUT\_PULL\_DOWN | Input下拉     |
-| GPIO\_DM\_INPUT\_PULL\_UP   | Input上拉     |
-| GPIO\_DM\_OUTPUT            | Output        |
+|        Element name         |   Description   |
+| --------------------------- | --------------- |
+| GPIO\_DM\_INPUT             | Input           |
+| GPIO\_DM\_INPUT\_PULL\_DOWN | Input pull down |
+| GPIO\_DM\_INPUT\_PULL\_UP   | Input pull up   |
+| GPIO\_DM\_OUTPUT            | Output          |
 
 ### gpio\_pin\_value\_t
 
 #### Description
 
-GPIO 值。
+GPIO value.
 
 #### Type definition
 
@@ -174,7 +175,7 @@ typedef enum _gpio_pin_value
 
 #### Enumeration element
 
-| Element name            | Description        |
-| ------------------ | ----------- |
-| GPIO\_PV\_LOW      | 低          |
-| GPIO\_PV\_HIGH     | 高          |
+|  Element name  | Description |
+| -------------- | ----------- |
+| GPIO\_PV\_LOW  | Low         |
+| GPIO\_PV\_HIGH | High        |

@@ -55,7 +55,7 @@ int fpioa_set_function(int number, fpioa_function_t function)
 | Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | Success      |
-| 非0                 | Fail       |
+| Others                 | Fail       |
 
 ### fpioa\_get\_io\_by\_function
 
@@ -106,7 +106,7 @@ int fpioa_get_io(int number, fpioa_io_config_t *cfg)
 | Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | Success      |
-| 非0                 | Fail       |
+| Others                 | Fail       |
 
 ### fpioa\_set\_io
 
@@ -132,7 +132,7 @@ int fpioa_set_io(int number, fpioa_io_config_t *cfg)
 | Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | Success      |
-| 非0                 | Fail       |
+| Others                 | Fail       |
 
 ### fpioa\_set\_tie\_enable
 
@@ -151,14 +151,14 @@ int fpioa_set_tie_enable(fpioa_function_t function, int enable)
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | function            | 管脚功能号      | Input      |
-| enable              | TIE使能位 0：禁用 1：使能    | Input      |
+| enable              | TIE使能位 0: 禁用 1: 使能    | Input      |
 
 #### Return value
 
 | Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | Success      |
-| 非0                 | Fail       |
+| Others                 | Fail       |
 
 ### fpioa\_set\_tie\_value
 
@@ -177,14 +177,14 @@ int fpioa_set_tie_value(fpioa_function_t function, int value)
 | Parameter name             |   Description         |  Input or output  |
 | ------------------- | -------------- | --------- |
 | function            | 管脚功能号      | Input      |
-| value               | TIE值 0：下拉 1：上拉       | Input      |
+| value               | TIE值 0: 下拉 1: 上拉       | Input      |
 
 #### Return value
 
 | Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | Success      |
-| 非0                 | Fail       |
+| Others                 | Fail       |
 
 ### fpioa\_set\_pull
 
@@ -210,7 +210,7 @@ int fpioa_set_io_pull(int number, fpioa_pull_t pull)
 | Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | Success      |
-| 非0                 | Fail       |
+| Others                 | Fail       |
 
 ### fpioa\_get\_pull
 
@@ -262,7 +262,7 @@ int fpioa_set_io_driving(int number, fpioa_driving_t driving)
 | Return value              | Description       |
 | :------------------ | :-------- |
 | 0                   | Success      |
-| 非0                 | Fail       |
+| Others                 | Fail       |
 
 ### fpioa\_get\_io\_driving
 
@@ -293,13 +293,13 @@ int fpioa_get_io_driving(int number)
 
 The relevant data types and data structures are defined as follows:
 
-- fpioa\_function\_t：管脚的功能编号。
+- fpioa\_function\_t: 管脚的功能编号。
 
-- fpioa\_io\_config\_t：FPIOA的配置。
+- fpioa\_io\_config\_t: FPIOA的配置。
 
-- fpioa\_pull\_t：FPIOA功能管脚上拉下拉值。
+- fpioa\_pull\_t: FPIOA功能管脚上拉下拉值。
 
-- fpioa\_driving\_t：FPIOA驱动能力编号。
+- fpioa\_driving\_t: FPIOA驱动能力编号。
 
 ### fpioa\_io\_config\_t
 

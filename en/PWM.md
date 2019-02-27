@@ -6,7 +6,7 @@ PWM 用于控制脉冲输出的占空比。其本质是一个定时器，所以�
 
 ## Features
 
-PWM 模块具有以下功能：
+PWM 模块具有以下功能: 
 
 - 配置 PWM Output频率
 - 配置 PWM 每个管脚的Output占空比
@@ -88,7 +88,7 @@ void pwm_set_enable(pwm_device_number_t pwm_number, uint32_t channel, int enable
 | :---------- | :------------------------------ | :-------- |
 | pwm_number  | PWM号                           | Input       |
 | channel     | PWM通道号                        | Input      |
-| enable      | 使能禁用PWM<br>0：禁用  1：使能   | Input      |
+| enable      | 使能禁用PWM<br>0: 禁用  1: 使能   | Input      |
 
 #### Return value
 
@@ -107,9 +107,9 @@ pwm_set_enable(PWM_DEVICE_0, PWM_CHANNEL_1, 1);
 
 ## Data type
 
-- pwm\_device\_number\_t：pwm号。
+- pwm\_device\_number\_t: pwm号。
 
-- pwm\_channel\_number\_t：pwm通道号。
+- pwm\_channel\_number\_t: pwm通道号。
 
 ### pwm\_device\_number\_t
 

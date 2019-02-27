@@ -465,7 +465,7 @@ dvp_sccb_receive_data(0x60, 0x1D)
 
 The relevant data types and data structures are defined as follows:
 
-- dvp\_output\_mode\_t：DVP output image mode.
+- dvp\_output\_mode\_t: DVP output image mode.
 
 ### dvp\_output\_mode\_t
 

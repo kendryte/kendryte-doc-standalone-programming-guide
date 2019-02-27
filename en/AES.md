@@ -1221,7 +1221,7 @@ aes_cbc128_hard_decrypt(&cbc_context, aes_input_data, 16L, aes_output_data);
 
 The relevant data types and data structures are defined as follows:
 
-- `aes_cipher_mode_t`：AES encryption/decryption mode.
+- `aes_cipher_mode_t`: AES encryption/decryption mode.
 
 ### aes\_cipher\_mode\_t
 
@@ -1241,7 +1241,7 @@ typedef enum _aes_cipher_mode
 } aes_cipher_mode_t;
 ```
 
-- `gcm_context_t`：AES-GCM structure used for parameters during encryption/decryption
+- `gcm_context_t`: AES-GCM structure used for parameters during encryption/decryption
 
 ### gcm\_context\_t
 
@@ -1261,7 +1261,7 @@ typedef struct _gcm_context
 } gcm_context_t;
 ```
 
-- `cbc_context_t`：AES-CBC structure used for parameters during encryption/decryption
+- `cbc_context_t`: AES-CBC structure used for parameters during encryption/decryption
 
 ### cbc\_context\_t
 

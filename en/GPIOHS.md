@@ -1,15 +1,17 @@
-# 通用高速输入/Output (GPIOHS)
+# GPIOHS
 
 ## Overview
 
-芯片有32个高速GPIO。与普通GPIO相似，管脚反转能力更强。
+GPIO stands for General Purpose Input Output.
+HS stands for high speed.
+The chip has 32 high speed GPIOs. Similar to normal GPIO, but faster.
 
 ## Features
 
-GPIOHS模块具有以下功能：
+The GPIO unit has the following features:
 
-- 可配置上下拉驱动模式
-- 支持上升沿、下降沿和双沿触发
+- Configurable up and down drive mode
+- Support for rising edge, falling edge and double edge trigger
 
 ## API
 
@@ -166,11 +168,11 @@ sysctl_enable_irq();
 
 The relevant data types and data structures are defined as follows:
 
-- gpio\_drive\_mode\_t：GPIO驱动模式。
+- gpio\_drive\_mode\_t: GPIO驱动模式。
 
-- gpio\_pin\_value\_t：GPIO值。
+- gpio\_pin\_value\_t: GPIO值。
 
-- gpio\_pin\_edge\_t：GPIO边沿触发模式。
+- gpio\_pin\_edge\_t: GPIO边沿触发模式。
 
 ### gpio\_drive\_mode\_t
 

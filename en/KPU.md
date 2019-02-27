@@ -7,7 +7,7 @@ KPU 是通用的神经网络处理器，它可以在低功耗的情况下实现�
 
 ## Features
 
-KPU 具备以下几个特点：
+KPU 具备以下几个特点: 
 
 - 支持主流训练框架按照特定限制规则训练出来的定点化模型
 
@@ -84,7 +84,7 @@ int kpu_run(kpu_task_t* v_task, dmac_channel_number_t dma_ch, const void *src, v
 | Return value  | Description         |
 | :----  | :------------|
 | 0      | Success         |
-| 非0    | KPU忙，失败   |
+| Others    | KPU忙，失败   |
 
 ### kpu\_get\_output\_buf
 
@@ -134,7 +134,7 @@ None.
 
 The relevant data types and data structures are defined as follows:
 
-- kpu\_task\_t：kpu任务结构体。
+- kpu\_task\_t: kpu任务结构体。
 
 ### kpu\_task\_t
 

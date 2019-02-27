@@ -6,7 +6,7 @@
 
 ## Features
 
-UART 模块具有以下功能：
+UART 模块具有以下功能: 
 
 - 配置 UART Parameter
 
@@ -321,13 +321,13 @@ while(uart_receive_data(UART_DEVICE_1, &recv, 1))
 
 The relevant data types and data structures are defined as follows:
 
-- uart\_device\_number\_t：UART 编号。
-- uart\_bitwidth\_t：UART 数据位宽。
-- uart\_stopbits\_t：UART 停止位。
-- uart\_parity\_t：UART 校验位。
-- uart\_interrupt\_mode\_t：UART中断类型，接收或发送。
-- uart\_send\_trigger\_t：发送中断或DMA触发FIFO深度。
-- uart\_receive\_trigger\_t：接收中断或DMA触发FIFO深度。
+- uart\_device\_number\_t: UART 编号。
+- uart\_bitwidth\_t: UART 数据位宽。
+- uart\_stopbits\_t: UART 停止位。
+- uart\_parity\_t: UART 校验位。
+- uart\_interrupt\_mode\_t: UART中断类型，接收或发送。
+- uart\_send\_trigger\_t: 发送中断或DMA触发FIFO深度。
+- uart\_receive\_trigger\_t: 接收中断或DMA触发FIFO深度。
 
 ### uart\_device\_number\_t
 

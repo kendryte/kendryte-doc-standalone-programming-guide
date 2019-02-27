@@ -7,7 +7,7 @@
 
 ## Features
 
-UARTHS 模块具有以下功能：
+UARTHS 模块具有以下功能: 
 
 - 配置 UARTHS Parameter
 
@@ -212,8 +212,8 @@ None.
 
 The relevant data types and data structures are defined as follows:
 
-- uarths\_interrupt\_mode\_t：中断类型。
-- uarths\_stopbit\_t：停止位。
+- uarths\_interrupt\_mode\_t: 中断类型。
+- uarths\_stopbit\_t: 停止位。
 
 ### uarths\_interrupt\_mode\_t
 
@@ -242,7 +242,7 @@ typedef enum _uarths_interrupt_mode
 
 ### uarths\_stopbit\_t
 
-#### Description：
+#### Description: 
 
 UARTHS停止位。
 
