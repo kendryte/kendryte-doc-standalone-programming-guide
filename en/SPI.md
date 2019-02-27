@@ -96,7 +96,7 @@ void spi_init_non_standard(spi_device_num_t spi_num, uint32_t instruction_length
 
 #### Return value
 
-无
+None.
 
 ### spi\_send\_data\_standard
 
@@ -123,7 +123,7 @@ void spi_send_data_standard(spi_device_num_t spi_num, spi_chip_select_t chip_sel
 
 #### Return value
 
-无
+None.
 
 ### spi\_send\_data\_standard\_dma
 
@@ -151,7 +151,7 @@ void spi_send_data_standard_dma(dmac_channel_number_t channel_num, spi_device_nu
 
 #### Return value
 
-无
+None.
 
 ### spi\_receive\_data\_standard
 
@@ -178,7 +178,7 @@ void spi_receive_data_standard(spi_device_num_t spi_num, spi_chip_select_t chip_
 
 #### Return value
 
-无
+None.
 
 ### spi\_receive\_data\_standard\_dma
 
@@ -207,7 +207,7 @@ void spi_receive_data_standard_dma(dmac_channel_number_t dma_send_channel_num, d
 
 #### Return value
 
-无
+None.
 
 ### spi\_send\_data\_multiple
 
@@ -234,7 +234,7 @@ void spi_send_data_multiple(spi_device_num_t spi_num, spi_chip_select_t chip_sel
 
 #### Return value
 
-无
+None.
 
 ### spi\_send\_data\_multiple\_dma
 
@@ -262,7 +262,7 @@ void spi_send_data_multiple_dma(dmac_channel_number_t channel_num,spi_device_num
 
 #### Return value
 
-无
+None.
 
 ### spi\_receive\_data\_multiple
 
@@ -289,7 +289,7 @@ void spi_receive_data_multiple(spi_device_num_t spi_num, spi_chip_select_t chip_
 
 #### Return value
 
-无
+None.
 
 ### spi\_receive\_data\_multiple\_dma
 
@@ -318,7 +318,7 @@ void spi_receive_data_multiple_dma(dmac_channel_number_t dma_send_channel_num, d
 
 #### Return value
 
-无
+None.
 
 ### spi\_fill\_data\_dma
 
@@ -344,7 +344,7 @@ void spi_fill_data_dma(dmac_channel_number_t channel_num,spi_device_num_t spi_nu
 
 #### Return value
 
-无
+None.
 
 ### spi\_send\_data\_normal\_dma
 
@@ -371,7 +371,7 @@ void spi_send_data_normal_dma(dmac_channel_number_t channel_num, spi_device_num_
 
 #### Return value
 
-无
+None.
 
 ### Example
 
@@ -404,7 +404,7 @@ spi_receive_data_multiple(SPI_DEVICE_0, SPI_CHIP_SELECT_0, cmd, 2, data_buf, 4);
 
 /* SPI0 工作在MODE2模式 八线SPI模式 单次发送32位数据 */
 spi_init(SPI_DEVICE_0, SPI_WORK_MODE_2, SPI_FF_OCTAL, 32, 0);
-/* 无指令 32位地址长度 发送指令地址后等待0个clk，指令地址通过8线发送 */
+/* None.指令 32位地址长度 发送指令地址后等待0个clk，指令地址通过8线发送 */
 spi_init_non_standard(SPI_DEVICE_0, 0, 32, 0, SPI_AITM_AS_FRAME_FORMAT);
 uint32_t data_buf[256] = {0};
 /* 使用DMA通道0 片选0 发送256个int数据*/

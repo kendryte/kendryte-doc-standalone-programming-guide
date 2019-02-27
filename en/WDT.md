@@ -48,7 +48,7 @@ void wdt_start(wdt_device_number_t id, uint64_t time_out_ms, plic_irq_callback_t
 
 #### Return value
 
-无
+None.
 
 ### wdt\_stop
 

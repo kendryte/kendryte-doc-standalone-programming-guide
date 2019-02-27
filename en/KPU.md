@@ -128,7 +128,7 @@ void kpu_release_output_buf(uint8_t *output_buf)
 
 #### Return value
 
-无
+None.
 
 ## Data type
 

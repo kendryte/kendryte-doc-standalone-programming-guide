@@ -100,7 +100,7 @@ void i2s_recv_data_dma(i2s_device_number_t device_num, uint32_t *buf, size_t buf
 
 #### Return value
 
-无
+None.
 
 ### i2s\_rx\_channel\_config
 

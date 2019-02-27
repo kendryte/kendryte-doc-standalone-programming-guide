@@ -129,7 +129,7 @@ void i2c_send_data_dma(dmac_channel_number_t dma_channel_num, i2c_device_number_
 
 #### Return value
 
-无
+None.
 
 ### i2c\_recv\_data
 
@@ -187,7 +187,7 @@ void i2c_recv_data_dma(dmac_channel_number_t dma_send_channel_num, dmac_channel_
 
 #### Return value
 
-无
+None.
 
 ### Example
 

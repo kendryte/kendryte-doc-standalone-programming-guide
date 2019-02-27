@@ -428,7 +428,7 @@ typedef enum _uart_parity
 
 | Element name            | Description        |
 | ------------------ | ----------- |
-| UART\_PARITY\_NONE | 无校验位    |
+| UART\_PARITY\_NONE | None.校验位    |
 | UART\_PARITY\_ODD  | 奇校验      |
 | UART\_PARITY\_EVEN | 偶校验      |
 

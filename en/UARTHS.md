@@ -57,7 +57,7 @@ None.
 
 #### Description
 
-设置UARTHS的参数。默认8bit数据，无校验位。
+设置UARTHS的参数。默认8bit数据，None.校验位。
 
 #### Function prototype
 
@@ -161,7 +161,7 @@ uarths_interrupt_mode_t uarths_get_interrupt_mode(void)
 
 #### Parameter
 
-无
+None.
 
 #### Return value
 

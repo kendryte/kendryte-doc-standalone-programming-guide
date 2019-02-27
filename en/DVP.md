@@ -69,7 +69,7 @@ void dvp_init(uint8_t reg_len)
 
 #### Return value
 
-无
+None.
 
 ### dvp\_set\_output\_enable
 
@@ -114,7 +114,7 @@ void dvp_set_image_format(uint32_t format)
 
 #### Return value
 
-无
+None.
 
 ### dvp\_set\_image\_size
 
@@ -137,7 +137,7 @@ void dvp_set_image_size(uint32_t width, uint32_t height)
 
 #### Return value
 
-无
+None.
 
 ### dvp\_set\_ai\_addr
 
@@ -161,7 +161,7 @@ void dvp_set_ai_addr(uint32_t r_addr, uint32_t g_addr, uint32_t b_addr)
 
 #### Return value
 
-无
+None.
 
 ### dvp\_set\_display\_addr
 
@@ -183,7 +183,7 @@ void dvp_set_display_addr(uint32_t addr)
 
 #### Return value
 
-无
+None.
 
 ### dvp\_config\_interrupt
 
@@ -379,7 +379,7 @@ void dvp_sccb_send_data(uint8_t dev_addr, uint16_t reg_addr, uint8_t reg_data)
 
 #### Return value
 
-无
+None.
 
 ### dvp\_sccb\_receive\_data
 

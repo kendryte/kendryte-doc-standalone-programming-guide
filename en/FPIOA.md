@@ -402,7 +402,7 @@ typedef enum _fpioa_pull
 
 | Element name             |      Description             |
 | :------------------ | :-------------------- |
-|FPIOA\_PULL\_NONE    | 无上下拉               |
+|FPIOA\_PULL\_NONE    | None.上下拉               |
 |FPIOA\_PULL\_DOWN    | 下拉                   |
 |FPIOA\_PULL\_UP      | 上拉                   |
 

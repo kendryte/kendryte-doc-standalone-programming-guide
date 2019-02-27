@@ -1,18 +1,20 @@
-# 实时时钟(RTC)
+# RTC
 
 ## Overview
 
 The Real Time Clock (RTC) is a unit for timing and has a timing function after
 the set time.
 
-**Note** The RTC module is only used when PLL0 is enabled and the CPU frequency is greater than 30MHz.
+**Note** The RTC unit is only used when PLL0 is enabled and the CPU frequency is greater than 30MHz.
 
 ## Features
 
-RTC 模块具有以下功能：
+The RTC unit has the following features:
 
-- 获取当前日期时刻
-- 设置当前日期时刻
+- Get current date and time
+- Set the current date and time
+- Set timing interrupt
+- Set alarm interrupt
 
 ## API
 
@@ -30,7 +32,7 @@ Provide the following interfaces
 
 #### Description
 
-初始化RTC。
+Initialize the RTC.
 
 #### Function prototype
 
@@ -45,15 +47,15 @@ None.
 #### Return value
 
 | Return value | Description |
-| :----  | :----|
-| 0      | Success |
-| 非0    | Fail |
+| :----------- | :---------- |
+| 0            | Success     |
+| 非0          | Fail        |
 
 ### rtc\_timer\_set
 
 #### Description
 
-设置日期时间。
+Set the RTC date and time.
 
 #### Function prototype
 
@@ -63,24 +65,24 @@ int rtc_timer_set(int year, int month, int day, int hour, int minute, int second
 
 #### Parameter
 
-| Parameter name     |   Description     |  Input or output  |
-| :--------   | :--------- | :-------- |
-| year        | 年         | Input       |
-| month       | 月         | Input       |
-| day         | 日         | Input       |
-| hour        | 时         | Input       |
-| minute      | 分         | Input       |
-| second      | 秒         | Input       |
+| Parameter name | Description | Input or output |
+| :------------- | :---------- | :-------------- |
+| year           | Year        | Input           |
+| month          | Month       | Input           |
+| day            | Day         | Input           |
+| hour           | Hour        | Input           |
+| minute         | Minute      | Input           |
+| second         | Second      | Input           |
 
 #### Return value
 
-无
+None.
 
 ### rtc\_timer\_get
 
 #### Description
 
-获取日期时间。
+Get the RTC date and time.
 
 #### Function prototype
 
@@ -90,21 +92,21 @@ int rtc_timer_get(int *year, int *month, int *day, int *hour, int *minute, int *
 
 #### Parameter
 
-| Parameter name     |   Description     |  Input or output  |
-| :--------   | :--------- | :-------- |
-| year        | 年         | Output       |
-| month       | 月         | Output       |
-| day         | 日         | Output       |
-| hour        | 时         | Output       |
-| minute      | 分         | Output       |
-| second      | 秒         | Output       |
+| Parameter name | Description | Input or output |
+| :------------- | :---------- | :-------------- |
+| year           | Year        | Output          |
+| month          | Month       | Output          |
+| day            | Day         | Output          |
+| hour           | Hour        | Output          |
+| minute         | Minute      | Output          |
+| second         | Second      | Output          |
 
 #### Return value
 
 | Return value | Description |
-| :----  | :----|
-| 0      | Success |
-| 非0    | Fail |
+| :----------- | :---------- |
+| 0            | Success     |
+| 非0          | Fail        |
 
 ### Example
 
