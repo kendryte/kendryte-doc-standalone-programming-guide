@@ -242,7 +242,7 @@ typedef enum _uarths_interrupt_mode
 
 ### uarths\_stopbit\_t
 
-#### Description: 
+#### Description
 
 UARTHS停止位。
 
