@@ -28,7 +28,7 @@ Provide the following interfaces
 
 #### Description
 
-初始化GPIO。
+Initialize GPIO.
 
 #### Function prototype
 

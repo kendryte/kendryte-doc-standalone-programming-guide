@@ -34,7 +34,7 @@ Provide the following interfaces
 
 #### Description
 
-初始化定时器。
+Initialize 定时器.
 
 #### Function prototype
 

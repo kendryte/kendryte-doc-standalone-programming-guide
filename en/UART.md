@@ -44,7 +44,7 @@ Provide the following interfaces
 
 #### Description
 
-初始化uart。
+Initialize uart.
 
 #### Function prototype
 

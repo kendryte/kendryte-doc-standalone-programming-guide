@@ -27,7 +27,7 @@ Provide the following interfaces
 
 #### Description
 
-初始化PWM。
+Initialize PWM.
 
 #### Function prototype
 

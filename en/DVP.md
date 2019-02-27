@@ -1,15 +1,19 @@
-# 数字摄像头接口 (DVP)
+# DVP
 
 ## Overview
 
-DVP 是摄像头接口模块，支持把摄像头输入图像数据转发给 AI 模块或者内存。
+Digital Video Port (DVP) unit is a camera interface unit that supports
+forwarding camera input image data to KPU or memory.
 
 ## Features
 
-DVP 模块具有以下功能：
+The DVP unit has the following features:
 
-- RGB565 和 RGB24Planar 共 2 个视频数据输出端口
-- 支持丢弃不需要处理的帧
+- Support RGB565, RGB422 and single channel Y gray scale input mode
+- Support for setting frame interrupt
+- Support setting transfer address
+- Supports writing data to two addresses at the same time (output format is RGB888 and RGB565 respectively)
+- Support for discarding frames that do not need to be processed
 
 ## API
 
@@ -53,7 +57,7 @@ Provide the following interfaces
 
 #### Description
 
-初始化DVP。
+Initialize DVP.
 
 #### Function prototype
 
@@ -63,9 +67,9 @@ void dvp_init(uint8_t reg_len)
 
 #### Parameter
 
-| Parameter name                         |   Description                 |  Input or output  |
-| ------------------------------- | ---------------------- | --------- |
-| reg\_len                         | sccb寄存器长度          | Input      |
+| Parameter name |     Description      | Input or output |
+| -------------- | -------------------- | --------------- |
+| reg\_len       | SCCB register length | Input           |
 
 #### Return value
 
@@ -75,7 +79,7 @@ None.
 
 #### Description
 
-设置Output模式使能或禁用。
+Set the output mode to enable or disable.
 
 #### Function prototype
 
@@ -85,10 +89,10 @@ void dvp_set_output_enable(dvp_output_mode_t index, int enable)
 
 #### Parameter
 
-| Parameter name         |   Description                 |  Input or output  |
-| --------------- | ---------------------- | --------- |
-| index           | 图像Output至内存或AI      | Input      |
-| enable          | 0：禁用 1：使能         | Input      |
+| Parameter name |          Description          | Input or output |
+| -------------- | ----------------------------- | --------------- |
+| index          | Image output to memory or KPU | Input           |
+| enable         | 0: Disable 1: Enable          | Input           |
 
 #### Return value
 
@@ -98,7 +102,7 @@ None.
 
 #### Description
 
-设置图像接收模式，RGB或YUV。
+Set the image receiving mode, RGB or YUV.
 
 #### Function prototype
 
@@ -108,9 +112,11 @@ void dvp_set_image_format(uint32_t format)
 
 #### Parameter
 
-| Parameter name     |   Description                 |  Input or output  |
-| ----------- | ---------------------- | --------- |
-| format      | 图像模式<br>DVP\_CFG\_RGB\_FORMAT RGB模式<br>DVP\_CFG\_YUV\_FORMAT YUV模式| Input      |
+| Parameter name |              Description              | Input or output |
+| -------------- | ------------------------------------- | --------------- |
+| format         | Image format selection[^image_format] | Input           |
+
+[^image_format]: DVP\_CFG\_RGB\_FORMAT is RGB format, DVP\_CFG\_YUV\_FORMAT is YUV format.
 
 #### Return value
 
@@ -120,7 +126,7 @@ None.
 
 #### Description
 
-设置DVP图像采集尺寸。
+Set the DVP image capture size.
 
 #### Function prototype
 
@@ -130,10 +136,10 @@ void dvp_set_image_size(uint32_t width, uint32_t height)
 
 #### Parameter
 
-| Parameter name     |   Description                 |  Input or output  |
-| ----------- | ---------------------- | --------- |
-| width       | 图像宽度                | Input      |
-| height      | 图像高度                | Input      |
+| Parameter name | Description  | Input or output |
+| -------------- | ------------ | --------------- |
+| width          | Image width  | Input           |
+| height         | Image height | Input           |
 
 #### Return value
 
@@ -143,7 +149,8 @@ None.
 
 #### Description
 
-设置AI存放图像的地址，供AI模块进行算法处理。
+Set the image address required by the KPU,
+in order to facilitate the KPU to perform algorithm processing.
 
 #### Function prototype
 
@@ -153,11 +160,11 @@ void dvp_set_ai_addr(uint32_t r_addr, uint32_t g_addr, uint32_t b_addr)
 
 #### Parameter
 
-| Parameter name     |   Description                 |  Input or output  |
-| ----------- | ---------------------- | --------- |
-| r\_addr      | 红色分量地址            | Input      |
-| g\_addr      | 绿色分量地址            | Input      |
-| b\_addr      | 蓝色分量地址            | Input      |
+| Parameter name |       Description       | Input or output |
+| -------------- | ----------------------- | --------------- |
+| r\_addr        | Red component address   | Input           |
+| g\_addr        | Green component address | Input           |
+| b\_addr        | Blue component address  | Input           |
 
 #### Return value
 
@@ -167,7 +174,7 @@ None.
 
 #### Description
 
-设置采集图像在内存中的存放地址，可以用来显示。
+Set the storage address of the captured image in the memory, which can be used for display.
 
 #### Function prototype
 
@@ -177,9 +184,9 @@ void dvp_set_display_addr(uint32_t addr)
 
 #### Parameter
 
-| Parameter name     |   Description                 |  Input or output  |
-| ----------- | ---------------------- | --------- |
-| addr        | 存放图像的内存地址       | Input      |
+| Parameter name |          Description           | Input or output |
+| -------------- | ------------------------------ | --------------- |
+| addr           | Memory address to store images | Input           |
 
 #### Return value
 
@@ -187,7 +194,7 @@ None.
 
 ### dvp\_config\_interrupt
 
-配置DVP中断类型。
+Configure the DVP interrupt type.
 
 #### Function prototype
 
@@ -197,14 +204,17 @@ void dvp_config_interrupt(uint32_t interrupt, uint8_t enable)
 
 #### Description
 
-设置图像开始和结束中断状态，使能或禁用。
+Set image capture start and end interrupt status, enable or disable.
 
 #### Parameter
 
-| Parameter name     |   Description                 |  Input or output  |
-| ----------- | ---------------------- | --------- |
-| interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | Input      |
-| enable      | 0：禁止 1：使能         | Input      |
+| Parameter name |               Description               | Input or output |
+| -------------- | --------------------------------------- | --------------- |
+| interrupt      | DVP interrupt type[^dvp_interrupt_type] | Input           |
+| enable         | 0: Disable 1: Enable                    | Input           |
+
+[^dvp_interrupt_type]: DVP\_CFG\_START\_INT\_ENABLE for the interrupt of image
+capture begin; DVP\_CFG\_FINISH\_INT\_ENABLE for the interrupt of image capture end.
 
 #### Return value
 
@@ -214,7 +224,7 @@ None.
 
 #### Description
 
-判断是否是Input的中断类型。
+Determine if it is the specified interrupt type.
 
 #### Function prototype
 
@@ -224,22 +234,22 @@ int dvp_get_interrupt(uint32_t interrupt)
 
 #### Parameter
 
-| Parameter name     |   Description                 |  Input or output  |
-| ----------- | ---------------------- | --------- |
-| interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | Input      |
+| Parameter name |               Description               | Input or output |
+| -------------- | --------------------------------------- | --------------- |
+| interrupt      | DVP interrupt type[^dvp_interrupt_type] | Input           |
 
 #### Return value
 
-| Return value  | Description  |
-| :----  | :----|
-| 0      | 否   |
-| 非0    | 是   |
+| Return value | Description |
+| :----------- | :---------- |
+| 0            | False       |
+| Others       | True        |
 
 ### dvp\_clear\_interrupt
 
 #### Description
 
-清除中断。
+Clear the interrupt.
 
 #### Function prototype
 
@@ -249,9 +259,9 @@ void dvp_clear_interrupt(uint32_t interrupt)
 
 #### Parameter
 
-| Parameter name     |   Description                 |  Input or output  |
-| ----------- | ---------------------- | --------- |
-| interrupt   | 中断类型<br>DVP\_CFG\_START\_INT\_ENABLE 图像开始采集中断<br>DVP\_CFG\_FINISH\_INT\_ENABLE 图像结束采集中断     | Input      |
+| Parameter name |               Description               | Input or output |
+| -------------- | --------------------------------------- | --------------- |
+| interrupt      | DVP interrupt type[^dvp_interrupt_type] | Input           |
 
 #### Return value
 
@@ -261,7 +271,7 @@ None.
 
 #### Description
 
-开始采集图像，在确定图像采集开始中断后调用。
+Start capturing images and call them after determining that the image capture begins.
 
 #### Function prototype
 
@@ -281,7 +291,7 @@ None.
 
 #### Description
 
-使能突发传输模式。
+Enable burst transfer mode.
 
 #### Function prototype
 
@@ -301,7 +311,7 @@ None.
 
 #### Description
 
-禁用突发传输模式。
+Disable burst transfer mode.
 
 #### Function prototype
 
@@ -321,7 +331,7 @@ None.
 
 #### Description
 
-使能自动接收图像模式。
+Enable automatic image mode reception.s
 
 #### Function prototype
 
@@ -341,7 +351,7 @@ None.
 
 #### Description
 
-禁用自动接收图像模式。
+Disable automatic image reception mode.
 
 #### Function prototype
 
@@ -361,7 +371,7 @@ None.
 
 #### Description
 
-通过sccb发送数据。
+Send data via scbb.
 
 #### Function prototype
 
@@ -371,11 +381,11 @@ void dvp_sccb_send_data(uint8_t dev_addr, uint16_t reg_addr, uint8_t reg_data)
 
 #### Parameter
 
-| Parameter name         |   Description                     |  Input or output  |
-| --------------- | -------------------------- | --------- |
-| dev\_addr        | 外设图像传感器SCCB地址       | Input      |
-| reg\_addr        | 外设图像传感器寄存器         | Input      |
-| reg\_data        | 发送的数据                  | Input      |
+| Parameter name |        Description        | Input or output |
+| -------------- | ------------------------- | --------------- |
+| dev\_addr      | Image sensor SCCB address | Input           |
+| reg\_addr      | Image sensor register     | Input           |
+| reg\_data      | Sent data                 | Input           |
 
 #### Return value
 
@@ -385,7 +395,7 @@ None.
 
 #### Description
 
-通过SCCB接收数据。
+Receive data through the SCCB.
 
 #### Function prototype
 
@@ -395,19 +405,22 @@ uint8_t dvp_sccb_receive_data(uint8_t dev_addr, uint16_t reg_addr)
 
 #### Parameter
 
-| Parameter name         |   Description                     |  Input or output  |
-| --------------- | -------------------------- | --------- |
-| dev\_addr        | 外设图像传感器SCCB地址       | Input      |
-| reg\_addr        | 外设图像传感器寄存器         | Input      |
+| Parameter name |        Description        | Input or output |
+| -------------- | ------------------------- | --------------- |
+| dev\_addr      | Image sensor SCCB address | Input           |
+| reg\_addr      | Image sensor register     | Input           |
 
 #### Return value
 
-读取寄存器的数据。
+Read the data of the register.
 
 ### Example
 
 ```c
-/* 采集320 * 240的RGB图像数据传输至lcd_gram0, 及0x40600000 0x40612C00 0x40625800 地址处 */
+/*
+ * Capture 320 * 240 RGB image data transfer to lcd_gram0,
+ * and 0x40600000 0x40612C00 0x40625800 address
+ */
 uint32_t lcd_gram0[38400] __attribute__((aligned(64)));
 
 int on_irq_dvp(void* ctx)
@@ -437,10 +450,13 @@ dvp_disable_auto();
 plic_set_priority(IRQN_DVP_INTERRUPT, 1);
 plic_irq_register(IRQN_DVP_INTERRUPT, on_irq_dvp, NULL);
 plic_irq_enable(IRQN_DVP_INTERRUPT);
-dvp_clear_interrupt(DVP_STS_FRAME_START | DVP_STS_FRAME_FINISH);
-dvp_config_interrupt(DVP_CFG_START_INT_ENABLE | DVP_CFG_FINISH_INT_ENABLE, 1);
+| dvp_clear_interrupt(DVP_STS_FRAME_START       | DVP_STS_FRAME_FINISH);         |
+| dvp_config_interrupt(DVP_CFG_START_INT_ENABLE | DVP_CFG_FINISH_INT_ENABLE, 1); |
 sysctl_enable_irq();
-/* 通过SCCB向地址0x60的外设0xFF寄存器发送0x01,从寄存器0x1D读取数据 */
+/*
+ * Send 0x01 to the peripheral 0xFF register of address 0x60 through SCCB,
+ * read data from register 0x1D.
+ */
 dvp_sccb_send_data(0x60, 0xFF, 0x01);
 dvp_sccb_receive_data(0x60, 0x1D)
 ```
@@ -449,13 +465,13 @@ dvp_sccb_receive_data(0x60, 0x1D)
 
 The relevant data types and data structures are defined as follows:
 
-- dvp\_output\_mode\_t：DVPOutput图像的模式。
+- dvp\_output\_mode\_t：DVP output image mode.
 
 ### dvp\_output\_mode\_t
 
 #### Description
 
-DVPInput图像的模式。
+DVP output image mode.
 
 #### Type definition
 
@@ -469,7 +485,7 @@ typedef enum _dvp_output_mode
 
 #### Enumeration element
 
-| Element name                | Description              |
-| ---------------------- | ----------------- |
-| DVP\_OUTPUT\_AI        | AIOutput             |
-| DVP\_OUTPUT\_DISPLAY   | 向内存Output用于显示  |
+|     Element name     |         Description          |
+| -------------------- | ---------------------------- |
+| DVP\_OUTPUT\_AI      | Output to KPU                |
+| DVP\_OUTPUT\_DISPLAY | Output to memory for display |

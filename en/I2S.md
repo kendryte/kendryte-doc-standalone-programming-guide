@@ -32,7 +32,7 @@ Provide the following interfaces
 
 #### Description
 
-初始化I2S。
+Initialize I2S.
 
 #### Function prototype
 
