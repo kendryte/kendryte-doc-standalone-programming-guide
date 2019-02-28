@@ -1,17 +1,27 @@
-# 高速通用异步收发传输器 (UARTHS)
+# UARTHS
 
 ## Overview
 
-嵌入式应用通常要求一个简单的并且占用系统资源少的方法来传输数据。高速通用异步收发传输器 (UARTHS) 即可以满足这些要求，它能够灵活地与外部设备进行全双工数据交换。
-目前系统使用该串口做为调试串口，printf时会调用该串口输出。
+High Speed Universal Asynchronous Receiver/Transmitter (UART).
+
+Embedded applications typically require a simple method that consumes less system resources to transfer data. The Universal Asynchronous Receiver/Transmitter (UART) meets these requirements with the flexibility to perform full-duplex data exchange with external devices.
+
+At present, the system uses this high speed serial port as the debugging serial port, and the serial port output is called when using printf.
 
 ## Features
 
-UARTHS 模块具有以下功能:
+The UART peripheral has the following features:
 
-- 配置 UARTHS Parameter
-
-- 自动收取数据到缓冲区
+- Configuring UART parameters
+- Automatically charge data to the buffer
+- 8-N-1 and 8-N-2 formats: 8 data bits, no parity bit, 1 start
+  bit, 1 or 2 stop bits
+- 8-entry transmit and receive FIFO buffers with programmable
+  watermark interrupts
+- 16× Rx oversampling with 2/3 majority voting per bit
+  The UART peripheral does not support hardware flow control or
+  other modem control signals, or synchronous serial data
+  tranfesrs.
 
 ## API
 
@@ -37,7 +47,7 @@ Provide the following interfaces
 
 #### Description
 
-初始化UARTHS，系统默认波特率为115200 8bit 1位停止位 无检验位。因为uarths时钟源为PLL0，在设置PLL0后需要重新调用该函数设置波特率，否则会打印乱码。
+Initialize UARTHS, the system default baud rate is 115200 and 8-N-1 formats (8 data bits, no parity bit, 1 start bit, 1 stop bits). Because the clock source of the uarths is PLL0, you need to call this function to set the baud rate after setting PLL0, otherwise it will print garbled characters.
 
 #### Function prototype
 
@@ -57,7 +67,7 @@ None.
 
 #### Description
 
-设置UARTHS的参数。默认8bit数据，None.校验位。
+Set the parameters of the UARTHS. Default is 8-N-1 formats (8 data bits, no parity bit, 1 start bit, 1 stop bits).
 
 #### Function prototype
 
@@ -67,10 +77,10 @@ void uarths_config(uint32_t baud_rate, uarths_stopbit_t stopbit)
 
 ### Parameter
 
-| Parameter name    |   Description       |  Input or output  |
-| ---------- | ------------ | --------- |
-| baud\_rate | 波特率        | Input      |
-| stopbit    | 停止位        | Input      |
+| Parameter name | Description | Input or output |
+| -------------- | ----------- | --------------- |
+| baud\_rate     | Baud rate   | Input           |
+| stopbit        | Stop bit    | Input           |
 
 #### Return value
 
@@ -80,7 +90,7 @@ None.
 
 #### Description
 
-通过UARTHS读取数据。
+Read data through UARTHS.
 
 #### Function prototype
 
@@ -90,20 +100,20 @@ size_t uarths_receive_data(uint8_t *buf, size_t buf_len)
 
 #### Parameter
 
-| Parameter name    |   Description           |  Input or output  |
-| ---------- | ---------------  | --------- |
-| buf        | 接收数据         | Output       |
-| buf\_len   | 接收数据的长度    | Input       |
+| Parameter name |       Description       | Input or output |
+| -------------- | ----------------------- | --------------- |
+| buf            | Receive data            | Output          |
+| buf\_len       | Length of received data | Input           |
 
 #### Return value
 
-已接收到的数据长度。
+The length of the data that has been received.
 
 ### uarths\_send\_data
 
 #### Description
 
-通过UART发送数据。
+Send data through the UART.
 
 #### Function prototype
 
@@ -113,20 +123,20 @@ size_t uarths_send_data(const uint8_t *buf, size_t buf_len)
 
 #### Parameter
 
-| Parameter name    |   Description           |  Input or output  |
-| ---------- | ---------------  | --------- |
-| buf        | 待发送数据        | Input      |
-| buf\_len   | 待发送数据的长度  | Input       |
+| Parameter name |        Description        | Input or output |
+| -------------- | ------------------------- | --------------- |
+| buf            | Data to be sent           | Input           |
+| buf\_len       | Length of data to be sent | Input           |
 
 #### Return value
 
-已发送数据的长度。
+The length of the data that has been sent.
 
 ### uarths\_set\_irq
 
 #### Description
 
-设置UARTHS中断回调函数。
+Set the UARTHS interrupt callback function.
 
 #### Function prototype
 
@@ -136,12 +146,12 @@ void uarths_set_irq(uarths_interrupt_mode_t interrupt_mode, plic_irq_callback_t 
 
 #### Parameter
 
-| Parameter name                       |   Description           |  Input or output  |
-| ----------------------------- | ---------------  | --------- |
-| interrupt\_mode               | 中断类型          | Input       |
-| uarths\_callback              | 中断回调函数      | Input      |
-| ctx                           | 回调函数的参数    | Input       |
-| priority                      | 中断优先级        | Input       |
+|  Parameter name  |         Description          | Input or output |
+| ---------------- | ---------------------------- | --------------- |
+| interrupt\_mode  | Interrupt type               | Input           |
+| uarths\_callback | Interrupt callback function  | Input           |
+| ctx              | Callback function parameters | Input           |
+| priority         | Interrupt priority           | Input           |
 
 #### Return value
 
@@ -151,7 +161,7 @@ None.
 
 #### Description
 
-获取UARTHS的中断类型。接收、发送或接收发送同时中断。
+Get the interrupt type of UARTHS. The same interrupt is used by received, sent, or received.
 
 #### Function prototype
 
@@ -165,14 +175,14 @@ None.
 
 #### Return value
 
-当前中断的类型。
+The type of current interrupt.
 
 ### uarths\_set\_interrupt\_cnt
 
 #### Description
 
-设置UARTHS中断时的FIFO深度。
-当中断类型为UARTHS\_SEND\_RECEIVE，发送接收FIFO中断深度均为cnt;
+Set the FIFO depth when the UARTHS interrupt is generated.
+When the interrupt type is UARTHS\_SEND\_RECEIVE, the transmit and receive FIFO interrupt depths are both cnt.
 
 #### Function prototype
 
@@ -182,10 +192,10 @@ void uarths_set_interrupt_cnt(uarths_interrupt_mode_t interrupt_mode, uint8_t cn
 
 #### Parameter
 
-| Parameter name                       |   Description           |  Input or output  |
-| ----------------------------- | ---------------  | --------- |
-| interrupt\_mode               | 中断类型         | Input       |
-| cnt                           | FIFO深度         | Input      |
+| Parameter name  |  Description   | Input or output |
+| --------------- | -------------- | --------------- |
+| interrupt\_mode | Interrupt type | Input           |
+| cnt             | FIFO depth     | Input           |
 
 #### Return value
 
@@ -194,7 +204,10 @@ None.
 ### Example
 
 ```c
-/* 设置接收中断 中断FIFO深度为0，即接收到数据立即中断并读取接收到的数据。*/
+/*
+ * Set the receive interrupt. The interrupt FIFO depth is 0, that is, the
+ * received data is immediately interrupted and the received data is read.
+ */
     int uarths_irq(void *ctx)
     {
         if(!uarths_receive_data((uint8_t *)&receive_char, 1))
@@ -212,14 +225,14 @@ None.
 
 The relevant data types and data structures are defined as follows:
 
-- uarths\_interrupt\_mode\_t: 中断类型。
-- uarths\_stopbit\_t: 停止位。
+- uarths\_interrupt\_mode\_t: UARTHS interrupt type.
+- uarths\_stopbit\_t: UARTHS stop bit.
 
 ### uarths\_interrupt\_mode\_t
 
 ### Description
 
-UARTHS中断类型。
+UARTHS interrupt type.
 
 #### Type definition
 
@@ -234,17 +247,17 @@ typedef enum _uarths_interrupt_mode
 
 #### Enumeration element
 
-| Element name              | Description         |
-| -------------------- | ------------ |
-| UARTHS_SEND          | 发送中断      |
-| UARTHS_RECEIVE       | 接收中断      |
-| UARTHS\_SEND\_RECEIVE  | 发送接收中断  |
+|     Element name      |        Description        |
+| --------------------- | ------------------------- |
+| UARTHS_SEND           | Send interrupt            |
+| UARTHS_RECEIVE        | Receive interrupt         |
+| UARTHS\_SEND\_RECEIVE | Send or Receive interrupt |
 
 ### uarths\_stopbit\_t
 
 #### Description
 
-UARTHS停止位。
+UARTHS stop bit.
 
 #### Type definition
 
@@ -258,7 +271,7 @@ typedef enum _uarths_stopbit
 
 #### Enumeration element
 
-| Element name              | Description         |
-| -------------------- | ------------ |
-| UART\_STOP\_1        | 1位停止位     |
-| UART\_STOP\_2        | 2位停止位     |
+| Element name  | Description |
+| ------------- | ----------- |
+| UART\_STOP\_1 | 1 Stop bit  |
+| UART\_STOP\_2 | 2 Stop bits |

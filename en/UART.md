@@ -12,7 +12,6 @@ The UART module has the following features:
 
 - Configuring UART parameters
 - Automatically charge data to the buffer
-- 8-N-1 and 8-N-2 formats: 8 data bits, no parity bit, 1 start bit, 1 or 2 stop bits
 
 ## API
 
