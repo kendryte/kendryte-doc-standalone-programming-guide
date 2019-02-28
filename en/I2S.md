@@ -1,16 +1,18 @@
-# 集成电路内置音频总线 (I2S)
+# I2S
 
 ## Overview
 
-I2S 标准总线定义了三种信号: 时钟信号 BCK、声道选择信号 WS 和串行数据信号 SD。一个基本的I2S 数据总线有一个主机和一个从机。主机和从机的角色在通信过程中保持不变。I2S 模块包含独立的发送和接收声道，能够保证优良的通信性能。
+The Integrated Inter-IC Sound Bus (I2S) is a serial bus interface standard used for connecting digital audio devices together.
+
+The I2S bus defines three types of signals: the clock signal BCK, the channel selection signal WS, and the serial data signal SD. A basic I2S bus has one master and one slave. The roles of the master and slave remain unchanged during the communication process. The I2S unit includes separate transmit and receive channels for excellent communication performance.
 
 ## Features
 
-I2S 模块具有以下功能:
+The I2S module has the following features:
 
-- 根据音频格式自动配置设备（支持 16、24、32 位深，44100 采样率，1 - 4 声道）
-- 可配置为播放或录音模式
-- 自动管理音频缓冲区
+- Automatically configure the device according to the audio format (supports 16, 24, 32 bit depth, 44100 sample rate, 1 - 4 channels)
+- Configurable for playback or recording mode
+- Automatic management of audio buffers
 
 ## API
 
@@ -24,9 +26,9 @@ Provide the following interfaces
 - i2s\_rx\_channel\_config
 - i2s\_tx\_channel\_config
 - i2s\_play
-- i2s\_set\_sample\_rate: I2S 设置采样率。
-- i2s\_set\_dma\_divide\_16: 设置dma_divide_16，16位数据时设置dma_divide_16，DMA传输时自动将32比特INT32数据分成两个16比特的左右声道数据。
-- i2s\_get\_dma\_divide\_16: 获取dma_divide_16值。用于判断是否需要设置dma_divide_16。
+- i2s\_set\_sample\_rate: I2S set the sampling rate.
+- i2s\_set\_dma\_divide\_16: Set dma_divide_16, set dma_divide_16 for 16-bit data, and automatically divide 32-bit INT32 data into two 16-bit left and right channel data during DMA transfer.
+- i2s\_get\_dma\_divide\_16: Get the dma_divide_16 value. Used to determine if dma_divide_16 needs to be set.
 
 ### i2s\_init
 
@@ -42,11 +44,11 @@ void i2s_init(i2s_device_number_t device_num, i2s_transmit_t rxtx_mode, uint32_t
 
 #### Parameter
 
-| Element name            | Description         |  Input or output  |
-| ------------------ | ------------ | --------- |
-| device\_num         | I2S号        | Input      |
-| rxtx\_mode          | 接收或发送模式| Input      |
-| channel\_mask       | 通道掩码      | Input      |
+| Element name  |       Description        | Input or output |
+| ------------- | ------------------------ | --------------- |
+| device\_num   | I2S number               | Input           |
+| rxtx\_mode    | Receive or transmit mode | Input           |
+| channel\_mask | Channel mask             | Input           |
 
 #### Return value
 
@@ -56,7 +58,7 @@ None.
 
 #### Description
 
-I2S发送数据。
+I2S sends data over DMA.
 
 #### Function prototype
 
@@ -66,12 +68,12 @@ void i2s_send_data_dma(i2s_device_number_t device_num, const void *buf, size_t b
 
 #### Parameter
 
-| Element name            | Description         |  Input or output  |
-| ------------------ | ------------ | --------- |
-| device\_num         | I2S号        | Input      |
-| buf                | 发送数据地址  | Input      |
-| buf\_len            | 数据长度      | Input      |
-| channel\_num        | DMA通道号     | Input      |
+| Element name |    Description     | Input or output |
+| ------------ | ------------------ | --------------- |
+| device\_num  | I2S number         | Input           |
+| buf          | Send data address  | Input           |
+| buf\_len     | Data length        | Input           |
+| channel\_num | DMA channel number | Input           |
 
 #### Return value
 
@@ -81,7 +83,7 @@ None.
 
 #### Description
 
-I2S接收数据。
+I2S receives data.
 
 #### Function prototype
 
@@ -91,12 +93,12 @@ void i2s_recv_data_dma(i2s_device_number_t device_num, uint32_t *buf, size_t buf
 
 #### Parameter
 
-| Element name            | Description         |  Input or output  |
-| ------------------  | ------------ | --------- |
-| device\_num         | I2S号        | Input      |
-| buf                 | 接收数据地址  | Output      |
-| buf\_len            | 数据长度      | Input      |
-| channel\_num        | DMA通道号     | Input      |
+| Element name |     Description      | Input or output |
+| ------------ | -------------------- | --------------- |
+| device\_num  | I2S number           | Input           |
+| buf          | Receive data address | Output          |
+| buf\_len     | Data length          | Input           |
+| channel\_num | DMA channel number   | Input           |
 
 #### Return value
 
@@ -106,7 +108,7 @@ None.
 
 #### Description
 
-设置接收通道参数。
+Set the receive channel parameters.
 
 #### Function prototype
 
@@ -116,14 +118,14 @@ void i2s_rx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t cha
 
 #### Parameter
 
-| Element name            | Description              |  Input or output  |
-| ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | Input      |
-| channel\_num        | 通道号             | Input     |
-| word\_length        | 接收数据位数       | Output      |
-| word\_select\_size   | 单个数据时钟数     | Input      |
-| trigger\_level      | DMA触发时FIFO深度  | Input      |
-| word\_mode          | 工作模式           | Input      |
+|    Element name    |           Description            | Input or output |
+| ------------------ | -------------------------------- | --------------- |
+| device\_num        | I2S number                       | Input           |
+| channel\_num       | Channel number                   | Input           |
+| word\_length       | Word length (bits)               | Output          |
+| word\_select\_size | Word select size                 | Input           |
+| trigger\_level     | FIFO depth when DMA is triggered | Input           |
+| word\_mode         | Word mode                        | Input           |
 
 #### Return value
 
@@ -133,7 +135,7 @@ None.
 
 #### Description
 
-设置发送通道参数。
+Set the send channel parameters.
 
 #### Function prototype
 
@@ -143,14 +145,14 @@ void i2s_tx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t cha
 
 #### Parameter
 
-| Element name            | Description              |  Input or output  |
-| ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | Input      |
-| channel\_num        | 通道号             | Input     |
-| word\_length        | 接收数据位数       | Output      |
-| word\_select\_size   | 单个数据时钟数     | Input      |
-| trigger\_level      | DMA触发时FIFO深度  | Input      |
-| word\_mode          | 工作模式           | Input      |
+|    Element name    |           Description            | Input or output |
+| ------------------ | -------------------------------- | --------------- |
+| device\_num        | I2S number                       | Input           |
+| channel\_num       | Channel number                   | Input           |
+| word\_length       | Word length (bits)               | Output          |
+| word\_select\_size | Word select size                 | Input           |
+| trigger\_level     | FIFO depth when DMA is triggered | Input           |
+| word\_mode         | Word mode                        | Input           |
 
 #### Return value
 
@@ -160,7 +162,7 @@ None.
 
 #### Description
 
-发送PCM数据, 比如播放音乐
+Send PCM data, such as playing music
 
 #### Function prototype
 
@@ -171,15 +173,15 @@ void i2s_play(i2s_device_number_t device_num, dmac_channel_number_t channel_num,
 
 #### Parameter
 
-| Element name            | Description              |  Input or output  |
-| ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | Input      |
-| channel\_num        | 通道号             | Input     |
-| buf                 | PCM 数据           | Input      |
-| buf\_len             | PCM数据长度        | Input      |
-| frame               | 单次发送数量        | Input      |
-| bits\_per\_sample     | 单次采样位宽        | Input      |
-| track_num           | 声道数            | Input      |
+|   Element name    |        Description        | Input or output |
+| ----------------- | ------------------------- | --------------- |
+| device\_num       | I2S number                | Input           |
+| channel\_num      | Channel number            | Input           |
+| buf               | PCM data                  | Input           |
+| buf\_len          | PCM data length           | Input           |
+| frame             | Single send quantity      | Input           |
+| bits\_per\_sample | Single sampling bit width | Input           |
+| track_num         | Number of channels        | Input           |
 
 #### Return value
 
@@ -189,7 +191,7 @@ None.
 
 #### Description
 
-设置采样率。
+Set the sampling rate.
 
 #### Function prototype
 
@@ -199,20 +201,20 @@ uint32_t i2s_set_sample_rate(i2s_device_number_t device_num, uint32_t sample_rat
 
 #### Parameter
 
-| Element name            | Description              |  Input or output  |
-| ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | Input      |
-| sample\_rate        | 采样率            | Input     |
+| Element name |  Description  | Input or output |
+| ------------ | ------------- | --------------- |
+| device\_num  | I2S number    | Input           |
+| sample\_rate | Sampling Rate | Input           |
 
 #### Return value
 
-实际的采样率。
+Actual sampling rate.
 
 ### i2s\_set\_dma\_divide\_16
 
 #### Description
 
-设置dma\_divide\_16，16位数据时设置dma\_divide\_16，DMA传输时自动将32比特INT32数据分成两个16比特的左右声道数据。
+Set dma\_divide\_16, set dma\_divide\_16 for 16-bit data, and automatically split 32-bit INT32 data into two 16-bit left and right channel data during DMA transfer.
 
 #### Function prototype
 
@@ -222,23 +224,23 @@ int i2s_set_dma_divide_16(i2s_device_number_t device_num, uint32_t enable)
 
 #### Parameter
 
-| Element name            | Description              |  Input or output  |
-| ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | Input      |
-| enable              | 0:禁用 1: 使能    | Input     |
+| Element name |     Description      | Input or output |
+| ------------ | -------------------- | --------------- |
+| device\_num  | I2S number           | Input           |
+| enable       | 0: Disable 1: Enable | Input           |
 
 #### Return value
 
-| Return value              | Description       |
-| :------------------ | :-------- |
-| 0                   | Success      |
-| Others                 | Fail       |
+| Return value | Description |
+| :----------- | :---------- |
+| 0            | Success     |
+| Others       | Fail        |
 
 ### i2s\_get\_dma\_divide\_16
 
 #### Description
 
-获取dma\_divide\_16值。用于判断是否需要设置dma\_divide\_16。
+Get the dma\_divide\_16 value. Used to determine if you need to set dma\_divide\_16.
 
 #### Function prototype
 
@@ -248,23 +250,28 @@ int i2s_get_dma_divide_16(i2s_device_number_t device_num)
 
 #### Parameter
 
-| Element name            | Description              |  Input or output  |
-| ------------------ | ----------------- | --------- |
-| device\_num         | I2S号             | Input      |
+| Element name | Description | Input or output |
+| ------------ | ----------- | --------------- |
+| device\_num  | I2S number  | Input           |
 
 #### Return value
 
-| Return value              | Description       |
-| :------------------ | :-------- |
-| 1                   | 使能      |
-| 0                   | 禁用      |
-| <0                 | Fail       |
+| Return value | Description |
+| :----------- | :---------- |
+| 1            | Enable      |
+| 0            | Disable     |
+| <0           | Fail        |
 
 ### Example
 
 ```c
-/* I2S0 通道0 设置为接收通道，接收16位数据，单次传输32个时钟，FIFO深度为4，标准模式。接收8组数据*/
-/* I2S2 通道1 设置为发送通道，发送16位数据，单次传输32个时钟，FIFO深度为4，右对齐模式。发送8组数据*/
+/*
+ * I2S0 Channel 0 is set to receive channel, receive 16-bit data, 32 clocks in a
+ * single transmission, FIFO depth is 4, standard mode. Receive 8 sets of data.
+ * I2S2 Channel 1 is set to transmit channel, transmitting 16-bit data, 32
+ * clocks in a single transmission, FIFO depth is 4, right-aligned mode. Send 8
+ * sets of data
+ */
 uint32_t buf[8];
 i2s_init(I2S_DEVICE_0, I2S_RECEIVER, 0x3);
 i2s_init(I2S_DEVICE_2, I2S_TRANSMITTER, 0xC);
@@ -278,25 +285,25 @@ i2s_send_data_dma(I2S_DEVICE_2, buf, 8, DMAC_CHANNEL0);
 
 The relevant data types and data structures are defined as follows:
 
-- i2s\_device\_number\_t: I2S编号。
+- i2s\_device\_number\_t: I2S device number.
 
-- i2s\_channel\_num\_t: I2S通道号。
+- i2s\_channel\_num\_t: I2S channel number.
 
-- i2s\_transmit\_t: I2S传输模式。
+- i2s\_transmit\_t: I2S transmission mode.
 
-- i2s\_work_mode\_t: I2S工作模式。
+- i2s\_work_mode\_t: I2S working mode.
 
-- i2s\_word_select\_cycles\_t: I2S单次传输时钟数。
+- i2s\_word_select\_cycles\_t: The number of I2S single transmission clocks.
 
-- i2s\_word_length\_t: I2S传输数据位数。
+- i2s\_word_length\_t: The number of data bits transmitted by I2S.
 
-- i2s\_fifo\_threshold\_t: I2S FIFO深度。
+- i2s\_fifo\_threshold\_t: I2S FIFO depth.
 
 ### i2s\_device\_number\_t
 
 #### Description
 
-I2S编号。
+I2S device number.
 
 #### Type definition
 
@@ -312,17 +319,17 @@ typedef enum _i2s_device_number
 
 #### Enumeration element
 
-| Element name            | Description        |
-| ------------------ | ----------- |
-| I2S\_DEVICE\_0     | I2S 0       |
-| I2S\_DEVICE\_1     | I2S 1       |
-| I2S\_DEVICE\_2     | I2S 2       |
+|  Element name  | Description |
+| -------------- | ----------- |
+| I2S\_DEVICE\_0 | I2S 0       |
+| I2S\_DEVICE\_1 | I2S 1       |
+| I2S\_DEVICE\_2 | I2S 2       |
 
 ### i2s\_channel\_num\_t
 
 #### Description
 
-I2S通道号。
+I2S channel number.
 
 #### Type definition
 
@@ -338,18 +345,18 @@ typedef enum _i2s_channel_num
 
 #### Enumeration element
 
-| Element name            | Description        |
-| ------------------ | ----------- |
-| I2S\_CHANNEL\_0    | I2S通道0    |
-| I2S\_CHANNEL\_1    | I2S通道1    |
-| I2S\_CHANNEL\_2    | I2S通道2    |
-| I2S\_CHANNEL\_3    | I2S通道3    |
+|  Element name   |  Description  |
+| --------------- | ------------- |
+| I2S\_CHANNEL\_0 | I2S channel 0 |
+| I2S\_CHANNEL\_1 | I2S channel 1 |
+| I2S\_CHANNEL\_2 | I2S channel 2 |
+| I2S\_CHANNEL\_3 | I2S channel 3 |
 
 ### i2s\_transmit\_t
 
 #### Description
 
-I2S传输模式。
+I2S transmission mode.
 
 #### Type definition
 
@@ -363,16 +370,16 @@ typedef enum _i2s_transmit
 
 #### Enumeration element
 
-| Element name            | Description        |
-| ------------------ | ----------- |
-| I2S\_TRANSMITTER   | 发送模式    |
-| I2S\_RECEIVER      | 接收模式    |
+|   Element name   | Description  |
+| ---------------- | ------------ |
+| I2S\_TRANSMITTER | Send mode    |
+| I2S\_RECEIVER    | Receive mode |
 
 ### i2s\_work_mode\_t
 
 #### Description
 
-I2S工作模式。
+I2S working mode.
 
 #### Type definition
 
@@ -387,17 +394,17 @@ typedef enum _i2s_work_mode
 
 #### Enumeration element
 
-| Element name                  | Description        |
-| ------------------------ | ----------- |
-| STANDARD_MODE            | 标准模式    |
-| RIGHT\_JUSTIFYING\_MODE    | 右对齐模式   |
-| LEFT\_JUSTIFYING\_MODE     | 左对齐模式   |
+|      Element name       |     Description      |
+| ----------------------- | -------------------- |
+| STANDARD_MODE           | Standard mode        |
+| RIGHT\_JUSTIFYING\_MODE | Right justified mode |
+| LEFT\_JUSTIFYING\_MODE  | Left justified mode  |
 
 ### i2s\_word_select\_cycles\_t
 
 #### Description
 
-I2S单次传输时钟数。
+The number of I2S single transmission clocks.
 
 #### Type definition
 
@@ -412,17 +419,17 @@ typedef enum _word_select_cycles
 
 #### Enumeration element
 
-| Element name            | Description        |
-| ------------------ | ----------- |
-| SCLK\_CYCLES\_16   | 16个时钟    |
-| SCLK\_CYCLES\_24   | 24个时钟    |
-| SCLK\_CYCLES\_32   | 32个时钟    |
+|   Element name   |   Description   |
+| ---------------- | --------------- |
+| SCLK\_CYCLES\_16 | 16 clock cycles |
+| SCLK\_CYCLES\_24 | 24 clock cycles |
+| SCLK\_CYCLES\_32 | 32 clock cycles |
 
 ### i2s\_word_length\_t
 
 #### Description
 
-I2S传输数据位数。
+The number of data bits transmitted by I2S.
 
 #### Type definition
 
@@ -440,20 +447,20 @@ typedef enum _word_length
 
 #### Enumeration element
 
-| Element name              | Description        |
-| -------------------- | ----------- |
-| IGNORE\_WORD\_LENGTH | 忽略长度     |
-| RESOLUTION\_12\_BIT  | 12位数据长度 |
-| RESOLUTION\_16\_BIT  | 16位数据长度 |
-| RESOLUTION\_20\_BIT  | 20位数据长度 |
-| RESOLUTION\_24\_BIT  | 24位数据长度 |
-| RESOLUTION\_32\_BIT  | 32位数据长度 |
+|     Element name     |    Description     |
+| -------------------- | ------------------ |
+| IGNORE\_WORD\_LENGTH | Ignore word length |
+| RESOLUTION\_12\_BIT  | 12 bit data length |
+| RESOLUTION\_16\_BIT  | 16 bit data length |
+| RESOLUTION\_20\_BIT  | 20 bit data length |
+| RESOLUTION\_24\_BIT  | 24 bit data length |
+| RESOLUTION\_32\_BIT  | 32 bit data length |
 
 ### i2s\_fifo\_threshold\_t
 
 #### Description
 
-I2S FIFO深度。
+I2S FIFO depth.
 
 #### Type definition
 
@@ -497,21 +504,21 @@ typedef enum _fifo_threshold
 
 #### Enumeration element
 
-| Element name              | Description         |
-| -------------------- | ------------ |
-| TRIGGER\_LEVEL\_1    | 1字节FIFO深度 |
-| TRIGGER\_LEVEL\_2    | 2字节FIFO深度 |
-| TRIGGER\_LEVEL\_3    | 3字节FIFO深度 |
-| TRIGGER\_LEVEL\_4    | 4字节FIFO深度 |
-| TRIGGER\_LEVEL\_5    | 5字节FIFO深度 |
-| TRIGGER\_LEVEL\_6    | 6字节FIFO深度 |
-| TRIGGER\_LEVEL\_7    | 7字节FIFO深度 |
-| TRIGGER\_LEVEL\_8    | 8字节FIFO深度 |
-| TRIGGER\_LEVEL\_9    | 9字节FIFO深度 |
-| TRIGGER\_LEVEL\_10   | 10字节FIFO深度|
-| TRIGGER\_LEVEL\_11   | 11字节FIFO深度|
-| TRIGGER\_LEVEL\_12   | 12字节FIFO深度|
-| TRIGGER\_LEVEL\_13   | 13字节FIFO深度|
-| TRIGGER\_LEVEL\_14   | 14字节FIFO深度|
-| TRIGGER\_LEVEL\_15   | 15字节FIFO深度|
-| TRIGGER\_LEVEL\_16   | 16字节FIFO深度|
+|    Element name    |    Description     |
+| ------------------ | ------------------ |
+| TRIGGER\_LEVEL\_1  | 1 Byte FIFO depth  |
+| TRIGGER\_LEVEL\_2  | 2 Byte FIFO depth  |
+| TRIGGER\_LEVEL\_3  | 3 Byte FIFO depth  |
+| TRIGGER\_LEVEL\_4  | 4 Byte FIFO depth  |
+| TRIGGER\_LEVEL\_5  | 5 Byte FIFO depth  |
+| TRIGGER\_LEVEL\_6  | 6 Byte FIFO depth  |
+| TRIGGER\_LEVEL\_7  | 7 Byte FIFO depth  |
+| TRIGGER\_LEVEL\_8  | 8 Byte FIFO depth  |
+| TRIGGER\_LEVEL\_9  | 9 Byte FIFO depth  |
+| TRIGGER\_LEVEL\_10 | 10 Byte FIFO depth |
+| TRIGGER\_LEVEL\_11 | 11 Byte FIFO depth |
+| TRIGGER\_LEVEL\_12 | 12 Byte FIFO depth |
+| TRIGGER\_LEVEL\_13 | 13 Byte FIFO depth |
+| TRIGGER\_LEVEL\_14 | 14 Byte FIFO depth |
+| TRIGGER\_LEVEL\_15 | 15 Byte FIFO depth |
+| TRIGGER\_LEVEL\_16 | 16 Byte FIFO depth |
