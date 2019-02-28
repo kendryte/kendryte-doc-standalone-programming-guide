@@ -1,16 +1,17 @@
-# 定时器 (TIMER)
+# TIMER
 
 ## Overview
 
-芯片有3个定时器，每个定时器有4路通道。可以配置为PWM，详见PWM说明。
+The timer peripheral provides high-precision timing.
+The chip has 3 timers, each with 4 channels. Can be configured as PWM, see PWM description for details.
 
 ## Features
 
-TIMER 模块具有以下功能:
+The TIMER module has the following features:
 
-- 启用或禁用定时器
-- 配置定时器触发间隔
-- 配置定时器触发处理程序
+- Enable or disable the timer
+- Configure timer trigger interval
+- Configure timer trigger handler
 
 ## API
 
@@ -34,7 +35,7 @@ Provide the following interfaces
 
 #### Description
 
-Initialize 定时器.
+Initialize timer.
 
 #### Function prototype
 
@@ -44,9 +45,9 @@ void timer_init(timer_device_number_t timer_number)
 
 #### Parameter
 
-| Parameter name         | Description        | Input or output  |
-| :-------------- | :----------| :-------- |
-| timer\_number   | 定时器号    | Input      |
+| Parameter name | Description  | Input or output |
+| :------------- | :----------- | :-------------- |
+| timer\_number  | Timer number | Input           |
 
 #### Return value
 
@@ -56,7 +57,7 @@ None.
 
 #### Description
 
-设置定时间隔。
+Set the timer trigger interval.
 
 #### Function prototype
 
@@ -66,21 +67,21 @@ size_t timer_set_interval(timer_device_number_t timer_number, timer_channel_numb
 
 #### Parameter
 
-| Parameter name      | Description           | Input or output   |
-| :----------- | :------------- | :-------- |
-| timer\_number| 定时器号        | Input      |
-| channel      | 定时器通道号    | Input      |
-| nanoseconds  | 时间间隔（纳秒） | Input      |
+| Parameter name |      Description       | Input or output |
+| :------------- | :--------------------- | :-------------- |
+| timer\_number  | Timer number           | Input           |
+| channel        | Timer channel number   | Input           |
+| nanoseconds    | Interval (nanoseconds) | Input           |
 
 #### Return value
 
-实际的触发间隔（纳秒）。
+Actual trigger interval (nanoseconds).
 
 ### timer\_set\_irq
 
 #### Description
 
-设置定时器触发中断回调函数，该函数已废弃，替代函数为timer\_irq\_register。
+Set the timer to trigger the interrupt callback function. This function is deprecated. The recommended replacement function is timer\_irq\_register.
 
 #### Function prototype
 
@@ -90,12 +91,12 @@ void timer_set_irq(timer_device_number_t timer_number, timer_channel_number_t ch
 
 #### Parameter
 
-| Parameter name       | Description           | Input or output   |
-| :------------ | :------------- | :-------- |
-| timer\_number | 定时器号        | Input     |
-| channel       | 定时器通道号    | Input      |
-| func          | 回调函数        | Input      |
-| priority      | 中断优先级      | Input      |
+| Parameter name |     Description      | Input or output |
+| :------------- | :------------------- | :-------------- |
+| timer\_number  | Timer number         | Input           |
+| channel        | Timer channel number | Input           |
+| func           | Callback             | Input           |
+| priority       | Interrupt priority   | Input           |
 
 #### Return value
 
@@ -105,7 +106,7 @@ None.
 
 #### Description
 
-使能禁用定时器。
+Enable or disable the timer.
 
 #### Function prototype
 
@@ -115,11 +116,11 @@ void timer_set_enable(timer_device_number_t timer_number, timer_channel_number_t
 
 #### Parameter
 
-| Parameter name       | Description           | Input or output   |
-| :------------ | :------------- | :-------- |
-| timer\_number | 定时器号        | Input      |
-| channel       | 定时器通道号    | Input      |
-| enable        | 使能禁用定时器<br>0: 禁用 1: 使能  | Input      |
+| Parameter name |                 Description                 | Input or output |
+| :------------- | :------------------------------------------ | :-------------- |
+| timer\_number  | Timer number                                | Input           |
+| channel        | Timer channel number                        | Input           |
+| enable         | Whether it is enabled, 0: disable 1: enable | Input           |
 
 #### Return value
 
@@ -129,7 +130,7 @@ None.
 
 #### Description
 
-注册定时器触发中断回调函数。
+Register the timer interrupt callback function.
 
 #### Function prototype
 
@@ -139,27 +140,27 @@ int timer_irq_register(timer_device_number_t device, timer_channel_number_t chan
 
 #### Parameter
 
-| Parameter name          | Description           | Input or output   |
-| :--------------- | :------------- | :-------- |
-| device           | 定时器号        | Input      |
-| channel          | 定时器通道号    | Input      |
-| is\_single\_shot | 是否单次中断    | Input      |
-| priority         | 中断优先级      | Input      |
-| callback         | 中断回调函数    | Input      |
-| ctx              | 回调函数参数    | Input      |
+|  Parameter name  |               Description                | Input or output |
+| :--------------- | :--------------------------------------- | :-------------- |
+| device           | Timer number                             | Input           |
+| channel          | Timer channel number                     | Input           |
+| is\_single\_shot | Whether it is a single shot interruption | Input           |
+| priority         | Interrupt priority                       | Input           |
+| callback         | Interrupt callback function              | Input           |
+| ctx              | Callback function parameter              | Input           |
 
 #### Return value
 
 | Return value | Description |
-| :---- | :----|
-| 0     | Success |
-| Others   | Fail |
+| :----------- | :---------- |
+| 0            | Success     |
+| Others       | Fail        |
 
 ### timer\_irq\_deregister
 
 #### Description
 
-注销定时器中断函数。
+Deregister the timer interrupt callback function.
 
 #### Function prototype
 
@@ -169,22 +170,22 @@ int timer_irq_deregister(timer_device_number_t device, timer_channel_number_t ch
 
 #### Parameter
 
-| Parameter name          | Description           | Input or output   |
-| :--------------- | :------------- | :-------- |
-| device           | 定时器号        | Input      |
-| channel          | 定时器通道号    | Input      |
+| Parameter name |     Description      | Input or output |
+| :------------- | :------------------- | :-------------- |
+| device         | Timer number         | Input           |
+| channel        | Timer channel number | Input           |
 
 #### Return value
 
 | Return value | Description |
-| :---- | :----|
-| 0     | Success |
-| Others   | Fail |
+| :----------- | :---------- |
+| 0            | Success     |
+| Others       | Fail        |
 
 ### Example
 
 ```c
-/* 定时器0 通道0 定时1秒打印Time OK! */
+/* Timer 0 Channel 0 timed 1 second print "Time OK!" */
 void irq_time(void)
 {
     printf("Time OK!\n");
@@ -201,17 +202,17 @@ sysctl_enable_irq();
 
 The relevant data types and data structures are defined as follows:
 
-- timer\_device\_number_t: 定时器编号。
+- timer\_device\_number_t: Timer number.
 
-- timer\_channel\_number_t: 定时器通道号。
+- timer\_channel\_number_t: Timer channel number.
 
-- timer\_callback\_t: 定时器回调函数。
+- timer\_callback\_t: Timer callback function.
 
 ### timer\_device\_number_t
 
 #### Description
 
-定时器编号
+Timer number.
 
 #### Type definition
 
@@ -227,17 +228,17 @@ typedef enum _timer_deivce_number
 
 #### Enumeration element
 
-| Element name           | Description          |
-| ----------------- | ------------- |
-| TIMER\_DEVICE\_0  | 定时器 0      |
-| TIMER\_DEVICE\_1  | 定时器 1      |
-| TIMER\_DEVICE\_2  | 定时器 2      |
+|   Element name   | Description |
+| ---------------- | ----------- |
+| TIMER\_DEVICE\_0 | Timer 0     |
+| TIMER\_DEVICE\_1 | Timer 1     |
+| TIMER\_DEVICE\_2 | Timer 2     |
 
 ### timer\_channel\_number_t
 
 #### Description
 
-定时器通道号。
+Timer channel number.
 
 #### Type definition
 
@@ -254,18 +255,18 @@ typedef enum _timer_channel_number
 
 #### Enumeration element
 
-| Element name            | Description             |
-| -----------------  | ---------------- |
-| TIMER\_CHANNEL\_0  | 定时器通道 0      |
-| TIMER\_CHANNEL\_1  | 定时器通道 1      |
-| TIMER\_CHANNEL\_2  | 定时器通道 2      |
-| TIMER\_CHANNEL\_3  | 定时器通道 3      |
+|   Element name    |   Description   |
+| ----------------- | --------------- |
+| TIMER\_CHANNEL\_0 | Timer channel 0 |
+| TIMER\_CHANNEL\_1 | Timer channel 1 |
+| TIMER\_CHANNEL\_2 | Timer channel 2 |
+| TIMER\_CHANNEL\_3 | Timer channel 3 |
 
 ### timer\_callback\_t
 
 #### Description
 
-定时器回调函数。
+Timer callback function.
 
 #### Type definition
 
