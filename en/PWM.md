@@ -1,19 +1,20 @@
-# 脉冲宽度调制器(PWM)
+# PWM
 
 ## Overview
 
-PWM 用于控制脉冲输出的占空比。其本质是一个定时器，所以注意设置PWM号与通道时不要与TIMER定时器冲突。
+A pulse width modulator (PWM) is used to control the duty cycle of the pulse output.
+It is essentially a timer, so be careful not to conflict with the timer when setting the PWM number and channel.
 
 ## Features
 
-PWM 模块具有以下功能:
+The PWM module has the following features:
 
-- 配置 PWM Output频率
-- 配置 PWM 每个管脚的Output占空比
+- Configure the PWM output frequency
+- Configure the output duty cycle of each pin of the PWM
 
 ## API
 
-对应头文件 `pwm.h`
+Corresponding header file `pwm.h`
 
 Provide the following interfaces
 
@@ -37,9 +38,9 @@ void pwm_init(pwm_device_number_t pwm_number)
 
 #### Parameter
 
-| Parameter name     |   Description     |  Input or output  |
-| :--------   | :-----     | :----:     |
-| pwm_number | pwm号 | Input |
+| Parameter name | Description | Input or output |
+| :------------- | :---------- | :-------------: |
+| pwm_number     | PWM number  |      Input      |
 
 #### Return value
 
@@ -49,7 +50,7 @@ None.
 
 #### Description
 
-设置频率及占空比。
+Set the frequency and duty cycle.
 
 #### Function prototype
 
@@ -59,22 +60,22 @@ double pwm_set_frequency(pwm_device_number_t pwm_number, pwm_channel_number_t ch
 
 #### Parameter
 
-| Parameter name     | Description                             |  Input or output  |
-| :---------- | :------------------------------- | :-------- |
-| pwm_number  | PWM号                            | Input       |
-| channel     | PWM通道号                        | Input       |
-| frequency   | PWMOutput频率                       | Input       |
-| duty        | 占空比                            | Input      |
+| Parameter name |     Description      | Input or output |
+| :------------- | :------------------- | :-------------- |
+| pwm_number     | PWM number           | Input           |
+| channel        | PWM channel number   | Input           |
+| frequency      | PWM output frequency | Input           |
+| duty           | Duty cycle           | Input           |
 
 #### Return value
 
-实际Output频率。
+Actual output frequency.
 
 ### pwm_set_enable
 
 #### Description
 
-使能禁用PWM。
+Enable or disable the PWM.
 
 #### Function prototype
 
@@ -84,11 +85,11 @@ void pwm_set_enable(pwm_device_number_t pwm_number, uint32_t channel, int enable
 
 #### Parameter
 
-| Parameter name     |   Description                          |  Input or output  |
-| :---------- | :------------------------------ | :-------- |
-| pwm_number  | PWM号                           | Input       |
-| channel     | PWM通道号                        | Input      |
-| enable      | 使能禁用PWM<br>0: 禁用  1: 使能   | Input      |
+| Parameter name |               Description               | Input or output |
+| :------------- | :-------------------------------------- | :-------------- |
+| pwm_number     | PWM number                              | Input           |
+| channel        | PWM channel number                      | Input           |
+| enable         | Whether to enable, 0: Disable 1: Enable | Input           |
 
 #### Return value
 
@@ -97,8 +98,8 @@ None.
 ### Example
 
 ```c
-/* pwm0 channel 1 Output 200KHZ占空比为0.5的方波 */
-/* 设置IO13作为PWM的Output管脚 */
+/* pwm0 pin0 output 200KHz square wave with duty cycle of 0.5 */
+/* Set IO13 as the output pin of PWM */
 fpioa_set_function(13, FUNC_TIMER0_TOGGLE1);
 pwm_init(PWM_DEVICE_0);
 pwm_set_frequency(PWM_DEVICE_0, PWM_CHANNEL_1, 200000, 0.5);
@@ -107,15 +108,15 @@ pwm_set_enable(PWM_DEVICE_0, PWM_CHANNEL_1, 1);
 
 ## Data type
 
-- pwm\_device\_number\_t: pwm号。
+- pwm\_device\_number\_t: PWM device number.
 
-- pwm\_channel\_number\_t: pwm通道号。
+- pwm\_channel\_number\_t: PWM channel number.
 
 ### pwm\_device\_number\_t
 
 #### Description
 
-pwm号。
+PWM device number.
 
 #### Type definition
 
@@ -131,17 +132,17 @@ typedef enum _pwm_device_number
 
 #### Enumeration element
 
-| Element name        | Description |
-| :------------- | :--- |
-| PWM\_DEVICE\_0 | PWM0 |
-| PWM\_DEVICE\_1 | PWM1 |
-| PWM\_DEVICE\_2 | PWM2 |
+|  Element name  | Description |
+| :------------- | :---------- |
+| PWM\_DEVICE\_0 | PWM0        |
+| PWM\_DEVICE\_1 | PWM1        |
+| PWM\_DEVICE\_2 | PWM2        |
 
 ### pwm\_channel\_number\_t
 
 #### Description
 
-pwm通道号。
+PWM channel number.
 
 #### Type definition
 
@@ -158,9 +159,9 @@ typedef enum _pwm_channel_number
 
 #### Enumeration element
 
-| Element name         | Description     |
-| :-------------- | :------- |
-| PWM\_CHANNEL\_0 | PWM通道0 |
-| PWM\_CHANNEL\_1 | PWM通道1 |
-| PWM\_CHANNEL\_2 | PWM通道2 |
-| PWM\_CHANNEL\_3 | PWM通道3 |
+|  Element name   |  Description  |
+| :-------------- | :------------ |
+| PWM\_CHANNEL\_0 | PWM channel 0 |
+| PWM\_CHANNEL\_1 | PWM channel 1 |
+| PWM\_CHANNEL\_2 | PWM channel 2 |
+| PWM\_CHANNEL\_3 | PWM channel 3 |
