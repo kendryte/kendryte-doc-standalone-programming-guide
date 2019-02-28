@@ -1,16 +1,17 @@
-# 看门狗定时器 (WDT)
+# WDT
 
 ## Overview
 
-WDT 提供系统出错或无响应时的恢复功能。
+A watchdog timer (WDT) is a hardware timer that automatically generates a system reset if the main program neglects to periodically service it.
 
 ## Features
 
-WDT 模块具有以下功能:
+The WDT module has the following features:
 
-- 配置超时时间
-
-- 手动重启计时
+- Configure timeout
+- Manually set the restart time
+- Configure to reset or enter interrupt after timeout
+- Clear the interrupt after entering the interrupt to cancel the reset, otherwise wait for the second timeout after reset
 
 ## API
 
@@ -30,7 +31,7 @@ Provide the following interfaces
 
 #### Description
 
-启动看门狗。
+Start the watchdog.
 
 #### Function prototype
 
@@ -40,11 +41,11 @@ void wdt_start(wdt_device_number_t id, uint64_t time_out_ms, plic_irq_callback_t
 
 #### Parameter
 
-| Parameter name         |   Description           |  Input or output  |
-| --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | Input       |
-| time\_out\_ms   | 超时时间（毫秒）   | Input      |
-| on\_irq          | 中断回调函数     | Input       |
+| Parameter name |         Description         | Input or output |
+| -------------- | --------------------------- | --------------- |
+| id             | Watchdog number             | Input           |
+| time\_out\_ms  | Timeout (ms)                | Input           |
+| on\_irq        | Interrupt callback function | Input           |
 
 #### Return value
 
@@ -54,7 +55,7 @@ None.
 
 #### Description
 
-关闭看门狗。
+Stop the watchdog.
 
 #### Function prototype
 
@@ -64,9 +65,9 @@ void wdt_stop(wdt_device_number_t id)
 
 #### Parameter
 
-| Parameter name         |   Description           |  Input or output  |
-| --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | Input       |
+| Parameter name |   Description   | Input or output |
+| -------------- | --------------- | --------------- |
+| id             | Watchdog number | Input           |
 
 #### Return value
 
@@ -76,7 +77,7 @@ None.
 
 #### Description
 
-喂狗。
+Feed the watchdog (clear the counter of watchdog).
 
 #### Function prototype
 
@@ -86,9 +87,9 @@ void wdt_feed(wdt_device_number_t id)
 
 #### Parameter
 
-| Parameter name         |   Description           |  Input or output  |
-| --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | Input       |
+| Parameter name |   Description   | Input or output |
+| -------------- | --------------- | --------------- |
+| id             | Watchdog number | Input           |
 
 #### Return value
 
@@ -98,7 +99,7 @@ None.
 
 #### Description
 
-清除中断。如果在中断函数中清除中断，则看门狗不会重启。
+Clear the interrupt. If the interrupt is cleared in the interrupt function, the watchdog will not restart.
 
 #### Function prototype
 
@@ -108,9 +109,9 @@ void wdt_clear_interrupt(wdt_device_number_t id)
 
 #### Parameter
 
-| Parameter name         |   Description           |  Input or output  |
-| --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | Input       |
+| Parameter name |   Description   | Input or output |
+| -------------- | --------------- | --------------- |
+| id             | Watchdog number | Input           |
 
 #### Return value
 
@@ -119,7 +120,10 @@ None.
 ### Example
 
 ```c
-/* 2秒后进入看门狗中断函数打印Hello_world，再过2s复位 */
+/*
+ * After 2 seconds, enter the watchdog interrupt function to print Hello_world,
+ * and then reset after 2 seconds.
+ */
 int wdt0_irq(void)
 {
     printf("Hello_world\n");
@@ -140,7 +144,7 @@ The relevant data types and data structures are defined as follows:
 
 #### Description
 
-看门狗编号。
+Watchdog number。
 
 #### Type definition
 
@@ -155,7 +159,7 @@ typedef enum _wdt_device_number
 
 #### Enumeration element
 
-| Element name         | Description         |
-| --------------- | ------------ |
-| WDT\_DEVICE\_0  | 看门狗 0      |
-| WDT\_DEVICE\_1  | 看门狗 1      |
+|  Element name  | Description |
+| -------------- | ----------- |
+| WDT\_DEVICE\_0 | Watchdog 0    |
+| WDT\_DEVICE\_1 | Watchdog 1    |
