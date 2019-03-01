@@ -340,7 +340,7 @@ typedef struct _fpioa_io_config
 | ds             | Driving current strength selection. Check driving current table.           |
 | oe \ _en       | Output Enable (OE) (Manual Mode). 1: Enable 0: Disable                     |
 | oe \ _inv      | Output enable inversion. 1: Enable 0: Disable                              |
-| do \ _sel      | Output signal selection. 1: Output original signal 0: Output OE signal     |
+| do \ _sel      | Output signal selection. 1: Output OE signal 0: Output original signal     |
 | do\ _inv       | Output signal inversion. 1: Enable 0: Disable                              |
 | pu             | Pull-up enable. 1: Enable 0: Disable                                       |
 | pd             | Pull-down enable.1: Enable 0: Disable                                      |
