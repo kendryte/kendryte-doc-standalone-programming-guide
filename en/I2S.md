@@ -1,14 +1,14 @@
-# I2S
+# I²S
 
 ## Overview
 
-The Integrated Inter-IC Sound Bus (I2S) is a serial bus interface standard used for connecting digital audio devices together.
+The Integrated Inter-IC Sound Bus (I²S) is a serial bus interface standard used for connecting digital audio devices together.
 
-The I2S bus defines three types of signals: the clock signal BCK, the channel selection signal WS, and the serial data signal SD. A basic I2S bus has one master and one slave. The roles of the master and slave remain unchanged during the communication process. The I2S unit includes separate transmit and receive channels for excellent communication performance.
+The I²S bus defines three types of signals: the clock signal BCK, the channel selection signal WS, and the serial data signal SD. A basic I²S bus has one master and one slave. The roles of the master and slave remain unchanged during the communication process. The I²S unit includes separate transmit and receive channels for excellent communication performance.
 
 ## Features
 
-The I2S module has the following features:
+The I²S module has the following features:
 
 - Automatically configure the device according to the audio format (supports 16, 24, 32 bit depth, 44100 sample rate, 1 - 4 channels)
 - Configurable for playback or recording mode
@@ -26,7 +26,7 @@ Provide the following interfaces
 - i2s\_rx\_channel\_config
 - i2s\_tx\_channel\_config
 - i2s\_play
-- i2s\_set\_sample\_rate: I2S set the sampling rate.
+- i2s\_set\_sample\_rate: I²S set the sampling rate.
 - i2s\_set\_dma\_divide\_16: Set dma_divide_16, set dma_divide_16 for 16-bit data, and automatically divide 32-bit INT32 data into two 16-bit left and right channel data during DMA transfer.
 - i2s\_get\_dma\_divide\_16: Get the dma_divide_16 value. Used to determine if dma_divide_16 needs to be set.
 
@@ -34,7 +34,7 @@ Provide the following interfaces
 
 #### Description
 
-Initialize I2S.
+Initialize I²S.
 
 #### Function prototype
 
@@ -46,7 +46,7 @@ void i2s_init(i2s_device_number_t device_num, i2s_transmit_t rxtx_mode, uint32_t
 
 | Element name  |       Description        | Input or output |
 | ------------- | ------------------------ | --------------- |
-| device\_num   | I2S number               | Input           |
+| device\_num   | I²S number               | Input           |
 | rxtx\_mode    | Receive or transmit mode | Input           |
 | channel\_mask | Channel mask             | Input           |
 
@@ -58,7 +58,7 @@ None.
 
 #### Description
 
-I2S sends data over DMA.
+I²S sends data over DMA.
 
 #### Function prototype
 
@@ -70,7 +70,7 @@ void i2s_send_data_dma(i2s_device_number_t device_num, const void *buf, size_t b
 
 | Element name |    Description     | Input or output |
 | ------------ | ------------------ | --------------- |
-| device\_num  | I2S number         | Input           |
+| device\_num  | I²S number         | Input           |
 | buf          | Send data address  | Input           |
 | buf\_len     | Data length        | Input           |
 | channel\_num | DMA channel number | Input           |
@@ -83,7 +83,7 @@ None.
 
 #### Description
 
-I2S receives data.
+I²S receives data.
 
 #### Function prototype
 
@@ -95,7 +95,7 @@ void i2s_recv_data_dma(i2s_device_number_t device_num, uint32_t *buf, size_t buf
 
 | Element name |     Description      | Input or output |
 | ------------ | -------------------- | --------------- |
-| device\_num  | I2S number           | Input           |
+| device\_num  | I²S number           | Input           |
 | buf          | Receive data address | Output          |
 | buf\_len     | Data length          | Input           |
 | channel\_num | DMA channel number   | Input           |
@@ -120,7 +120,7 @@ void i2s_rx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t cha
 
 |    Element name    |           Description            | Input or output |
 | ------------------ | -------------------------------- | --------------- |
-| device\_num        | I2S number                       | Input           |
+| device\_num        | I²S number                       | Input           |
 | channel\_num       | Channel number                   | Input           |
 | word\_length       | Word length (bits)               | Output          |
 | word\_select\_size | Word select size                 | Input           |
@@ -147,7 +147,7 @@ void i2s_tx_channel_config(i2s_device_number_t device_num, i2s_channel_num_t cha
 
 |    Element name    |           Description            | Input or output |
 | ------------------ | -------------------------------- | --------------- |
-| device\_num        | I2S number                       | Input           |
+| device\_num        | I²S number                       | Input           |
 | channel\_num       | Channel number                   | Input           |
 | word\_length       | Word length (bits)               | Output          |
 | word\_select\_size | Word select size                 | Input           |
@@ -175,7 +175,7 @@ void i2s_play(i2s_device_number_t device_num, dmac_channel_number_t channel_num,
 
 |   Element name    |        Description        | Input or output |
 | ----------------- | ------------------------- | --------------- |
-| device\_num       | I2S number                | Input           |
+| device\_num       | I²S number                | Input           |
 | channel\_num      | Channel number            | Input           |
 | buf               | PCM data                  | Input           |
 | buf\_len          | PCM data length           | Input           |
@@ -203,7 +203,7 @@ uint32_t i2s_set_sample_rate(i2s_device_number_t device_num, uint32_t sample_rat
 
 | Element name |  Description  | Input or output |
 | ------------ | ------------- | --------------- |
-| device\_num  | I2S number    | Input           |
+| device\_num  | I²S number    | Input           |
 | sample\_rate | Sampling Rate | Input           |
 
 #### Return value
@@ -226,7 +226,7 @@ int i2s_set_dma_divide_16(i2s_device_number_t device_num, uint32_t enable)
 
 | Element name |     Description      | Input or output |
 | ------------ | -------------------- | --------------- |
-| device\_num  | I2S number           | Input           |
+| device\_num  | I²S number           | Input           |
 | enable       | 0: Disable 1: Enable | Input           |
 
 #### Return value
@@ -252,7 +252,7 @@ int i2s_get_dma_divide_16(i2s_device_number_t device_num)
 
 | Element name | Description | Input or output |
 | ------------ | ----------- | --------------- |
-| device\_num  | I2S number  | Input           |
+| device\_num  | I²S number  | Input           |
 
 #### Return value
 
@@ -285,25 +285,25 @@ i2s_send_data_dma(I2S_DEVICE_2, buf, 8, DMAC_CHANNEL0);
 
 The relevant data types and data structures are defined as follows:
 
-- i2s\_device\_number\_t: I2S device number.
+- i2s\_device\_number\_t: I²S device number.
 
-- i2s\_channel\_num\_t: I2S channel number.
+- i2s\_channel\_num\_t: I²S channel number.
 
-- i2s\_transmit\_t: I2S transmission mode.
+- i2s\_transmit\_t: I²S transmission mode.
 
-- i2s\_work_mode\_t: I2S working mode.
+- i2s\_work_mode\_t: I²S working mode.
 
-- i2s\_word_select\_cycles\_t: The number of I2S single transmission clocks.
+- i2s\_word_select\_cycles\_t: The number of I²S single transmission clocks.
 
-- i2s\_word_length\_t: The number of data bits transmitted by I2S.
+- i2s\_word_length\_t: The number of data bits transmitted by I²S.
 
-- i2s\_fifo\_threshold\_t: I2S FIFO depth.
+- i2s\_fifo\_threshold\_t: I²S FIFO depth.
 
 ### i2s\_device\_number\_t
 
 #### Description
 
-I2S device number.
+I²S device number.
 
 #### Type definition
 
@@ -321,15 +321,15 @@ typedef enum _i2s_device_number
 
 |  Element name  | Description |
 | -------------- | ----------- |
-| I2S\_DEVICE\_0 | I2S 0       |
-| I2S\_DEVICE\_1 | I2S 1       |
-| I2S\_DEVICE\_2 | I2S 2       |
+| I2S\_DEVICE\_0 | I²S 0       |
+| I2S\_DEVICE\_1 | I²S 1       |
+| I2S\_DEVICE\_2 | I²S 2       |
 
 ### i2s\_channel\_num\_t
 
 #### Description
 
-I2S channel number.
+I²S channel number.
 
 #### Type definition
 
@@ -347,16 +347,16 @@ typedef enum _i2s_channel_num
 
 |  Element name   |  Description  |
 | --------------- | ------------- |
-| I2S\_CHANNEL\_0 | I2S channel 0 |
-| I2S\_CHANNEL\_1 | I2S channel 1 |
-| I2S\_CHANNEL\_2 | I2S channel 2 |
-| I2S\_CHANNEL\_3 | I2S channel 3 |
+| I2S\_CHANNEL\_0 | I²S channel 0 |
+| I2S\_CHANNEL\_1 | I²S channel 1 |
+| I2S\_CHANNEL\_2 | I²S channel 2 |
+| I2S\_CHANNEL\_3 | I²S channel 3 |
 
 ### i2s\_transmit\_t
 
 #### Description
 
-I2S transmission mode.
+I²S transmission mode.
 
 #### Type definition
 
@@ -404,7 +404,7 @@ typedef enum _i2s_work_mode
 
 #### Description
 
-The number of I2S single transmission clocks.
+The number of I²S single transmission clocks.
 
 #### Type definition
 
@@ -429,7 +429,7 @@ typedef enum _word_select_cycles
 
 #### Description
 
-The number of data bits transmitted by I2S.
+The number of data bits transmitted by I²S.
 
 #### Type definition
 
@@ -460,7 +460,7 @@ typedef enum _word_length
 
 #### Description
 
-I2S FIFO depth.
+I²S FIFO depth.
 
 #### Type definition
 
