@@ -1,18 +1,18 @@
-# 快速傅里叶变换加速器(FFT)
+# 快速傅立葉變換加速器(FFT)
 
 ## 概述
 
-FFT模块是用硬件的方式来实现FFT的基2时分运算加速。
+FFT模組是用硬體的方式來實現FFT的基2時分運算加速。
 
 ## 功能描述
 
-目前该模块可以支持64点、128点、256点以及512点的FFT以及IFFT。在FFT内部有两块大小为512*32bit的SRAM，在配置完成后FFT会向DMA发送TX请求，将DMA送来的送据放到其中的一块SRAM中去，直到满足当前FFT运算所需要的数据量并开始FFT运算，蝶形运算单元从包含有有效数据的SRAM中读出数据，运算结束后将数据写到另外一块SRAM中去，下次蝶形运算再从刚写入的SRAM中读出数据，运算结束后并写入另外一块SRAM，如此反复交替进行直到完成整个FFT运算。
+目前該模組可以支持64點、128點、256點以及512點的FFT以及IFFT。在FFT內部有兩塊大小為512*32bit的SRAM，在配置完成後FFT會向DMA發送TX請求，將DMA送來的送據放到其中的一塊SRAM中去，直到滿足當前FFT運算所需要的資料量並開始FFT運算，蝶形運算單元從包含有有效資料的SRAM中讀出資料，運算結束後將資料寫到另外一塊SRAM中去，下次蝶形運算再從剛寫入的SRAM中讀出資料，運算結束後並寫入另外一塊SRAM，如此反覆交替進行直到完成整個FFT運算。
 
-## API参考
+## API參考
 
-对应的头文件 `fft.h`
+對應的頭文件 `fft.h`
 
-为用户提供以下接口
+為用戶提供以下介面
 
 - [fft\_complex\_uint16\_dma](#fft\_complex\_uint16\_dma)
 
@@ -20,31 +20,31 @@ FFT模块是用硬件的方式来实现FFT的基2时分运算加速。
 
 #### 描述
 
-FFT运算。
+FFT運算。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void fft_complex_uint16_dma(dmac_channel_number_t dma_send_channel_num, dmac_channel_number_t dma_receive_channel_num, uint16_t shift, fft_direction_t direction, const uint64_t *input, size_t point_num, uint64_t *output);
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称                                  |   描述                     |  输入输出  |
+| 參數名稱                                  |   描述                     |  輸入輸出  |
 | :--------------------------------------- | :------------------------- | :-------- |
-| dma\_send\_channel\_num                  | 发送数据使用的DMA通道号      | 输入       |
-| dma\_receive\_channel\_num               | 接收数据使用的DMA通道号      | 输入       |
-| shift    | FFT模块16位寄存器导致数据溢出(-32768~32767)，FFT变换有9层，shift决定哪一层需要移位操作(如0x1ff表示9层都做移位操作；0x03表示第第一层与第二层做移位操作)，防止溢出。如果移位了，则变换后的幅值不是正常FFT变换的幅值，对应关系可以参考fft_test测试demo程序。包含了求解频率点、相位、幅值的示例| 输入 |
-| direction                                | FFT正变换或是逆变换          | 输入       |
-| input                                    | 输入的数据序列，格式为RIRI..,实部与虚部的精度都为16bit| 输入|
-| point\_num                               | 待运算的数据点数，只能为512/256/128/64 | 输入 |
-| output                                   | 运算后结果。格式为RIRI..,实部与虚部的精度都为16bit | 输出 |
+| dma\_send\_channel\_num                  | 發送資料使用的DMA通道號      | 輸入       |
+| dma\_receive\_channel\_num               | 接收資料使用的DMA通道號      | 輸入       |
+| shift    | FFT模組16位寄存器導致資料溢出(-32768~32767)，FFT變換有9層，shift決定哪一層需要移位操作(如0x1ff表示9層都做移位操作；0x03表示第第一層與第二層做移位操作)，防止溢出。如果移位了，則變換後的幅值不是正常FFT變換的幅值，對應關係可以參考fft_test測試demo程序。包含了求解頻率點、相位、幅值的示例| 輸入 |
+| direction                                | FFT正變換或是逆變換          | 輸入       |
+| input                                    | 輸入的資料序列，格式為RIRI..,實部與虛部的精度都為16bit| 輸入|
+| point\_num                               | 待運算的資料點數，只能為512/256/128/64 | 輸入 |
+| output                                   | 運算後結果。格式為RIRI..,實部與虛部的精度都為16bit | 輸出 |
 
 #### 返回值
 
-无。
+無。
 
-### 举例
+### 舉例
 
 ```c
 #define FFT_N               512U
@@ -96,20 +96,20 @@ for (i = 0; i < FFT_N / 2; i++)
 }
 ```
 
-## 数据类型
+## 資料類型
 
-相关数据类型、数据结构定义如下：
+相關資料類型、資料結構定義如下：
 
-- fft\_data\_t：FFT运算传入的数据格式。
-- fft\_direction\_t：FFT变换模式。
+- fft\_data\_t：FFT運算傳入的資料格式。
+- fft\_direction\_t：FFT變換模式。
 
 ### fft\_data\_t
 
 #### 描述
 
-FFT运算传入的数据格式。
+FFT運算傳入的資料格式。
 
-#### 定义
+#### 定義
 
 ```c
 typedef struct tag_fft_data
@@ -121,22 +121,22 @@ typedef struct tag_fft_data
 } fft_data_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称 | 描述 |
+| 成員名稱 | 描述 |
 | :----- | :--- |
-| I1 | 第一个数据的虚部  |
-| R1 | 第一个数据的实部  |
-| I2 | 第二个数据的虚部  |
-| R2 | 第二个数据的实部  |
+| I1 | 第一個資料的虛部  |
+| R1 | 第一個資料的實部  |
+| I2 | 第二個資料的虛部  |
+| R2 | 第二個資料的實部  |
 
 ### fft\_direction\_t
 
 #### 描述
 
-FFT变换模式
+FFT變換模式
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _fft_direction
@@ -147,9 +147,9 @@ typedef enum _fft_direction
 } fft_direction_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称 | 描述 |
+| 成員名稱 | 描述 |
 | :----- | :--- |
-| FFT\_DIR\_BACKWARD | FFT逆变换 |
-| FFT\_DIR\_FORWARD  | FFT正变换 |
+| FFT\_DIR\_BACKWARD | FFT逆變換 |
+| FFT\_DIR\_FORWARD  | FFT正變換 |

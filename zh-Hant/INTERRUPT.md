@@ -1,22 +1,22 @@
-# 中断PLIC
+# 中斷PLIC
 
 ## 概述
 
-可以将任一外部中断源单独分配到每个 CPU 的外部中断上。这提供了强大的灵活性，能适应不同的应用需求。
+可以將任一外部中斷源單獨分配到每個 CPU 的外部中斷上。這提供了強大的靈活性，能適應不同的應用需求。
 
 ## 功能描述
 
-PLIC 模块具有以下功能：
+PLIC 模組具有以下功能：
 
-- 启用或禁用中断
-- 设置中断处理程序
-- 配置中断优先级
+- 啟用或禁用中斷
+- 設置中斷處理程序
+- 配置中斷優先順序
 
-## API参考
+## API參考
 
-对应头文件 `plic.h`  
+對應頭文件 `plic.h`  
 
-为用户提供以下接口
+為用戶提供以下介面
 
 - plic\_init
 
@@ -36,176 +36,176 @@ PLIC 模块具有以下功能：
 
 #### 描述
 
-PLIC初始化外部中断。
+PLIC初始化外部中斷。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void plic_init(void)
 ```
 
-#### 参数
+#### 參數
 
-无。
+無。
 
 #### 返回值
 
-无。
+無。
 
 ### plic\_irq\_enable
 
 #### 描述
 
-使能外部中断。
+啟動外部中斷。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int plic_irq_enable(plic_irq_t irq_number)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------:   | :-----     | :----:     |
-| irq\_number | 中断号 | 输入 |
+| irq\_number | 中斷號 | 輸入 |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :----  | :----|
 | 0      | 成功 |
-| 非0    | 失败 |
+| 非0    | 失敗 |
 
 ### plic\_irq\_disable
 
 #### 描述
 
-禁用外部中断。
+禁用外部中斷。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int plic_irq_disable(plic_irq_t irq_number)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------:   | :-----     | :----:     |
-| irq\_number | 中断号 | 输入 |
+| irq\_number | 中斷號 | 輸入 |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :----  | :----|
 | 0      | 成功 |
-| 非0    | 失败 |
+| 非0    | 失敗 |
 
 ### plic\_set\_priority
 
 #### 描述
 
-设置中断优先级。
+設置中斷優先順序。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int plic_set_priority(plic_irq_t irq_number, uint32_t priority)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| irq\_number | 中断号 | 输入 |
-| priority | 中断优先级 | 输入 |
+| irq\_number | 中斷號 | 輸入 |
+| priority | 中斷優先順序 | 輸入 |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :----  | :----|
 | 0      | 成功 |
-| 非0    | 失败 |
+| 非0    | 失敗 |
 
 ### plic\_get\_priority
 
 #### 描述
 
-获取中断优先级。
+獲取中斷優先順序。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 uint32_t plic_get_priority(plic_irq_t irq_number)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称      |   描述     |  输入输出  |
+| 參數名稱      |   描述     |  輸入輸出  |
 | :------------| :----------| :-------- |
-| irq\_number  | 中断号     | 输入      |
+| irq\_number  | 中斷號     | 輸入      |
 
 #### 返回值
 
-irq_number中断的优先级。
+irq_number中斷的優先順序。
 
 ### plic\_irq\_register
 
 #### 描述
 
-注册外部中断函数。
+註冊外部中斷函數。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int plic_irq_register(plic_irq_t irq, plic_irq_callback_t callback, void* ctx)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------:   | :-----     | :----:     |
-| irq | 中断号 | 输入 |
-| callback | 中断回调函数 | 输入 |
-| ctx | 回调函数的参数 | 输入 |
+| irq | 中斷號 | 輸入 |
+| callback | 中斷回調函數 | 輸入 |
+| ctx | 回調函數的參數 | 輸入 |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :----  | :----|
 | 0      | 成功 |
-| 非0    | 失败 |
+| 非0    | 失敗 |
 
 ### plic\_irq\_deregister
 
 #### 描述
 
-注销外部中断函数。
+註銷外部中斷函數。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int plic_irq_deregister(plic_irq_t irq)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------:   | :-----     | :----:     |
-| irq | 中断号 | 输入 |
+| irq | 中斷號 | 輸入 |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :----  | :----|
 | 0      | 成功 |
-| 非0    | 失败 |
+| 非0    | 失敗 |
 
-### 举例
+### 舉例
 
 ```c
-/* 设置GPIOHS0的触发中断 */
+/* 設置GPIOHS0的觸發中斷 */
 int count = 0;
 int gpiohs_pin_onchange_isr(void *ctx)
 {
@@ -219,21 +219,21 @@ plic_irq_enable(IRQN_GPIOHS0_INTERRUPT);
 sysctl_enable_irq();
 ```
 
-## 数据类型
+## 資料類型
 
-相关数据类型、数据结构定义如下：
+相關資料類型、資料結構定義如下：
 
-- plic\_irq\_t：外部中断号。
+- plic\_irq\_t：外部中斷號。
 
-- plic\_irq\_callback\_t：外部中断回调函数。
+- plic\_irq\_callback\_t：外部中斷回調函數。
 
 ### plic\_irq\_t
 
 #### 描述
 
-外部中断号。
+外部中斷號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _plic_irq
@@ -308,84 +308,84 @@ typedef enum _plic_irq
 } plic_irq_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称      | 描述  |
+| 成員名稱      | 描述  |
 | ------------ | ------------ |
 |IRQN\_NO\_INTERRUPT|不存在                 |
-|IRQN\_SPI0\_INTERRUPT|SPI0中断             |
-|IRQN\_SPI1\_INTERRUPT|SPI1中断             |
-|IRQN\_SPI\_SLAVE\_INTERRUPT|从SPI中断      |
-|IRQN\_SPI3\_INTERRUPT|SPI3中断             |
-|IRQN\_I2S0\_INTERRUPT|I2S0 中断            |
-|IRQN\_I2S1\_INTERRUPT|I2S1 中断            |
-|IRQN\_I2S2\_INTERRUPT|I2S2 中断            |
-|IRQN\_I2C0\_INTERRUPT|I2C0 中断            |
-|IRQN\_I2C1\_INTERRUPT|I2C1 中断            |
-|IRQN\_I2C2\_INTERRUPT|I2C2 中断            |
-|IRQN\_UART1\_INTERRUPT|UART1中断           |
-|IRQN\_UART2\_INTERRUPT|UART2中断           |
-|IRQN\_UART3\_INTERRUPT|UART3中断           |
-|IRQN\_TIMER0A\_INTERRUPT|TIMER0通道0和1中断|
-|IRQN\_TIMER0B\_INTERRUPT|TIMER0通道2和3中断|
-|IRQN\_TIMER1A\_INTERRUPT|TIMER1通道0和1中断|
-|IRQN\_TIMER1B\_INTERRUPT|TIMER1通道2和3中断|
-|IRQN\_TIMER2A\_INTERRUPT|TIMER2通道0和1中断|
-|IRQN\_TIMER2B\_INTERRUPT|TIMER2通道2和3中断|
-|IRQN\_RTC\_INTERRUPT|RTC 滴答中断和报警中断|
-|IRQN\_WDT0\_INTERRUPT|看门狗0中断          |
-|IRQN\_WDT1\_INTERRUPT|看门狗1中断          |
-|IRQN\_APB\_GPIO\_INTERRUPT|普通GPIO中断    |
-|IRQN\_DVP\_INTERRUPT|数字摄像头（DVP）中断 |
-|IRQN\_AI\_INTERRUPT|AI 加速器中断          |
-|IRQN\_FFT\_INTERRUPTFFT |傅里叶加速器中断  |
-|IRQN\_DMA0\_INTERRUPT|DMA 通道0中断        |
-|IRQN\_DMA1\_INTERRUPT|DMA 通道1中断        |
-|IRQN\_DMA2\_INTERRUPT|DMA 通道2中断        |
-|IRQN\_DMA3\_INTERRUPT|DMA 通道3中断        |
-|IRQN\_DMA4\_INTERRUPT|DMA 通道4中断        |
-|IRQN\_DMA5\_INTERRUPT|DMA 通道5中断        |
-|IRQN\_UARTHS\_INTERRUPT|高速UART中断       |
-|IRQN\_GPIOHS0\_INTERRUPT|高速GPIO0中断     |
-|IRQN\_GPIOHS1\_INTERRUPT|高速GPIO1中断     |
-|IRQN\_GPIOHS2\_INTERRUPT|高速GPIO2中断     |
-|IRQN\_GPIOHS3\_INTERRUPT|高速GPIO3中断     |
-|IRQN\_GPIOHS4\_INTERRUPT|高速GPIO4中断     |
-|IRQN\_GPIOHS5\_INTERRUPT|高速GPIO5中断     |
-|IRQN\_GPIOHS6\_INTERRUPT|高速GPIO6中断     |
-|IRQN\_GPIOHS7\_INTERRUPT|高速GPIO7中断     |
-|IRQN\_GPIOHS8\_INTERRUPT|高速GPIO8中断     |
-|IRQN\_GPIOHS9\_INTERRUPT|高速GPIO9中断     |
-|IRQN\_GPIOHS10\_INTERRUPT|高速GPIO10中断   |
-|IRQN\_GPIOHS11\_INTERRUPT|高速GPIO11中断   |
-|IRQN\_GPIOHS12\_INTERRUPT|高速GPIO12中断   |
-|IRQN\_GPIOHS13\_INTERRUPT|高速GPIO13中断   |
-|IRQN\_GPIOHS14\_INTERRUPT|高速GPIO14中断   |
-|IRQN\_GPIOHS15\_INTERRUPT|高速GPIO15中断   |
-|IRQN\_GPIOHS16\_INTERRUPT|高速GPIO16中断   |
-|IRQN\_GPIOHS17\_INTERRUPT|高速GPIO17中断   |
-|IRQN\_GPIOHS18\_INTERRUPT|高速GPIO18中断   |
-|IRQN\_GPIOHS19\_INTERRUPT|高速GPIO19中断   |
-|IRQN\_GPIOHS20\_INTERRUPT|高速GPIO20中断   |
-|IRQN\_GPIOHS21\_INTERRUPT|高速GPIO21中断   |
-|IRQN\_GPIOHS22\_INTERRUPT|高速GPIO22中断   |
-|IRQN\_GPIOHS23\_INTERRUPT|高速GPIO23中断   |
-|IRQN\_GPIOHS24\_INTERRUPT|高速GPIO24中断   |
-|IRQN\_GPIOHS25\_INTERRUPT|高速GPIO25中断   |
-|IRQN\_GPIOHS26\_INTERRUPT|高速GPIO26中断   |
-|IRQN\_GPIOHS27\_INTERRUPT|高速GPIO27中断   |
-|IRQN\_GPIOHS28\_INTERRUPT|高速GPIO28中断   |
-|IRQN\_GPIOHS29\_INTERRUPT|高速GPIO29中断   |
-|IRQN\_GPIOHS30\_INTERRUPT|高速GPIO30中断   |
-|IRQN\_GPIOHS31\_INTERRUPT|高速GPIO31中断   |
+|IRQN\_SPI0\_INTERRUPT|SPI0中斷             |
+|IRQN\_SPI1\_INTERRUPT|SPI1中斷             |
+|IRQN\_SPI\_SLAVE\_INTERRUPT|從SPI中斷      |
+|IRQN\_SPI3\_INTERRUPT|SPI3中斷             |
+|IRQN\_I2S0\_INTERRUPT|I2S0 中斷            |
+|IRQN\_I2S1\_INTERRUPT|I2S1 中斷            |
+|IRQN\_I2S2\_INTERRUPT|I2S2 中斷            |
+|IRQN\_I2C0\_INTERRUPT|I2C0 中斷            |
+|IRQN\_I2C1\_INTERRUPT|I2C1 中斷            |
+|IRQN\_I2C2\_INTERRUPT|I2C2 中斷            |
+|IRQN\_UART1\_INTERRUPT|UART1中斷           |
+|IRQN\_UART2\_INTERRUPT|UART2中斷           |
+|IRQN\_UART3\_INTERRUPT|UART3中斷           |
+|IRQN\_TIMER0A\_INTERRUPT|TIMER0通道0和1中斷|
+|IRQN\_TIMER0B\_INTERRUPT|TIMER0通道2和3中斷|
+|IRQN\_TIMER1A\_INTERRUPT|TIMER1通道0和1中斷|
+|IRQN\_TIMER1B\_INTERRUPT|TIMER1通道2和3中斷|
+|IRQN\_TIMER2A\_INTERRUPT|TIMER2通道0和1中斷|
+|IRQN\_TIMER2B\_INTERRUPT|TIMER2通道2和3中斷|
+|IRQN\_RTC\_INTERRUPT|RTC 滴答中斷和報警中斷|
+|IRQN\_WDT0\_INTERRUPT|看門狗0中斷          |
+|IRQN\_WDT1\_INTERRUPT|看門狗1中斷          |
+|IRQN\_APB\_GPIO\_INTERRUPT|普通GPIO中斷    |
+|IRQN\_DVP\_INTERRUPT|數位攝像頭（DVP）中斷 |
+|IRQN\_AI\_INTERRUPT|AI 加速器中斷          |
+|IRQN\_FFT\_INTERRUPTFFT |傅立葉加速器中斷  |
+|IRQN\_DMA0\_INTERRUPT|DMA 通道0中斷        |
+|IRQN\_DMA1\_INTERRUPT|DMA 通道1中斷        |
+|IRQN\_DMA2\_INTERRUPT|DMA 通道2中斷        |
+|IRQN\_DMA3\_INTERRUPT|DMA 通道3中斷        |
+|IRQN\_DMA4\_INTERRUPT|DMA 通道4中斷        |
+|IRQN\_DMA5\_INTERRUPT|DMA 通道5中斷        |
+|IRQN\_UARTHS\_INTERRUPT|高速UART中斷       |
+|IRQN\_GPIOHS0\_INTERRUPT|高速GPIO0中斷     |
+|IRQN\_GPIOHS1\_INTERRUPT|高速GPIO1中斷     |
+|IRQN\_GPIOHS2\_INTERRUPT|高速GPIO2中斷     |
+|IRQN\_GPIOHS3\_INTERRUPT|高速GPIO3中斷     |
+|IRQN\_GPIOHS4\_INTERRUPT|高速GPIO4中斷     |
+|IRQN\_GPIOHS5\_INTERRUPT|高速GPIO5中斷     |
+|IRQN\_GPIOHS6\_INTERRUPT|高速GPIO6中斷     |
+|IRQN\_GPIOHS7\_INTERRUPT|高速GPIO7中斷     |
+|IRQN\_GPIOHS8\_INTERRUPT|高速GPIO8中斷     |
+|IRQN\_GPIOHS9\_INTERRUPT|高速GPIO9中斷     |
+|IRQN\_GPIOHS10\_INTERRUPT|高速GPIO10中斷   |
+|IRQN\_GPIOHS11\_INTERRUPT|高速GPIO11中斷   |
+|IRQN\_GPIOHS12\_INTERRUPT|高速GPIO12中斷   |
+|IRQN\_GPIOHS13\_INTERRUPT|高速GPIO13中斷   |
+|IRQN\_GPIOHS14\_INTERRUPT|高速GPIO14中斷   |
+|IRQN\_GPIOHS15\_INTERRUPT|高速GPIO15中斷   |
+|IRQN\_GPIOHS16\_INTERRUPT|高速GPIO16中斷   |
+|IRQN\_GPIOHS17\_INTERRUPT|高速GPIO17中斷   |
+|IRQN\_GPIOHS18\_INTERRUPT|高速GPIO18中斷   |
+|IRQN\_GPIOHS19\_INTERRUPT|高速GPIO19中斷   |
+|IRQN\_GPIOHS20\_INTERRUPT|高速GPIO20中斷   |
+|IRQN\_GPIOHS21\_INTERRUPT|高速GPIO21中斷   |
+|IRQN\_GPIOHS22\_INTERRUPT|高速GPIO22中斷   |
+|IRQN\_GPIOHS23\_INTERRUPT|高速GPIO23中斷   |
+|IRQN\_GPIOHS24\_INTERRUPT|高速GPIO24中斷   |
+|IRQN\_GPIOHS25\_INTERRUPT|高速GPIO25中斷   |
+|IRQN\_GPIOHS26\_INTERRUPT|高速GPIO26中斷   |
+|IRQN\_GPIOHS27\_INTERRUPT|高速GPIO27中斷   |
+|IRQN\_GPIOHS28\_INTERRUPT|高速GPIO28中斷   |
+|IRQN\_GPIOHS29\_INTERRUPT|高速GPIO29中斷   |
+|IRQN\_GPIOHS30\_INTERRUPT|高速GPIO30中斷   |
+|IRQN\_GPIOHS31\_INTERRUPT|高速GPIO31中斷   |
 
 ### plic\_irq\_callback\_t
 
 #### 描述
 
-外部中断回调函数。
+外部中斷回調函數。
 
-#### 定义
+#### 定義
 
 ```c
 typedef int (*plic_irq_callback_t)(void *ctx);

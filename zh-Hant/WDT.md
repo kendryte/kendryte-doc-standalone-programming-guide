@@ -1,24 +1,26 @@
-# 看门狗定时器 (WDT)
+# 看門狗定時器 (WDT)
 
 ## 概述
 
-WDT 提供系统出错或无响应时的恢复功能。
+WDT 提供系統出錯或無響應時的恢復功能。
 
 ## 功能描述
 
-WDT 模块具有以下功能：
+WDT 模組具有以下功能：
 
-- 配置超时时间
+- 配置超時時間
 
-- 手动重启计时
+- 手動重啟計時
 
-## API 参考
+## API 參考
 
-对应的头文件 `wdt.h`
+對應的頭文件 `wdt.h`
 
-为用户提供以下接口
+為用戶提供以下介面
 
-- wdt\_start
+- wdt\_init
+
+- wdt\_start(0.6.0後不再支持，請使用wdt\_init)
 
 - wdt\_stop
 
@@ -26,51 +28,76 @@ WDT 模块具有以下功能：
 
 - wdt\_clear\_interrupt
 
+### wdt\_init
+
+#### 描述
+
+配置參數，啟動看門狗。不使用中斷的話，將on_irq設置為NULL。
+
+#### 函數原型
+
+```c
+uint32_t wdt_init(wdt_device_number_t id, uint64_t time_out_ms, plic_irq_callback_t on_irq, void *ctx)
+```
+
+#### 參數
+
+| 參數名稱         |   描述           |  輸入輸出  |
+| --------------- | ---------------  | --------- |
+| id              | 看門狗編號        | 輸入       |
+| time\_out\_ms   | 超時時間（毫秒）   | 輸入      |
+| on\_irq         | 中斷回調函數      | 輸入       |
+| ctx             | 回調函數參數      | 輸入       |
+
+#### 返回值
+
+看門狗超時重啟的實際時間（毫秒）。與time\_out\_ms有差異，一般情況會大於這個時間。在外部晶振26M的情況下，最大超時時間為330毫秒。
+
 ### wdt\_start
 
 #### 描述
 
-启动看门狗。
+啟動看門狗。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void wdt_start(wdt_device_number_t id, uint64_t time_out_ms, plic_irq_callback_t on_irq)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | 输入       |
-| time\_out\_ms   | 超时时间（毫秒）   | 输入      |
-| on\_irq          | 中断回调函数     | 输入       |
+| id              | 看門狗編號        | 輸入       |
+| time\_out\_ms   | 超時時間（毫秒）   | 輸入      |
+| on\_irq          | 中斷回調函數     | 輸入       |
 
 #### 返回值
 
-无
+無
 
 ### wdt\_stop
 
 #### 描述
 
-关闭看门狗。
+關閉看門狗。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void wdt_stop(wdt_device_number_t id)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | 输入       |
+| id              | 看門狗編號        | 輸入       |
 
 #### 返回值
 
-无。
+無。
 
 ### wdt\_feed
 
@@ -78,61 +105,61 @@ void wdt_stop(wdt_device_number_t id)
 
 喂狗。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void wdt_feed(wdt_device_number_t id)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | 输入       |
+| id              | 看門狗編號        | 輸入       |
 
 #### 返回值
 
-无。
+無。
 
 ### wdt\_clear\_interrupt
 
 #### 描述
 
-清除中断。如果在中断函数中清除中断，则看门狗不会重启。
+清除中斷。如果在中斷函數中清除中斷，則看門狗不會重啟。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void wdt_clear_interrupt(wdt_device_number_t id)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------  | --------- |
-| id              | 看门狗编号        | 输入       |
+| id              | 看門狗編號        | 輸入       |
 
 #### 返回值
 
-无。
+無。
 
-### 举例
+### 舉例
 
 ```c
-/* 2秒后进入看门狗中断函数打印Hello_world，再过2s复位 */
-int wdt0_irq(void)
+/* 2秒後進入看門狗中斷函數列印Hello_world，再過2s複位 */
+int wdt0_irq(void *ctx)
 {
     printf("Hello_world\n");
     return 0;
 }
 plic_init();
 sysctl_enable_irq();
-wdt_start(WDT_DEVICE_0, 2000, wdt0_irq);
+wdt_init(WDT_DEVICE_0, 2000, wdt0_irq, NULL);
 ```
 
-## 数据类型
+## 資料類型
 
-相关数据类型、数据结构定义如下：
+相關資料類型、資料結構定義如下：
 
 - wdt\_device\_number\_t
 
@@ -140,9 +167,9 @@ wdt_start(WDT_DEVICE_0, 2000, wdt0_irq);
 
 #### 描述
 
-看门狗编号。
+看門狗編號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _wdt_device_number
@@ -153,9 +180,9 @@ typedef enum _wdt_device_number
 } wdt_device_number_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称         | 描述         |
+| 成員名稱         | 描述         |
 | --------------- | ------------ |
-| WDT\_DEVICE\_0  | 看门狗 0      |
-| WDT\_DEVICE\_1  | 看门狗 1      |
+| WDT\_DEVICE\_0  | 看門狗 0      |
+| WDT\_DEVICE\_1  | 看門狗 1      |

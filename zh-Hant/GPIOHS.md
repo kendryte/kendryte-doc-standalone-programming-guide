@@ -1,21 +1,21 @@
-# 通用高速输入/输出 (GPIOHS)
+# 通用高速輸入/輸出 (GPIOHS)
 
 ## 概述
 
-芯片有32个高速GPIO。与普通GPIO相似，管脚反转能力更强。
+晶片有32個高速GPIO。與普通GPIO相似，腳位反轉能力更強。
 
 ## 功能描述
 
-GPIOHS模块具有以下功能：
+GPIOHS模組具有以下功能：
 
-- 可配置上下拉驱动模式
-- 支持上升沿、下降沿和双沿触发
+- 可配置上下拉驅動模式
+- 支持正緣、負緣和雙緣觸發
 
-## API 参考
+## API 參考
 
-对应的头文件 `gpiohs.h`
+對應的頭文件 `gpiohs.h`
 
-为用户提供以下接口
+為用戶提供以下介面
 
 - gpiohs\_set\_drive\_mode
 
@@ -25,160 +25,211 @@ GPIOHS模块具有以下功能：
 
 - gpiohs\_set\_pin\_edge
 
-- gpiohs\_set\_irq
+- gpiohs\_set\_irq  (0.6.0後不再支持，請使用gpiohs\_irq\_register)
+
+- gpiohs\_irq\_register
+
+- gpiohs\_irq\_unregister
 
 ### gpiohs\_set\_drive\_mode
 
 #### 描述
 
-设置GPIO驱动模式。
+設置GPIO驅動模式。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void gpiohs_set_drive_mode(uint8_t pin, gpio_drive_mode_t mode)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称       | 描述           | 输入输出   |
+| 參數名稱       | 描述           | 輸入輸出   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入      |
-| mode          | GPIO驱动模式    | 输入      |
+| pin           | GPIO腳位       | 輸入      |
+| mode          | GPIO驅動模式    | 輸入      |
 
 #### 返回值
 
-无。
+無。
 
 ### gpio\_set\_pin
 
 #### 描述
 
-设置GPIO管脚值。
+設置GPIO腳位值。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void gpiohs_set_pin(uint8_t pin, gpio_pin_value_t value)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称       | 描述           | 输入输出   |
+| 參數名稱       | 描述           | 輸入輸出   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入      |
-| value         | GPIO值         | 输入      |
+| pin           | GPIO腳位       | 輸入      |
+| value         | GPIO值         | 輸入      |
 
 #### 返回值
 
-无。
+無。
 
 ### gpio\_get\_pin
 
 #### 描述
 
-获取GPIO管脚值。
+獲取GPIO腳位值。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 gpio_pin_value_t gpiohs_get_pin(uint8_t pin)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称       | 描述           | 输入输出   |
+| 參數名稱       | 描述           | 輸入輸出   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入       |
+| pin           | GPIO腳位       | 輸入       |
 
 #### 返回值
 
-获取的GPIO管脚值。
+獲取的GPIO腳位值。
 
 ### gpiohs\_set\_pin\_edge
 
 #### 描述
 
-设置高速GPIO中断触发模式。
+設置高速GPIO中斷觸發模式。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void gpiohs_set_pin_edge(uint8_t pin, gpio_pin_edge_t edge)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称       | 描述           | 输入输出   |
+| 參數名稱       | 描述           | 輸入輸出   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入       |
-| edge          | 中断触发方式    | 输入      |
+| pin           | GPIO腳位       | 輸入       |
+| edge          | 中斷觸發方式    | 輸入      |
 
 #### 返回值
 
-无。
+無。
 
 ### gpiohs\_set\_irq
 
 #### 描述
 
-设置高速GPIO的中断回调函数。
+設置高速GPIO的中斷回調函數。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void gpiohs_set_irq(uint8_t pin, uint32_t priority, void(*func)());
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称       | 描述           | 输入输出   |
+| 參數名稱       | 描述           | 輸入輸出   |
 | :------------ | :------------- | :-------- |
-| pin           | GPIO管脚       | 输入       |
-| priority      | 中断优先级      | 输入      |
-| func          | 中断回调函数    | 输入       |
+| pin           | GPIO腳位       | 輸入       |
+| priority      | 中斷優先順序      | 輸入      |
+| func          | 中斷回調函數    | 輸入       |
 
 #### 返回值
 
-无。
+無。
 
-### 举例
+### gpiohs\_irq\_register
+
+#### 描述
+
+設置高速GPIO的中斷回調函數。
+
+#### 函數原型
 
 ```c
-void irq_gpiohs2(void)
+void gpiohs_irq_register(uint8_t pin, uint32_t priority, plic_irq_callback_t callback, void *ctx)
+```
+
+#### 參數
+
+| 參數名稱                  | 描述           | 輸入輸出   |
+| :----------------------- | :------------- | :-------- |
+| pin                      | GPIO腳位       | 輸入       |
+| priority                 | 中斷優先順序      | 輸入       |
+| plic\_irq\_callback\_t   | 中斷回調函數    | 輸入       |
+| ctx                      | 回調函數參數    | 輸入       |
+
+#### 返回值
+
+無。
+
+### gpiohs\_irq\_unregister
+
+#### 描述
+
+註銷GPIOHS中斷。
+
+### 函數原型
+
+```c
+void gpiohs_irq_unregister(uint8_t pin)
+```
+
+#### 參數
+
+| 參數名稱                  | 描述           | 輸入輸出   |
+| :----------------------- | :------------- | :-------- |
+| pin                      | GPIO腳位       | 輸入       |
+
+#### 返回值
+
+無。
+
+### 舉例
+
+```c
+void irq_gpiohs2(void *ctx)
 {
     printf("Hello world\n");
 }
-/* 设置IO13为高速GPIO，输出模式并置为高 */
+/* 設置IO13為高速GPIO，輸出模式並置為高 */
 fpioa_set_function(13, FUNC_GPIOHS3);
 gpiohs_set_drive_mode(3, GPIO_DM_OUTPUT);
 gpiohs_set_pin(3, GPIO_PV_High);
-/* 设置IO14为高速GPIO 输入模式 双沿触发中断时打印Hello world */
+/* 設置IO14為高速GPIO 輸入模式 雙緣觸發中斷時列印Hello world */
 plic_init();
 fpioa_set_function(14, FUNC_GPIOHS2);
 gpiohs_set_drive_mode(2, GPIO_DM_INPUT);
 gpiohs_set_pin_edge(2, GPIO_PE_BOTH);
-gpiohs_set_irq(2, 1, irq_gpiohs2);
+gpiohs_irq_register(2, 1, irq_gpiohs2, NULL);
 sysctl_enable_irq();
 ```
 
-## 数据类型
+## 資料類型
 
-相关数据类型、数据结构定义如下：
+相關資料類型、資料結構定義如下：
 
-- gpio\_drive\_mode\_t：GPIO驱动模式。
+- gpio\_drive\_mode\_t：GPIO驅動模式。
 
 - gpio\_pin\_value\_t：GPIO值。
 
-- gpio\_pin\_edge\_t：GPIO边沿触发模式。
+- gpio\_pin\_edge\_t：GPIO邊緣觸發模式。
 
 ### gpio\_drive\_mode\_t
 
 #### 描述
 
-GPIO驱动模式。
+GPIO驅動模式。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _gpio_drive_mode
@@ -190,14 +241,14 @@ typedef enum _gpio_drive_mode
 } gpio_drive_mode_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称                     | 描述        |
+| 成員名稱                     | 描述        |
 | --------------------------- | ----------- |
-| GPIO\_DM\_INPUT             | 输入        |
-| GPIO\_DM\_INPUT\_PULL\_DOWN | 输入下拉     |
-| GPIO\_DM\_INPUT\_PULL\_UP   | 输入上拉     |
-| GPIO\_DM\_OUTPUT            | 输出        |
+| GPIO\_DM\_INPUT             | 輸入        |
+| GPIO\_DM\_INPUT\_PULL\_DOWN | 輸入下拉     |
+| GPIO\_DM\_INPUT\_PULL\_UP   | 輸入上拉     |
+| GPIO\_DM\_OUTPUT            | 輸出        |
 
 ### gpio\_pin\_value\_t
 
@@ -205,7 +256,7 @@ typedef enum _gpio_drive_mode
 
 GPIO 值。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _gpio_pin_value
@@ -215,9 +266,9 @@ typedef enum _gpio_pin_value
 } gpio_pin_value_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称            | 描述        |
+| 成員名稱            | 描述        |
 | ------------------ | ----------- |
 | GPIO\_PV\_LOW      | 低          |
 | GPIO\_PV\_HIGH     | 高          |
@@ -226,9 +277,9 @@ typedef enum _gpio_pin_value
 
 #### 描述
 
-高速GPIO边沿触发模式。
+高速GPIO邊緣觸發模式。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _gpio_pin_edge
@@ -236,15 +287,19 @@ typedef enum _gpio_pin_edge
     GPIO_PE_NONE,
     GPIO_PE_FALLING,
     GPIO_PE_RISING,
-    GPIO_PE_BOTH
+    GPIO_PE_BOTH,
+    GPIO_PE_LOW,
+    GPIO_PE_HIGH = 8,
 } gpio_pin_edge_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称            | 描述        |
+| 成員名稱            | 描述        |
 | ------------------ | ----------- |
-| GPIO\_PE\_NONE     | 不触发      |
-| GPIO\_PE\_FALLING  | 下降沿触发  |
-| GPIO\_PE\_RISING   | 上升沿触发  |
-| GPIO\_PE\_BOTH     | 双沿触发    |
+| GPIO\_PE\_NONE     | 不觸發      |
+| GPIO\_PE\_FALLING  | 負緣觸發  |
+| GPIO\_PE\_RISING   | 正緣觸發  |
+| GPIO\_PE\_BOTH     | 雙緣觸發    |
+| GPIO\_PE\_LOW      | 低電平觸發  |
+| GPIO\_PE\_HIGH     | 高電平觸發  |

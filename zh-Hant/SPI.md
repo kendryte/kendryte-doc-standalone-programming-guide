@@ -1,24 +1,24 @@
-# 串行外设接口(SPI)
+# 串列外部裝置介面(SPI)
 
 ## 概述
 
-SPI 是一种高速的，全双工，同步的通信总线。
+SPI 是一種高速的，全雙工，同步的通信匯流排。
 
 ## 功能描述
 
-SPI 模块具有以下功能：
+SPI 模組具有以下功能：
 
-- 独立的 SPI 设备封装外设相关参数
-- 自动处理多设备总线争用
-- 支持标准、双线、四线、八线模式
-- 支持先写后读和全双工读写
-- 支持发送一串相同的数据帧，常用于清屏、填充存储扇区等场景
+- 獨立的 SPI 裝置封裝外部裝置相關參數
+- 自動處理多裝置匯流排爭用
+- 支持標準、雙線、四線、八線模式
+- 支持先寫後讀和全雙工讀寫
+- 支持發送一串相同的資料幀，常用於清屏、填充存儲扇區等場景
 
-## API参考
+## API參考
 
-对应的头文件 `spi.h`
+對應的頭文件 `spi.h`
 
-为用户提供以下接口
+為用戶提供以下介面
 
 - spi\_init
 
@@ -50,333 +50,333 @@ SPI 模块具有以下功能：
 
 #### 描述
 
-设置SPI工作模式、多线模式和位宽。
+設置SPI工作模式、多線模式和位寬。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_init(spi_device_num_t spi_num, spi_work_mode_t work_mode, spi_frame_format_t frame_format, size_t data_bit_length, uint32_t endian)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称            |   描述             |  输入输出  |
+| 參數名稱            |   描述             |  輸入輸出  |
 | :----------------- | :----------------- | :-------- |
-| spi\_num           | SPI号              | 输入       |
-| work\_mode         | 极性相位的四种模式   | 输入      |
-| frame\_format      | 多线模式            | 输入      |
-| data\_bit\_length  | 单次传输的数据的位宽 | 输入      |
-| endian             | 大小端<br>0：小端<br>1：大端 | 输入 |
+| spi\_num           | SPI號              | 輸入       |
+| work\_mode         | 極性相位的四種模式   | 輸入      |
+| frame\_format      | 多線模式            | 輸入      |
+| data\_bit\_length  | 單次傳輸的資料的位寬 | 輸入      |
+| endian             | 大小端<br>0：小端<br>1：大端 | 輸入 |
 
 #### 返回值
 
-无。
+無。
 
 ### spi\_config\_non\_standard
 
 #### 描述
 
-多线模式下设置指令长度、地址长度、等待时钟数、指令地址传输模式。
+多線模式下設置指令長度、地址長度、等待時脈數、指令地址傳輸模式。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_init_non_standard(spi_device_num_t spi_num, uint32_t instruction_length, uint32_t address_length, uint32_t wait_cycles, spi_instruction_address_trans_mode_t instruction_address_trans_mode)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| spi\_num | SPI号 | 输入 |
-| instruction\_length | 发送指令的位数 | 输入 |
-| address\_length | 发送地址的位数 | 输入 |
-| wait\_cycles | 等待时钟个数 | 输入 |
-| instruction\_address\_trans\_mode | 指令地址传输的方式 | 输入 |
+| spi\_num | SPI號 | 輸入 |
+| instruction\_length | 發送指令的位數 | 輸入 |
+| address\_length | 發送地址的位數 | 輸入 |
+| wait\_cycles | 等待時脈個數 | 輸入 |
+| instruction\_address\_trans\_mode | 指令地址傳輸的方式 | 輸入 |
 
 #### 返回值
 
-无
+無
 
 ### spi\_send\_data\_standard
 
 #### 描述
 
-SPI标准模式传输数据。
+SPI標準模式傳輸資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_send_data_standard(spi_device_num_t spi_num, spi_chip_select_t chip_select, const uint8_t *cmd_buff, size_t cmd_len, const uint8_t *tx_buff, size_t tx_len)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| tx\_buff | 发送的数据 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
+| spi\_num | SPI號 | 輸入 |
+| chip\_select | 片選信號 | 輸入 |
+| cmd\_buff | 外部裝置指令地址資料，沒有則設為NULL | 輸入 |
+| cmd\_len | 外部裝置指令地址資料長度，沒有則設為0 | 輸入 |
+| tx\_buff | 發送的資料 | 輸入 |
+| tx\_len | 發送資料的長度 | 輸入 |
 
 #### 返回值
 
-无
+無
 
 ### spi\_send\_data\_standard\_dma
 
 #### 描述
 
-SPI标准模式下使用DMA传输数据。
+SPI標準模式下使用DMA傳輸資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_send_data_standard_dma(dmac_channel_number_t channel_num, spi_device_num_t spi_num, spi_chip_select_t chip_select, const uint8_t *cmd_buff, size_t cmd_len, const uint8_t *tx_buff, size_t tx_len)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| channel\_num | DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| tx\_buff | 发送的数据 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
+| channel\_num | DMA通道號 | 輸入 |
+| spi\_num | SPI號 | 輸入 |
+| chip\_select | 片選信號 | 輸入 |
+| cmd\_buff | 外部裝置指令地址資料，沒有則設為NULL | 輸入 |
+| cmd\_len | 外部裝置指令地址資料長度，沒有則設為0 | 輸入 |
+| tx\_buff | 發送的資料 | 輸入 |
+| tx\_len | 發送資料的長度 | 輸入 |
 
 #### 返回值
 
-无
+無
 
 ### spi\_receive\_data\_standard
 
 #### 描述
 
-标准模式下接收数据。
+標準模式下接收資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_receive_data_standard(spi_device_num_t spi_num, spi_chip_select_t chip_select, const uint8_t *cmd_buff, size_t cmd_len, uint8_t *rx_buff, size_t rx_len)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| rx\_buff | 接收的数据 | 输出 |
-| rx\_len | 接收数据的长度 | 输入 |
+| spi\_num | SPI號 | 輸入 |
+| chip\_select | 片選信號 | 輸入 |
+| cmd\_buff | 外部裝置指令地址資料，沒有則設為NULL | 輸入 |
+| cmd\_len | 外部裝置指令地址資料長度，沒有則設為0 | 輸入 |
+| rx\_buff | 接收的資料 | 輸出 |
+| rx\_len | 接收資料的長度 | 輸入 |
 
 #### 返回值
 
-无
+無
 
 ### spi\_receive\_data\_standard\_dma
 
 #### 描述
 
-标准模式下通过DMA接收数据。
+標準模式下通過DMA接收資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_receive_data_standard_dma(dmac_channel_number_t dma_send_channel_num, dmac_channel_number_t dma_receive_channel_num, spi_device_num_t spi_num, spi_chip_select_t chip_select, const uint8_t *cmd_buff, size_t cmd_len, uint8_t *rx_buff, size_t rx_len)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| dma\_send\_channel\_num | 发送指令地址使用的DMA通道号 | 输入 |
-| dma\_receive\_channel\_num | 接收数据使用的DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| rx\_buff | 接收的数据 | 输出 |
-| rx\_len | 接收数据的长度 | 输入 |
+| dma\_send\_channel\_num | 發送指令地址使用的DMA通道號 | 輸入 |
+| dma\_receive\_channel\_num | 接收資料使用的DMA通道號 | 輸入 |
+| spi\_num | SPI號 | 輸入 |
+| chip\_select | 片選信號 | 輸入 |
+| cmd\_buff | 外部裝置指令地址資料，沒有則設為NULL | 輸入 |
+| cmd\_len | 外部裝置指令地址資料長度，沒有則設為0 | 輸入 |
+| rx\_buff | 接收的資料 | 輸出 |
+| rx\_len | 接收資料的長度 | 輸入 |
 
 #### 返回值
 
-无
+無
 
 ### spi\_send\_data\_multiple
 
 #### 描述
 
-多线模式发送数据。
+多線模式發送資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_send_data_multiple(spi_device_num_t spi_num, spi_chip_select_t chip_select, const uint32_t *cmd_buff, size_t cmd_len, uint8_t *tx_buff, size_t tx_len)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| tx\_buff | 发送的数据 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
+| spi\_num | SPI號 | 輸入 |
+| chip\_select | 片選信號 | 輸入 |
+| cmd\_buff | 外部裝置指令地址資料，沒有則設為NULL | 輸入 |
+| cmd\_len | 外部裝置指令地址資料長度，沒有則設為0 | 輸入 |
+| tx\_buff | 發送的資料 | 輸入 |
+| tx\_len | 發送資料的長度 | 輸入 |
 
 #### 返回值
 
-无
+無
 
 ### spi\_send\_data\_multiple\_dma
 
 #### 描述
 
-多线模式使用DMA发送数据。
+多線模式使用DMA發送資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_send_data_multiple_dma(dmac_channel_number_t channel_num,spi_device_num_t spi_num, spi_chip_select_t chip_select, const uint32_t *cmd_buff, size_t cmd_len, const uint8_t *tx_buff, size_t tx_len)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| channel\_num | DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| tx\_buff | 发送的数据 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
+| channel\_num | DMA通道號 | 輸入 |
+| spi\_num | SPI號 | 輸入 |
+| chip\_select | 片選信號 | 輸入 |
+| cmd\_buff | 外部裝置指令地址資料，沒有則設為NULL | 輸入 |
+| cmd\_len | 外部裝置指令地址資料長度，沒有則設為0 | 輸入 |
+| tx\_buff | 發送的資料 | 輸入 |
+| tx\_len | 發送資料的長度 | 輸入 |
 
 #### 返回值
 
-无
+無
 
 ### spi\_receive\_data\_multiple
 
 #### 描述
 
-多线模式接收数据。
+多線模式接收資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_receive_data_multiple(spi_device_num_t spi_num, spi_chip_select_t chip_select, const uint32_t *cmd_buff, size_t cmd_len, uint8_t *rx_buff, size_t rx_len)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| rx\_buff | 接收的数据 | 输出 |
-| rx\_len | 接收数据的长度 | 输入 |
+| spi\_num | SPI號 | 輸入 |
+| chip\_select | 片選信號 | 輸入 |
+| cmd\_buff | 外部裝置指令地址資料，沒有則設為NULL | 輸入 |
+| cmd\_len | 外部裝置指令地址資料長度，沒有則設為0 | 輸入 |
+| rx\_buff | 接收的資料 | 輸出 |
+| rx\_len | 接收資料的長度 | 輸入 |
 
 #### 返回值
 
-无
+無
 
 ### spi\_receive\_data\_multiple\_dma
 
 #### 描述
 
-多线模式通过DMA接收。
+多線模式通過DMA接收。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_receive_data_multiple_dma(dmac_channel_number_t dma_send_channel_num, dmac_channel_number_t dma_receive_channel_num, spi_device_num_t spi_num, spi_chip_select_t chip_select, uint32_t const *cmd_buff, size_t cmd_len, uint8_t *rx_buff, size_t rx_len);
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| dma\_send\_channel\_num | 发送指令地址使用的DMA通道号 | 输入 |
-| dma\_receive\_channel\_num | 接收数据使用的DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| cmd\_buff | 外设指令地址数据，没有则设为NULL | 输入 |
-| cmd\_len | 外设指令地址数据长度，没有则设为0 | 输入 |
-| rx\_buff | 接收的数据 | 输出 |
-| rx\_len | 接收数据的长度 | 输入 |
+| dma\_send\_channel\_num | 發送指令地址使用的DMA通道號 | 輸入 |
+| dma\_receive\_channel\_num | 接收資料使用的DMA通道號 | 輸入 |
+| spi\_num | SPI號 | 輸入 |
+| chip\_select | 片選信號 | 輸入 |
+| cmd\_buff | 外部裝置指令地址資料，沒有則設為NULL | 輸入 |
+| cmd\_len | 外部裝置指令地址資料長度，沒有則設為0 | 輸入 |
+| rx\_buff | 接收的資料 | 輸出 |
+| rx\_len | 接收資料的長度 | 輸入 |
 
 #### 返回值
 
-无
+無
 
 ### spi\_fill\_data\_dma
 
 #### 描述
 
-通过DMA始终发送同一个数据，可以用于刷新数据。
+通過DMA始終發送同一個資料，可以用於刷新資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_fill_data_dma(dmac_channel_number_t channel_num,spi_device_num_t spi_num, spi_chip_select_t chip_select, const uint32_t *tx_buff, size_t tx_len);
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| channel\_num | DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| tx\_buff | 发送的数据,仅发送tx_buff这一个数据，不会自动增加 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
+| channel\_num | DMA通道號 | 輸入 |
+| spi\_num | SPI號 | 輸入 |
+| chip\_select | 片選信號 | 輸入 |
+| tx\_buff | 發送的資料,僅發送tx_buff這一個資料，不會自動增加 | 輸入 |
+| tx\_len | 發送資料的長度 | 輸入 |
 
 #### 返回值
 
-无
+無
 
 ### spi\_send\_data\_normal\_dma
 
 #### 描述
 
-通过DMA发送数据。不用设置指令地址。
+通過DMA發送資料。不用設置指令地址。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void spi_send_data_normal_dma(dmac_channel_number_t channel_num, spi_device_num_t spi_num, spi_chip_select_t chip_select, const void *tx_buff, size_t tx_len, spi_transfer_width_t spi_transfer_width)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| channel\_num | DMA通道号 | 输入 |
-| spi\_num | SPI号 | 输入 |
-| chip\_select | 片选信号 | 输入 |
-| tx\_buff | 发送的数据,仅发送tx_buff这一个数据，不会自动增加 | 输入 |
-| tx\_len | 发送数据的长度 | 输入 |
-| spi\_transfer\_width | 发送数据的位宽 | 输入 |
+| channel\_num | DMA通道號 | 輸入 |
+| spi\_num | SPI號 | 輸入 |
+| chip\_select | 片選信號 | 輸入 |
+| tx\_buff | 發送的資料,僅發送tx_buff這一個資料，不會自動增加 | 輸入 |
+| tx\_len | 發送資料的長度 | 輸入 |
+| spi\_transfer\_width | 發送資料的位寬 | 輸入 |
 
 #### 返回值
 
-无
+無
 
-### 举例
+### 舉例
 
 ```c
-/* SPI0 工作在MODE0模式 标准SPI模式 单次发送8位数据 */
+/* SPI0 工作在MODE0模式 標準SPI模式 單次發送8位資料 */
 spi_init(SPI_DEVICE_0, SPI_WORK_MODE_0, SPI_FF_STANDARD, 8, 0);
 uint8_t cmd[4];
 cmd[0] = 0x06;
@@ -384,33 +384,33 @@ cmd[1] = 0x01;
 cmd[2] = 0x02;
 cmd[3] = 0x04;
 uint8_t data_buf[4] = {0,1,2,3};
-/* SPI0 使用片选0 发送指令0x06 向地址0x010204 发送0，1，2，3 四个字节数据 */
+/* SPI0 使用片選0 發送指令0x06 向地址0x010204 發送0，1，2，3 四個位元組資料 */
 spi_send_data_standard(SPI_DEVICE_0, SPI_CHIP_SELECT_0, cmd, 4, data_buf, 4);
-/* SPI0 使用片选0 发送指令0x06 地址0x010204 接收4个字节的数据 */
+/* SPI0 使用片選0 發送指令0x06 地址0x010204 接收4個位元組的資料 */
 spi_receive_data_standard(SPI_DEVICE_0, SPI_CHIP_SELECT_0, cmd, 4, data_buf, 4);
 
-/* SPI0 工作在MODE0模式 四线SPI模式 单次发送8位数据 */
+/* SPI0 工作在MODE0模式 四線SPI模式 單次發送8位資料 */
 spi_init(SPI_DEVICE_0, SPI_WORK_MODE_0, SPI_FF_QUAD, 8, 0);
-/* 8位指令长度 32位地址长度 发送指令地址后等待4个clk，指令通过标准SPI方式发送，地址通过四线方式发送 */
+/* 8位指令長度 32位地址長度 發送指令地址後等待4個clk，指令通過標準SPI方式發送，地址通過四線方式發送 */
 spi_init_non_standard(SPI_DEVICE_0, 8, 32, 4, SPI_AITM_ADDR_STANDARD);
 uint32 cmd[2];
 cmd[0] = 0x06;
 cmd[1] = 0x010204;
 uint8_t data_buf[4] = {0,1,2,3};
-/* SPI0 使用片选0 发送指令0x06 向地址0x010204 发送0，1，2，3 四个字节数据 */
+/* SPI0 使用片選0 發送指令0x06 向地址0x010204 發送0，1，2，3 四個位元組資料 */
 spi_send_data_multiple(SPI_DEVICE_0, SPI_CHIP_SELECT_0, cmd, 2, data_buf, 4);
-/* SPI0 使用片选0 发送指令0x06 地址0x010204 接收4个字节的数据 */
+/* SPI0 使用片選0 發送指令0x06 地址0x010204 接收4個位元組的資料 */
 spi_receive_data_multiple(SPI_DEVICE_0, SPI_CHIP_SELECT_0, cmd, 2, data_buf, 4);
 
-/* SPI0 工作在MODE2模式 八线SPI模式 单次发送32位数据 */
+/* SPI0 工作在MODE2模式 八線SPI模式 單次發送32位資料 */
 spi_init(SPI_DEVICE_0, SPI_WORK_MODE_2, SPI_FF_OCTAL, 32, 0);
-/* 无指令 32位地址长度 发送指令地址后等待0个clk，指令地址通过8线发送 */
+/* 無指令 32位地址長度 發送指令地址後等待0個clk，指令地址通過8線發送 */
 spi_init_non_standard(SPI_DEVICE_0, 0, 32, 0, SPI_AITM_AS_FRAME_FORMAT);
 uint32_t data_buf[256] = {0};
-/* 使用DMA通道0 片选0 发送256个int数据*/
+/* 使用DMA通道0 片選0 發送256個int資料*/
 spi_send_data_normal_dma(DMAC_CHANNEL0, SPI_DEVICE_0, SPI_CHIP_SELECT_0, data_buf, 256, SPI_TRANS_INT);
 uint32_t data = 0x55AA55AA;
-/* 使用DMA通道0 片选0 连续发送256个 0x55AA55AA*/
+/* 使用DMA通道0 片選0 連續發送256個 0x55AA55AA*/
 spi_fill_data_dma(DMAC_CHANNEL0, SPI_DEVICE_0, SPI_CHIP_SELECT_0,&data, 256);
 ```
 
@@ -418,41 +418,41 @@ spi_fill_data_dma(DMAC_CHANNEL0, SPI_DEVICE_0, SPI_CHIP_SELECT_0,&data, 256);
 
 #### 描述
 
-设置 SPI 的时钟频率
+設置 SPI 的時脈頻率
 
-#### 函数原型
+#### 函數原型
 
 ```c
 uint32_t spi_set_clk_rate(spi_device_num_t spi_num, uint32_t spi_clk)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| spi\_num| SPI号 | 输入 |
-| spi\_clk | 目标SPI设备的时钟频率 | 输入 |
+| spi\_num| SPI號 | 輸入 |
+| spi\_clk | 目標SPI裝置的時脈頻率 | 輸入 |
 
 #### 返回值
 
-设置完后的SPI设备的时钟频率
+設置完後的SPI裝置的時脈頻率
 
-## 数据类型
+## 資料類型
 
-相关数据类型、数据结构定义如下：
+相關資料類型、資料結構定義如下：
 
-- spi\_device\_num\_t：SPI编号。
+- spi\_device\_num\_t：SPI編號。
 - spi\_mode\_t：SPI 模式。
-- spi\_frame\_format\_t：SPI 帧格式。
-- spi\_instruction\_address\_trans\_mode\_t：SPI 指令和地址的传输模式。
+- spi\_frame\_format\_t：SPI 幀格式。
+- spi\_instruction\_address\_trans\_mode\_t：SPI 指令和地址的傳輸模式。
 
 ### spi\_device\_num\_t
 
 #### 描述
 
-SPI编号。
+SPI編號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _spi_device_num
@@ -465,14 +465,14 @@ typedef enum _spi_device_num
 } spi_device_num_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称      | 描述           |
+| 成員名稱      | 描述           |
 | :----------- | :------------- |
-| SPI_DEVICE_0 | SPI 0 做为主设备|
-| SPI_DEVICE_1 | SPI 1 做为主设备|
-| SPI_DEVICE_2 | SPI 2 做为从设备|
-| SPI_DEVICE_3 | SPI 3 做为主设备|
+| SPI_DEVICE_0 | SPI 0 做為主裝置|
+| SPI_DEVICE_1 | SPI 1 做為主裝置|
+| SPI_DEVICE_2 | SPI 2 做為從裝置|
+| SPI_DEVICE_3 | SPI 3 做為主裝置|
 
 ### spi\_mode\_t
 
@@ -480,7 +480,7 @@ typedef enum _spi_device_num
 
 SPI 模式。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _spi_mode
@@ -492,9 +492,9 @@ typedef enum _spi_mode
 } spi_mode_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称             | 描述        |
+| 成員名稱             | 描述        |
 | ------------------- | ----------- |
 | SPI\_WORK\_MODE\_0  | SPI 模式 0  |
 | SPI\_WORK\_MODE\_1  | SPI 模式 1  |
@@ -505,9 +505,9 @@ typedef enum _spi_mode
 
 #### 描述
 
-SPI 帧格式。
+SPI 幀格式。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _spi_frame_format
@@ -519,22 +519,22 @@ typedef enum _spi_frame_format
 } spi_frame_format_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称            | 描述                      |
+| 成員名稱            | 描述                      |
 | ------------------ | ------------------------- |
-| SPI\_FF\_STANDARD  | 标准                      |
-| SPI\_FF\_DUAL      | 双线                      |
-| SPI\_FF\_QUAD      | 四线                      |
-| SPI\_FF\_OCTAL     | 八线（SPI3 不支持）        |
+| SPI\_FF\_STANDARD  | 標準                      |
+| SPI\_FF\_DUAL      | 雙線                      |
+| SPI\_FF\_QUAD      | 四線                      |
+| SPI\_FF\_OCTAL     | 八線（SPI3 不支持）        |
 
 ### spi\_instruction\_address\_trans\_mode\_t
 
 #### 描述
 
-SPI 指令和地址的传输模式。
+SPI 指令和地址的傳輸模式。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _spi_instruction_address_trans_mode
@@ -545,10 +545,10 @@ typedef enum _spi_instruction_address_trans_mode
 } spi_instruction_address_trans_mode_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称                      | 描述               |
+| 成員名稱                      | 描述               |
 | ---------------------------- | ------------------ |
-| SPI\_AITM\_STANDARD          | 均使用标准帧格式     |
-| SPI\_AITM\_ADDR\_STANDARD    | 指令使用配置的值，地址使用标准帧格式 |
+| SPI\_AITM\_STANDARD          | 均使用標準幀格式     |
+| SPI\_AITM\_ADDR\_STANDARD    | 指令使用配置的值，地址使用標準幀格式 |
 | SPI\_AITM\_AS\_FRAME\_FORMAT | 均使用配置的值     |

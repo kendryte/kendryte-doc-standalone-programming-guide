@@ -1,30 +1,30 @@
-# 系统控制
+# 系統控制
 
 ## 概述
 
-系统控制模块提供对操作系统的配置功能。
+系統控制模組提供對操作系統的配置功能。
 
 ## 功能描述
 
-系统控制模块具有以下功能：
+系統控制模組具有以下功能：
 
-- 设置 PLL CPU 时钟频率。
+- 設置 PLL CPU 時脈頻率。
 
-- 设置各个模块时钟的分频值。
+- 設置各個模組時脈的分頻值。
 
-- 获取各个模块的时钟频率。
+- 獲取各個模組的時脈頻率。
 
-- 使能、禁用、复位各个模块。
+- 啟動、禁用、複位各個模組。
 
-- 设置DMA请求源。
+- 設置DMA請求源。
 
-- 使能禁用系统中断。
+- 啟動禁用系統中斷。
 
-## API 参考
+## API 參考
 
-对应的头文件 `sysctl.h`
+對應的頭文件 `sysctl.h`
 
-为用户提供以下接口
+為用戶提供以下介面
 
 - sysctl\_cpu\_set\_freq
 - sysctl\_pll\_set\_freq
@@ -43,337 +43,339 @@
 - sysctl\_set\_power\_mode
 - sysctl\_enable\_irq
 - sysctl\_disable\_irq
+- sysctl\_get\_time\_us
+- sysctl\_get\_reset\_status
 
 ### sysctl\_cpu\_set\_freq
 
 #### 描述
 
-设置CPU工作频率。是通过修改PLL0的频率实现的。
+設置CPU工作頻率。是通過修改PLL0的頻率實現的。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 uint32_t sysctl_cpu_set_freq(uint32_t freq)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述           |  输入输出  |
+| 參數名稱     |   描述           |  輸入輸出  |
 | ----------- | ---------------- | --------- |
-| freq        | 要设置的频率（Hz） | 输入      |
+| freq        | 要設置的頻率（Hz） | 輸入      |
 
 #### 返回值
 
-设置后的实际频率（Hz）。
+設置後的實際頻率（Hz）。
 
 ### sysctl\_set\_pll\_frequency
 
 #### 描述
 
-设置PLL频率。
+設置PLL頻率。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 uint32_t sysctl_pll_set_freq(sysctl_pll_t pll, uint32_t pll_freq)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| pll             | PLL编号          | 输入       |
-| pll\_freq        | 要设置的频率（Hz）| 输入       |
+| pll             | PLL編號          | 輸入       |
+| pll\_freq        | 要設置的頻率（Hz）| 輸入       |
 
 #### 返回值
 
-设置后的实际频率（Hz）。
+設置後的實際頻率（Hz）。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 uint32_t sysctl_pll_get_freq(sysctl_pll_t pll)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| pll             | PLL编号          | 输入       |
+| pll             | PLL編號          | 輸入       |
 
 #### 返回值
 
-对应PLL的频率（Hz）。
+對應PLL的頻率（Hz）。
 
 ### sysctl\_pll\_enable
 
 #### 描述
 
-使能对应的PLL。
+啟動對應的PLL。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int sysctl_pll_enable(sysctl_pll_t pll)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| pll             | PLL编号          | 输入       |
+| pll             | PLL編號          | 輸入       |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :---- | :----|
 | 0     | 成功 |
-| 非0   | 失败 |
+| 非0   | 失敗 |
 
 ### sysctl\_pll\_disable
 
 #### 描述
 
-禁用对应PLL。
+禁用對應PLL。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int sysctl_pll_disable(sysctl_pll_t pll)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| pll             | PLL编号          | 输入       |
+| pll             | PLL編號          | 輸入       |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :---- | :----|
 | 0     | 成功 |
-| 非0   | 失败 |
+| 非0   | 失敗 |
 
 ### sysctl\_clock\_set\_threshold
 
 #### 描述
 
-设置对应时钟的分频值。
+設置對應時脈的分頻值。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void sysctl_clock_set_threshold(sysctl_threshold_t which, int threshold)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| which           | 设置的时钟        | 输入       |
-| threshold       | 分频值            | 输入       |
+| which           | 設置的時脈        | 輸入       |
+| threshold       | 分頻值            | 輸入       |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :---- | :----|
 | 0     | 成功 |
-| 非0   | 失败 |
+| 非0   | 失敗 |
 
 ### sysctl\_clock\_get\_threshold
 
 #### 描述
 
-获取对应时钟的分频值。
+獲取對應時脈的分頻值。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int sysctl_clock_get_threshold(sysctl_threshold_t which)
 ```
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| which           | 时钟             | 输入       |
+| which           | 時脈             | 輸入       |
 
 #### 返回值
 
-对应时钟的分频值。
+對應時脈的分頻值。
 
 ### sysctl\_clock\_set\_clock\_select
 
 #### 描述
 
-设置时钟源。
+設置時脈源。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int sysctl_clock_set_clock_select(sysctl_clock_select_t which, int select)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| which           | 时钟             | 输入       |
-| select          | 时钟源           | 输入       |
+| which           | 時脈             | 輸入       |
+| select          | 時脈源           | 輸入       |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :---- | :----|
 | 0     | 成功 |
-| 非0   | 失败 |
+| 非0   | 失敗 |
 
 ### sysctl\_clock\_get\_clock\_select
 
 #### 描述
 
-获取时钟对应的时钟源。
+獲取時脈對應的時脈源。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int sysctl_clock_get_clock_select(sysctl_clock_select_t which)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| which           | 时钟             | 输入       |
+| which           | 時脈             | 輸入       |
 
 #### 返回值
 
-时钟对应的时钟源。
+時脈對應的時脈源。
 
 ### sysctl\_clock\_get\_freq
 
 #### 描述
 
-获取时钟的频率。
+獲取時脈的頻率。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 uint32_t sysctl_clock_get_freq(sysctl_clock_t clock)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| clock           | 时钟             | 输入       |
+| clock           | 時脈             | 輸入       |
 
 #### 返回值
 
-时钟的频率（Hz）
+時脈的頻率（Hz）
 
 ### sysctl\_clock\_enable
 
 #### 描述
 
-使能时钟。PLL要使用sysctl\_pll\_enable。
+啟動時脈。PLL要使用sysctl\_pll\_enable。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int sysctl_clock_enable(sysctl_clock_t clock)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| clock           | 时钟             | 输入       |
+| clock           | 時脈             | 輸入       |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :---- | :----|
 | 0     | 成功 |
-| 非0   | 失败 |
+| 非0   | 失敗 |
 
 ### sysctl\_clock\_disable
 
 #### 描述
 
-禁用时钟，PLL使用sysctl\_pll\_disable。
+禁用時脈，PLL使用sysctl\_pll\_disable。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int sysctl_clock_disable(sysctl_clock_t clock)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| clock           | 时钟             | 输入       |
+| clock           | 時脈             | 輸入       |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :---- | :----|
 | 0     | 成功 |
-| 非0   | 失败 |
+| 非0   | 失敗 |
 
 ### sysctl\_reset
 
 #### 描述
 
-复位各个模块。
+複位各個模組。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void sysctl_reset(sysctl_reset_t reset)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| reset           | 预复位模块        | 输入       |
+| reset           | 預複位模組        | 輸入       |
 
 #### 返回值
 
-无。
+無。
 
 ### sysctl\_dma\_select
 
 #### 描述
 
-设置DMA请求源。与DMAC的API配合使用。
+設置DMA請求源。與DMAC的API配合使用。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int sysctl_dma_select(sysctl_dma_channel_t channel, sysctl_dma_select_t select)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述           |  输入输出  |
+| 參數名稱         |   描述           |  輸入輸出  |
 | --------------- | ---------------- | --------- |
-| channel         | DMA通道号        | 输入       |
-| select          | DMA请求源        | 输入       |
+| channel         | DMA通道號        | 輸入       |
+| select          | DMA請求源        | 輸入       |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :---- | :----|
 | 0     | 成功 |
-| 非0   | 失败 |
+| 非0   | 失敗 |
 
 ### sysctl\_set\_power\_mode
 
 #### 描述
 
-设置FPIOA的对应电源域的电压。
+設置FPIOA的對應電源域的電壓。
 
 #### 原型
 
@@ -381,86 +383,128 @@ int sysctl_dma_select(sysctl_dma_channel_t channel, sysctl_dma_select_t select)
 void sysctl_set_power_mode(sysctl_power_bank_t power_bank, sysctl_io_power_mode_t io_power_mode)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述               |  输入输出  |
+| 參數名稱         |   描述               |  輸入輸出  |
 | --------------- | -------------------- | --------- |
-| power\_bank     | IO电源域编号          | 输入       |
-| io\_power\_mode | 设置的电压值1.8V或3.3V| 输入       |
+| power\_bank     | IO電源域編號          | 輸入       |
+| io\_power\_mode | 設置的電壓值1.8V或3.3V| 輸入       |
 
 #### 返回值
 
-无。
+無。
 
 ### sysctl\_enable\_irq
 
 #### 描述
 
-使能系统中断，如果使用中断一定要开启系统中断。
+啟動系統中斷，如果使用中斷一定要開啟系統中斷。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void sysctl_enable_irq(void)
 ```
 
-#### 参数
+#### 參數
 
-无。
+無。
 
 #### 返回值
 
-无。
+無。
 
 ### sysctl\_disable\_irq
 
 #### 描述
 
-禁用系统中断。
+禁用系統中斷。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void sysctl_disable_irq(void)
 ```
 
-#### 参数
+#### 參數
 
-无。
+無。
 
 #### 返回值
 
-无。
+無。
 
-## 数据类型
+### sysctl\_get\_time\_us
 
-相关数据类型、数据结构定义如下：
+#### 描述
 
-- sysctl\_pll\_t：PLL编号。
+開機至今的時間（微秒）。
 
-- sysctl\_threshold\_t：设置分频值时各模块编号。
+#### 函數原型
 
-- sysctl\_clock\_select\_t：设置时钟源时各模块编号。
+```c
+uint64_t sysctl_get_time_us(void)
+```
 
-- sysctl\_clock\_t：各个模块的编号。
+#### 參數
 
-- sysctl\_reset\_t：复位时各个模块的编号。
+無。
 
-- sysctl\_dma\_channel\_t：DMA通道号。
+#### 返回值
 
-- sysctl\_dma\_select\_t：DMA请求源编号。
+開機至今的時間（微秒）。
 
-- sysctl\_power\_bank\_t：电源域编号。
+### sysctl\_get\_reset\_status
 
-- sysctl\_io\_power\_mode\_t：IO输出电压值。
+#### 描述
+
+獲取複位狀態。參見sysctl_reset_enum_status_t說明。
+
+#### 函數原型
+
+```c
+sysctl_reset_enum_status_t sysctl_get_reset_status(void)
+```
+
+#### 參數
+
+無。
+
+#### 返回值
+
+複位狀態。
+
+## 資料類型
+
+相關資料類型、資料結構定義如下：
+
+- sysctl\_pll\_t：PLL編號。
+
+- sysctl\_threshold\_t：設置分頻值時各模組編號。
+
+- sysctl\_clock\_select\_t：設置時脈源時各模組編號。
+
+- sysctl\_clock\_t：各個模組的編號。
+
+- sysctl\_reset\_t：複位時各個模組的編號。
+
+- sysctl\_dma\_channel\_t：DMA通道號。
+
+- sysctl\_dma\_select\_t：DMA請求源編號。
+
+- sysctl\_power\_bank\_t：電源域編號。
+
+- sysctl\_io\_power\_mode\_t：IO輸出電壓值。
+
+- sysctl\_reset\_enum\_status\_t：複位狀態。
 
 ### sysctl\_pll_t
 
 #### 描述
 
-PLL编号。
+PLL編號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _sysctl_pll_t
@@ -472,9 +516,9 @@ typedef enum _sysctl_pll_t
 } sysctl_pll_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称             |      描述             |
+| 成員名稱             |      描述             |
 | :------------------ | :-------------------- |
 |SYSCTL\_PLL0         | PLL0                  |
 |SYSCTL\_PLL1         | PLL1                  |
@@ -484,9 +528,9 @@ typedef enum _sysctl_pll_t
 
 #### 描述
 
-设置分频值各模块编号。
+設置分頻值各模組編號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _sysctl_threshold_t
@@ -522,9 +566,9 @@ typedef enum _sysctl_threshold_t
 } sysctl_threshold_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称                       |      描述             |
+| 成員名稱                       |      描述             |
 | :---------------------------- | :-------------------- |
 |SYSCTL\_THRESHOLD\_ACLK        | ACLK                  |
 |SYSCTL\_THRESHOLD\_APB0        | APB0                  |
@@ -558,9 +602,9 @@ typedef enum _sysctl_threshold_t
 
 #### 描述
 
-设置时钟源时各模块编号。
+設置時脈源時各模組編號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _sysctl_clock_select_t
@@ -579,9 +623,9 @@ typedef enum _sysctl_clock_select_t
 } sysctl_clock_select_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称                                  |      描述             |
+| 成員名稱                                  |      描述             |
 | :--------------------------------------- | :-------------------- |
 |SYSCTL\_CLOCK\_SELECT\_PLL0\_BYPASS       | PLL0\_BYPASS           |
 |SYSCTL\_CLOCK\_SELECT\_PLL1\_BYPASS       | PLL1\_BYPASS           |
@@ -592,15 +636,15 @@ typedef enum _sysctl_clock_select_t
 |SYSCTL\_CLOCK\_SELECT\_TIMER0             | TIMER0                |
 |SYSCTL\_CLOCK\_SELECT\_TIMER1             | TIMER1                |
 |SYSCTL\_CLOCK\_SELECT\_TIMER2             | TIMER2                |
-|SYSCTL\_CLOCK\_SELECT\_SPI3\_SAMPLE       | SPI3数据采样时钟沿选择  |
+|SYSCTL\_CLOCK\_SELECT\_SPI3\_SAMPLE       | SPI3資料採樣時脈沿選擇  |
 
 ### sysctl\_clock\_t
 
 #### 描述
 
-各个模块的编号。
+各個模組的編號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _sysctl_clock_t
@@ -650,9 +694,9 @@ typedef enum _sysctl_clock_t
 } sysctl_clock_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称                                |      描述        |
+| 成員名稱                                |      描述        |
 | :------------------------------------- | :--------------- |
 |SYSCTL\_CLOCK\_PLL0                     | PLL0             |
 |SYSCTL\_CLOCK\_PLL1                     | PLL1             |
@@ -694,15 +738,15 @@ typedef enum _sysctl_clock_t
 |SYSCTL\_CLOCK\_RTC                      | RTC              |
 |SYSCTL\_CLOCK\_ACLK                     | ACLK             |
 |SYSCTL\_CLOCK\_HCLK                     | HCLK             |
-|SYSCTL\_CLOCK\_IN0                      | 外部输入时钟IN0   |
+|SYSCTL\_CLOCK\_IN0                      | 外部輸入時脈IN0   |
 
 ### sysctl\_reset\_t
 
 #### 描述
 
-复位时各个模块的编号。
+複位時各個模組的編號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _sysctl_reset_t
@@ -740,11 +784,11 @@ typedef enum _sysctl_reset_t
 } sysctl_reset_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称                              |      描述         |
+| 成員名稱                              |      描述         |
 | :----------------------------------- | :---------------- |
-|SYSCTL\_RESET\_SOC                    | 芯片复位           |
+|SYSCTL\_RESET\_SOC                    | 晶片複位           |
 |SYSCTL\_RESET\_ROM                    | ROM               |
 |SYSCTL\_RESET\_DMA                    | DMA               |
 |SYSCTL\_RESET\_AI                     | AI                |
@@ -778,9 +822,9 @@ typedef enum _sysctl_reset_t
 
 #### 描述
 
-DMA通道号。
+DMA通道號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _sysctl_dma_channel_t
@@ -795,9 +839,9 @@ typedef enum _sysctl_dma_channel_t
 } sysctl_dma_channel_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称                               |      描述         |
+| 成員名稱                               |      描述         |
 | :------------------------------------ | :---------------- |
 |SYSCTL\_DMA\_CHANNEL\_0                | DMA通道0           |
 |SYSCTL\_DMA\_CHANNEL\_1                | DMA通道1           |
@@ -810,9 +854,9 @@ typedef enum _sysctl_dma_channel_t
 
 #### 描述
 
-DMA请求源编号。
+DMA請求源編號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _sysctl_dma_select_t
@@ -852,49 +896,49 @@ typedef enum _sysctl_dma_select_t
 } sysctl_dma_select_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称                                          |      描述         |
+| 成員名稱                                          |      描述         |
 | :------------------------------------------------ | :---------------- |
 |SYSCTL\_DMA\_SELECT\_SSI0\_RX\_REQ                 | SPI0接收          |
-|SYSCTL\_DMA\_SELECT\_SSI0\_TX\_REQ                 | SPI0发送          |
+|SYSCTL\_DMA\_SELECT\_SSI0\_TX\_REQ                 | SPI0發送          |
 |SYSCTL\_DMA\_SELECT\_SSI1\_RX\_REQ                 | SPI1接收          |
-|SYSCTL\_DMA\_SELECT\_SSI1\_TX\_REQ                 | SPI1发送          |
+|SYSCTL\_DMA\_SELECT\_SSI1\_TX\_REQ                 | SPI1發送          |
 |SYSCTL\_DMA\_SELECT\_SSI2\_RX\_REQ                 | SPI2接收          |
-|SYSCTL\_DMA\_SELECT\_SSI2\_TX\_REQ                 | SPI2发送          |
+|SYSCTL\_DMA\_SELECT\_SSI2\_TX\_REQ                 | SPI2發送          |
 |SYSCTL\_DMA\_SELECT\_SSI3\_RX\_REQ                 | SPI3接收          |
-|SYSCTL\_DMA\_SELECT\_SSI3\_TX\_REQ                 | SPI3发送          |
+|SYSCTL\_DMA\_SELECT\_SSI3\_TX\_REQ                 | SPI3發送          |
 |SYSCTL\_DMA\_SELECT\_I2C0\_RX\_REQ                 | I2C0接收          |
-|SYSCTL\_DMA\_SELECT\_I2C0\_TX\_REQ                 | I2C0发送          |
+|SYSCTL\_DMA\_SELECT\_I2C0\_TX\_REQ                 | I2C0發送          |
 |SYSCTL\_DMA\_SELECT\_I2C1\_RX\_REQ                 | I2C1接收          |
-|SYSCTL\_DMA\_SELECT\_I2C1\_TX\_REQ                 | I2C1发送          |
+|SYSCTL\_DMA\_SELECT\_I2C1\_TX\_REQ                 | I2C1發送          |
 |SYSCTL\_DMA\_SELECT\_I2C2\_RX\_REQ                 | I2C2接收          |
-|SYSCTL\_DMA\_SELECT\_I2C2\_TX\_REQ                 | I2C2发送          |
+|SYSCTL\_DMA\_SELECT\_I2C2\_TX\_REQ                 | I2C2發送          |
 |SYSCTL\_DMA\_SELECT\_UART1\_RX\_REQ                | UART1接收         |
-|SYSCTL\_DMA\_SELECT\_UART1\_TX\_REQ                | UART1发送         |
+|SYSCTL\_DMA\_SELECT\_UART1\_TX\_REQ                | UART1發送         |
 |SYSCTL\_DMA\_SELECT\_UART2\_RX\_REQ                | UART2接收         |
-|SYSCTL\_DMA\_SELECT\_UART2\_TX\_REQ                | UART2发送         |
+|SYSCTL\_DMA\_SELECT\_UART2\_TX\_REQ                | UART2發送         |
 |SYSCTL\_DMA\_SELECT\_UART3\_RX\_REQ                | UART3接收         |
-|SYSCTL\_DMA\_SELECT\_UART3\_TX\_REQ                | UART3发送         |
+|SYSCTL\_DMA\_SELECT\_UART3\_TX\_REQ                | UART3發送         |
 |SYSCTL\_DMA\_SELECT\_AES\_REQ                      | AES               |
 |SYSCTL\_DMA\_SELECT\_SHA\_RX\_REQ                  | SHA接收           |
 |SYSCTL\_DMA\_SELECT\_AI\_RX\_REQ                   | AI接收            |
 |SYSCTL\_DMA\_SELECT\_FFT\_RX\_REQ                  | FFT接收           |
-|SYSCTL\_DMA\_SELECT\_FFT\_TX\_REQ                  | FFT发送           |
-|SYSCTL\_DMA\_SELECT\_I2S0\_TX\_REQ                 | I2S0发送          |
+|SYSCTL\_DMA\_SELECT\_FFT\_TX\_REQ                  | FFT發送           |
+|SYSCTL\_DMA\_SELECT\_I2S0\_TX\_REQ                 | I2S0發送          |
 |SYSCTL\_DMA\_SELECT\_I2S0\_RX\_REQ                 | I2S0接收          |
-|SYSCTL\_DMA\_SELECT\_I2S1\_TX\_REQ                 | I2S1发送          |
+|SYSCTL\_DMA\_SELECT\_I2S1\_TX\_REQ                 | I2S1發送          |
 |SYSCTL\_DMA\_SELECT\_I2S1\_RX\_REQ                 | I2S1接收          |
-|SYSCTL\_DMA\_SELECT\_I2S2\_TX\_REQ                 | I2S2发送          |
+|SYSCTL\_DMA\_SELECT\_I2S2\_TX\_REQ                 | I2S2發送          |
 |SYSCTL\_DMA\_SELECT\_I2S2\_RX\_REQ                 | I2S2接收          |
 
 ### sysctl\_power\_bank\_t
 
 #### 描述
 
-电源域编号。
+電源域編號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _sysctl_power_bank
@@ -911,26 +955,26 @@ typedef enum _sysctl_power_bank
 } sysctl_power_bank_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称                              |      描述             |
+| 成員名稱                              |      描述             |
 | :----------------------------------- | :-------------------- |
-|SYSCTL\_POWER\_BANK0                  | 电源域0，控制IO0-IO5   |
-|SYSCTL\_POWER\_BANK1                  | 电源域1，控制IO6-IO11  |
-|SYSCTL\_POWER\_BANK2                  | 电源域2，控制IO12-IO17 |
-|SYSCTL\_POWER\_BANK3                  | 电源域3，控制IO18-IO23 |
-|SYSCTL\_POWER\_BANK4                  | 电源域4，控制IO24-IO29 |
-|SYSCTL\_POWER\_BANK5                  | 电源域5，控制IO30-IO35 |
-|SYSCTL\_POWER\_BANK6                  | 电源域6，控制IO36-IO41 |
-|SYSCTL\_POWER\_BANK7                  | 电源域7，控制IO42-IO47 |
+|SYSCTL\_POWER\_BANK0                  | 電源域0，控制IO0-IO5   |
+|SYSCTL\_POWER\_BANK1                  | 電源域1，控制IO6-IO11  |
+|SYSCTL\_POWER\_BANK2                  | 電源域2，控制IO12-IO17 |
+|SYSCTL\_POWER\_BANK3                  | 電源域3，控制IO18-IO23 |
+|SYSCTL\_POWER\_BANK4                  | 電源域4，控制IO24-IO29 |
+|SYSCTL\_POWER\_BANK5                  | 電源域5，控制IO30-IO35 |
+|SYSCTL\_POWER\_BANK6                  | 電源域6，控制IO36-IO41 |
+|SYSCTL\_POWER\_BANK7                  | 電源域7，控制IO42-IO47 |
 
 ### sysctl\_io\_power\_mode\_t
 
 #### 描述
 
-IO输出电压值。
+IO輸出電壓值。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _sysctl_io_power_mode
@@ -940,9 +984,37 @@ typedef enum _sysctl_io_power_mode
 } sysctl_io_power_mode_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称                            |      描述             |
+| 成員名稱                            |      描述             |
 | :--------------------------------- | :-------------------- |
-|SYSCTL\_POWER\_V33                  | 设置为3.3V             |
-|SYSCTL\_POWER\_V18                  | 设置为1.8V             |
+|SYSCTL\_POWER\_V33                  | 設置為3.3V             |
+|SYSCTL\_POWER\_V18                  | 設置為1.8V             |
+
+### sysctl\_reset\_enum\_status\_t
+
+#### 描述
+
+複位狀態。
+
+#### 定義
+
+```c
+typedef enum _sysctl_reset_enum_status
+{
+    SYSCTL_RESET_STATUS_HARD,
+    SYSCTL_RESET_STATUS_SOFT,
+    SYSCTL_RESET_STATUS_WDT0,
+    SYSCTL_RESET_STATUS_WDT1,
+    SYSCTL_RESET_STATUS_MAX,
+} sysctl_reset_enum_status_t;
+```
+
+#### 成員
+
+| 成員名稱                                     |      描述             |
+| :------------------------------------------ | :-------------------- |
+|SYSCTL\_RESET\_STATUS\_HARD                  | 硬體複位，重新上電或觸發reset腳位 |
+|SYSCTL\_RESET\_STATUS\_SOFT                  | 軟體複位               |
+|SYSCTL\_RESET\_STATUS\_WDT0                  | 看門狗0複位            |
+|SYSCTL\_RESET\_STATUS\_WDT1                  | 看門狗1複位            |

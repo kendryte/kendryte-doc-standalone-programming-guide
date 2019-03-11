@@ -1,21 +1,21 @@
-# 集成电路内置总线(I²C)
+# 集成電路內置匯流排(I²C)
 
 ## 概述
 
-I2C 总线用于和多个外部设备进行通信。多个外部设备可以共用一个 I2C 总线。
+I2C 匯流排用於和多個外部裝置進行通信。多個外部裝置可以共用一個 I2C 匯流排。
 
 ## 功能描述
 
-I2C 模块具有以下功能：
+I2C 模組具有以下功能：
 
-- 独立的 I2C 设备封装外设相关参数
-- 自动处理多设备总线争用
+- 獨立的 I2C 裝置封裝外部裝置相關參數
+- 自動處理多裝置匯流排爭用
 
-## API参考
+## API參考
 
-对应的头文件 `i2c.h`
+對應的頭文件 `i2c.h`
 
-为用户提供以下接口
+為用戶提供以下介面
 
 - i2c\_init
 
@@ -33,193 +33,193 @@ I2C 模块具有以下功能：
 
 #### 描述
 
-配置 I²C 器件从地址、寄存器位宽度和 I²C 速率。
+配置 I²C 器件從地址、寄存器位寬度和 I²C 速率。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void i2c_init(i2c_device_number_t i2c_num, uint32_t slave_address, uint32_t address_width, uint32_t i2c_clk)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| i2c\_num | I²C号 | 输入 |
-| slave\_address | I²C 器件从地址 | 输入|
-| address\_width | I²C 器件寄存器宽度(7或10) | 输入
-| i2c\_clk | I²C 速率 (Hz) | 输入 |
+| i2c\_num | I²C號 | 輸入 |
+| slave\_address | I²C 器件從地址 | 輸入|
+| address\_width | I²C 器件寄存器寬度(7或10) | 輸入
+| i2c\_clk | I²C 速率 (Hz) | 輸入 |
 
 #### 返回值
 
-无。
+無。
 
 ### i2c\_init\_as\_slave
 
 #### 描述
 
-配置 I²C 为从模式。
+配置 I²C 為從模式。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void i2c_init_as_slave(i2c_device_number_t i2c_num, uint32_t slave_address, uint32_t address_width, const i2c_slave_handler_t *handler)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------   | :-----     | :----:     |
-| i2c\_num | I²C号 | 输入 |
-| slave\_address | I²C 从模式的地址 | 输入|
-| address\_width | I²C 器件寄存器宽度(7或10) | 输入
-| handler | I²C 从模式的中断处理函数 | 输入 |
+| i2c\_num | I²C號 | 輸入 |
+| slave\_address | I²C 從模式的地址 | 輸入|
+| address\_width | I²C 器件寄存器寬度(7或10) | 輸入
+| handler | I²C 從模式的中斷處理函數 | 輸入 |
 
 #### 返回值
 
-无。
+無。
 
 ### i2c\_send\_data
 
 #### 描述
 
-写数据。
+寫資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int i2c_send_data(i2c_device_number_t i2c_num, const uint8_t *send_buf, size_t send_buf_len)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称     |   描述     |  输入输出  |
+| 參數名稱     |   描述     |  輸入輸出  |
 | :--------:   | :-----     | :----:     |
-| i2c\_num | I²C号 | 输入 |
-| send\_buf | 待传输数据 | 输入 |
-| send\_buf\_len | 待传输数据长度 | 输入 |
+| i2c\_num | I²C號 | 輸入 |
+| send\_buf | 待傳輸資料 | 輸入 |
+| send\_buf\_len | 待傳輸資料長度 | 輸入 |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :----  | :----|
 | 0      | 成功 |
-| 非0    | 失败 |
+| 非0    | 失敗 |
 
 ### i2c\_send\_data\_dma
 
 #### 描述
 
-通过DMA写数据。
+通過DMA寫資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void i2c_send_data_dma(dmac_channel_number_t dma_channel_num, i2c_device_number_t i2c_num, const uint8_t *send_buf, size_t send_buf_len)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称         |   描述         |  输入输出  |
+| 參數名稱         |   描述         |  輸入輸出  |
 | :-------------- | :------------- | :-------- |
-| dma\_channel\_num | 使用的dma通道号 | 输入       |
-| i2c\_num        | I²C号          | 输入       |
-| send\_buf       | 待传输数据      | 输入       |
-| send\_buf\_len  | 待传输数据长度  | 输入       |
+| dma\_channel\_num | 使用的dma通道號 | 輸入       |
+| i2c\_num        | I²C號          | 輸入       |
+| send\_buf       | 待傳輸資料      | 輸入       |
+| send\_buf\_len  | 待傳輸資料長度  | 輸入       |
 
 #### 返回值
 
-无
+無
 
 ### i2c\_recv\_data
 
 #### 描述
 
-通过CPU读数据。
+通過CPU讀資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 int i2c_recv_data(i2c_device_number_t i2c_num, const uint8_t *send_buf, size_t send_buf_len, uint8_t *receive_buf, size_t receive_buf_len)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称               |   描述       |  输入输出  |
+| 參數名稱               |   描述       |  輸入輸出  |
 | :-------------------- | :----------- | :-------- |
-| i2c\_num              | I²C 总线号    | 输入      |
-| send\_buf             | 待传输数据，一般情况是i2c外设的寄存器，如果没有设置为NULL | 输入 |
-| send\_buf\_len        | 待传输数据长度，如果没有则写0 | 输入 |
-| receive\_buf          | 接收数据内存   | 输出      |
-| receive\_buf\_len     | 接收数据的长度 | 输入      |
+| i2c\_num              | I²C 匯流排號    | 輸入      |
+| send\_buf             | 待傳輸資料，一般情況是i2c外部裝置的寄存器，如果沒有設置為NULL | 輸入 |
+| send\_buf\_len        | 待傳輸資料長度，如果沒有則寫0 | 輸入 |
+| receive\_buf          | 接收資料內部儲存   | 輸出      |
+| receive\_buf\_len     | 接收資料的長度 | 輸入      |
 
 #### 返回值
 
 | 返回值 | 描述 |
 | :---- | :----|
 | 0     | 成功 |
-| 非0   | 失败 |
+| 非0   | 失敗 |
 
 ### i2c\_recv\_data\_dma
 
 #### 描述
 
-通过dma读数据。
+通過dma讀資料。
 
-#### 函数原型
+#### 函數原型
 
 ```c
 void i2c_recv_data_dma(dmac_channel_number_t dma_send_channel_num, dmac_channel_number_t dma_receive_channel_num,
     i2c_device_number_t i2c_num, const uint8_t *send_buf, size_t send_buf_len, uint8_t *receive_buf, size_t receive_buf_len)
 ```
 
-#### 参数
+#### 參數
 
-| 参数名称                 |   描述              | 输入输出  |
+| 參數名稱                 |   描述              | 輸入輸出  |
 | :---------------------- | :------------------ | :------- |
-| dma\_send\_channel\_num    | 发送数据使用的dma通道 | 输入     |
-| dma\_receive\_channel\_num | 接收数据使用的dma通道 | 输入     |
-| i2c\_num                | I²C 总线号           | 输入     |
-| send\_buf               | 待传输数据，一般情况是i2c外设的寄存器，如果没有设置为NULL | 输入 |
-| send\_buf\_len          | 待传输数据长度，如果没有则写0 | 输入 |
-| receive\_buf            | 接收数据内存         | 输出     |
-| receive\_buf\_len       | 接收数据的长度       | 输入      |
+| dma\_send\_channel\_num    | 發送資料使用的dma通道 | 輸入     |
+| dma\_receive\_channel\_num | 接收資料使用的dma通道 | 輸入     |
+| i2c\_num                | I²C 匯流排號           | 輸入     |
+| send\_buf               | 待傳輸資料，一般情況是i2c外部裝置的寄存器，如果沒有設置為NULL | 輸入 |
+| send\_buf\_len          | 待傳輸資料長度，如果沒有則寫0 | 輸入 |
+| receive\_buf            | 接收資料內部儲存         | 輸出     |
+| receive\_buf\_len       | 接收資料的長度       | 輸入      |
 
 #### 返回值
 
-无
+無
 
-### 举例
+### 舉例
 
 ```c
-/* i2c外设地址是0x32, 7位地址，速率200K */
+/* i2c外部裝置地址是0x32, 7位地址，速率200K */
 i2c_init(I2C_DEVICE_0, 0x32, 7, 200000);
 uint8_t reg = 0;
 uint8_t data_buf[2] = {0x00,0x01}
 data_buf[0] = reg;
-/* 向0寄存器写0x01 */
+/* 向0寄存器寫0x01 */
 i2c_send_data(I2C_DEVICE_0, data_buf, 2);
 i2c_send_data_dma(DMAC_CHANNEL0, I2C_DEVICE_0, data_buf, 4);
-/* 从0寄存器读取1字节数据 */
+/* 從0寄存器讀取1位元組資料 */
 i2c_receive_data(I2C_DEVICE_0, &reg, 1, data_buf, 1);
 i2c_receive_data_dma(DMAC_CHANNEL0, DMAC_CHANNEL1, I2C_DEVICE_0,&reg, 1, data_buf, 1);
 ```
 
-## 数据类型
+## 資料類型
 
-相关数据类型、数据结构定义如下：
+相關資料類型、資料結構定義如下：
 
-- i2c\_device\_number\_t：i2c号。
+- i2c\_device\_number\_t：i2c號。
 
-- i2c\_slave\_handler\_t：i2c从模式的中断处理函数句柄
+- i2c\_slave\_handler\_t：i2c從模式的中斷處理函數句柄
 
 ### i2c\_device\_number_t
 
 #### 描述
 
-i2c编号。
+i2c編號。
 
-#### 定义
+#### 定義
 
 ```c
 typedef enum _i2c_device_number
@@ -235,9 +235,9 @@ typedef enum _i2c_device_number
 
 #### 描述
 
-i2c从模式的中断处理函数句柄。根据不同的中断状态执行相应的函数操作。
+i2c從模式的中斷處理函數句柄。根據不同的中斷狀態執行相應的函數操作。
 
-#### 定义
+#### 定義
 
 ```c
 typedef struct _i2c_slave_handler
@@ -248,9 +248,9 @@ typedef struct _i2c_slave_handler
 } i2c_slave_handler_t;
 ```
 
-#### 成员
+#### 成員
 
-| 成员名称 | 描述 |
+| 成員名稱 | 描述 |
 | :----- | :--- |
 | I2C\_DEVICE\_0 | I2C 0 |
 | I2C\_DEVICE\_1 | I2C 1 |
