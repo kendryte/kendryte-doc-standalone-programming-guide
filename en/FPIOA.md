@@ -353,9 +353,9 @@ typedef struct _fpioa_io_config
 | resv1          | Reserved bits                                                              |
 | pad \ _di      | Current pin input value                                                    |
 
-### 驱动能力选择表
+### Driving strength selection table
 
-#### 低电平Input电流
+#### Low level sinking (input) current
 
 | ds  | Min(mA) | Typ(mA) | Max(mA) |
 | --- | ------- | ------- | ------- |
@@ -368,7 +368,7 @@ typedef struct _fpioa_io_config
 | 6   | 12.4    | 20.9    | 31.8    |
 | 7   | 13.9    | 23.4    | 35.5    |
 
-#### 高电平Output电流
+#### High level sourcing (output) current
 
 | ds  | Min(mA) | Typ(mA) | Max(mA) |
 | --- | ------- | ------- | ------- |

@@ -739,7 +739,7 @@ typedef enum _sysctl_reset_t
 
 |     Element name      | Description |
 | :-------------------- | :---------- |
-| SYSCTL\_RESET\_SOC    | 芯片复位    |
+| SYSCTL\_RESET\_SOC    | SoC         |
 | SYSCTL\_RESET\_ROM    | ROM         |
 | SYSCTL\_RESET\_DMA    | DMA         |
 | SYSCTL\_RESET\_AI     | AI          |

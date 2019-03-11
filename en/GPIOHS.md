@@ -69,7 +69,7 @@ void gpiohs_set_pin(uint8_t pin, gpio_pin_value_t value)
 | Parameter name | Description | Input or output |
 | :------------- | :---------- | :-------------- |
 | pin            | GPIO pin    | Input           |
-| value          | GPIO值      | Input           |
+| value          | GPIO value  | Input           |
 
 #### Return value
 
