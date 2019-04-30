@@ -193,8 +193,8 @@ void irq_time(void)
 plic_init();
 timer_init(TIMER_DEVICE_0);
 timer_set_interval(TIMER_DEVICE_0, TIMER_CHANNEL_0, 1e9);
-timer_set_irq(TIMER_CHANNEL_0, TIMER_CHANNEL_0, irq_time, 1);
-timer_set_enable(TIMER_CHANNEL_0, TIMER_CHANNEL_0, 1);
+timer_set_irq(TIMER_DEVICE_0, TIMER_CHANNEL_0, irq_time, 1);
+timer_set_enable(TIMER_DEVICE_0, TIMER_CHANNEL_0, 1);
 sysctl_enable_irq();
 ```
 
