@@ -197,10 +197,10 @@ int rtc_tick_irq_register(bool is_single_shot, rtc_tick_interrupt_mode_t mode, p
 
 #### 返回值
 
-| 返回值 | 描述 |
+| 返回值 | 描述  |
 | :----  | :----|
-| 0      | 成功 |
-| 非0    | 失败 |
+| 0      | 成功  |
+| 非0    | 失败  |
 
 ### rtc\_tick\_irq\_unregister
 
