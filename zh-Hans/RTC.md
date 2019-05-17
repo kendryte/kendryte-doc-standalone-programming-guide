@@ -173,7 +173,6 @@ int rtc_alarm_get(int *year, int *month, int *day, int *hour, int *minute, int *
 | 0      | 成功 |
 | 非0    | 失败 |
 
-
 ### rtc\_tick\_irq\_register
 
 #### 描述
@@ -218,6 +217,7 @@ void rtc_tick_irq_unregister(void);
 #### 参数
 
 无。
+
 #### 返回值
 
 无。
@@ -266,6 +266,7 @@ void rtc_alarm_irq_unregister(void)
 #### 参数
 
 无。
+
 #### 返回值
 
 无。
