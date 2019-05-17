@@ -40,6 +40,20 @@ UART 模块具有以下功能：
 
 - uart\_irq\_deregister
 
+- uart\_set\_work\_mode
+
+- uart\_set\_rede\_polarity
+
+- uart\_set\_rede\_enable
+
+- uart\_set\_tat
+
+- uart\_set\_det
+
+- uart\_debug\_init
+
+- uart\_handle\_data\_dma
+
 ### uart\_init
 
 #### 描述
@@ -301,6 +315,171 @@ void uart_irq_deregister(uart_device_number_t channel, uart_interrupt_mode_t int
 
 无。
 
+### uart\_set\_work\_mode
+
+#### 描述
+
+设置uart工作模式。有四种模式：普通uart、红外、RS485全双工、RS485半双工。
+
+#### 函数原型
+
+```c
+void uart_set_work_mode(uart_device_number_t uart_channel, uart_work_mode_t work_mode)
+```
+
+#### 参数
+
+| 参数名称          |   描述           |  输入输出  |
+| ---------------- | ---------------  | --------- |
+| channel          | UART 编号        | 输入       |
+| work\_mode       | 工作模式，详细见uart_work_mode_t结构体说明          | 输入       |
+
+#### 返回值
+
+无。
+
+### uart\_set\_rede\_polarity
+
+#### 描述
+
+设置RS485 re de 管脚有效时的极性。
+
+#### 函数原型
+
+```c
+void uart_set_rede_polarity(uart_device_number_t uart_channel, uart_rs485_rede_t rede, uart_polarity_t polarity)
+```
+
+#### 参数
+
+| 参数名称          |   描述           |  输入输出  |
+| ---------------- | ---------------  | --------- |
+| uart\_channel    | UART 编号        | 输入       |
+| rede             | re 或de 管脚     | 输入       |
+| polarity         | 有效时极性        | 输入       |
+
+#### 返回值
+
+无。
+
+### uart\_set\_rede\_enable
+
+#### 描述
+
+使能 re de管脚，主要用在rs485全双工模式，re和de必须手动控制。单双工模式不用调用该函数，单双工时硬件会自动设置re de。
+
+#### 函数原型
+
+```c
+void uart_set_rede_enable(uart_device_number_t uart_channel, uart_rs485_rede_t rede, bool enable)
+```
+
+#### 参数
+
+| 参数名称          |   描述           |  输入输出  |
+| ---------------- | ---------------  | --------- |
+| uart\_channel    | UART 编号        | 输入       |
+| rede             | re 或de 管脚     | 输入       |
+| enable           | 是否有效         | 输入       |
+
+#### 返回值
+
+无。
+
+### uart\_set\_tat
+
+#### 描述
+
+配置re de互相的时间间隔，这个与外部的485模块有关。
+
+#### 函数原型
+
+```c
+void uart_set_tat(uart_device_number_t uart_channel, uart_tat_mode_t tat_mode, size_t time)
+```
+
+#### 参数
+
+| 参数名称          |   描述           |  输入输出  |
+| ---------------- | ---------------  | --------- |
+| uart\_channel    | UART 编号        | 输入       |
+| tat\_mode        | 转换模式re到de或de到re     | 输入       |
+| time             | 时间（纳秒）      | 输入       |
+
+#### 返回值
+
+无。
+
+### uart\_set\_det
+
+#### 描述
+
+设置de 有效无效转换时数据的时间延时。
+
+#### 函数原型
+
+```c
+void uart_set_det(uart_device_number_t uart_channel, uart_det_mode_t det_mode, size_t time)
+```
+
+#### 参数
+
+| 参数名称          |   描述           |  输入输出  |
+| ---------------- | ---------------  | --------- |
+| uart\_channel    | UART 编号        | 输入       |
+| det\_mode        | 转换模式，de无效转有效或有效转无效     | 输入       |
+| time             | 时间（纳秒）      | 输入       |
+
+#### 返回值
+
+无。
+
+### uart\_debug\_init
+
+#### 描述
+
+配置调试串口。系统默认使用UART3做为调试串口，调用该函数用户可以自定义使用哪个uart做为调试串口，如果使用UART1或UART2需要使用fpioa设置管脚。因此调试脚不局限于fpioa4、5。
+
+#### 函数原型
+
+```c
+void uart_debug_init(uart_device_number_t uart_channel)
+```
+
+#### 参数
+
+| 参数名称          |   描述           |  输入输出  |
+| ---------------- | ---------------  | --------- |
+| uart\_channel    | UART 编号，-1则默认使用上次设置的UART       | 输入       |
+
+#### 返回值
+
+无。
+
+### uart\_handle\_data\_dma
+
+#### 描述
+
+UART通过DMA传输数据。
+
+#### 函数原型
+
+```c
+void uart_handle_data_dma(uart_device_number_t uart_channel ,uart_data_t data, plic_interrupt_t *cb)
+```
+
+#### 参数
+
+| 参数名称                 |   描述              | 输入输出  |
+| :---------------------- | :------------------ | :------- |
+| uart\_channel           | UART 编号           | 输入     |
+| data                    | UART数据相关的参数，详见i2c_data_t说明 | 输入 |
+| cb                      | dma中断回调函数，如果设置为NULL则为阻塞模式，直至传输完毕后退出函数      | 输入 |
+
+#### 返回值
+
+无
+
 ### 举例
 
 ```c
@@ -328,6 +507,8 @@ while(uart_receive_data(UART_DEVICE_1, &recv, 1))
 - uart\_interrupt\_mode\_t：UART中断类型，接收或发送。
 - uart\_send\_trigger\_t：发送中断或DMA触发FIFO深度。
 - uart\_receive\_trigger\_t：接收中断或DMA触发FIFO深度。
+- uart\_data\_t：使用dma传输时数据相关的参数。
+- uart\_interrupt\_mode\_t：传输模式，发送或接收。
 
 ### uart\_device\_number\_t
 
@@ -508,3 +689,59 @@ typedef enum _uart_receive_trigger
 | UART\_RECEIVE\_FIFO\_4   | FIFO剩余2字节  |
 | UART\_RECEIVE\_FIFO\_8   | FIFO剩余4字节  |
 | UART\_RECEIVE\_FIFO\_14  | FIFO剩余8字节  |
+
+### uart\_data\_t
+
+#### 描述
+
+使用dma传输时数据相关的参数。
+
+#### 定义
+
+```c
+typedef struct _uart_data_t
+{
+    dmac_channel_number_t tx_channel;
+    dmac_channel_number_t rx_channel;
+    uint32_t *tx_buf;
+    size_t tx_len;
+    uint32_t *rx_buf;
+    size_t rx_len;
+    uart_interrupt_mode_t transfer_mode;
+} uart_data_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :----------------------------------- | :------------------------------------------ |
+| tx\_channel                           | 发送时使用的DMA通道号                         |
+| rx\_channel                           | 发送时使用的DMA通道号                         |
+| tx\_buf                               | 发送的数据                                    |
+| tx\_len                               | 发送数据的长度                                |
+| rx\_buf                               | 接收的数据                                    |
+| rx\_len                               | 接收数据长度                                  |
+| transfer\_mode                        | 传输模式，发送或接收                           |
+
+### uart\_interrupt\_mode\_t
+
+#### 描述
+
+UART数据传输模式。
+
+#### 定义
+
+```c
+typedef enum _uart_interrupt_mode
+{
+    UART_SEND = 1,
+    UART_RECEIVE = 2,
+} uart_interrupt_mode_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :----------------------------------- | :------------------------------------------ |
+| UART_SEND                           | 发送                                         |
+| UART_RECEIVE                        | 接收                                         |

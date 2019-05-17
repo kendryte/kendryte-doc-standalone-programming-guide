@@ -29,6 +29,8 @@ I2C 模块具有以下功能：
 
 - i2c\_recv\_data\_dma
 
+- i2c\_handle\_data\_dma
+
 ### i2c\_init
 
 #### 描述
@@ -189,6 +191,30 @@ void i2c_recv_data_dma(dmac_channel_number_t dma_send_channel_num, dmac_channel_
 
 无
 
+### i2c\_handle\_data\_dma
+
+#### 描述
+
+I2C 使用dma传输数据。
+
+##### 函数原型
+
+```c
+void i2c_handle_data_dma(i2c_device_number_t i2c_num, i2c_data_t data, plic_interrupt_t *cb);
+```
+
+#### 参数
+
+| 参数名称                 |   描述              | 输入输出  |
+| :---------------------- | :------------------ | :------- |
+| i2c\_num                | I²C 总线号           | 输入     |
+| data                    | I2C数据相关的参数，详见i2c_data_t说明 | 输入 |
+| cb                      | dma中断回调函数，如果设置为NULL则为阻塞模式，直至传输完毕后退出函数      | 输入 |
+
+#### 返回值
+
+无
+
 ### 举例
 
 ```c
@@ -212,6 +238,10 @@ i2c_receive_data_dma(DMAC_CHANNEL0, DMAC_CHANNEL1, I2C_DEVICE_0,&reg, 1, data_bu
 - i2c\_device\_number\_t：i2c号。
 
 - i2c\_slave\_handler\_t：i2c从模式的中断处理函数句柄
+
+- i2c\_data\_t：使用dma传输时数据相关的参数。
+
+- i2c\_transfer\_mode\_t：使用DMA传输数据的模式，发送或接收。
 
 ### i2c\_device\_number_t
 
@@ -255,3 +285,59 @@ typedef struct _i2c_slave_handler
 | I2C\_DEVICE\_0 | I2C 0 |
 | I2C\_DEVICE\_1 | I2C 1 |
 | I2C\_DEVICE\_2 | I2C 2 |
+
+### i2c\_data\_t
+
+#### 描述
+
+使用dma传输时数据相关的参数。
+
+#### 定义
+
+```c
+typedef struct _i2c_data_t
+{
+    dmac_channel_number_t tx_channel;
+    dmac_channel_number_t rx_channel;
+    uint32_t *tx_buf;
+    size_t tx_len;
+    uint32_t *rx_buf;
+    size_t rx_len;
+    i2c_transfer_mode_t transfer_mode;
+} i2c_data_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :----------------------------------- | :------------------------------------------ |
+| tx\_channel                           | 发送时使用的DMA通道号                         |
+| rx\_channel                           | 发送时使用的DMA通道号                         |
+| tx\_buf                               | 发送的数据                                    |
+| tx\_len                               | 发送数据的长度                                |
+| rx\_buf                               | 接收的数据                                    |
+| rx\_len                               | 接收数据长度                                  |
+| transfer\_mode                        | 传输模式，发送或接收                           |
+
+### i2c\_transfer\_mode\_t
+
+#### 描述
+
+使用DMA传输数据的模式，发送或接收。
+
+#### 定义
+
+```c
+typedef enum _i2c_transfer_mode
+{
+    I2C_SEND,
+    I2C_RECEIVE,
+} i2c_transfer_mode_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :----------------------------------- | :------------------------------------------ |
+| I2C\_SEND                            | 发送                                        |
+| I2C\_RECEIVE                         | 接收                                        |

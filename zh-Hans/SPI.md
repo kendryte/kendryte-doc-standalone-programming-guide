@@ -46,6 +46,8 @@ SPI 模块具有以下功能：
 
 - spi\_set\_clk\_rate
 
+- spi\_handle\_data\_dma
+
 ### spi\_init
 
 #### 描述
@@ -373,6 +375,30 @@ void spi_send_data_normal_dma(dmac_channel_number_t channel_num, spi_device_num_
 
 无
 
+### spi\_handle\_data\_dma
+
+#### 描述
+
+SPI 通过DMA传输数据。
+
+#### 函数原型
+
+```c
+void spi_handle_data_dma(spi_device_num_t spi_num, spi_chip_select_t chip_select, spi_data_t data, plic_interrupt_t *cb)
+```
+
+#### 参数
+
+| 参数名称                 |   描述              | 输入输出  |
+| :---------------------- | :------------------ | :------- |
+| spi\_num                | SPI号               | 输入     |
+| data                    | SPI数据相关的参数，详见spi_data_t说明 | 输入 |
+| cb                      | dma中断回调函数，如果设置为NULL则为阻塞模式，直至传输完毕后退出函数      | 输入 |
+
+#### 返回值
+
+无
+
 ### 举例
 
 ```c
@@ -445,6 +471,8 @@ uint32_t spi_set_clk_rate(spi_device_num_t spi_num, uint32_t spi_clk)
 - spi\_mode\_t：SPI 模式。
 - spi\_frame\_format\_t：SPI 帧格式。
 - spi\_instruction\_address\_trans\_mode\_t：SPI 指令和地址的传输模式。
+- spi\_data\_t：使用dma传输时数据相关的参数。
+- spi\_transfer\_mode\_t：SPI传输的方式。
 
 ### spi\_device\_num\_t
 
@@ -552,3 +580,65 @@ typedef enum _spi_instruction_address_trans_mode
 | SPI\_AITM\_STANDARD          | 均使用标准帧格式     |
 | SPI\_AITM\_ADDR\_STANDARD    | 指令使用配置的值，地址使用标准帧格式 |
 | SPI\_AITM\_AS\_FRAME\_FORMAT | 均使用配置的值     |
+
+### spi\_data\_t
+
+#### 描述
+
+使用dma传输时数据相关的参数。
+
+#### 定义
+
+```c
+typedef struct _spi_data_t
+{
+    dmac_channel_number_t tx_channel;
+    dmac_channel_number_t rx_channel;
+    uint32_t *tx_buf;
+    size_t tx_len;
+    uint32_t *rx_buf;
+    size_t rx_len;
+    spi_transfer_mode_t transfer_mode;
+    bool fill_mode;
+} spi_data_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :----------------------------------- | :------------------------------------------ |
+| tx\_channel                           | 发送时使用的DMA通道号                         |
+| rx\_channel                           | 发送时使用的DMA通道号                         |
+| tx\_buf                               | 发送的数据                                    |
+| tx\_len                               | 发送数据的长度                                |
+| rx\_buf                               | 接收的数据                                    |
+| rx\_len                               | 接收数据长度                                  |
+| transfer\_mode                        | 传输模式，发送或接收                           |
+| fill\_mode                            | 是否以填充方式传输数据，此种情况下DMA传输的源地址地址不会自增加 |
+
+### spi\_transfer\_mode\_t
+
+#### 描述
+
+SPI传输的方式。
+
+#### 定义
+
+```c
+typedef enum _spi_transfer_mode
+{
+    SPI_TMOD_TRANS_RECV,
+    SPI_TMOD_TRANS,
+    SPI_TMOD_RECV,
+    SPI_TMOD_EEROM
+} spi_transfer_mode_t;
+```
+
+#### 成员
+
+| 成员名称                               | 描述                                        |
+| :-----------------------------------   | :------------------------------------------ |
+| SPI\_TMOD\_TRANS\_RECV                 | 全双工，边发边收                             |
+| SPI\_TMOD\_TRANS                       | 只发送                                      |
+| SPI\_TMOD\_RECV                        | 只接收                                      |
+| SPI\_TMOD\_EEROM                       | 先发送后接收                                 |

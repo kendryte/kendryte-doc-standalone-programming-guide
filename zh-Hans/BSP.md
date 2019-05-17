@@ -20,11 +20,27 @@
 
 - read\_cycle
 
+- spinlock\_lock
+
+- spinlock\_unlock
+
+- spinlock\_trylock
+
 - corelock\_lock
 
 - corelock\_trylock
 
 - corelock\_unlock
+
+- sys\_register\_putchar
+
+- sys\_register\_getchar
+
+- sys\_stdin\_flush
+
+- get\_free\_heap\_size
+
+- printk
 
 ### register\_core1
 
@@ -92,6 +108,69 @@ int register_core1(core_function func, void *ctx)
 
 开机至今的CPU时钟数。
 
+### spinlock\_lock
+
+#### 描述
+
+自旋锁，不可嵌套，不建议在中断使用，中断中可以使用spinlock_trylock。
+
+#### 函数原型
+
+```c
+void spinlock_lock(spinlock_t *lock)
+```
+
+#### 参数
+
+自旋锁，要使用全局变量。
+
+#### 返回值
+
+无。
+
+### spinlock\_trylock
+
+#### 描述
+
+获取自旋锁，成功获取锁会返回0，失败返回-1。
+
+#### 函数原型
+
+```c
+int spinlock_trylock(spinlock_t *lock)
+```
+
+#### 参数
+
+自旋锁，要使用全局变量。
+
+#### 返回值
+| 返回值  | 描述   |
+| :----  | :------ |
+| 0      | 成功    |
+| 非0    | 失败    |
+
+### spinlock\_unlock
+
+#### 描述
+
+自旋锁解锁。
+
+#### 函数原型
+
+```c
+void spinlock_unlock(spinlock_t *lock)
+```
+
+
+#### 参数
+
+核间锁，要使用全局变量，参见举例。
+
+#### 返回值
+
+无。
+
 ### corelock\_lock
 
 #### 描述
@@ -130,7 +209,10 @@ corelock_trylock(corelock_t *lock)
 
 #### 返回值
 
-无。
+| 返回值  | 描述   |
+| :----  | :------ |
+| 0      | 成功    |
+| 非0    | 失败    |
 
 ### corelock\_unlock
 
@@ -151,6 +233,84 @@ void corelock_unlock(corelock_t *lock)
 #### 返回值
 
 无。
+
+### sys\_register\_getchar
+
+#### 描述
+
+注册系统输入回调函数，scanf时会调用该函数。系统默认使用UART3，如果需要修改UART则调用uart_debug_init函数，具体请到uart章节查看该函数。
+
+#### 函数原型
+
+```c
+void sys_register_getchar(sys_getchar_t getchar);
+```
+
+#### 参数
+
+| 参数名称                         |   描述                 |  输入输出  |
+| ------------------------------- | ---------------------- | --------- |
+| getchar                         | 回调函数                | 输入      |
+
+#### 返回值
+
+无。
+
+### sys\_register\_putchar
+
+#### 描述
+
+注册系统输出回调函数，printf时会调用该函数。系统默认使用UART3，如果需要修改UART则调用uart_debug_init函数，具体请到uart章节查看该函数。
+
+#### 函数原型
+
+```c
+void sys_register_putchar(sys_putchar_t putchar)
+```
+
+#### 参数
+
+| 参数名称                         |   描述                 |  输入输出  |
+| ------------------------------- | ---------------------- | --------- |
+| putchar                         | 回调函数                | 输入      |
+
+#### 返回值
+
+无。
+
+### sys\_stdin\_flush
+
+#### 描述
+
+清理stdin缓存。
+
+#### 参数
+
+无。
+
+#### 返回值
+
+无。
+
+### get\_free\_heap\_size
+
+#### 描述
+
+获取空闲内存大小。
+
+#### 函数原型
+
+```c
+size_t get_free_heap_size(void)
+```
+
+#### 参数
+
+无。
+
+#### 返回值
+
+空闲内存大小。
 
 ### 举例
 

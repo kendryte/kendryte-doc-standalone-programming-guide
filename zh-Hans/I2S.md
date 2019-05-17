@@ -24,9 +24,10 @@ I2S 模块具有以下功能：
 - i2s\_rx\_channel\_config
 - i2s\_tx\_channel\_config
 - i2s\_play
-- i2s\_set\_sample\_rate：I2S 设置采样率。
-- i2s\_set\_dma\_divide\_16：设置dma_divide_16，16位数据时设置dma_divide_16，DMA传输时自动将32比特INT32数据分成两个16比特的左右声道数据。
-- i2s\_get\_dma\_divide\_16：获取dma_divide_16值。用于判断是否需要设置dma_divide_16。
+- i2s\_set\_sample\_rate
+- i2s\_set\_dma\_divide\_16
+- i2s\_get\_dma\_divide\_16
+- i2s\_handle\_data\_dma
 
 ### i2s\_init
 
@@ -260,6 +261,30 @@ int i2s_get_dma_divide_16(i2s_device_number_t device_num)
 | 0                   | 禁用      |
 | <0                 | 失败       |
 
+### i2s\_handle\_data\_dma
+
+#### 描述
+
+I2S通过DMA传输数据。
+
+#### 函数原型
+
+```c
+void i2s_handle_data_dma(i2s_device_number_t device_num, i2s_data_t data, plic_interrupt_t *cb);
+```
+
+#### 参数
+
+| 参数名称                 |   描述              | 输入输出  |
+| :---------------------- | :------------------ | :------- |
+| device\_num             | I2S号               | 输入      |
+| data                    | I2S数据相关的参数，详见i2s_data_t说明 | 输入 |
+| cb                      | dma中断回调函数，如果设置为NULL则为阻塞模式，直至传输完毕后退出函数      | 输入 |
+
+#### 返回值
+
+无
+
 ### 举例
 
 ```c
@@ -291,6 +316,10 @@ i2s_send_data_dma(I2S_DEVICE_2, buf, 8, DMAC_CHANNEL0);
 - i2s\_word_length\_t：I2S传输数据位数。
 
 - i2s\_fifo\_threshold\_t：I2S FIFO深度。
+
+- i2s\_data\_t：通过DMA传输时数据相关的参数。
+
+- i2s\_transfer\_mode\_t：I2S传输方式。
 
 ### i2s\_device\_number\_t
 
@@ -515,3 +544,63 @@ typedef enum _fifo_threshold
 | TRIGGER\_LEVEL\_14   | 14字节FIFO深度|
 | TRIGGER\_LEVEL\_15   | 15字节FIFO深度|
 | TRIGGER\_LEVEL\_16   | 16字节FIFO深度|
+
+### i2s\_data\_t
+
+#### 描述
+
+通过DMA传输时数据相关的参数。
+
+#### 定义
+
+```c
+typedef struct _i2s_data_t
+{
+    dmac_channel_number_t tx_channel;
+    dmac_channel_number_t rx_channel;
+    uint32_t *tx_buf;
+    size_t tx_len;
+    uint32_t *rx_buf;
+    size_t rx_len;
+    i2s_transfer_mode_t transfer_mode;
+    bool nowait_dma_idle;
+    bool wait_dma_done;
+} i2s_data_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :----------------------------------- | :------------------------------------------ |
+| tx\_channel                           | 发送时使用的DMA通道号                         |
+| rx\_channel                           | 发送时使用的DMA通道号                         |
+| tx\_buf                               | 发送的数据                                    |
+| tx\_len                               | 发送数据的长度                                |
+| rx\_buf                               | 接收的数据                                    |
+| rx\_len                               | 接收数据长度                                  |
+| transfer\_mode                        | 传输模式，发送或接收                           |
+| nowait\_dma\_idle                     | DMA传输前是否等待DMA通道空闲                   |
+| wait\_dma\_done                       | DMA传输后是否等待传输完成，如果cb不为空则这个函数无效 |
+
+### i2s\_transfer\_mode\_t
+
+#### 描述
+
+I2S传输方式。
+
+#### 定义
+
+```c
+typedef enum _i2s_transfer_mode
+{
+    I2S_SEND,
+    I2S_RECEIVE,
+} i2s_transfer_mode_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :------------------------------------ | :------------------------------------------ |
+| I2S\_SEND                             | 发送                                        |
+| I2S\_RECEIVE                          | 软件                                        |
