@@ -43,6 +43,14 @@ KPU 具备以下几个特点：
 
 - kpu\_model\_load\_from\_buffer
 
+- kpu\_load\_kmodel
+
+- kpu\_model\_free
+
+- kpu\_get\_output
+
+- kpu\_run\_kmodel
+
 ### kpu\_task\_init
 
 #### 描述
@@ -232,6 +240,111 @@ int kpu_model_load_from_buffer(kpu_task_t *task, uint8_t *buffer, kpu_model_laye
 | task                            | KPU任务句柄             | 输入      |
 | buffer                          | kmodel数据             | 输入      |
 | meta                            | 内部测试数据，用户设置为NULL | 输出      |
+
+#### 返回值
+
+| 返回值  | 描述         |
+| :----  | :------------|
+| 0      | 成功         |
+| 非0    | 失败         |
+
+### kpu\_load\_kmodel
+
+#### 描述
+
+加载kmodel，需要与nncase配合使用。
+
+#### 函数原型
+
+```c
+int kpu_load_kmodel(kpu_model_context_t *ctx, const uint8_t *buffer)
+```
+
+#### 参数
+
+| 参数名称                         |   描述                 |  输入输出  |
+| ------------------------------- | ---------------------- | --------- |
+| ctx                             | KPU任务句柄             | 输入      |
+| buffer                          | kmodel数据              | 输入      |
+
+#### 返回值
+
+| 返回值  | 描述         |
+| :----  | :------------|
+| 0      | 成功         |
+| 非0    | 失败         |
+
+### kpu\_model\_free
+
+#### 描述
+
+释放kpu资源。
+
+#### 函数原型
+
+```c
+void kpu_model_free(kpu_model_context_t *ctx)
+```
+
+#### 参数
+
+| 参数名称                         |   描述                 |  输入输出  |
+| ------------------------------- | ---------------------- | --------- |
+| ctx                             | KPU任务句柄             | 输入      |
+
+#### 返回值
+
+无。
+
+### kpu\_get\_output
+
+#### 描述
+
+获取KPU最终处理的结果。
+
+#### 函数原型
+
+```c
+int kpu_get_output(kpu_model_context_t *ctx, uint32_t index, uint8_t **data, size_t *size)
+```
+
+#### 参数
+
+| 参数名称                         |   描述                 |  输入输出  |
+| ------------------------------- | ---------------------- | --------- |
+| ctx                             | KPU任务句柄             | 输入      |
+| index                           | 结果的索引值，如kmodel有关 | 输入      |
+| data                            | 结果                    | 输入      |
+| size                            | 大小（字节）              | 输入      |
+
+#### 返回值
+
+| 返回值  | 描述         |
+| :----  | :------------|
+| 0      | 成功         |
+| 非0    | 失败         |
+
+### kpu\_run\_kmodel
+
+#### 描述
+
+运行kmodel。
+
+#### 函数原型
+
+```c
+int kpu_run_kmodel(kpu_model_context_t *ctx, const uint8_t *src, dmac_channel_number_t dma_ch, kpu_done_callback_t done_callback, void *userdata)
+```
+
+#### 参数
+
+| 参数名称                         |   描述                 |  输入输出  |
+| ------------------------------- | ---------------------- | --------- |
+| ctx                             | KPU任务句柄             | 输入      |
+| src                             | 源数据                  | 输入      |
+| dma\_ch                          | DMA通道                 | 输入      |
+| done\_callback                   | 完成后回调函数           | 输入      |
+| userdata                        | 回调的参数               | 输入      |
 
 #### 返回值
 

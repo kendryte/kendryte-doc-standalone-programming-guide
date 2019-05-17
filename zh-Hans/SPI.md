@@ -497,10 +497,10 @@ typedef enum _spi_device_num
 
 | 成员名称      | 描述           |
 | :----------- | :------------- |
-| SPI_DEVICE_0 | SPI 0 做为主设备|
-| SPI_DEVICE_1 | SPI 1 做为主设备|
-| SPI_DEVICE_2 | SPI 2 做为从设备|
-| SPI_DEVICE_3 | SPI 3 做为主设备|
+| SPI\_DEVICE\_0 | SPI 0 做为主设备|
+| SPI\_DEVICE\_1 | SPI 1 做为主设备|
+| SPI\_DEVICE\_2 | SPI 2 做为从设备|
+| SPI\_DEVICE\_3 | SPI 3 做为主设备|
 
 ### spi\_mode\_t
 
