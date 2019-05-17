@@ -509,6 +509,11 @@ while(uart_receive_data(UART_DEVICE_1, &recv, 1))
 - uart\_receive\_trigger\_t：接收中断或DMA触发FIFO深度。
 - uart\_data\_t：使用dma传输时数据相关的参数。
 - uart\_interrupt\_mode\_t：传输模式，发送或接收。
+- uart\_work\_mode\_t：UART工作模式。
+- uart\_rs485\_rede\_t：选择re de管脚。
+- uart\_polarity\_t：de re极性。
+- uart\_tat\_mode\_t：de re转换选择。
+- uart\_det\_mode\_t：de 有效无效选择。
 
 ### uart\_device\_number\_t
 
@@ -745,3 +750,128 @@ typedef enum _uart_interrupt_mode
 | :----------------------------------- | :------------------------------------------ |
 | UART_SEND                           | 发送                                         |
 | UART_RECEIVE                        | 接收                                         |
+
+### uart_work_mode_t
+
+#### 描述
+
+UART工作模式。
+
+#### 定义
+
+```c
+typedef enum _uart_work_mode
+{
+    UART_NORMAL,
+    UART_IRDA,
+    UART_RS485_FULL_DUPLEX,
+    UART_RS485_HALF_DUPLEX,
+} uart_work_mode_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :----------------------------------- | :------------------------------------------ |
+| UART\_NORMAL                           | 普通UART                                    |
+| UART\_IRDA                             | 红外                                         |
+| UART\_RS485\_FULL\_DUPLEX                | 全双工RS485                                  |
+| UART\_RS485\_HALF\_DUPLEX                | 半双工RS485                                  |
+
+### uart\_rs485\_rede\_t
+
+#### 描述
+
+RS485 re de管脚。
+
+#### 定义
+
+```c
+typedef enum _uart_rs485_rede
+{
+    UART_RS485_DE,
+    UART_RS485_RE,
+    UART_RS485_REDE,
+} uart_rs485_rede_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :----------------------------------- | :------------------------------------------ |
+| UART\_RS485\_DE                        | 选择de管脚                                   |
+| UART\_RS485\_RE                        | 选择re管脚                                   |
+| UART\_RS485\_REDE                      | 同时选择de re管脚                            |
+
+### uart\_polarity\_t
+
+#### 描述
+
+re de 有效时的极性。
+
+#### 定义
+
+```c
+typedef enum _uart_polarity
+{
+    UART_LOW,
+    UART_HIGH,
+} uart_polarity_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :----------------------------------- | :------------------------------------------ |
+| UART\_LOW                             | 低电平                                      |
+| UART\_HIGH                            | 高电平                                      |
+
+### uart\_tat\_mode\_t
+
+#### 描述
+
+re de转换的模式。
+
+#### 定义
+
+```c
+typedef enum _uart_tat_mode
+{
+    UART_DE_TO_RE,
+    UART_RE_TO_DE,
+    UART_TAT_ALL,
+} uart_tat_mode_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :----------------------------------- | :------------------------------------------ |
+| UART\_DE\_TO\_RE                     | de 有效转 re有效                             |
+| UART\_RE\_TO\_DE                     | re 有效转 de有效                             |
+| UART\_TAT\_ALL                       | de转re re转de                               |
+
+### uart\_det\_mode\_t
+
+#### 描述
+
+de 有效无效选择。
+
+#### 定义
+
+```c
+typedef enum _uart_det_mode
+{
+    UART_DE_ASSERTION,
+    UART_DE_DE_ASSERTION,
+    UART_DE_ALL,
+} uart_det_mode_t;
+```
+
+#### 成员
+
+| 成员名称                              | 描述                                        |
+| :----------------------------------- | :------------------------------------------ |
+| UART\_DE\_ASSERTION                   | de 有效                                    |
+| UART\_DE\_DE\_ASSERTION               | de 无效                                    |
+| UART\_DE\_ALL                         | de 有效 无效                                |

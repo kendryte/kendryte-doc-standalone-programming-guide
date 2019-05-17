@@ -145,6 +145,7 @@ int spinlock_trylock(spinlock_t *lock)
 自旋锁，要使用全局变量。
 
 #### 返回值
+
 | 返回值  | 描述   |
 | :----  | :------ |
 | 0      | 成功    |
@@ -161,7 +162,6 @@ int spinlock_trylock(spinlock_t *lock)
 ```c
 void spinlock_unlock(spinlock_t *lock)
 ```
-
 
 #### 参数
 
