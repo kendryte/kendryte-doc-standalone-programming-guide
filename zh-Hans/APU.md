@@ -54,7 +54,7 @@ void audio_bf_dir_set_prev_fir(uint16_t *fir_coef)
 
 | 参数名称                         |   描述                 |  输入输出  |
 | ------------------------------- | ---------------------- | --------- |
-| fir_coef                        | 17位滤波系数指针          | 输入      |
+| fir\_coef                        | 17位滤波系数指针          | 输入      |
 
 #### 返回值
 
@@ -98,7 +98,7 @@ void audio_bf_voc_set_prev_fir(uint16_t *fir_coef)
 
 | 参数名称                         |   描述                 |  输入输出  |
 | ------------------------------- | ---------------------- | --------- |
-| fir_coef                        | 17位滤波系数指针          | 输入      |
+| fir\_coef                       | 17位滤波系数指针          | 输入      |
 
 #### 返回值
 
@@ -310,18 +310,18 @@ typedef struct _apu_reg
 
 | 成员名称                | 描述                                       |
 | ---------------------- | ------------------------------------------ |
-|bf_ch_cfg_reg          |  通道配置         |
-|bf_ctl_reg             |  控制寄存器         |
-|bf_dir_bidx[16][2]     |           |
-|bf_pre_fir0_coef[9]    |  各个方向延时累加计算前滤波系数         |
-|bf_post_fir0_coef[9]   |  各个方向延时累加计算后滤波系数         |
-|bf_pre_fir1_coef[9]    |  计算选定方向延时累加值之前滤波系数         |
-|bf_post_fir1_coef[9]   |  计算选定方向延时累加值之后滤波系数         |
-|bf_dwsz_cfg_reg        |  下采样系数         |
-|bf_fft_cfg_reg         |  fft控制寄存器         |
-|sobuf_dma_rdata        |  方向数据源地址         |
-|vobuf_dma_rdata        |  选定方向数据源地址         |
-|bf_int_stat_reg        |  中断状态寄存器         |
-|bf_int_mask_reg        |  中断选定寄存器         |
-|saturation_counter     |           |
-|saturation_limits      |           |
+|bf\_ch\_cfg\_reg          |  通道配置         |
+|bf\_ctl\_reg             |  控制寄存器         |
+|bf\_dir\_bidx[16][2]     |           |
+|bf\_pre\_fir0\_coef[9]    |  各个方向延时累加计算前滤波系数         |
+|bf\_post\_fir0\_coef[9]   |  各个方向延时累加计算后滤波系数         |
+|bf\_pre\_fir1\_coef[9]    |  计算选定方向延时累加值之前滤波系数         |
+|bf\_post\_fir1\_coef[9]   |  计算选定方向延时累加值之后滤波系数         |
+|bf\_dwsz\_cfg\_reg        |  下采样系数         |
+|bf\_fft\_cfg\_reg         |  fft控制寄存器         |
+|sobuf\_dma\_rdata        |  方向数据源地址         |
+|vobuf\_dma\_rdata        |  选定方向数据源地址         |
+|bf\_int\_stat\_reg        |  中断状态寄存器         |
+|bf\_int\_mask\_reg        |  中断选定寄存器         |
+|saturation\_counter     |           |
+|saturation\_limits      |           |

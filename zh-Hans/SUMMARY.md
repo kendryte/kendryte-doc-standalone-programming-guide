@@ -6,6 +6,12 @@
   - [API参考](KPU.md#API参考)
   - [数据类型](KPU.md#数据类型)
 
+- [麦克风阵列处理器 (APU)](APU.md)
+  - [概述](APU.md#概述)
+  - [功能描述](APU.md#功能描述)
+  - [API参考](APU.md#API参考)
+  - [数据类型](APU.md#数据类型)
+
 - [高级加密加速器(AES)](AES.md)
   - [功能描述](AES.md#功能描述)
   - [API参考](AES.md#API参考)
