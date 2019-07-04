@@ -202,8 +202,8 @@ void aes_ecb256_hard_encrypt(uint8_t *input_key, uint8_t *input_data, size_t inp
 
 #### 参数
 
-| 参数名称      |  描述                          |输入输出|
-| :------:      |:-----                         | :----: |
+| 参数名称      |  描述                              |输入输出|
+| :------:      |:-----                             | :----: |
 |input\_key    |AES-ECB-256加密的密钥                | 输入 |
 |input\_data   |AES-ECB-256待加密的明文数据           | 输入 |
 |input\_len   |AES-ECB-256待加密明文数据的长度        | 输入 |
