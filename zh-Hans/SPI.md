@@ -48,6 +48,12 @@ SPI 模块具有以下功能：
 
 - spi\_handle\_data\_dma
 
+- spi\_dup\_send\_receive\_data\_dma
+
+- spi\_slave\_config
+
+- spi\_slave\_dual\_config
+
 ### spi\_init
 
 #### 描述
@@ -394,6 +400,72 @@ void spi_handle_data_dma(spi_device_num_t spi_num, spi_chip_select_t chip_select
 | spi\_num                | SPI号               | 输入     |
 | data                    | SPI数据相关的参数，详见spi_data_t说明 | 输入 |
 | cb                      | dma中断回调函数，如果设置为NULL则为阻塞模式，直至传输完毕后退出函数      | 输入 |
+
+#### 返回值
+
+无
+
+### spi\_slave\_config
+
+#### 描述
+
+SPI slave 配置，K210的SPI slave是一条数据线复用为MOSI和MISO功能。请参考demo文件spi_slave，以及README.md的硬件连接。
+
+#### 函数原型
+
+```c
+void spi_slave_config(uint8_t int_pin, uint8_t ready_pin, dmac_channel_number_t dmac_channel, size_t data_bit_length, uint8_t *data, uint32_t len, spi_slave_receive_callback_t callback);
+```
+
+#### 参数
+
+| 参数名称               |   描述              | 输入输出  |
+| :-------------------  | :------------------ | :------- |
+| spi\_num              | SPI号               | 输入     |
+| ready\_pin            | spi slave准备好后会拉高改pin，master端触发中断。 | 输入 |
+| dmac\_channel         | 传输数据时用到的dma通道           | 输入 |
+| data\_bit\_length     | 设置spi传输数据时的数据宽度       | 输入     |
+| data                  | spi slave 接收数据的buffer        | 输入   |
+| len                   | spi slave 接收数据的buffer的大小  | 输入     |
+| callback              | spi slave 接收数据后的回调函数    | 输入     |
+
+#### 返回值
+
+无
+
+### spi\_slave\_dual\_config
+
+#### 描述
+
+SPI slave 配置，驱动通过iomux内部切换MOSI和MISO功能。
+
+#### 函数原型
+
+```c
+void spi_slave_dual_config(uint8_t int_pin,
+                           uint8_t ready_pin,
+                           uint8_t mosi_pin,
+                           uint8_t miso_pin,
+                           dmac_channel_number_t dmac_channel,
+                           size_t data_bit_length,
+                           uint8_t *data,
+                           uint32_t len,
+                           spi_slave_receive_callback_t callback);
+```
+
+#### 参数
+
+| 参数名称               |   描述              | 输入输出  |
+| :-------------------  | :------------------ | :------- |
+| spi\_num              | SPI号               | 输入     |
+| ready\_pin            | spi slave准备好后会拉高改pin，master端触发中断。 | 输入 |
+| mosi_pin              | MOSI的IO号                | 输入 |
+| miso_pin              | MISO的IO号                | 输入     |
+| dmac\_channel         | 传输数据时用到的dma通道           | 输入 |
+| data\_bit\_length     | 设置spi传输数据时的数据宽度       | 输入     |
+| data                  | spi slave 接收数据的buffer        | 输入   |
+| len                   | spi slave 接收数据的buffer的大小  | 输入     |
+| callback              | spi slave 接收数据后的回调函数    | 输入     |
 
 #### 返回值
 

@@ -20,25 +20,25 @@ APU 具备以下几个特点：
 
 为用户提供以下接口
 
-- audio\_bf\_dir\_set\_prev\_fir
+- apu\_dir\_set\_prev\_fir
 
-- audio\_bf\_dir\_set\_post\_fir
+- apu\_dir\_set\_post\_fir
 
-- audio\_bf\_voc\_set\_prev\_fir
+- apu\_voc\_set\_prev\_fir
 
-- audio\_bf\_voc\_set\_post\_fir
+- apu\_voc\_set\_post\_fir
 
-- audio\_bf\_set\_delay
+- apu\_set\_delay
 
-- audio\_bf\_voc\_set\_direction
+- apu\_voc\_set\_direction
 
-- audio\_bf\_set\_channel\_enabled
+- apu\_set\_channel\_enabled
 
-- audio\_bf\_dir\_enable
+- apu\_dir\_enable
 
-- audio\_bf\_voc\_enable
+- apu\_voc\_enable
 
-### audio\_bf\_dir\_set\_prev\_fir
+### apu\_dir\_set\_prev\_fir
 
 #### 描述
 
@@ -47,7 +47,7 @@ APU 具备以下几个特点：
 #### 函数定义
 
 ```c
-void audio_bf_dir_set_prev_fir(uint16_t *fir_coef)
+void apu_dir_set_prev_fir(uint16_t *fir_coef)
 ```
 
 #### 参数
@@ -60,7 +60,7 @@ void audio_bf_dir_set_prev_fir(uint16_t *fir_coef)
 
 无。
 
-### audio\_bf\_dir\_set\_post\_fir
+### apu\_dir\_set\_post\_fir
 
 #### 描述
 
@@ -69,7 +69,7 @@ void audio_bf_dir_set_prev_fir(uint16_t *fir_coef)
 #### 函数原型
 
 ```c
-void audio_bf_dir_set_post_fir(uint16_t *fir_coef)
+void apu_dir_set_post_fir(uint16_t *fir_coef)
 ```
 
 #### 参数
@@ -82,7 +82,7 @@ void audio_bf_dir_set_post_fir(uint16_t *fir_coef)
 
 无。
 
-### audio\_bf\_voc\_set\_prev\_fir
+### apu\_voc\_set\_prev\_fir
 
 #### 描述
 
@@ -91,7 +91,7 @@ void audio_bf_dir_set_post_fir(uint16_t *fir_coef)
 #### 函数原型
 
 ```c
-void audio_bf_voc_set_prev_fir(uint16_t *fir_coef)
+void apu_voc_set_prev_fir(uint16_t *fir_coef)
 ```
 
 #### 参数
@@ -104,7 +104,7 @@ void audio_bf_voc_set_prev_fir(uint16_t *fir_coef)
 
 无。
 
-### audio\_bf\_voc\_set\_post\_fir
+### apu\_voc\_set\_post\_fir
 
 #### 描述
 
@@ -113,7 +113,7 @@ void audio_bf_voc_set_prev_fir(uint16_t *fir_coef)
 #### 函数原型
 
 ```c
-void audio_bf_voc_set_post_fir(uint16_t *fir_coef)
+void apu_voc_set_post_fir(uint16_t *fir_coef)
 ```
 
 #### 参数
@@ -126,7 +126,7 @@ void audio_bf_voc_set_post_fir(uint16_t *fir_coef)
 
 无。
 
-### audio\_bf\_set\_delay
+### apu\_set\_delay
 
 #### 描述
 
@@ -135,7 +135,7 @@ void audio_bf_voc_set_post_fir(uint16_t *fir_coef)
 #### 函数原型
 
 ```c
-void audio_bf_set_delay(float R, uint8_t mic_num_a_circle, uint8_t center, float I2s_fs)
+void apu_set_delay(float R, uint8_t mic_num_a_circle, uint8_t center, float I2s_fs)
 ```
 
 #### 参数
@@ -151,7 +151,7 @@ void audio_bf_set_delay(float R, uint8_t mic_num_a_circle, uint8_t center, float
 
 无。
 
-### audio\_bf\_voc\_set\_direction
+### apu\_voc\_set\_direction
 
 #### 描述
 
@@ -160,7 +160,7 @@ void audio_bf_set_delay(float R, uint8_t mic_num_a_circle, uint8_t center, float
 #### 函数原型
 
 ```c
-void audio_bf_voc_set_direction(enum en_bf_dir direction)
+void apu_voc_set_direction(enum en_bf_dir direction)
 ```
 
 #### 参数
@@ -173,7 +173,7 @@ void audio_bf_voc_set_direction(enum en_bf_dir direction)
 
 无。
 
-### audio\_bf\_set\_channel\_enabled
+### apu\_set\_channel\_enabled
 
 #### 描述
 
@@ -182,7 +182,7 @@ void audio_bf_voc_set_direction(enum en_bf_dir direction)
 #### 函数原型
 
 ```c
-void audio_bf_set_channel_enabled(uint8_t channel_bit)
+void apu_set_channel_enabled(uint8_t channel_bit)
 ```
 
 #### 参数
@@ -195,7 +195,7 @@ void audio_bf_set_channel_enabled(uint8_t channel_bit)
 
 无。
 
-### audio\_bf\_dir\_enable
+### apu\_dir\_enable
 
 #### 描述
 
@@ -204,7 +204,7 @@ void audio_bf_set_channel_enabled(uint8_t channel_bit)
 #### 函数原型
 
 ```c
-void audio_bf_dir_enable(void)
+void apu_dir_enable(void)
 ```
 
 #### 参数
@@ -215,7 +215,7 @@ void audio_bf_dir_enable(void)
 
 无。
 
-### audio\_bf\_voc\_enable
+### apu\_voc\_enable
 
 #### 描述
 
@@ -224,7 +224,7 @@ void audio_bf_dir_enable(void)
 #### 函数原型
 
 ```c
-void audio_bf_voc_enable(uint8_t enable_flag)
+void apu_voc_enable(uint8_t enable_flag)
 ```
 
 #### 参数
@@ -243,17 +243,17 @@ uint16_t fir_prev_t[17] = {
 0, 0, 0, 0, 0, 0, 0, 0, 0,
 };
 
-audio_bf_dir_set_prev_fir(fir_prev_t);
-audio_bf_dir_set_post_fir(fir_post_t);
-audio_bf_voc_set_prev_fir(fir_prev_t);
-audio_bf_voc_set_post_fir(fir_post_t);
+apu_dir_set_prev_fir(fir_prev_t);
+apu_dir_set_post_fir(fir_post_t);
+apu_voc_set_prev_fir(fir_prev_t);
+apu_voc_set_post_fir(fir_post_t);
 
-audio_bf_set_delay(3, 7, 1, 44100);
-audio_bf_voc_set_direction(0);
-audio_bf_set_channel_enabled(0xff);
+apu_set_delay(3, 7, 1, 44100);
+apu_voc_set_direction(0);
+apu_set_channel_enabled(0xff);
 
-audio_bf_dir_enable();
-audio_bf_voc_enable(1);
+apu_dir_enable();
+apu_voc_enable(1);
 ```
 
 ## 数据类型
